@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whattodo.dao.MemberMapper">
+	<insert id="insertMember" parameterType="member">
+		insert into members(id, pass, nickname, email, region, birth, 
+		 favorite, profile_img, question, answer) 
+		values(#{id}, #{pass}, #{nickName}, #{email}, #{region}, #{birth},
+		 #{favorite}, #{profileImg}, #{question}, #{answer} )
+	</insert>
+	<update id="updateMember" parameterType="member">
+		update members
+		set pass=#{pass},
+		nickname=#{nickName},
+		email=#{email},
+		region=#{region},
+		birth=#{birth},
+		favorite=#{favorite},
+		profile_img=#{profileImg},
+		question=#{question},
+		answer=#{answer}
+		where id=#{id}
+	</update>
+	<delete id="deleteMemberById" parameterType="String">
+		delete
+		from members
+		where id=#{id}
+		</delete>
+	<select id="getMemberById" parameterType="String" resultType="member">
+		select *
+		from members
+		where id=#{id}
+	</select>
+
+</mapper>

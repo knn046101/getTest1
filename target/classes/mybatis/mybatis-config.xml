@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	<!-- spring에서는 이정도만 필요 -->
+	<!-- DTO에 대한 축약형 등록 -->
+	<typeAliases>
+		<typeAlias type="com.whattodo.dto.Admin" alias="admin"/>
+		<typeAlias type="com.whattodo.dto.Advertisement" alias="advertisement"/>
+		<typeAlias type="com.whattodo.dto.Benefit" alias="benefit"/>
+		<typeAlias type="com.whattodo.dto.Board" alias="board"/>
+		<typeAlias type="com.whattodo.dto.BoardReply" alias="boardReply"/>
+		<typeAlias type="com.whattodo.dto.Meeting" alias="meeting"/>
+		<typeAlias type="com.whattodo.dto.MeetingBoard" alias="meetingBoard"/>
+		<typeAlias type="com.whattodo.dto.MeetingBoardReply" alias="meetingBoardReply"/>
+		<typeAlias type="com.whattodo.dto.Member" alias="member"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/mapper/adminMapper.xml" />
+		<mapper resource="mybatis/mapper/advertisementMapper.xml" />
+		<mapper resource="mybatis/mapper/benefitMapper.xml" />
+		<mapper resource="mybatis/mapper/boardMapper.xml" />
+		<mapper resource="mybatis/mapper/boardReplyMapper.xml" />
+		<mapper resource="mybatis/mapper/meetingMapper.xml" />
+		<mapper resource="mybatis/mapper/meetingBoardMapper.xml" />
+		<mapper resource="mybatis/mapper/meetingBoardReplyMapper.xml" />
+		<mapper resource="mybatis/mapper/memberMapper.xml" />
+	</mappers>
+	
+</configuration>

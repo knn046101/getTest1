@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whattodo.dao.MeetingMapper">
+	<insert id="insertMeeting" parameterType="meeting">
+		insert into meeting
+		values(#{meetingNo}, #{meetingTitle}, #{meetingContetn}, #{meetingKeyword}, #{meetingImg}, 0, #{id})
+	</insert>
+	
+	<update id="updateMeeting" parameterType="meeting">
+		update meeting
+		set meeting_title=#{meetingTitle},
+		meeting_content=#{meetingContent},
+		meeting_keyword=#{meetingKeword},
+		meeting_img=#{meetingImg}
+		where meeting_no=#{meetingNo}
+	</update>
+	
+	<delete id="deleteMeeting" parameterType="int">
+		delete from meeting
+		where meeting_no=#{meetingNo}
+	</delete>
+	
+	<select id="selectAllMeeting" resultType="meeting">
+		select *
+		from meeting
+	</select>
+	
+	<!-- follow 랑 meeting 조인 -->
+	
+	<update id="updateFollowMeeting" parameterType="int">
+		update meeting
+		set meeting_follow+=1
+		where meeting_no=#{meetingNo}
+	</update>
+	
+	<insert id="insertMeetingFollow" parameterType="map">
+		insert meeting_follow
+		value(#{meetingNo}, #{id})
+	</insert>
+	
+	<delete id="deleteFollowMeetingByMeetingNo" parameterType="int">
+		delete from meeting_follow
+		where meeting_no=#{meetingNo}
+	</delete>
+	
+	<delete id="deleteFollowMeetingById" parameterType="String">
+		delete from meeting_follow
+		where id=#{id}
+	</delete>
+</mapper>
