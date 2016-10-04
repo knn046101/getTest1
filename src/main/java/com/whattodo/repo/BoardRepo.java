@@ -1,6 +1,5 @@
 package com.whattodo.repo;
 
-
 import java.util.List;
 
 import com.whattodo.dto.Board;
@@ -18,4 +17,8 @@ public interface BoardRepo {
 	public List<Board> selectBoardByNumberOfPeopleAndCategory(String NumberOfPeople, String category);
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople, String category);
 	public List<Board> selectBoardByEditor();
+	public List<Board> selectBoardByFollow(String id);
+	public int insertBoardFollow(int boardNo, String id);
+	public int deleteBoardFollow(int boardNo);
+	public int deleteBoardFollow(String id);
 }

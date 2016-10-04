@@ -31,6 +31,11 @@ public class BoardReplyRepoImpl implements BoardReplyRepo {
 		return template.delete(statement, boardReplyNo);
 	}
 
+	public int deleteBoardReplyByBoardNo(int boardNo){
+		String statement = NAME_SPACE+"deleteBoardReplyByBoardNo";
+		return template.delete(statement, boardNo);
+	}
+	
 	public List<BoardReply> selectBoardReply(int boardNo) {
 		String statement = NAME_SPACE+"selectBoardReply";
 		return template.selectList(statement, boardNo);

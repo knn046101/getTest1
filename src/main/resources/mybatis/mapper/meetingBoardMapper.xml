@@ -23,9 +23,15 @@
 		where meeting_board_no=#{meetingBoardNo}
 	</delete>
 	
-	<select id="selecctAllMeetingBoard" resultType="meetingBoard">
+	<delete id="deleteMeetingBoardByMeetingNo" parameterType="int">
+		delete from meeintg_boards
+		where meeting_no=#{meetingNo}
+	</delete>
+	
+	<select id="selecctAllMeetingBoard" parameterType="int" resultType="meetingBoard">
 		select *
 		from meeting_boards
+		where meeting_no=#{meetingNo}
 	</select>
 	
 </mapper>

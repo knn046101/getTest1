@@ -22,6 +22,11 @@
 		where board_reply_no=#{boardReplyNo}
 	</delete>
 	
+	<delete id="deleteBoardReplyByBoardNo" parameterType="int">
+		delete from boards_replys
+		where board_no=#{board_no}
+	</delete>
+	
 	<select id="selectBoardReply" parameterType="int" resultType="boardReply">
 		select *
 		from boards_replys

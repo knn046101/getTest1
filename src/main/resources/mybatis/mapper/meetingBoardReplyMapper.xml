@@ -23,8 +23,9 @@
 		where meeting_board_reply_no=#{meetingBoardReplyNo}
 	</delete>
 	
-	<select id="selectAllMeetingBoardReply" resultType="meetingBoardReply">
+	<select id="selectAllMeetingBoardReply" parameterType="int" resultType="meetingBoardReply">
 		select *
 		from meeting_boards_replys
+		where meeting_board_no=#{meetingBoardNo}
 	</select>
 </mapper>
