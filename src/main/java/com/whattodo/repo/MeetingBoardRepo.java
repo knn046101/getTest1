@@ -8,5 +8,7 @@ public interface MeetingBoardRepo {
 	public int insertMeetingBoard(MeetingBoard meetingBoard);
 	public int updateMeetingBoard(MeetingBoard meetingBoard);
 	public int deleteMeetingBoard(int meetingBoardNo);
-	public List<MeetingBoard> selecctAllMeetingBoard(); 
+	public int deleteMeetingBoardByMeetingNo(int meetingNo);
+	public List<MeetingBoard> selecctAllMeetingBoard(int meetingNo); 
+	
 }

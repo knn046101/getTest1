@@ -25,14 +25,14 @@ public class MeetingBoardReplyRepoImpl implements MeetingBoardReplyRepo{
 		return template.update(statement, meetingBoardReply);
 	}
 
-	public int deleteMeetingBoardReply(int meetingBoardReplyNO) {
+	public int deleteMeetingBoardReply(int meetingBoardReplyNo) {
 		String statement = NAME_SPACE+"deleteMeetingBoardReply";
-		return template.delete(statement, meetingBoardReplyNO);
+		return template.delete(statement, meetingBoardReplyNo);
 	}
 
-	public List <MeetingBoardReply> selectAllMeetingBoardReply() {
+	public List <MeetingBoardReply> selectAllMeetingBoardReply(int meetingBoardNo) {
 		String statement = NAME_SPACE+"selectAllMeetingBoardReply";
-		return template.selectList(statement);
+		return template.selectList(statement, meetingBoardNo);
 	}
 
 }

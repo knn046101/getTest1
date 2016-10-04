@@ -219,11 +219,7 @@ public class Test {
 		assertThat(result, is(1));
 	}
 	
-	@org.junit.Test
-	public void selectMeetingBoardReplys(){
-		List<MeetingBoardReply> t=mbrr.selectAllMeetingBoardReply();
-		assertThat(t, is(notNullValue()));
-	}
+	
 	
 	@org.junit.Test
 	public void insertBoard(){

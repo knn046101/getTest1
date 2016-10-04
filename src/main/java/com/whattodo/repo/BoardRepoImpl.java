@@ -91,4 +91,27 @@ public class BoardRepoImpl implements BoardRepo {
 		String statement=NAME_SPACE+"selectBoardByEditor";
 		return template.selectList(statement);
 	}
+
+	public List<Board> selectBoardByFollow(String id){
+		String statement=NAME_SPACE+"selectBoardByFollow";
+		return template.selectList(statement, id);
+	}
+	
+	public int insertBoardFollow(int boardNo, String id) {
+		String statement=NAME_SPACE+"insertBoardFollow";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("id", id);
+		return template.insert(statement, map);
+	}
+
+	public int deleteBoardFollow(int boardNo) {
+		String statement=NAME_SPACE+"insertBoardFollowByBoardNo";
+		return template.insert(statement, boardNo);
+	}
+
+	public int deleteBoardFollow(String id) {
+		String statement=NAME_SPACE+"insertBoardFollowById";
+		return template.insert(statement, id);
+	}
 }

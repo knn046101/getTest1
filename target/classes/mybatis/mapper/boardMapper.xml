@@ -82,4 +82,26 @@
 		from boards b, members m
 		where b.id=m.id and m.division='Editor'
 	</select>
+	
+	<select id="selectBoardByFollow" parameterType="String" resultType="board">
+		select b.*
+		from boards b, boards_follows bf
+		where b.board_no=bf.board_no and bf.id=#{id} 
+	</select>
+	
+	<insert id="insertBoardFollow" parameterType="map">
+		insert into boards_follows
+		values(#{boardNo}, #{id})
+	</insert>
+	
+	<delete id="insertBoardFollowByBoardNo" parameterType="int">
+		delete from boards_follows
+		where board_no=#{boardNo}
+	</delete>
+	
+	<delete id="insertBoardFollowById" parameterType="String">
+		delete from boards_follows
+		where id=#{id}
+	</delete>
+	
 </mapper>

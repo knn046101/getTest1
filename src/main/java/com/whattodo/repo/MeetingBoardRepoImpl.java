@@ -29,10 +29,15 @@ public class MeetingBoardRepoImpl implements MeetingBoardRepo {
 		String statement = NAME_SPACE+"deleteMeetingBoard";
 		return template.delete(statement, meetingBoardNo);
 	}
-
-	public List<MeetingBoard> selecctAllMeetingBoard() {
+	
+	public int deleteMeetingBoardByMeetingNo(int meetingNo){
+		String statement = NAME_SPACE+"deleteMeetingBoardByMeetingNo";
+		return template.delete(statement, meetingNo);
+	}
+	
+	public List<MeetingBoard> selecctAllMeetingBoard(int meetingNo) {
 		String statement = NAME_SPACE+"selecctAllMeetingBoard";
-		return template.selectList(statement);
+		return template.selectList(statement, meetingNo);
 	}
 
 }
