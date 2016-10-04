@@ -15,13 +15,14 @@ public class Board {
 	private String boardContent;
 	private Date writeDate;
 	private String location;
-	private Integer numberOfPeople;
+	private String numberOfPeople;
 	private String what;
 	private String category;
-	private String baordKeyword;
+	private String boardKeyword;
 	private Integer click;
 	private Integer good;
 	private Integer scrap;
+	private String mainImg;
 	
 	private String id;
 }

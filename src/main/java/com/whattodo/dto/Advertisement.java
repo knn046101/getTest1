@@ -12,6 +12,5 @@ public class Advertisement {
 	private String adsTitle;
 	private String adsImg;
 	private String link;
-	private String admin_id;
-	
+	private String adminId;
 }

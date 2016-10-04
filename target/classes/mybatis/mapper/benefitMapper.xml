@@ -3,5 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.BenefitMapper">
-
+	<insert id="insertBenefit" parameterType="benefit">
+		insert into benefit
+		values(#{benefitNo}, #{benefitTitle}, #{startDate}, #{endDate}, #{place}, #{adminId})
+	</insert>
+	
+	<insert id="insertMembersBenefit" parameterType="map">
+		insert into members_benefit
+		values(#{benefitNo}, #{id})
+	</insert>
+	
+	<update id="updateBenefit" parameterType="benefit">
+		update benefit
+		set benefit_title=#{benefitTitle},
+		start_date=#{startDate},
+		end_date=#{endDate},
+		place=#{place},
+		admin_id=#{adminId}
+		where benefit_no=#{benefitNo}
+	</update>
+	
+	<delete id="deleteBenefit" parameterType="String">
+		delete from benefit
+		where benefit_no=#{benefitNo}
+	</delete>
+	
+	<select id="selectAllBenefit" resultType="benefit">
+		select * 
+		from benefit
+	</select>
+	
+	<select id="selectBenefitByMemberId" parameterType="String" resultType="benefit">
+		select b.*
+		from members_benefit m, benefit b
+		where m.benefit_no=b.benefit_no and m.id=#{id}
+	</select>
 </mapper>

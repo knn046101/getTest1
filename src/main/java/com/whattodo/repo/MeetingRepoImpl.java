@@ -6,9 +6,11 @@ import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.whattodo.dto.Meeting;
 
+@Repository
 public class MeetingRepoImpl implements MeetingRepo{
 
 	final private String NAME_SPACE="whattodo.dao.MeetingMapper.";

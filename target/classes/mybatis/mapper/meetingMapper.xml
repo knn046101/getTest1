@@ -5,7 +5,7 @@
 <mapper namespace="whattodo.dao.MeetingMapper">
 	<insert id="insertMeeting" parameterType="meeting">
 		insert into meeting
-		values(#{meetingNo}, #{meetingTitle}, #{meetingContetn}, #{meetingKeyword}, #{meetingImg}, 0, #{id})
+		values(seq_meeting_no.nextval, #{meetingTitle}, #{meetingContent}, #{meetingKeyword}, #{meetingImg}, 0, #{id})
 	</insert>
 	
 	<update id="updateMeeting" parameterType="meeting">
@@ -28,6 +28,11 @@
 	</select>
 	
 	<!-- follow 랑 meeting 조인 -->
+	<select id="selectFollowMeetings" parameterType="String" resultType="meeting">
+		select m.*
+		from meeting_follow mf, meeting m
+		where mf.meeting_no=m.meeting_no and mf.id=#{id}
+	</select>
 	
 	<update id="updateFollowMeeting" parameterType="int">
 		update meeting

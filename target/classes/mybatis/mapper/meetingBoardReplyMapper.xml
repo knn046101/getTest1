@@ -4,4 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.MeetingBoardReplyMapper">
 
+	<insert id="insertMeetingBoardReply" parameterType="meetingBoardReply">
+		insert into meeting_boards_replys
+		values(SEQ_meeting_board_reply_no.nextval, #{meetingBoardReplyContent}, #{meetingBoardReplyDate}, #{meetingBoardNo}, #{id})
+	</insert>
+	
+	<update id="updateMeetingBoardReply" parameterType="meetingBoardReply">
+		update meeting_boards_replys
+		set meeting_board_reply_content=#{meetingBoardReplyContent},
+		meeting_board_reply_date=#{meetingBoardReplyDate},
+		meeting_board_no=#{meetingBoardNo},
+		id=#{id}
+		where meeting_board_reply_no=#{meetingBoardReplyNo}
+	</update>
+	
+	<delete id="deleteMeetingBoardReply" parameterType="int">
+		delete from meeting_boards_replys
+		where meeting_board_reply_no=#{meetingBoardReplyNo}
+	</delete>
+	
+	<select id="selectAllMeetingBoardReply" resultType="meetingBoardReply">
+		select *
+		from meeting_boards_replys
+	</select>
 </mapper>

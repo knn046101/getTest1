@@ -3,5 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.BoardReplyMapper">
-
+	<insert id="insertBoardReply" parameterType="boardReply">
+		insert into boards_replys
+		value(seq_board_reply_no.nextval, #{boardReplyContent}, #{boardReplyDate}, #{boardNo}, #{id})
+	</insert>
+	
+	<update id="updateBoardReply" parameterType="boardReply">
+		update boards_replys
+		set board_reply_content=#{boardReplyContent},
+		board_date=#{boardDate},
+		board_no=#{boardNo},
+		id=#{id}
+		where board_reply_no=#{boardReplyNo}
+	</update>
+	
+	<delete id="deleteBoardReply" parameterType="int">
+		delete from boards_replys
+		where board_reply_no=#{boardReplyNo}
+	</delete>
+	
+	<select id="selectBoardReply" parameterType="int" resultType="boardReply">
+		select *
+		from boards_replys
+		where board_no=#{boardNo}
+	</select>
+	
 </mapper>

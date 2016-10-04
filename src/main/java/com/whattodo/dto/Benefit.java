@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class Benefit {
 	private String benefitNo;
-	private String benefitTItle;
+	private String benefitTitle;
 	private Date startDate;
 	private Date endDate;
 	private String place;

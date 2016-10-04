@@ -3,6 +3,83 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.BoardMapper">
+	<insert id="insertBoard" parameterType="board">
+		insert into boards(board_no, board_title, board_content, write_date, location,
+						NUMBEROFPEOPLE, what, category, board_keyword, id, main_img)
+		values(SEQ_board_no.nextval, #{boardTitle}, #{boardContent}, #{writeDate}, #{location},
+				#{numberOfPeople}, #{what}, #{category}, #{boardKeyword}, #{id}, #{mainImg})
+	</insert>
 	
+	<update id="updateBoard" parameterType="board">
+		update boards
+		set board_title=#{boardTitle},
+		board_content=#{boardContent},
+		write_date=#{writeDate},
+		location=#{location},
+		NUMBEROFPEOPLE=#{numberOfPeople},
+		what=#{what},
+		category=#{category},
+		board_keyword=#{boardKeyword},
+		id=#{id},
+		main_img=#{mainImg}
+		where board_no=#{boardNo}
+	</update>
 	
+	<delete id="deleteBoard" parameterType="int">
+		delete from boards
+		where board_no=#{boardNo}
+	</delete>
+	
+	<select id="selectAllBoard" resultType="board">
+		select *
+		from boards
+	</select>
+	
+	<select id="selectBoardByLocation" parameterType="String" resultType="board">
+		select *
+		from boards
+		where location=#{location}
+	</select>
+	
+	<select id="selectBoardByNumberOfPeople" parameterType="String" resultType="board">
+		select *
+		from boards
+		where NUMBEROFPEOPLE=#{numberOfPeople}
+	</select>
+	
+	<select id="selectBoardByCategory" parameterType="String" resultType="board">
+		select *
+		from boards
+		where category=#{category}
+	</select>
+	
+	<select id="selectBoardByLocationAndNumberOfPeople" parameterType="map" resultType="board">
+		select *
+		from boards
+		where location=#{location} and NUMBEROFPEOPLE={numberOfpeople}
+	</select>
+	
+	<select id="selectBoardByLocationAndCategory" parameterType="map" resultType="board">
+		select *
+		from boards
+		where location=#{location} and category={category}
+	</select>
+	
+	<select id="selectBoardByNumberOfPeopleAndCategory" parameterType="map" resultType="board">
+		select *
+		from boards
+		where NUMBEROFPEOPLE=#{numberOfPeople} and category={category}
+	</select>
+	
+	<select id="selectBoardByLocationAndNumberOfPeopleAndCategory" parameterType="map" resultType="board">
+		select *
+		from boards
+		where location=#{location} and NUMBEROFPEOPLE=#{numberOfPeople} and category={category}
+	</select>
+	
+	<select id="selectBoardByEditor" resultType="board">
+		select b.*
+		from boards b, members m
+		where b.id=m.id and m.division='Editor'
+	</select>
 </mapper>

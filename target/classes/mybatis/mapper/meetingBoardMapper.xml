@@ -3,5 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.MeetingBoardMapper">
-
+	<insert id="insertMeetingBoard" parameterType="meetingBoard">
+		insert into meeting_boards
+		values(seq_meeting_board_no.nextval, #{meetingBoardTitle}, #{meetingBoardContent}, #{place}, #{meetingNo}, #{id})
+	</insert>
+	
+	<update id="updateMeetingBoard" parameterType="meetingBoard">
+		update meeting_boards
+		set meeting_board_title=#{meetingBoardTitle},
+		meeting_board_content=#{meetingBoardContent},
+		place=#{place},
+		meeting_no=#{meetingNo},
+		id=#{id}
+		where meeting_board_no=#{meetingBoardNo}
+	</update>
+	
+	<delete id="deleteMeetingBoard" parameterType="int">
+		delete from meeting_boards
+		where meeting_board_no=#{meetingBoardNo}
+	</delete>
+	
+	<select id="selecctAllMeetingBoard" resultType="meetingBoard">
+		select *
+		from meeting_boards
+	</select>
+	
 </mapper>

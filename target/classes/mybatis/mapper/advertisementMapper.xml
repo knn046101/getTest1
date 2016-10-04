@@ -3,5 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.AdvertisementMapper">
-
+	<insert id="insertAd" parameterType="advertisement">
+		insert into ads
+		values(seq_ads_no.nextval, #{adsTitle}, #{adsImg}, #{link}, #{adminId})
+	</insert>
+	
+	<update id="updateAd" parameterType="advertisement">
+		update ads
+		set ads_title=#{adsTitle},
+		ads_img=#{adsImg},
+		link=#{link}
+		where ads_no=#{adsNo}
+	</update>
+	
+	<delete id="deleteAd" parameterType="int">
+		delete from ads
+		where ads_no=#{adsNo}
+	</delete>
+	
+	<select id="selectAllAdvertisement"  resultType="advertisement">
+		select * from ads
+	</select>
+	
+	<select id="selectAdvertisement"  parameterType="int" resultType="advertisement">
+		select * from ads
+		where ads_no=#{adsNo}
+	</select>
+	
 </mapper>
