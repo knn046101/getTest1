@@ -10,6 +10,4 @@ import lombok.NoArgsConstructor;
 public class Admin {
 	String adminId;
 	String pass;
-	
-	String zin;
 }
