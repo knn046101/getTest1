@@ -89,18 +89,39 @@
 		where b.board_no=bf.board_no and bf.id=#{id} 
 	</select>
 	
+	<select id="selectBoardByGood" parameterType="String" resultType="board">
+		select b.*
+		from boards b, boards_goods bg
+		where b.board_no=bg.board_no and bg.id=#{id} 
+	</select>
+	
 	<insert id="insertBoardFollow" parameterType="map">
 		insert into boards_follows
 		values(#{boardNo}, #{id})
 	</insert>
 	
-	<delete id="insertBoardFollowByBoardNo" parameterType="int">
+	<delete id="deleteBoardFollowByBoardNo" parameterType="int">
 		delete from boards_follows
 		where board_no=#{boardNo}
 	</delete>
 	
-	<delete id="insertBoardFollowById" parameterType="String">
+	<delete id="deleteBoardFollowById" parameterType="String">
 		delete from boards_follows
+		where id=#{id}
+	</delete>
+	
+	<insert id="insertBoardGood" parameterType="map">
+		insert into boards_goods
+		values(#{boardNo}, #{id})
+	</insert>
+	
+	<delete id="deleteBoardGoodByBoardNo" parameterType="int">
+		delete from boards_goods
+		where board_no=#{boardNo}
+	</delete>
+	
+	<delete id="deleteBoardGoodById" parameterType="String">
+		delete from boards_goods
 		where id=#{id}
 	</delete>
 	

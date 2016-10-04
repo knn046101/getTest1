@@ -70,6 +70,10 @@ public class BoardService implements BoardServiceInterface{
 	public List<Board> selectBoardByFollow(String id) {
 		return brepo.selectBoardByFollow(id);
 	}
+	
+	public List<Board> selectBoardByGood(String id){
+		return brepo.selectBoardByGood(id);
+	}
 
 	public void insertBoardFollow(int boardNo, String id) {
 		brepo.insertBoardFollow(boardNo, id);
@@ -81,6 +85,18 @@ public class BoardService implements BoardServiceInterface{
 
 	public void deleteBoardFollow(String id) {
 		brepo.deleteBoardFollow(id);
+	}
+	
+	public void insertBoardGood(int boardNo, String id){
+		brepo.insertBoardGood(boardNo, id);
+	}
+	
+	public void deleteBoardGood(int boardNo){
+		brepo.deleteBoardGood(boardNo);
+	}
+	
+	public void deleteBoardGood(String id){
+		brepo.deleteBoardGood(id);
 	}
 
 	public void insertBoardReply(BoardReply boardReply) {

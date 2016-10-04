@@ -97,6 +97,11 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, id);
 	}
 	
+	public List<Board> selectBoardByGood(String id){
+		String statement=NAME_SPACE+"selectBoardByGood";
+		return template.selectList(statement, id);
+	}
+	
 	public int insertBoardFollow(int boardNo, String id) {
 		String statement=NAME_SPACE+"insertBoardFollow";
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -106,12 +111,30 @@ public class BoardRepoImpl implements BoardRepo {
 	}
 
 	public int deleteBoardFollow(int boardNo) {
-		String statement=NAME_SPACE+"insertBoardFollowByBoardNo";
+		String statement=NAME_SPACE+"deleteBoardFollowByBoardNo";
 		return template.insert(statement, boardNo);
 	}
 
 	public int deleteBoardFollow(String id) {
-		String statement=NAME_SPACE+"insertBoardFollowById";
+		String statement=NAME_SPACE+"deleteBoardFollowById";
+		return template.insert(statement, id);
+	}
+	
+	public int insertBoardGood(int boardNo, String id){
+		String statement=NAME_SPACE+"insertBoardGood";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("id", id);
+		return template.insert(statement, map);
+	}
+	
+	public int deleteBoardGood(int boardNo){
+		String statement=NAME_SPACE+"deleteBoardGoodByBoardNo";
+		return template.insert(statement, boardNo);
+	}
+	
+	public int deleteBoardGood(String id){
+		String statement=NAME_SPACE+"deleteBoardGoodById";
 		return template.insert(statement, id);
 	}
 }

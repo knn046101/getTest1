@@ -19,9 +19,13 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople, String category);
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByFollow(String id);
+	public List<Board> selectBoardByGood(String id);
 	public void insertBoardFollow(int boardNo, String id);
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);
+	public void insertBoardGood(int boardNo, String id);
+	public void deleteBoardGood(int boardNo);
+	public void deleteBoardGood(String id);
 	
 	public void insertBoardReply(BoardReply boardReply);
 	public void updateBoardReply(BoardReply boardReply);

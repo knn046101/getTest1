@@ -18,7 +18,11 @@ public interface BoardRepo {
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople, String category);
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByFollow(String id);
+	public List<Board> selectBoardByGood(String id);
 	public int insertBoardFollow(int boardNo, String id);
 	public int deleteBoardFollow(int boardNo);
 	public int deleteBoardFollow(String id);
+	public int insertBoardGood(int boardNo, String id);
+	public int deleteBoardGood(int boardNo);
+	public int deleteBoardGood(String id);
 }
