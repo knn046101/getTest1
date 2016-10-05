@@ -12,13 +12,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @PropertySource("classpath:/config/dbconfig.properties")
-@ComponentScan(basePackages={"com.whattodo.repo", "com.whattodo.service"})
+@ComponentScan(basePackages={"com.whattodo.repo", "com.whattodo.service", "com.whattodo.controller"})
 public class ApplicationConfig {
 
 	private static Logger logger = LoggerFactory.getLogger(ApplicationConfig.class);
@@ -65,4 +66,12 @@ public class ApplicationConfig {
 		SqlSessionTemplate template = new SqlSessionTemplate(sfb.getObject());
 		return template;
 	}
+	
+	@Bean
+    public ReloadableResourceBundleMessageSource messageSource(){
+    	ReloadableResourceBundleMessageSource ms = new ReloadableResourceBundleMessageSource();
+    	ms.setCacheSeconds(0);
+    	ms.setBasenames("clathpath:/message/error/binding");
+    	return ms;
+    }
 }
