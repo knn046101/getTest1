@@ -4,7 +4,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Insert title here</title>
+<title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -34,8 +34,8 @@
 </style>
 </head>
 <body>
+	 <jsp:include page="/layout/header.jsp"></jsp:include>   
 
-<div >
        
    <div >
    <jsp:include page="/layout/header.jsp"></jsp:include>   
@@ -79,7 +79,6 @@
                       
       <!-- 본문 들어가는 부분 -->
       <sform:form id="form" class="form-horizontal" role="form" method="post"  action="addUser" modelAttribute="member">
-                
          <div class="page-header">
             <h1 class="text-center">
                회원가입
@@ -220,7 +219,11 @@
          </div>
          <div class="form-group">
             <div class="col-sm-12 text-center">
+<<<<<<< HEAD
                <sform:button class="btn btn-primary" style="background-color:orange; border-color:#fff;">
+=======
+               <button class="btn btn-primary" type="submit" style="background-color:orange; border-color:#fff;" onclick="location='join_after.jsp'">
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
                   회원가입<i class="fa fa-check spaceLeft"></i>
                </sform:button>
                <sform:button onclick="home()" class="btn btn-default" type="button" style="background-color:#27AB99; border-color:#fff;">

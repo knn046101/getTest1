@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<title>뭐 하 지 ?</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- CSS FILES -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+
+    <link rel="stylesheet" href="css/fractionslider.css"/>
+    <link rel="stylesheet" href="css/style-fraction.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/plugins/canvas-to-blob.js"></script>
+<script src="js/fileinput.js"></script>
+
+<script type="text/javascript">
+</script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<jsp:include page="/layout/header.jsp"></jsp:include>
+		</div>
+		<br>
+		<br>
+	
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4">
+						템플릿입니다. 코드수정금지 x
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<jsp:include page="/layout/footer.jsp"></jsp:include>
+		</div>
+	</div>
+</body>
+</html>
