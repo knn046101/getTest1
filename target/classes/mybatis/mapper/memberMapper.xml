@@ -6,13 +6,13 @@
 	<insert id="insertMember" parameterType="member">
 		insert into members(id, pass, nickname, email, region, birth, 
 		 favorite, profile_img, question, answer) 
-		values(#{id}, #{pass}, #{nickName}, #{email}, #{region}, #{birth},
+		values(#{id}, #{pass}, #{nickname}, #{email}, #{region}, #{birth},
 		 #{favorite}, #{profileImg}, #{question}, #{answer} )
 	</insert>
 	<update id="updateMember" parameterType="member">
 		update members
 		set pass=#{pass},
-		nickname=#{nickName},
+		nickname=#{nickname},
 		email=#{email},
 		region=#{region},
 		birth=#{birth},
@@ -33,4 +33,15 @@
 		where id=#{id}
 	</select>
 
+	<select id="getMemberByEmail" parameterType="String" resultType="member">
+		select *
+		from members
+		where email=#{email}
+	</select>
+	
+	<select id="getMemberByNickname" parameterType="String" resultType="member">
+		select *
+		from members
+		where nickname=#{nickname}
+	</select>
 </mapper>

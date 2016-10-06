@@ -18,6 +18,7 @@ import com.whattodo.dto.Admin;
 import com.whattodo.dto.Advertisement;
 import com.whattodo.dto.Benefit;
 import com.whattodo.dto.Board;
+import com.whattodo.dto.City;
 import com.whattodo.dto.Meeting;
 import com.whattodo.dto.MeetingBoard;
 import com.whattodo.dto.MeetingBoardReply;
@@ -30,6 +31,7 @@ import com.whattodo.repo.MeetingBoardReplyRepo;
 import com.whattodo.repo.MeetingBoardRepo;
 import com.whattodo.repo.MeetingRepo;
 import com.whattodo.repo.MemberRepo;
+import com.whattodo.service.RegionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ApplicationConfig.class})
@@ -88,7 +90,7 @@ public class Test {
 		Member member = new Member();
 		member.setId("dong");
 		member.setPass("1234");
-		member.setNickName("jong");
+		member.setNickname("jong");
 		member.setEmail("knn046101@naver.com");
 		member.setRegion("경기도 광주시");
 		member.setBirth("19920328");
@@ -106,7 +108,7 @@ public class Test {
 		Member member = new Member();
 		member.setId("jong");
 		member.setPass("1111");
-		member.setNickName("jjong");
+		member.setNickname("jjong");
 		member.setEmail("knn046101@naver.com");
 		member.setRegion("경기도 광주시");
 		member.setBirth("19920328");
@@ -274,5 +276,14 @@ public class Test {
 		List<Board> boards = boardrepo.selectBoardByEditor();
 		System.out.println(boards);
 		assertThat(boards, is(notNullValue()));
+	}
+	
+	@Autowired
+	RegionService rs;
+	
+	@org.junit.Test
+	public void getRegion(){
+		List<City> city = rs.getCity("강원도");
+		System.out.println(city);
 	}
 }
