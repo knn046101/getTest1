@@ -20,7 +20,7 @@ a {
 </head>
 <body>
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-<<<<<<< HEAD
+
 	<br>
 	<br>
 	<br>
@@ -30,7 +30,7 @@ a {
 	<br>
 	<br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
-=======
+
 	<div class="container">
 		<div class="row content">
 			<div class="row sub_content">
@@ -39,7 +39,7 @@ a {
 						<h4>
 							<span>마이페이지</span>
 						</h4>
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
+
 
 					</div>
 

@@ -29,49 +29,10 @@
 </head>
 <body>
 	 <jsp:include page="/layout/header.jsp"></jsp:include>   
-<div >
+
        
    <div >
   
-
-      <!-- 좌우측의 공간 확보 -->
-                  
-      <!-- 헤더 들어가는 부분 -->
-          
-      
-      <!--// 헤더 들어가는 부분 -->
-                  
-      <!-- 모달창 -->
-                  
-      <div class="modal fade" id="defaultModal">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"
-                     aria-hidden="true">×</button>
-                  <h4 class="modal-title">알림</h4>
-               </div>
-               <div class="modal-body">
-                  <p class="modal-contents"></p>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-               </div>
-            </div>
-            <!-- /.modal-content -->
-                            
-         </div>
-         <!-- /.modal-dialog -->
-                     
-      </div>
-      </div>
-      <!-- /.modal -->
-                  
-      <!--// 모달창 -->
-                  
-      <hr />
-                      
-      <!-- 본문 들어가는 부분 -->
       <sform:form class="form-horizontal" role="form" method="post"  action="addUser" modelAttribute="member">
                 
          <div class="page-header">
