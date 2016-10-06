@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Insert title here</title>
+<title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -147,7 +147,7 @@
          </div>
          <div class="form-group">
             <div class="col-sm-12 text-center">
-               <button class="btn btn-primary" type="submit" style="background-color:orange; border-color:#fff;">
+               <button class="btn btn-primary" type="submit" style="background-color:orange; border-color:#fff;" onclick="location='join_after.jsp'">
                   회원가입<i class="fa fa-check spaceLeft"></i>
                </button>
                <button class="btn btn-default" type="submit" style="background-color:#27AB99; border-color:#fff;">

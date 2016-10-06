@@ -30,20 +30,7 @@ a {
 </head>
 <body>
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-<<<<<<< HEAD
-=======
 
-	<br>
-	<br>
-	<br>
-	
-	
-	<br>
-	<br>
-	<br>
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
-
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 	<div class="container">
 		<div class="row content">
 			<div class="row sub_content">
@@ -52,11 +39,7 @@ a {
 						<h4>
 							<span>마이페이지</span>
 						</h4>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 					</div>
 
 					<div class="our_clients"></div>
@@ -84,15 +67,15 @@ a {
 				<div class="navbar-default sidebar" role="navigation">
 					<div class="sidebar-nav navbar-collapse">
 						<ul class="nav" id="side-menu">
-							<li><a href="index.html"><i
+							<li><a href="mypage_member_update.jsp"><i
 									class="fa fa-dashboard fa-fw"></i>정보수정</a></li>
-							<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>내글<span
+							<li><a href="mypage_myboard.jsp"><i class="fa fa-bar-chart-o fa-fw"></i>내글<span
 									class="fa arrow"></span></a></li>
-							<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>관심사</a>
+							<li><a href="mypage_favorite.jsp"><i class="fa fa-table fa-fw"></i>관심사</a>
 							</li>
-							<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>스크랩</a>
+							<li><a href="mypage_scrap.jsp"><i class="fa fa-edit fa-fw"></i>스크랩</a>
 							</li>
-							<li><a href="#"><i class="fa fa-wrench fa-fw"></i>모임<span
+							<li><a href="mypage_meeting.jsp"><i class="fa fa-wrench fa-fw"></i>모임<span
 									class="fa arrow"></span></a></li>
 
 

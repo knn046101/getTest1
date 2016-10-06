@@ -12,27 +12,25 @@
 	
 	
 	<div class="container-fluid">
-	<div class="row">
-		
+		<div class="row">
 			<jsp:include page="/layout/header.jsp"></jsp:include>
-		
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4">
-					내용1
+		</div>
+		<br>
+		<br>
+	
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4">
+						템플릿입니다. 코드수정금지 x
+					</div>
 				</div>
-				
-				
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		
+	
+		<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
-		
-	</div>
+		</div>
 	</div>
 
 
