@@ -4,6 +4,16 @@
 <head>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS FILES -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+
+    <link rel="stylesheet" href="css/fractionslider.css"/>
+    <link rel="stylesheet" href="css/style-fraction.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -20,17 +30,6 @@ a {
 </head>
 <body>
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-<<<<<<< HEAD
-	<br>
-	<br>
-	<br>
-	
-	
-	<br>
-	<br>
-	<br>
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
-=======
 	<div class="container">
 		<div class="row content">
 			<div class="row sub_content">
@@ -39,8 +38,6 @@ a {
 						<h4>
 							<span>마이페이지</span>
 						</h4>
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-
 					</div>
 
 					<div class="our_clients"></div>
