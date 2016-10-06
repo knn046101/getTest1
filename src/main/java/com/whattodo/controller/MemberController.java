@@ -126,6 +126,6 @@ public class MemberController {
 		}
 		logger.trace("member : {}", member);
 		ms.insertMember(member);
-		return "main"; // 사용할 뷰의 이름 리턴 
+		return "join/join_after"; // 사용할 뷰의 이름 리턴 
 	}
 }

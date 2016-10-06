@@ -37,9 +37,6 @@
 	 <jsp:include page="/layout/header.jsp"></jsp:include>   
 
        
-   <div >
-   <jsp:include page="/layout/header.jsp"></jsp:include>   
-
       <!-- 좌우측의 공간 확보 -->
                   
       <!-- 헤더 들어가는 부분 -->
@@ -69,7 +66,6 @@
          </div>
          <!-- /.modal-dialog -->
                      
-      </div>
       </div>
       <!-- /.modal -->
                   
@@ -219,11 +215,7 @@
          </div>
          <div class="form-group">
             <div class="col-sm-12 text-center">
-<<<<<<< HEAD
                <sform:button class="btn btn-primary" style="background-color:orange; border-color:#fff;">
-=======
-               <button class="btn btn-primary" type="submit" style="background-color:orange; border-color:#fff;" onclick="location='join_after.jsp'">
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
                   회원가입<i class="fa fa-check spaceLeft"></i>
                </sform:button>
                <sform:button onclick="home()" class="btn btn-default" type="button" style="background-color:#27AB99; border-color:#fff;">
@@ -235,8 +227,8 @@
    </sform:form>
   
    <jsp:include page="/layout/footer.jsp"></jsp:include>
-   </div>
 </body>
+
 <script>
 	var checkIdComplete=false;
 	var checkEmailComplete=false;
@@ -266,11 +258,28 @@
     	}else{
     		if(pass.length<8){
     			$("#passP").css("color","red");
+    		}else{
+    			$("#passP").css("color","black");
     		}
     	}
     }
     
-     //이미지넣기
+    $(document).ready(function(){
+    	$("#image").change(function(){
+    		readImage(this);
+    	});
+    	$("#image").trigger("change");
+    });
+    function readImage(input) {
+		if ( input.files && input.files[0] ) {
+			var FR= new FileReader();
+			FR.onload = function(e) {
+				console.log(e.target.result)
+			};       
+			FR.readAsDataURL( input.files[0] );
+		}
+	}
+    /*  //이미지넣기
     var InputImage =  (function loadImageFile() {
     	  if (window.FileReader) {
         	var ImagePre; 
@@ -297,7 +306,7 @@
        		}	
  	   }
     	document.getElementById("imagePreview").src = document.getElementById("image").value;
-	});
+	}); */
 	
 	////////////////////// 체크하는 코드 및 전송 ajax
 	<c:url value="/checkId" var="checkId"/>
