@@ -40,7 +40,8 @@
                        <ul>
                             <li><a href="<%=request.getContextPath() %>/login/login.jsp" class="my-tweet">로그인</a>&#10072;</li>
                             <c:url value="/join" var="join"/>
-                            <li><a href="${join }" class="my-facebook"> 회원가입</a></li>
+                            <li><a href="${join }" class="my-facebook"> 회원가입</a>&#10072;</li>
+                            <li><a href="<%=request.getContextPath() %>/mypage/mypage.jsp" class="my-skype">  마이페이지</a></li>
                         
                         </ul>
                     </div>

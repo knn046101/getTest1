@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
 </head>
 <body>
-	<jsp:include page="../layout/header.jsp"></jsp:include>
+	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<br>
 	<br>
 	<br>
@@ -29,7 +29,7 @@
 	<br>
 	<br>
 	<br>
-	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	<jsp:include page="/layout/footer.jsp"></jsp:include>
 
 </body>
 <script></script>
