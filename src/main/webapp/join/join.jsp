@@ -35,16 +35,8 @@
 </head>
 <body>
 	 <jsp:include page="/layout/header.jsp"></jsp:include>   
-
-       
-      <!-- 좌우측의 공간 확보 -->
-                  
-      <!-- 헤더 들어가는 부분 -->
-          
-      
-      <!--// 헤더 들어가는 부분 -->
-                  
-      <!-- 모달창 -->
+	 <br>
+	 <br>
                   
       <div class="modal fade" id="defaultModal">
          <div class="modal-dialog">
@@ -71,15 +63,13 @@
                   
       <!--// 모달창 -->
                   
-      <hr />
+      
                       
       <!-- 본문 들어가는 부분 -->
       <sform:form id="form" class="form-horizontal" role="form" method="post"  action="addUser" modelAttribute="member">
-         <div class="page-header">
-            <h1 class="text-center">
-               회원가입
-            </h1>
-         </div>
+         <div class="dividerHeading">
+			<h4><span>회원가입</span></h4>
+		</div>
 
          <div class="form-group">
             <sform:label path="profileImg" class="col-sm-3 control-label" for="inputEmail">프로필 사진 등록</sform:label>
@@ -215,7 +205,7 @@
          </div>
          <div class="form-group">
             <div class="col-sm-12 text-center">
-               <sform:button class="btn btn-primary" style="background-color:orange; border-color:#fff;">
+               <sform:button onclick="location='join/join_after.jsp'" class="btn btn-primary" style="background-color:orange; border-color:#fff;">
                   회원가입<i class="fa fa-check spaceLeft"></i>
                </sform:button>
                <sform:button onclick="home()" class="btn btn-default" type="button" style="background-color:#27AB99; border-color:#fff;">

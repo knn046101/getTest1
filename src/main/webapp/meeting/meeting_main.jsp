@@ -135,7 +135,7 @@
 	
 	<br>
 	<div class="clients">
-	<button style="float:right;background-color:#27AB99;color:white;" onclick="location='meeting_make.jsp'">모임생성</button>
+	<button onclick="location='meeting_make.jsp'"style="float:right;background-color:#27AB99;color:white;" onclick="location='meeting_make.jsp'">모임생성</button>
 			<div class="container">
 				<div class="row sub_content">
 					<div class="col-lg-12 col-md-12 col-sm-12">
