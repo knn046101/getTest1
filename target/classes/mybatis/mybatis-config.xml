@@ -19,6 +19,8 @@
 		<typeAlias type="com.whattodo.dto.MeetingBoard" alias="meetingBoard"/>
 		<typeAlias type="com.whattodo.dto.MeetingBoardReply" alias="meetingBoardReply"/>
 		<typeAlias type="com.whattodo.dto.Member" alias="member"/>
+		<typeAlias type="com.whattodo.dto.Capital" alias="capital"/>
+		<typeAlias type="com.whattodo.dto.City" alias="city"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mapper/adminMapper.xml" />
@@ -30,6 +32,7 @@
 		<mapper resource="mybatis/mapper/meetingBoardMapper.xml" />
 		<mapper resource="mybatis/mapper/meetingBoardReplyMapper.xml" />
 		<mapper resource="mybatis/mapper/memberMapper.xml" />
+		<mapper resource="mybatis/mapper/regionMapper.xml" />
 	</mappers>
 	
 

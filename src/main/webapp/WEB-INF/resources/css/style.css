@@ -644,8 +644,8 @@ ul.sm li *,ul.sm li *:before,ul.sm li *:after{-moz-box-sizing:content-box;-webki
 }
 .sidebar .widget ul.arrows_list li a {
     color: #777;
-    font-size: 12px;
-    line-height: 30px;
+    font-size: 13px;
+    line-height: 40px;
 }
 .sidebar .widget ul.arrows_list li a:hover, .sidebar .widget ul.arrows_list1 li a:hover i {
     color:#27AB99;

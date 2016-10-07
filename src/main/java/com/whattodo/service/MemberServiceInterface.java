@@ -8,6 +8,8 @@ public interface MemberServiceInterface {
 	public void updateMember(Member member);
 	public void deleteMember(String id);
 	public Member getMemberById(String id);
+	public Member getMemberByEmail(String email);
+	public Member getMemberByNickname(String nickname);
 	
 	public Admin getAdmin(String adminId);
 }

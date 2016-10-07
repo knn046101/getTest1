@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Member {
 	private String id;
 	private String pass;
-	private String nickName;
+	private String nickname;
 	private String email;
 	private String region;
 	private String birth;

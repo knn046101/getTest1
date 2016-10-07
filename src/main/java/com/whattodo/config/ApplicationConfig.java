@@ -71,7 +71,7 @@ public class ApplicationConfig {
     public ReloadableResourceBundleMessageSource messageSource(){
     	ReloadableResourceBundleMessageSource ms = new ReloadableResourceBundleMessageSource();
     	ms.setCacheSeconds(0);
-    	ms.setBasenames("clathpath:/message/error/binding");
+    	ms.setBasenames("classpath:/message/error/binding");
     	return ms;
     }
 }

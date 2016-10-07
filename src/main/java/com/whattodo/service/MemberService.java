@@ -32,8 +32,18 @@ public class MemberService implements MemberServiceInterface{
 		return mrepo.getMemberById(id);
 	}
 
+	public Member getMemberByEmail(String email) {
+		return mrepo.getMemberByEmail(email);
+	}
+	
+	public Member getMemberByNickname(String nickname) {
+		return mrepo.getMemberByEmail(nickname);
+	}
+	
 	public Admin getAdmin(String adminId) {
 		return arepo.getAdmin(adminId);
 	}
+
+	
 
 }

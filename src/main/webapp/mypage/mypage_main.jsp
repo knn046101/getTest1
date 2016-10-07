@@ -32,152 +32,246 @@ a {
 </head>
 <body>
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-	<div class="container">
-		<div class="row content">
-			<div class="row sub_content">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="dividerHeading">
-						<h4>
-							<span>모아보기</span>
-						</h4>
-					</div>
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="sidebar">
-					<div class=" col-sm-3 navbar-collapse">
-						<img src="../images/ma.png" class="img-circle" alt="Cinque Terre"
-							width="150" height="150"><br>
-						<h4 align="left">
-							마동석 <span class="label label-default">일반회원</span>
-						</h4>
-						<ul class="nav nav-pills nav-stacked">
-							<li class="active"><a href="index.html"><i
-									class="fa fa-dashboard fa-fw"></i>정보수정</a></li>
-							<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>내글<span
-									class="fa arrow"></span></a></li>
-							<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>관심사</a>
-							</li>
-							<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>스크랩</a>
-							</li>
-							<li><a href="#"><i class="fa fa-wrench fa-fw"></i>모임<span
-									class="fa arrow"></span></a></li>
-						</ul>
+	<br>
+	<br>
 
-					</div>
-				</div>
+	<div class="container-fluid">
+		<div class="row sub_content">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="dividerHeading">
+					<h4>
+						<span>모아보기</span>
+					</h4>
 
-
-				<div class="container col-sm-10">
-					<div class="row sub_content">
-
-						<hr>
-						<div class="row">
-							<div class="col-sm-2 text-center ">
-								<h3>
-									<a href="#">내글</a>
-
-								</h3>
-							</div>
-							<div class="row sub_content">
-								<div class="col-lg-9 ">
-									<div class="images-style">
-										<div class="row">
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-2 text-center ">
-								<h3>
-									<a href="#">관심사</a>
-
-								</h3>
-							</div>
-							<div class="row sub_content">
-								<div class="col-lg-9 ">
-									<div class="images-style">
-										<div class="row">
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-												<div class="row">
-							<div class="col-sm-2 text-center ">
-								<h3>
-									<a href="#">스크랩</a>
-
-								</h3>
-							</div>
-							<div class="row sub_content">
-								<div class="col-lg-9 ">
-									<div class="images-style">
-										<div class="row">
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-										<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-											<div class="col-sm-3 images-style-inner">
-												<a href="#"><img class="img-rounded img-responsive"
-													src="images/img-style.png" alt="" /></a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
+		<section class="wrapper">
+			<section class="content left_sidebar">
+				<div class="container">
+					<div class="row">
+						<!--Sidebar Widget-->
+						<div class="col-lg-3">
+							<div class="sidebar">
+								<div class="widget widget_categories">
+									<ul class="arrows_list sidenav">
+										<li><img src="../images/ma.png" class="img-circle"
+											alt="Cinque Terre" width="150" height="150"> <br>
+										</li>
+										<h4 align="left">
+
+											마동석 <span class="label label-default"
+												style="background-color: grey">일반회원</span>
+										</h4>
+										<div></div>
+										<div class="widget_title">
+											<h4>
+												<span>마이페이지</span>
+											</h4>
+										</div>
+										<li><a href="<%=request.getContextPath()%>/mypage/mypage_member_update.jsp">
+										<i class="fa fa-angle-right"></i>정보수정</a></li>
+										<li><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+										<i class="fa fa-angle-right"></i> 내글</a></li>
+										<li><a href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
+										<i class="fa fa-angle-right"></i> 관심사</a></li>
+										<li><a href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
+										<i class="fa fa-angle-right"></i> 스크랩</a></li>
+										<li><a href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
+										<i class="fa fa-angle-right"></i> 모임</a></li>
+
+									</ul>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="col-lg-6 "></div>
+						<div class="col-lg-9 ">
+							<div class="col-sm-2 text-center">
+								<h3>
+									<a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">내글</a>
+								</h3>
+							</div>
+							<ul>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-9 ">
+							<div class="col-sm-2 text-center">
+								<h3>
+									<a href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">관심사</a>
+								</h3>
+							</div>
+							<br>
+							<ul>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-9 ">
+							<div class="col-sm-2 text-center">
+								<h3>
+									<a href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">스크랩</a>
+								</h3>
+							</div>
+							<br>
+							<ul>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+								<li class="col-sm-3 col-md-3 col-lg-3">
+									<div class="recent-item">
+										<figure>
+											<div class="touching medium">
+												<img src="images/portfolio/portfolio_5.png" alt="" />
+											</div>
+											<div class="option">
+												<a href="images/portfolio/full/portfolio_1.png"
+													class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+												<a href="board/board_info.jsp" class="hover-link"><i
+													class="fa fa-arrow-right"></i></a>
+											</div>
+											<figcaption class="item-description"></figcaption>
+										</figure>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</section>
 	</div>
+
+
+
+
+
 
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>

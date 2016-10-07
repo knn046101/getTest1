@@ -34,4 +34,14 @@ public class MemberRepoImpl implements MemberRepo {
 		return template.selectOne(statement, id);
 	}
 
+	public Member getMemberByEmail(String email) {
+		String statement = NAME_SPACE+"getMemberByEmail";
+		return template.selectOne(statement, email);
+	}
+
+	public Member getMemberByNickname(String nickname) {
+		String statement = NAME_SPACE+"getMemberByNickname";
+		return template.selectOne(statement, nickname);
+	}
+
 }

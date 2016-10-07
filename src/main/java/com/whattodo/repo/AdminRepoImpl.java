@@ -13,6 +13,7 @@ public class AdminRepoImpl implements AdminRepo {
 
 	@Autowired
 	SqlSessionTemplate template;
+	
 	private static Logger logger = LoggerFactory.getLogger(AdminRepoImpl.class);
 	
 	final private String NAME_SPACE="whattodo.dao.AdminMapper."; 

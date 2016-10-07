@@ -4077,6 +4077,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	.navbar {
 		border-radius: 4px
 	}
+	.list_style circle {
+		      
+	}
 }
 
 @media ( min-width :768px) {
