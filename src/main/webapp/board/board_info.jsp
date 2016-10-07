@@ -78,16 +78,14 @@
 								<li><span>몇명이서 :</span>혼자서</li>
 								<li><span>키워드 :</span>#신전 #신전떡볶이</li>
 								<li>
-									<button class="scrap" style="color:black;">스크랩</button>
-									<button class="scrap" ><i class="fa fa-thumbs-up" style="color:black;"></i></button>
+									<button class="scrap" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 스크랩</button>
+									<button class="scrap" style="color:black;"><i class="fa fa-thumbs-up" style="color:black;"></i> 좋아요</button>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 						
-						
-
 						<!--News Comments-->
                         <div class="news_comments">
                             <div class="dividerHeading">
@@ -96,42 +94,43 @@
                             <div id="comment">
                                 <ul id="comment-list">
                                     <li class="comment">
-                                        <div class="avatar"><img alt="" src="images/blog/avatar_1.png" class="avatar"></div>
+                                        
                                         <div class="comment-container">
                                             <h4 class="comment-author"><a href="#">John Smith</a></span></h4>
-                                            <div class="comment-meta"><a href="#" class="comment-date link-style1">February 22, 2014</a></div>
+                                            <div class="comment-meta"><a href="#" class="comment-date link-style1">2014-02-22</a></div>
                                             <div class="comment-body">
-                                                <p>11111</p>
+                                                <p>잘보고갑니다~</p>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="comment">
-                                        <div class="avatar"><img alt="" src="images/blog/avatar_2.png" class="avatar"></div>
+                                       
                                         <div class="comment-container">
                                             <h4 class="comment-author"><a href="#">Eva Smith</a></span></h4>
-                                            <div class="comment-meta"><a href="#" class="comment-date link-style1">February 13, 2014</a></div>
+                                            <div class="comment-meta"><a href="#" class="comment-date link-style1">2014-03-27</a></div>
                                             <div class="comment-body">
                                                 <p>222</p>
                                             </div>
                                         </div>
                                         <ul class="children">
                                             <li class="comment">
-                                                <div class="avatar"><img alt="" src="images/blog/avatar_3.png" class="avatar"></div>
+                                               
                                                 <div class="comment-container">
-                                                    <h4 class="comment-author"><a href="#">Thomas Smith</a></span></h4>
-                                                    <div class="comment-meta"><a href="#" class="comment-date link-style1">February 14, 2014</a></div>
+                                                	
+                                                    <h4 class="comment-author"><a href="#"><i class="fa fa-hand-o-right"></i> Thomas Smith</a></span></h4>
+                                                    <div class="comment-meta"><a href="#" class="comment-date link-style1">2015-11-20</a></div>
                                                     <div class="comment-body">
-                                                        <p>33</p>
+                                                        <p>33 퍼갑니다</p>
                                                     </div>
                                                 </div>
                                                 <ul class="children">
                                                     <li class="comment">
-                                                        <div class="avatar"><img alt="" src="images/blog/avatar_2.png" class="avatar"></div>
+                                                       
                                                         <div class="comment-container">
-                                                            <h4 class="comment-author"><a href="#">Eva Smith</a></span></h4>
-                                                            <div class="comment-meta"><a href="#" class="comment-date link-style1">February 14, 2014</a></div>
+                                                            <h4 class="comment-author"><a href="#"><i class="fa fa-hand-o-right"></i> Eva Smith</a></span></h4>
+                                                            <div class="comment-meta"><a href="#" class="comment-date link-style1">2016-10-07</a></div>
                                                             <div class="comment-body">
-                                                                <p>Dico animal vis cu, sed no aliquam appellantur, et exerci eleifend eos. Vixese eros tiloi novum adtam, mazim inimicus maiestatis ad vim. Ex his unum fuisset reformidans, has iriure ornatus atomorum ut, ad tation feugiat impedit per.</p>
+                                                                <p>인생...</p>
                                                             </div>
                                                         </div>
                                                     </li>

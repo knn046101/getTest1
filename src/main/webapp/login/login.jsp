@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Insert title here</title>
+<title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- CSS FILES -->
@@ -23,13 +23,17 @@
 <body>
    <jsp:include page="../layout/header.jsp"></jsp:include>
    <br>
-   
+   <br>
    <form class="form-horizontal" role="form" method="post"
       action="javascript:alert( '로그인 성공' );">
-      <div class="page-header">
-         <h2 class="text-center">로그인</h2>
-      </div>
+     <div class="dividerHeading">
+		<h4><span>로그인</span></h4>
+	</div>
+	<br>
+	<br>
       <div class="form-group">
+       
+       
          <label class="col-sm-3 control-label">ID</label>
          <div class="col-sm-6">
             <input class="form-control" type="text" id="inputId" 

@@ -25,7 +25,7 @@
 			<jsp:include page="/layout/header.jsp"></jsp:include>
 		</div>
 		<br>
-		<button style="float:right;background-color:#27AB99;color:white;" onclick="location='../board/board_write.jsp'"><i class="fa fa-plus-square"></i></button>
+		<button style="float:right;background-color:#27AB99;color:white;border-color:#fff;" onclick="location='../board/board_write.jsp'">글작성 <i class="fa fa-pencil"></i></button>
 		<br>
 		<br>
 	
@@ -50,6 +50,179 @@
 						</div>
 					</div>
 					
+					<div class="jcarousel recent-work-jc">
+                        <ul class="jcarousel-list">
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_1.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+
+                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
+
+                                            
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_2.png" alt="" />
+                                        </div>
+                                        <div class="option">
+
+                                            <a href="images/portfolio/full/portfolio_2.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+                                            <a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+
+                                            <a href="images/portfolio/full/portfolio_2.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_3.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+
+                                            <a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_4.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_3.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+
+                                            <a href="portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_5.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_4.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_5.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_2.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_7.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+
+                            <!-- Recent Work Item -->
+                            <li class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="recent-item">
+                                    <figure>
+                                        <div class="touching medium">
+                                            <img src="images/portfolio/portfolio_3.png" alt="" />
+                                        </div>
+                                        <div class="option">
+                                            <a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+                                            <a href="/portfolio_single.html" class="hover-link"><i class="fa fa-link"></i></a>
+                                        </div>
+                                        <figcaption class="item-description">
+                                            <h5>Touch and Swipe</h5>
+                                            <span>Technology</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                        </ul>
+                        
+					</div>
+					<br>
 					<div class="jcarousel recent-work-jc">
                         <ul class="jcarousel-list">
                             <!-- Recent Work Item -->

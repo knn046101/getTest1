@@ -31,13 +31,14 @@
                     <div class="widget_content content-center">
                        <ul class="contact-details-alt">
                           <li><i class="fa fa-caret-right"></i><p>팀명 : 뭐하조 </p></li>
-                  <li><i class="fa fa-caret-right"></i><p>팀원 : 박종연  <span>&#10072;</span> 김경은 <span>&#10072;  </span>조현정</p></li>
-                  <li><i class="fa fa-caret-right"></i><p>뭐하지? 는 꿀팁 정보에 대한 유익함을 책임 지지 않습니다.</p></li>
+                          <li><i class="fa fa-caret-right"></i><p>팀장 : 홍영기 </p></li>
+                 		  <li><i class="fa fa-caret-right"></i><p>팀원 : 박종연  <span>&#10072;</span> 김경은 <span>&#10072;  </span>조현정</p></li>
+                  		  <li><i class="fa fa-caret-right"></i><p>뭐하지? 는 꿀팁 정보에 대한 유익함을<br>    책임 지지 않습니다.</p></li>
                   </ul>
                         <ul class="contact-details-alt">
-                            <li><i class="fa fa-map-marker"></i> <p><strong>Address</strong>: 충청남도 천안시 서북구 부대동 공주대 공과대학 8공 716호</p></li>
-                            <li><i class="fa fa-user"></i> <p><strong>Phone</strong>:(+82)010-0000-0000</p></li>
-                            <li><i class="fa fa-envelope"></i> <p><strong>Email</strong>: <a href="#">ykyboss5960@naver.com </a></p></li>
+                            <li><i class="fa fa-map-marker"></i> <p><strong>Address</strong>: 충청남도 천안시 서북구 <br>부대동 공주대 공과대학 8공 716호</p></li>
+                            <li><i class="fa fa-user"></i> <p><strong>Phone</strong>:(+82) 010-0000-0000</p></li>
+                            <li><i class="fa fa-envelope"></i> <p><strong>Email</strong>: ykyboss5960@naver.com </p></li>
                         </ul>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
                         <ul class="tweet_list">
                             <li class="tweet_content item">
                                 <i class="fa fa-leaf"></i>
-                                <p class="tweet_link"><a href="#">1515-1515 </a><br>
+                                <p class="tweet_link"><a href="#">OPERATION TIME </a><br>
                                  AM 9:00-PM 6:00<br>
                                  LUNCH 12:00-13:00<br>
                                  (SAT/SUN/HOLIDAY OFF)<br></p>
@@ -154,10 +155,10 @@
                     </div>
                     <div class="widget_content">
                         <ul class="links">
-                            <li><i class="fa fa-caret-right"></i> <a href="#">이용약관</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">뭐하지?가이드</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">개인정보취급방침</a></li>
-                            <li><i class="fa fa-caret-right"></i> <a href="#">고객센터</a></li>
+                            <li><i class="fa fa-caret-right"></i>이용약관</li>
+                            <li><i class="fa fa-caret-right"></i>뭐하지?가이드</li>
+                            <li><i class="fa fa-caret-right"></i>개인정보취급방침</li>
+                            <li><i class="fa fa-caret-right"></i>고객센터</li>
                         </ul>
                     </div>
                 </div>

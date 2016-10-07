@@ -20,16 +20,31 @@
     <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
 </head>
 <body>
-	<jsp:include page="../layout/header.jsp"></jsp:include>
-	<br>
-	<br>
-	<br>
+	<div class="container-fluid">
+		<div class="row">
+			<jsp:include page="/layout/header.jsp"></jsp:include>
+		</div>
+		<br>
+		<br>
 	
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+				<div class="dividerHeading">
+								<h4><span>비밀번호 찾기</span></h4>
+						</div>
+					<div class="col-md-4">
+						
+					</div>
+				</div>
+			</div>
+		</div>
 	
-	<br>
-	<br>
-	<br>
-	<jsp:include page="../layout/footer.jsp"></jsp:include>
+		<div class="row">
+			<jsp:include page="/layout/footer.jsp"></jsp:include>
+		</div>
+	</div>
+
 
 </body>
 <script></script>
