@@ -94,7 +94,7 @@ a {
 									<a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">내글</a>
 								</h3>
 							</div>
-							<ul>
+							<ul class="jcarousel-list">
 								<li class="col-sm-3 col-md-3 col-lg-3">
 									<div class="recent-item">
 										<figure>
@@ -152,7 +152,7 @@ a {
 								</h3>
 							</div>
 							<br>
-							<ul>
+							<ul class="jcarousel-list">
 								<li class="col-sm-3 col-md-3 col-lg-3">
 									<div class="recent-item">
 										<figure>
@@ -210,7 +210,7 @@ a {
 								</h3>
 							</div>
 							<br>
-							<ul>
+							<ul class="jcarousel-list">
 								<li class="col-sm-3 col-md-3 col-lg-3">
 									<div class="recent-item">
 										<figure>
