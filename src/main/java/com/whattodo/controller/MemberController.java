@@ -144,7 +144,7 @@ public class MemberController {
 		String pass = request.getParameter("inputPassword");
 		Member member = ms.getMemberById(id);
 		if(member!=null && member.getPass().equals(pass)){
-			session.setAttribute("member", member);
+			session.setAttribute("login", member);
 			return "main";
 		}else{
 			model.addAttribute("loginFail", "다시 입력하여주십시오.");
@@ -155,7 +155,7 @@ public class MemberController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(SessionStatus status, HttpSession session){
 		status.setComplete();
-		session.removeAttribute("member");
+		session.removeAttribute("login");
 		session.invalidate();
 		return "redirect:/main.jsp";
 	}

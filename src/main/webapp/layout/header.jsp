@@ -43,12 +43,12 @@
                     </div>
                     <div class="col-sm-5 top-info">
                        <ul>
-                       		<c:if test="${empty (member) }">
+                       		<c:if test="${empty (login) }">
                             	<li><a href="<%=request.getContextPath() %>/login/login.jsp" class="my-tweet">로그인</a>&#10072;</li>
                             	<c:url value="/join" var="join"/>
                             	<li><a href="${join }" class="my-facebook"> 회원가입</a>&#10072;</li>
                             </c:if>
-                            <c:if test="${!empty (member) }">
+                            <c:if test="${!empty (login) }">
                             	<li><span>${member.nickname} 님 환영합니다.</span></li>
                             	<c:url value="/logout" var="logout"/>
                             	<li><a href="${logout }" class="my-skype">로그아웃</a></li>
