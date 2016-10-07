@@ -125,8 +125,8 @@
                확인</label>
             <div class="col-sm-6">
                <input class="form-control" id="inputPasswordCheck" type="password"
-                  placeholder="비밀번호 확인">
-               <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
+                  placeholder="비밀번호 확인" onblur="checkSamePass()">
+               <p class="help-block" id="passS">비밀번호를 한번 더 입력해주세요.</p>
             </div>
          </div>
             <div class="form-group">
@@ -167,7 +167,7 @@
             <div class="col-sm-6">
                <div >
                <sform:input path="birth" class="form-control" id="inputName" type="text"
-                  placeholder="생년월일 ex)19920328"/><sform:errors element="span class='errormsg'" path="nickname"/>
+                  placeholder="생년월일 ex)19920328"/><sform:errors element="span class='errormsg'" path="birth"/>
                </div>
             </div>
          </div>
@@ -233,6 +233,7 @@
 	var checkIdComplete=false;
 	var checkEmailComplete=false;
 	var checkNicknameComplete=false;
+	var profileImg="";
 	
 	$("#form").on("submit", function(e){
 		e.preventDefault();
@@ -264,6 +265,16 @@
     	}
     }
     
+    var checkSamePass = function(){ 
+    	var pass1=$("#inputPassword").val();
+    	var pass2=$("#inputPasswordCheck").val();
+    	if(pass1==pass2){
+    		$("#passS").css("color","black");
+    	}else{
+    		$("#passS").css("color","red");
+    	}
+    }
+    
     $(document).ready(function(){
     	$("#image").change(function(){
     		readImage(this);
@@ -274,7 +285,7 @@
 		if ( input.files && input.files[0] ) {
 			var FR= new FileReader();
 			FR.onload = function(e) {
-				console.log(e.target.result)
+				profileImg=e.target.result;
 			};       
 			FR.readAsDataURL( input.files[0] );
 		}
