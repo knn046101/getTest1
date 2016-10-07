@@ -307,7 +307,7 @@ a:focus{
 .navbar-nav ul a.has-submenu {
     padding-right:30px;
 }
-.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+.navbar-default .navbar-collapse, .navbar-default .navbar-collapse2,.navbar-default .navbar-form{
     border-color: transparent;
 }
 /* scrolling arrows for tall menus */
@@ -644,8 +644,8 @@ ul.sm li *,ul.sm li *:before,ul.sm li *:after{-moz-box-sizing:content-box;-webki
 }
 .sidebar .widget ul.arrows_list li a {
     color: #777;
-    font-size: 12px;
-    line-height: 30px;
+    font-size: 13px;
+    line-height: 40px;
 }
 .sidebar .widget ul.arrows_list li a:hover, .sidebar .widget ul.arrows_list1 li a:hover i {
     color:#27AB99;
@@ -3682,6 +3682,10 @@ blockquote.default {
         margin: 0;
     }
     .navbar-collapse{
+        position: absolute;
+        width: 100%;
+    }
+    .navbar-collapse2{
         position: absolute;
         width: 100%;
     }

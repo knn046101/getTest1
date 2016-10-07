@@ -3987,7 +3987,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus
 	{
 	color: #fff;
-	background-color: #428bca
+	background-color: #27AB99
 }
 
 .nav-stacked>li {
@@ -4076,6 +4076,9 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 @media ( min-width :768px) {
 	.navbar {
 		border-radius: 4px
+	}
+	.list_style circle {
+		      
 	}
 }
 
