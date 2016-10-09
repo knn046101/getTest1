@@ -205,7 +205,7 @@
          </div>
          <div class="form-group">
             <div class="col-sm-12 text-center">
-               <sform:button onclick="location='join/join_after.jsp'" class="btn btn-primary" style="background-color:orange; border-color:#fff;">
+               <sform:button class="btn btn-primary" style="background-color:orange; border-color:#fff;">
                   회원가입<i class="fa fa-check spaceLeft"></i>
                </sform:button>
                <sform:button onclick="home()" class="btn btn-default" type="button" style="background-color:#27AB99; border-color:#fff;">
@@ -229,7 +229,11 @@
 		e.preventDefault();
  		if(checkIdComplete && checkEmailComplete && checkNicknameComplete){
 			if($("#agree").is(":checked")){
-				this.submit();	
+				if($("#inputPassword").val()==$("#inputPasswordCheck").val()){
+					this.submit();	
+				}else{
+					alert("비밀번호를 일치하여 주십시오.");	
+				}
 			}else{
 				alert("약관에 동의하여 주십시오.");	
 			}
@@ -400,7 +404,6 @@
 				for(var i=0; i<data.length; i++){
 					citystr+="<option class='sel2'>"+data[i].city+"</option>";
 				}
-				console.log(citystr);
 				$("#sel2").append(citystr);
 			},
 			error : function(xhr, status, error){

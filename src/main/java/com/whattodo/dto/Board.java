@@ -18,7 +18,6 @@ public class Board {
 	private String numberOfPeople;
 	private String what;
 	private String category;
-	private String boardKeyword;
 	private Integer click;
 	private Integer good;
 	private Integer scrap;

@@ -5,9 +5,9 @@
 <mapper namespace="whattodo.dao.BoardMapper">
 	<insert id="insertBoard" parameterType="board">
 		insert into boards(board_no, board_title, board_content, write_date, location,
-						NUMBEROFPEOPLE, what, category, board_keyword, id, main_img)
+						NUMBEROFPEOPLE, what, category, id, main_img)
 		values(SEQ_board_no.nextval, #{boardTitle}, #{boardContent}, #{writeDate}, #{location},
-				#{numberOfPeople}, #{what}, #{category}, #{boardKeyword}, #{id}, #{mainImg})
+				#{numberOfPeople}, #{what}, #{category}, #{id}, #{mainImg})
 	</insert>
 	
 	<update id="updateBoard" parameterType="board">
@@ -19,7 +19,6 @@
 		NUMBEROFPEOPLE=#{numberOfPeople},
 		what=#{what},
 		category=#{category},
-		board_keyword=#{boardKeyword},
 		id=#{id},
 		main_img=#{mainImg}
 		where board_no=#{boardNo}

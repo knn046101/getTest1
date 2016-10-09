@@ -46,8 +46,8 @@
 					<div class="col-sm-12 col-lg-12 col-md-12">
 						<div class="page_404">
 							<h2>가입완료!</h2>
-							<p>YoungKingBoss 회원님 환영합니다.</p>
-							<a href="../main.jsp" class="btn btn-default btn-lg back_home">
+							<p>회원님 환영합니다.</p>
+							<a href="<%=request.getContextPath() %>/main.jsp" class="btn btn-default btn-lg back_home">
 								<i class="fa fa-arrow-circle-o-left"></i>
 								홈으로
 							</a>

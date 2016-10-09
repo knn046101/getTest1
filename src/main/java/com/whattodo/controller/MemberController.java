@@ -15,7 +15,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -108,7 +107,6 @@ public class MemberController {
 		String selectCapital=request.getParameter("sel1");
 		
 		List<City> city=rs.getCity(selectCapital);
-		logger.trace("city : {}", city);
 		Gson gson = new Gson();
 		String citystr = "[";
 		for(int i=0; i<city.size(); i++){
@@ -127,10 +125,10 @@ public class MemberController {
 		if(result.hasErrors()){
 			return "join/join";
 		}
-		if(!member.getId().trim().equals("") && !member.getPass().trim().equals("")
-				&& !member.getNickname().trim().equals("") && !member.getEmail().equals("")
-				&& !member.getRegion().trim().equals("") && !member.getBirth().trim().equals("")
-				&& !member.getQuestion().trim().equals("") && !member.getAnswer().trim().equals("")){
+		if(member.getId().trim().equals("") && member.getPass().trim().equals("")
+				&& member.getNickname().trim().equals("") && member.getEmail().equals("")
+				&& member.getRegion().trim().equals("") && member.getBirth().trim().equals("")
+				&& member.getQuestion().trim().equals("") && member.getAnswer().trim().equals("")){
 			model.addAttribute("member",member);
 			return "join/join";
 		}

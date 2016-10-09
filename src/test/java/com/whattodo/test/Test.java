@@ -106,7 +106,7 @@ public class Test {
 	@org.junit.Test
 	public void updateMemberTest() {
 		Member member = new Member();
-		member.setId("jong");
+		member.setId("dong");
 		member.setPass("1111");
 		member.setNickname("jjong");
 		member.setEmail("knn046101@naver.com");
@@ -234,7 +234,6 @@ public class Test {
 		board.setWhat("밥도둑#개그#쌍쌍바");
 		board.setCategory("먹거리");
 		board.setId("dong");
-		board.setBoardKeyword("dddd");
 		board.setMainImg("mainImg경로");
 		int result=boardrepo.insertBoard(board);
 		assertThat(result, is(1));
@@ -252,7 +251,6 @@ public class Test {
 		board.setWhat("밥도둑#개그#쌍쌍바");
 		board.setCategory("먹거리");
 		board.setId("hong");
-		board.setBoardKeyword("dddd");
 		board.setMainImg("mainImg경로");
 		int result=boardrepo.updateBoard(board);
 		assertThat(result, is(1));
