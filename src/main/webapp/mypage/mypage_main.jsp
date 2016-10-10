@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -70,7 +71,8 @@ a {
 												<span>마이페이지</span>
 											</h4>
 										</div>
-										<li><a href="<%=request.getContextPath()%>/mypage/mypage_member_update.jsp">
+										<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										<li><a href="${mypageUpdate }">
 										<i class="fa fa-angle-right"></i>정보수정</a></li>
 										<li><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 										<i class="fa fa-angle-right"></i> 내글</a></li>

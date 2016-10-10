@@ -49,6 +49,13 @@ public class MemberController {
 		return "/join/join";
 	}
 	
+	@RequestMapping(value="/mypageUpdate", method=RequestMethod.GET)
+	public String mypageInfo(Model model){
+		Member member = new Member();
+		model.addAttribute("member",member);
+		return "/mypage/mypage_member_update";
+	}
+	
 	@RequestMapping(value="/checkId", method=RequestMethod.POST,
 			produces="application/text;charset=UTF-8")  
 	public @ResponseBody String checkId(Model model, HttpServletRequest request){
@@ -135,6 +142,25 @@ public class MemberController {
 		ms.insertMember(member);
 		return "join/join_after"; // 사용할 뷰의 이름 리턴 
 	}
+	
+	@RequestMapping(value="/updateUser", method=RequestMethod.POST)  
+	public String updateUser(Model model, Member member, BindingResult result){
+		if(result.hasErrors()){
+			return "mypage/mypage_member_update";
+		}
+		if(member.getId().trim().equals("") && member.getPass().trim().equals("")
+				&& member.getNickname().trim().equals("") && member.getEmail().equals("")
+				&& member.getRegion().trim().equals("") && member.getBirth().trim().equals("")
+				&& member.getQuestion().trim().equals("") && member.getAnswer().trim().equals("")){
+			model.addAttribute("member",member);
+			return "mypage/mypage_member_update";
+		}
+		ms.updateMember(member);
+		return "mypage/mypage_main"; // 사용할 뷰의 이름 리턴 
+	}
+	
+
+	
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String checkLogin(Model model, HttpServletRequest request, HttpSession session){

@@ -284,7 +284,7 @@
 			FR.readAsDataURL( input.files[0] );
 		}
 	}
-    /*  //이미지넣기
+      //이미지넣기
     var InputImage =  (function loadImageFile() {
     	  if (window.FileReader) {
         	var ImagePre; 
@@ -310,8 +310,9 @@
             	ImgReader.readAsDataURL(img[0]);
        		}	
  	   }
-    	document.getElementById("imagePreview").src = document.getElementById("image").value;
-	}); */
+    	document.getElementById("imagePreview").src = document
+    	.getElementById("image").value;
+	})(); 
 	
 	////////////////////// 체크하는 코드 및 전송 ajax
 	<c:url value="/checkId" var="checkId"/>
