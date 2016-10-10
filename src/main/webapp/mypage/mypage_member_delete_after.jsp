@@ -20,42 +20,48 @@
     <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
 </head>
 <body>
-	<div class="container-fluid">
+		<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="/layout/header.jsp"></jsp:include>
 		</div>
 		<br>
 		<br>
-		
-		 <form class="form-horizontal" role="form" method="post">
-    		 <div class="dividerHeading">
-				<h4><span>비밀번호 찾기</span></h4>
+	
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4">
+					<section class="content not_found">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-lg-12 col-md-12">
+						<div class="page_404">
+							<h2>탈퇴완료!</h2>
+							<p>안녕히가십시오.</p>
+							<a href="<%=request.getContextPath() %>/main.jsp" class="btn btn-default btn-lg back_home">
+								<i class="fa fa-arrow-circle-o-left"></i>
+								홈으로
+							</a>
+							<a href="<%=request.getContextPath() %>/join.jsp" class="btn btn-default btn-lg back_home">
+								<i class="fa fa-arrow-circle-o-left"></i>
+								회원가입
+							</a>
+						</div>
+					</div>
+				</div>
 				
 			</div>
-		<br>
-		<br>
-		<div class="form-group">
-      		 <label class="col-sm-3 control-label"></label>
-         	 <div class="col-sm-6">
-             	<input class="form-control" type="text" id="email" 
-              	 placeholder="재설정할 비밀번호를 입력해주세요.">
-           		<br>
-           		 <input class="form-control" type="text" id="id" 
-               	placeholder="재설정할 비밀번호를 한번더 입력해주세요.">
-            	<br>
-            	<center>
-            		<a class="btn btn-lg btn-default" href="../main.jsp">비밀번호 재설정</a>
-            	</center>
-        	 </div>
-       	 </div>
-	  </form>	
-	</div>
+		</section>
+		
+					</div>
+				</div>
+			</div>
+		</div>
 	
 		<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 		</div>
-
-
+	</div>
 </body>
 <script></script>
 </html>

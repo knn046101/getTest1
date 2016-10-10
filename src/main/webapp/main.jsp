@@ -73,7 +73,7 @@
                                             
                                         </div>
                                         <figcaption class="item-description">
-                                            
+                                             <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -96,7 +96,7 @@
 
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                            <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -118,7 +118,7 @@
 
                                         </div>
                                         <figcaption class="item-description">
-                                            
+                                             <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -140,7 +140,7 @@
 
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                            <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -158,7 +158,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                            <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -176,7 +176,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                            <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -194,7 +194,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                            
+                                             <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -212,7 +212,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                           	 <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -255,7 +255,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                           	 <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -273,7 +273,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                            
+                                             <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -291,7 +291,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                         
+                                         	 <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -309,7 +309,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                            
+                                             <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -327,7 +327,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                          
+                                          	 <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -345,7 +345,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                            <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -363,7 +363,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                            
+                                             <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -381,7 +381,7 @@
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
                                         </div>
                                         <figcaption class="item-description">
-                                           
+                                            <h5>제목</h5>
                                         </figcaption>
                                     </figure>
                                 </div>
