@@ -17,8 +17,8 @@ public class BoardService implements BoardServiceInterface{
 	BoardRepo brepo;
 	BoardReplyRepo brrepo;
 	
-	public void insertBoard(Board board) {
-		brepo.insertBoard(board);
+	public int insertBoard(Board board) {
+		return brepo.insertBoard(board);
 	}
 
 	public void updateBoard(Board board) {

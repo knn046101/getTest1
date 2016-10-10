@@ -6,7 +6,7 @@
 	<insert id="insertBoard" parameterType="board">
 		insert into boards(board_no, board_title, board_content, write_date, location,
 						NUMBEROFPEOPLE, what, category, id, main_img)
-		values(SEQ_board_no.nextval, #{boardTitle}, #{boardContent}, #{writeDate}, #{location},
+		values(SEQ_board_no.nextval, #{boardTitle}, #{boardContent}, SYSDATE, #{location},
 				#{numberOfPeople}, #{what}, #{category}, #{id}, #{mainImg})
 	</insert>
 	
@@ -14,7 +14,6 @@
 		update boards
 		set board_title=#{boardTitle},
 		board_content=#{boardContent},
-		write_date=#{writeDate},
 		location=#{location},
 		NUMBEROFPEOPLE=#{numberOfPeople},
 		what=#{what},

@@ -24,4 +24,18 @@ public class Board {
 	private String mainImg;
 	
 	private String id;
+
+	public Board(String boardTitle, String boardContent, String location, String numberOfPeople,
+			String what, String category, String mainImg, String id) {
+		super();
+		this.boardTitle = boardTitle;
+		this.boardContent = boardContent;
+		this.location = location;
+		this.numberOfPeople = numberOfPeople;
+		this.what = what;
+		this.category = category;
+		this.mainImg = mainImg;
+		this.id = id;
+	}
+	
 }

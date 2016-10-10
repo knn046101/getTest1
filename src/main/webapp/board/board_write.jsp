@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"	rel="stylesheet">
+	<link href="css/board/bootstrapBoard.css"	rel="stylesheet">
 	<link href="css/summernote.css" rel="stylesheet">
 	
 </head>
@@ -27,7 +27,7 @@
 				<div class="dividerHeading">
 							<h4><span>게시글 작성</span></h4>
 						</div>
-
+			<form id="form" class="form-horizontal" role="form" method="post"  action="addBoard">
 				<nav class="navbar navbar-default navbar-static-top" role="navigation">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -41,7 +41,6 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="active">
-								<form class="navbar-form navbar-left">
 									<div class="form-group">
 	              						<select class="form-control" id="sel1">
 								            <option>서울</option>
@@ -56,51 +55,42 @@
 								            <option>제주도</option>
 								        </select>
 						     		</div>
-						     	</form>
 							</li>
 
 							<li class="active">
-								<form class="navbar-form navbar-left">
 									<div class="form-group">
 						              	<select class="form-control" id="sel2">
 						                </select>
 									</div>
-								</form>
 							</li>
 
 							<li class="active">
-								<form class="navbar-form navbar-left">
 									<div class="form-group">
 										<select class="form-control" data-toggle="dropdown"
 											id="category">
-											<option value="food">먹거리</option>
-											<option value="picnic">나들이</option>
-											<option value="hobby">취미</option>
+											<option>먹거리</option>
+											<option>나들이</option>
+											<option>취미</option>
 										</select>
 									</div>
-								</form>
 							</li>
 
 							<li class="active">
-								<form class="navbar-form navbar-left">
 									<div class="form-group">
 										<select class="form-control" data-toggle="dropdown"
 											id="numberOfPeople">
-											<option value="alone">혼자서</option>
-											<option value="twin">둘이서</option>
-											<option value="manypeople">3명이상</option>
+											<option>혼자서</option>
+											<option>둘이서</option>
+											<option>3명이상</option>
 										</select>
 									</div>
-								</form>
 							</li>
 
 							<li>
-								<form class="navbar-form navbar-left" role="search">
 									<div class="form-group">
 										<input type="text" class="form-control" id="boardKeyword"
 											placeholder="검색키워드)ex.#집#혼자">
 									</div>
-								</form>
 							</li>
 
 						</ul>
@@ -110,7 +100,6 @@
 					</div>
 				</nav>
 
-				<form role="form">
 					<div class="form-group">
 
 						<label for="제목"> 제목 </label> <input type="text"
@@ -135,8 +124,9 @@
 								<img id="imagePreview"/>
 							</div>
 						</div>
+				<button id="save" class="btn btn-primary" type="submit">저장</button>
+				
 				</form>
-				<button id="save" class="btn btn-primary" type="button">저장</button>
 			</div>
 		</div>
 	</div>
@@ -155,6 +145,7 @@
 <script>
 	var reader;
 	var result;
+	
 	function readUploadImage(inputObject) {
 		if (window.File && window.FileReader) {
 			if (inputObject.files && inputObject.files[0]) {
@@ -179,7 +170,6 @@
 							inputObject.files[0] = null;
 							result = null;
 							// 미리보기 부분을 null로 바꾼다.
-							$('#imagePreview').attr('src', nvalue);
 						} else {
 							$('#imagePreview').attr('src', e.target.result);
 							$('#imagePreview').css('weight', "150px");
@@ -208,6 +198,10 @@
 	/////////////////////////파일업로드 완료
 	
 	$(document).ready(function() {
+		if( ${empty login } ){
+			alert("로그인 후에 이용하여 주십시오.");
+			location.href="<%=request.getContextPath()%>/login/login.jsp";
+		}
 		$('#summernote').summernote({
 			height : 300, // set editor height
 			minHeight : null, // set minimum height of editor
@@ -218,114 +212,71 @@
 		});
 	});
 	
- 	<c:url value="/content" var="content"/>
-	$("#save").click(function () {
+	////////////////////////////////////////////////////
+	<c:url value="/addBoard" var="addBoard"/>
+	$("#form").on("submit", function(e){
+		e.preventDefault();
+		
+		var boardTitle = $("#boardTitle").val();
 		var markupStr = $('#summernote').summernote('code');
-		var allData = {
-			"content" : markupStr			
-		};
-		if (markupStr == null) {
-			alert("게시판 내용을 넣어주세요");
-			return false;
-		} else {
-			$.ajax({
-				type : "post",
-				url : "${content}",
-				data : allData,
-				success : function(res) {
-					console.log(res);
-					console.log(" 게시판 내용이 전송되었습니다.");
-					mainimg();	
-				},
-				error : function(xhr, status, error) {
-					alert("사진 크기가 너무 큽니다");
-				},
-				"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
-			});
-		}
-	}); 
+		var locationP = $("#sel1").val()+","+$("#sel2").val();
+		var numberOfPeople = $("#numberOfPeople").val(); 
+		var boardKeyword = $("#boardKeyword").val();
+		var category = $("#category").val();
+		var mainImg = "<img src ="+result+"/>";
 
-	<c:url value="/mainimg" var="mainimg"/>
-	function mainimg(){
-		var thumb = "<img src ="+result+"/>";
-		console.log(thumb + "썸네일");
-		var mainImgData = {
-			"thumbnail" : thumb
+		var allData = {
+			"boardTitle": boardTitle,
+			"boardContent" : markupStr,
+			"location":locationP,
+			"numberOfPeople":numberOfPeople,
+			"what":boardKeyword,
+			"category":category,
+			"id":"${login.id }",
+			"mainImg":mainImg
 		};
-		if (result == null) {
+		
+		if(markupStr == null) {
+			alert("게시판 내용을 넣어주세요");
+		}else if (result == null) {
 			alert("썸네일을 넣어주세요");
 			return false;
-		} else {
+		}else if(boardTitle == null){
+			 alert("제목을 넣어주세요");
+	 	}else if(category == null){
+			alert("카테고리를 넣어주세요");
+		}else if(boardKeyword == null){
+			alert("키워드를 ex.#박종연 형식으로 넣어주세요");
+		}else { 
 			$.ajax({
 				type : "post",
-				url : "${mainimg}",
-				data : mainImgData,
+				url : "${addBoard}",
+				data : allData,
 				success : function(res) {
-					console.log("썸네일이 전송되었습니다.");
-					option();
+					if(res=="저장"){
+						console.log(res)
+						alert("저장 완료하였습니다.");
+						console.log(category);
+						if(category=="먹거리"){
+							location.href="<%=request.getContextPath()%>/list/list_food.jsp";
+						}else if(category=="나들이"){
+							console.log("진입");
+							location.href="<%=request.getContextPath()%>/list/list_picnic.jsp";
+						}else if(category=="취미"){
+							location.href="<%=request.getContextPath()%>/list/list_hobby.jsp";
+						}
+					}else{
+						alert("사진 크기를 체크해주세요.")
+					}
 				},
 				error : function(xhr, status, error) {
-					alert("사진 크기가 너무 큽니다");
+					alert("데이터 전송을 실패했어요");
+					console.log("에러:"+error);
 				},
 				"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 			});
 		}
-	};
-
-	<c:url value="/option" var="option"/>
-	function option() {
-		var loca = $("#loca").val();
-		var boardTitle = $("#boardTitle").val();
-		var numberOfPeople = $("#numberOfPeople").val(); 
-		var category = $("#category").val();
-		var boardKeyword = $("#boardKeyword").val();
-
-		console.log("위치" + loca);
-		console.log("제목" + boardTitle);
-		console.log("사람수" + numberOfPeople);
-		console.log("카테고리" + category);
-		console.log("키워드" + boardKeyword);
-	
-		var stringData = {
-			"locationv" : loca,
-			"boardTitlev" : boardTitle,
-			"numberOfPeoplev" : numberOfPeople,
-			"categoryv" : category,
-			"boardKeywordv" : boardKeyword
-		};
-
-		 if (loca == null) {
-			alert("지역을 넣어주세요");
-		 }
-		 else if(boardTitle == null){
-			 alert("제목을 넣어주세요");
-	 	}
-		else if(numberOfPeople == null){
-			alert("몇명인지 넣어주세요");
-		 }
-		else if(category == null){
-			alert("카테고리를 넣어주세요");
-		}
-		else if(boardKeyword == null){
-			alert("키워드를 ex.#박종연 형식으로 넣어주세요");
-		}
-		 else { 
-			$.ajax({
-				type : "post",
-				url : "${option}",
-				data : stringData,
-				success : function(res) {
-				console.log("보드 내용, 썸네일,옵션 전송 완료");
-			},
-			error : function(xhr, status, error) {
-				alert("데이터 전송을 실패했어요");
-				console.log("에러:"+error);
-			},
-			"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
-			});
-		}
-	};
-
+	});
 	
 	<c:url value="/changeCapital" var="changeCapital"/>
 	$("#sel1").on("change", function(){

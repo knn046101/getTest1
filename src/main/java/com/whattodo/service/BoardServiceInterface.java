@@ -6,7 +6,7 @@ import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 
 public interface BoardServiceInterface {
-	public void insertBoard(Board board);
+	public int insertBoard(Board board);
 	public void updateBoard(Board board);
 	public void deleteBoard(int boardNo);
 	public List<Board> selectAllBoard();

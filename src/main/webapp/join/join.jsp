@@ -21,8 +21,6 @@
 
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/plugins/canvas-to-blob.js"></script>
-<script src="js/fileinput.js"></script>
 
 <script type="text/javascript">
 </script>
@@ -72,10 +70,14 @@
 		</div>
 
          <div class="form-group">
-            <sform:label path="profileImg" class="col-sm-3 control-label" for="inputEmail">프로필 사진 등록</sform:label>
+            <label class="col-sm-3 control-label" for="inputEmail">프로필 사진 등록</label>
             <div class="col-sm-6">
-               <div id="imagePreview"></div><br>
-               <sform:input path="profileImg" id="image" type="file" onchange="InputImage();"></sform:input>
+               <input id="image" type="file" ></input>
+               <div id="preview">
+					<img id="imagePreview"/>
+				</div>
+				<sform:input type="hidden" path="profileImg" class="form-control" id="profileImg"></sform:input>
+               <br>
             </div>
          </div>
          
@@ -218,12 +220,12 @@
   
    <jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
-
 <script>
 	var checkIdComplete=false;
 	var checkEmailComplete=false;
 	var checkNicknameComplete=false;
-	var profileImg="";
+	var reader;
+	var profileImg;
 	
 	$("#form").on("submit", function(e){
 		e.preventDefault();
@@ -269,49 +271,57 @@
     	}
     }
     
-    $(document).ready(function(){
-    	$("#image").change(function(){
-    		readImage(this);
-    	});
-    	$("#image").trigger("change");
-    });
-    function readImage(input) {
-		if ( input.files && input.files[0] ) {
-			var FR= new FileReader();
-			FR.onload = function(e) {
-				profileImg=e.target.result;
-			};       
-			FR.readAsDataURL( input.files[0] );
+    function readUploadImage(inputObject) {
+		if (window.File && window.FileReader) {
+			if (inputObject.files && inputObject.files[0]) {
+				/* 이미지 파일인지도 체크 */
+				if (!(/image/i).test(inputObject.files[0].type)) {
+					alert("이미지 파일을 선택해 주세요!");
+					return false;
+				}
+				/* FileReader 를 준비 한다. */
+				var reader = new FileReader();
+				var file = inputObject.files[0];
+				var fileSize = 0;
+				reader.onload = function(e) {
+					/* reader가 다 읽으면 imagePreview에 뿌려 주는 로직 부분  */
+					if (window.File && window.FileReader && window.FileList
+							&& window.Blob) {
+						//파일사이즈를 fsize에 넣는다.
+						var fsize = file.size;
+						if (fsize > 150000) // 1 mb 기준 (1048576) 여기에서 파일 사이즈 체크 하는 로직
+						{
+							alert(fsize + " bites\n 사이즈가 너무 큽니다. 150KB 미만으로 해주세요!");
+							inputObject.files[0] = null;
+							profileImg = null;
+							// 미리보기 부분을 null로 바꾼다.
+						} else {
+							$('#imagePreview').attr('src', e.target.result);
+							$('#imagePreview').css('weight', "150px");
+							$('#imagePreview').css('height', "150px");
+							//썸네일로 미리보기 된 결과값(base64로 인코딩)을  result에 넣는다 
+							//문자열 앞에 ""를 넣기 위해 앞뒤로 추가
+							profileImg = "\"" + e.target.result + "\"";
+							profileImg = "<img src ="+profileImg+"/>";
+							$("#profileImg").val(profileImg);
+						}
+					} else {
+						alert("HTML5를 지원하는 브라우저에서 접속해 주세요");
+					}
+					/* console.log(result+"결과"); */
+				}
+				/* input file에 있는 파일 하나를 읽어온다. */
+				reader.readAsDataURL(inputObject.files[0]);
+			}
+		} else {
+			alert("HTML5를 지원하는 브라우저에서 접속해 주세요");
 		}
 	}
-    /*  //이미지넣기
-    var InputImage =  (function loadImageFile() {
-    	  if (window.FileReader) {
-        	var ImagePre; 
-        	var ImgReader = new window.FileReader();
-      		var fileType = /^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i; 
- 
-       		ImgReader.onload = function (Event) {
-            if (!ImagePre) {
-                var newPreview = document.getElementById("imagePreview");
-                ImagePre = new Image();
-                ImagePre.style.width = "200px";
-                ImagePre.style.height = "140px";
-                newPreview.appendChild(ImagePre);
-            }
-            ImagePre.src = Event.target.result;
-       	 	};
-     	    return function () {
-            	var img = document.getElementById("image").files;
-            	if (!fileType.test(img[0].type)) { 
-             	alert("이미지 파일을 업로드 하세요"); 
-             	return; 
-            	}
-            	ImgReader.readAsDataURL(img[0]);
-       		}	
- 	   }
-    	document.getElementById("imagePreview").src = document.getElementById("image").value;
-	}); */
+	
+	/* 읽어온 이미지를 미리보기에 쏴준다 */
+	$("#image").change(function() {
+		readUploadImage(this);
+	});
 	
 	////////////////////// 체크하는 코드 및 전송 ajax
 	<c:url value="/checkId" var="checkId"/>

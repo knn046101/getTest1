@@ -109,13 +109,9 @@ public class Test {
 		member.setId("dong");
 		member.setPass("1111");
 		member.setNickname("jjong");
-		member.setEmail("knn046101@naver.com");
 		member.setRegion("경기도 광주시");
-		member.setBirth("19920328");
 		member.setFavorite("운동#헬스");
 		member.setProfileImg("/img/path");
-		member.setQuestion("출신 고등학교는 ?");
-		member.setAnswer("광주중앙고등학교");
 		int result=memberRepo.updateMember(member);
 		assertThat(result, is(1));
 	}
@@ -228,12 +224,11 @@ public class Test {
 		Board board = new Board();
 		board.setBoardTitle("에디터 게시글 Test");
 		board.setBoardContent("내용쭈르르르르");
-		board.setWriteDate(new Date());
 		board.setLocation("경기도 광주시");
 		board.setNumberOfPeople("혼자서");
 		board.setWhat("밥도둑#개그#쌍쌍바");
 		board.setCategory("먹거리");
-		board.setId("dong");
+		board.setId("knn046101");
 		board.setMainImg("mainImg경로");
 		int result=boardrepo.insertBoard(board);
 		assertThat(result, is(1));
@@ -245,7 +240,6 @@ public class Test {
 		board.setBoardNo(2);
 		board.setBoardTitle("에디터 게시글 Test");
 		board.setBoardContent("내용 변경 Test");
-		board.setWriteDate(new Date());
 		board.setLocation("경기도 광주시");
 		board.setNumberOfPeople("혼자서");
 		board.setWhat("밥도둑#개그#쌍쌍바");

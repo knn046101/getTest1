@@ -13,13 +13,9 @@
 		update members
 		set pass=#{pass},
 		nickname=#{nickname},
-		email=#{email},
 		region=#{region},
-		birth=#{birth},
 		favorite=#{favorite},
 		profile_img=#{profileImg},
-		question=#{question},
-		answer=#{answer}
 		where id=#{id}
 	</update>
 	<delete id="deleteMemberById" parameterType="String">
