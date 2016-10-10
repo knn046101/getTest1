@@ -31,8 +31,8 @@
 			<div class="col-md-12">
 				<div class="row">
 				<div class="dividerHeading">
-								<h4><span>모임 생성</span></h4>
-						</div>
+						<h4><span>모임 생성</span></h4>
+				</div>
 					<div class="col-md-4">
 						
 					</div>

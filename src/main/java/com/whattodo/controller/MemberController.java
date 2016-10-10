@@ -168,9 +168,17 @@ public class MemberController {
 		String pass = request.getParameter("inputPassword");
 		Member member = ms.getMemberById(id);
 		if(member!=null && member.getPass().equals(pass)){
-			session.setAttribute("login", member);
-			return "main";
-		}else{
+			if(member.getId().equals("admin")){
+				session.setAttribute("login", member);
+				return "mypage/adminpage_main";
+			}
+			else{
+				session.setAttribute("login", member);
+				return "main";
+			}
+			
+		}
+		else{
 			model.addAttribute("loginFail", "다시 입력하여주십시오.");
 			return "login/login";
 		}

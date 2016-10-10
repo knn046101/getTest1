@@ -142,7 +142,7 @@
             <sform:label path="nickname" class="col-sm-3 control-label" for="inputName">닉네임</sform:label>
             <div class="col-sm-6">
                <div >
-               <sform:input path="nickname" class="form-control" id="inputName" type="text"
+               <sform:input path="nickname" class="form-control" id="inputName" name="inputName" type="text"
                   placeholder="닉네임"/><sform:errors element="span class='errormsg'" path="nickname"/>
                   <span class="input-group-btn">
                      <button type="button" id="checkNickname" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;" >중복확인

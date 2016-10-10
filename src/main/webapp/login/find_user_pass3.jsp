@@ -26,24 +26,34 @@
 		</div>
 		<br>
 		<br>
-	
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-				<div class="dividerHeading">
-								<h4><span>비밀번호 찾기</span></h4>
-						</div>
-					<div class="col-md-4">
-						
-					</div>
-				</div>
+		
+		 <form class="form-horizontal" role="form" method="post">
+    		 <div class="dividerHeading">
+				<h4><span>비밀번호 찾기</span></h4>
+				
 			</div>
-		</div>
+		<br>
+		<br>
+		<div class="form-group">
+      		 <label class="col-sm-3 control-label"></label>
+         	 <div class="col-sm-6">
+             	<input class="form-control" type="text" id="email" 
+              	 placeholder="재설정할 비밀번호를 입력해주세요.">
+           		<br>
+           		 <input class="form-control" type="text" id="id" 
+               	placeholder="재설정할 비밀번호를 한번더 입력해주세요.">
+            	<br>
+            	<center>
+            		<a class="btn btn-lg btn-default" href="../main.jsp">비밀번호 재설정</a>
+            	</center>
+        	 </div>
+       	 </div>
+	  </form>	
+	</div>
 	
 		<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 		</div>
-	</div>
 
 
 </body>
