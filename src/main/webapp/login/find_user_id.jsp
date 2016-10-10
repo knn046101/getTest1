@@ -27,23 +27,35 @@
 		<br>
 		<br>
 	
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-				<div class="dividerHeading">
-								<h4><span>아이디 찾기</span></h4>
-						</div>
-					<div class="col-md-4">
-						
-					</div>
-				</div>
-			</div>
-		</div>
+		 <form class="form-horizontal" role="form" method="post">
+     <div class="dividerHeading">
+		<h4><span>아이디 찾기</span></h4>
+	</div>
+	<br>
+	<br>
+      <div class="form-group">
+      	 <label class="col-sm-3 control-label"></label>
+         <div class="col-sm-6">
+            <input class="form-control" type="text" id="email" 
+               placeholder="회원가입시 등록한 이메일을 주소를 작성해주세요.">
+            <br>
+            <center>
+            <a class="btn btn-lg btn-default" href="#">OK</a>
+            <br> Ajax로 다음화면 처리예정입니다. -현정-	
+            </center>
+         </div>
+       	
+        
+      </div>
+	  </form>	
+	</div>
+
 	
 		<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 		</div>
-	</div>
+
+
 
 </body>
 <script></script>

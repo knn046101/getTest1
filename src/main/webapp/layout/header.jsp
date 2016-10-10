@@ -46,14 +46,15 @@
                        		<c:if test="${empty (login) }">
                             	<li><a href="<%=request.getContextPath() %>/login/login.jsp" class="my-tweet">로그인</a>&#10072;</li>
                             	<c:url value="/join" var="join"/>
-                            	<li><a href="${join }" class="my-facebook"> 회원가입</a>&#10072;</li>
+                            	<li><a href="${join }" class="my-facebook"> 회원가입</a></li>
                             </c:if>
                             <c:if test="${!empty (login) }">
                             	<li><span>${login.nickname} 님 환영합니다.</span></li>
                             	<c:url value="/logout" var="logout"/>
-                            	<li><a href="${logout }" class="my-skype">로그아웃</a></li>
-                            	<li><a href="<%=request.getContextPath() %>/mypage/mypage_main.jsp" class="my-skype">  마이페이지</a></li>
+                            	<li><a href="${logout }" class="my-skype">로그아웃</a>&#10072;</li>
+                            	<li><a href="<%=request.getContextPath() %>/mypage/mypage_main.jsp" class="my-skype" style="margin-left: 2px;">&nbsp;마이페이지</a></li>
                         	</c:if>
+                        
                         </ul>
                     </div>
                 </div>

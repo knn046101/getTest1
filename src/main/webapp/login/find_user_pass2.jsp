@@ -26,24 +26,41 @@
 		</div>
 		<br>
 		<br>
-	
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-				<div class="dividerHeading">
-								<h4><span>비밀번호 찾기</span></h4>
-						</div>
-					<div class="col-md-4">
-						
-					</div>
-				</div>
+		
+		
+    		 <div class="dividerHeading">
+				<h4><span>비밀번호 찾기</span></h4>
+				
 			</div>
-		</div>
+		<br>
+		<br>
+		<div class="form-group">
+			
+      		 <label class="col-sm-3 control-label"></label>
+         	 <div class="col-sm-6">
+             <select class="form-control" id="inputPasswordFind" >
+                  <option>내 보물 1호는?</option>
+                  <option>출신 고등학교는?</option>
+                  <option>내 꿈은?</option>
+                  <option>내 생년월일은?</option>
+              </select>
+              <br>
+           		 <input class="form-control" type="text" id="inputPasswordAnswer" 
+               	placeholder="A. 답변작성">
+            	<br>
+            	<center>
+            		<a class="btn btn-lg btn-default" href="find_user_pass3.jsp">다음으로</a>
+            	</center>
+            	<br>
+            </div>
+           		
+        	 </div>
+       	 </div>
+	  
 	
 		<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 		</div>
-	</div>
 
 
 </body>

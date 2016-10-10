@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Insert title here</title>
+<title>뭐 하 지 ?</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- CSS FILES -->
@@ -57,7 +57,7 @@ a {
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
 										<li><img src="../images/ma.png" class="img-circle"
-											alt="Cinque Terre" width="150" height="150"> <br>
+											width="150" height="150"> <br>
 										</li>
 										<h4 align="left">
 
