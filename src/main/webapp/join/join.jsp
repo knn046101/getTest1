@@ -12,6 +12,24 @@
 <jsp:include page="/layout/whatcss.jsp"></jsp:include>
 <jsp:include page="/layout/whatjs.jsp"></jsp:include>
 
+
+<!-- CSS FILES -->
+ <!--    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+
+    <link rel="stylesheet" href="css/fractionslider.css"/>
+    <link rel="stylesheet" href="css/style-fraction.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+</script> -->
+
+
 <style>
 	.errormsg{
 		color: red;
@@ -22,7 +40,7 @@
 	 <jsp:include page="/layout/header.jsp"></jsp:include>   
 	 <br>
 	 <br>
-                  
+    
       <div class="modal fade" id="defaultModal">
          <div class="modal-dialog">
             <div class="modal-content">
@@ -39,17 +57,12 @@
                </div>
             </div>
             <!-- /.modal-content -->
-                            
          </div>
          <!-- /.modal-dialog -->
-                     
       </div>
       <!-- /.modal -->
-                  
       <!--// 모달창 -->
-                  
       
-                      
       <!-- 본문 들어가는 부분 -->
       <sform:form id="form" class="form-horizontal" role="form" method="post"  action="addUser" modelAttribute="member">
          <div class="dividerHeading">
@@ -257,7 +270,12 @@
     		$("#passS").css("color","red");
     	}
     }
-    
+	/* 읽어온 이미지를 미리보기에 쏴준다 */
+	$("#image").change(function() {
+		readUploadImage(this);
+	});
+
+	
     function readUploadImage(inputObject) {
 		if (window.File && window.FileReader) {
 			if (inputObject.files && inputObject.files[0]) {
@@ -289,7 +307,6 @@
 							//썸네일로 미리보기 된 결과값(base64로 인코딩)을  result에 넣는다 
 							//문자열 앞에 ""를 넣기 위해 앞뒤로 추가
 							profileImg = "\"" + e.target.result + "\"";
-							profileImg = "<img src ="+profileImg+"/>";
 							$("#profileImg").val(profileImg);
 						}
 					} else {
