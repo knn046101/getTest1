@@ -8,16 +8,9 @@
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
 	
-<!-- CSS FILES -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
+<jsp:include page="/layout/whatcss.jsp"></jsp:include>
+<jsp:include page="/layout/whatjs.jsp"></jsp:include>
 
-    <link rel="stylesheet" href="../css/fractionslider.css"/>
-    <link rel="stylesheet" href="../css/style-fraction.css"/>
-
-    <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" />
 </head>
 <body>
 		<div class="container-fluid">

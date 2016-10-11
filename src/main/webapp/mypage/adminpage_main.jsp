@@ -4,26 +4,11 @@
 <head>
 <title>뭐 하 지 ?</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<!-- CSS FILES -->
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"
-	media="screen" data-name="skins">
-<link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
-
-<link rel="stylesheet" href="css/fractionslider.css" />
-<link rel="stylesheet" href="css/style-fraction.css" />
-
-<link rel="stylesheet" type="text/css" href="css/switcher.css"
-	media="screen" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/plugins/canvas-to-blob.js"></script>
-<script src="js/fileinput.js"></script>
-<!-- MetisMenu CSS -->
-<link href="css/metisMenu/metisMenu.min.css" rel="stylesheet">
+<jsp:include page="/layout/whatcss.jsp"></jsp:include>
+<jsp:include page="/layout/whatjs.jsp"></jsp:include>
 <style>
 a {
 	color: #27AB99;
