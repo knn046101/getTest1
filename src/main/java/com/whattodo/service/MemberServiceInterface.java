@@ -1,5 +1,7 @@
 package com.whattodo.service;
 
+import java.util.List;
+
 import com.whattodo.dto.Admin;
 import com.whattodo.dto.Member;
 
@@ -13,4 +15,5 @@ public interface MemberServiceInterface {
 	public Member getMemberByNickname(String nickname);
 	
 	public Admin getAdmin(String adminId);
+	public List<Member> getMemberByDivisionCustomer();
 }

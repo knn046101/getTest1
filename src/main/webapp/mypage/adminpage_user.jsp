@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,43 +54,57 @@
                             <li>
                                  <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>YoungKingBoss</h1><br>
-                                   	<h4><button>에디터로 변경</button></h4>
+                                    <c:url value="/updateDivision" var="updateDivision"/>
+                                    <h1>${updateDivision.nickname }
+                                    <small><button>에디터로 변경</button></small></h1>
                                 </div>
                             </li>
                             <li>
                                  <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>코천종연</h1>
+                                    <h1>코천종연
+                                    <small><button>에디터로 변경</button></small>
+                                    </h1>
                                 </div>
                             </li>
                             <li class="last">
                                  <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>경으니</h1>
+                                    <h1>경으니
+                                    <small><button>에디터로 변경</button></small>
+                                    </h1>
                                 </div>
                             </li>
                         </ul>
                         
                     </div>
+                    
+                    <!-- 에디터 에디터 에디터 에디터 에디터  -->
+                    
                     <div id="Recent" class="tab-pane fade">
                         <ul class="recent_tab_list">
                             <li>
                                 <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>YoungKingBoss</h1>
+                                    <h1>YoungKingBoss
+                                    <small><button>일반회원으로 변경</button></small>
+                                    </h1>
                                 </div>
                             </li>
                             <li>
                                  <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>현정찡</h1>
+                                    <h1>현정찡
+                                    <small><button>일반회원으로 변경</button></small>
+                                    </h1>
                                 </div>
                             </li>
                             <li class="last">
                                  <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>뿡기님</h1>
+                                    <h1>뿡기님
+                                    <small><button>일반회원으로 변경</button></small>
+                                    </h1>
                                 </div>
                             </li>
                         </ul>
@@ -118,6 +133,31 @@
 </body>
 
 <script>
+<c:url value="/updateDivision" var="updateDivision"/>
+	$("#sel1").on("ready", function(){
+		var memberStr="";
+		var sel1=$("#sel1").val();
+		$(".sel2").remove();
+		$.ajax({
+			type:"get",
+			url:"${changeCapital}",
+			dataType:"json",
+			data: {
+				"sel1":sel1	
+			},
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+				
+					citystr+="<li><a href='#'>"+data[i].city+"</a></li>";
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	});
 
 </script>
 </html>

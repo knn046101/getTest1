@@ -1,5 +1,7 @@
 package com.whattodo.repo;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,6 +49,11 @@ public class MemberRepoImpl implements MemberRepo {
 	public int updateMemberEditor(String id) {
 		String statement = NAME_SPACE+"updateMemberEditor";
 		return template.update(statement, id);
+	}
+	
+	public List<Member> getMemberByDivisionCustomer(){
+		String statement = NAME_SPACE+"selectCustomer";
+		return template.selectList(statement);
 	}
 
 }
