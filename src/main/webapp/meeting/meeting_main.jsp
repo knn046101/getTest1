@@ -153,7 +153,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">서울</a>
+					                            <a href="meeting_info.jsp">서울</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -162,7 +162,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">경기</a>
+					                            <a href="meeting_info.jsp">경기</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -171,7 +171,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">충남</a>
+					                            <a href="meeting_info.jsp">충남</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -180,7 +180,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">충북</a>
+					                            <a href="meeting_info.jsp">충북</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -189,7 +189,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">전남</a>
+					                            <a href="meeting_info.jsp">전남</a>
 					                        </div>
 					                    </div>
 					                </div>
