@@ -51,18 +51,9 @@
                             <c:if test="${!empty (login) }">
                             	<li><span>${login.nickname} 님 환영합니다.</span></li>
                             	<c:url value="/logout" var="logout"/>
-<<<<<<< HEAD
-				
-				              	<li><a href="${logout }" class="my-skype">로그아웃</a>&#10072;</li>
-=======
 
                             	<li><a href="${logout }" class="my-skype">로그아웃</a></li>
                             	<li><a href="<%=request.getContextPath()%>/mypage/mypage_main.jsp" class="my-skype">  마이페이지</a></li>
-
-
-                            	<li><a href="${logout }" class="my-skype">로그아웃</a>&#10072;</li>
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-                            	<li><a href="<%=request.getContextPath() %>/mypage/mypage_main.jsp" class="my-skype" style="margin-left: 2px;">&nbsp;마이페이지</a></li>
 
                         	</c:if>
                         
