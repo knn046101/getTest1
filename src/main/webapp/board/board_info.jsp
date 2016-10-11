@@ -21,7 +21,7 @@
 		
 		</div>
 	
-		<div class="row">
+		<div class="container row">
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-4" style="text-align:center;">
@@ -81,7 +81,7 @@
 				</div>
 						
 						<!--News Comments-->
-                        <div class="news_comments">
+                        <div class="container news_comments">
                             <div class="dividerHeading">
                                 <h4><span>댓글</span></h4>
                             </div>

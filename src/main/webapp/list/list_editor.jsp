@@ -20,7 +20,7 @@
 	</div>
 	<br>
 	<br>
-	<div class="row">
+	<div class="container row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-4">
