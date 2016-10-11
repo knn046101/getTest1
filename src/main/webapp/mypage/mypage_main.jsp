@@ -61,8 +61,8 @@ a {
 											width="150" height="150"> <br>
 										</li>
 										<h4 align="left">
-
-											마동석 <span class="label label-default"
+											${login.nickname}
+											 <span class="label label-default"
 												style="background-color: grey">일반회원</span>
 										</h4>
 										<div></div>

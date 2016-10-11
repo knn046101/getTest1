@@ -23,6 +23,10 @@ public class MemberService implements MemberServiceInterface{
 	public void updateMember(Member member) {
 		mrepo.updateMember(member);
 	}
+	
+	public void updateMemberEditor(String id) {
+		mrepo.updateMemberEditor(id);
+	}
 
 	public void deleteMember(String id) {
 		mrepo.deleteMember(id);
@@ -43,7 +47,4 @@ public class MemberService implements MemberServiceInterface{
 	public Admin getAdmin(String adminId) {
 		return arepo.getAdmin(adminId);
 	}
-
-	
-
 }

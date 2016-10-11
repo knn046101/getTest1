@@ -44,4 +44,9 @@ public class MemberRepoImpl implements MemberRepo {
 		return template.selectOne(statement, nickname);
 	}
 
+	public int updateMemberEditor(String id) {
+		String statement = NAME_SPACE+"updateMemberEditor";
+		return template.update(statement, id);
+	}
+
 }

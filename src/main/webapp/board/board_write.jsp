@@ -5,31 +5,34 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>뭐 하 지 ?</title>
-	<meta name="description" content="">
-	 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>뭐 하 지 ?</title>
+<meta name="description" content="">
 
-	 
-	 <%@include file="/layout/whatcss.jsp"%>
-	 <%-- <%@include file="/layout/whatjs.jsp"%>  --%>
-	
+
+
+<%@include file="/layout/whatcss.jsp"%>
+<%-- <%@include file="/layout/whatjs.jsp"%>  --%>
+
 </head>
 
 
 <body>
- 
- <%@include file="/layout/header.jsp"%>  
 
-   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-	
-	<script	src="js/summernote.js"></script>
-	
- 
+	<%@include file="/layout/header.jsp"%>
+
+	<link
+		href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
+		rel="stylesheet">
+
+	<script src="js/summernote.js"></script>
 
 
- 
+
+
+
 	<br>
 	<div class="container-fluid">
 		<div class="row">
@@ -37,21 +40,23 @@
 				<!--양 옆 공백을 위한 div 건들지 마시오  -->
 			</div>
 
-		<!--메인 내용 div 시작  -->
+			<!--메인 내용 div 시작  -->
 			<div class="col-md-8">
 				<div class="dividerHeading">
-							<h4><span>게시글 작성</span></h4>
+					<h4>
+						<span>게시글 작성</span>
+					</h4>
 
-						</div>
+				</div>
 
-<!-- 게시글 정보를 가둬 놓는 form -->
+				<!-- 게시글 정보를 가둬 놓는 form -->
 				<label for="게시글 정보"> 게시글정보 </label>
 				<form role="search">
-				
+
 					<div class="input-group">
 
 
-<!-- 첫번째 행의 첫번째 드롭박스 -->
+						<!-- 첫번째 행의 첫번째 드롭박스 -->
 						<div class="input-group-btn">
 							<button type="button" class="btn btn-default dropdown-toggle"
 								data-toggle="dropdown">
@@ -59,33 +64,33 @@
 							</button>
 							<ul class="dropdown-menu" id="sel1">
 								<li><a data-value="ac1n">서울</a></li>
-								<li><a href="#" >경기도</a></li>
-								<li><a href="#" >강원도</a></li>
-								<li><a href="#" >충청남도</a></li>
-								<li><a href="#" >충청북도</a></li>
-								<li><a href="#" >전라남도</a></li>
-								<li><a href="#" >전라북도</a></li>
-								<li><a href="#" >경상남도</a></li>
-								<li><a href="#" >경상북도</a></li>
-								<li><a href="#" >제주도</a></li>
+								<li><a href="#">경기도</a></li>
+								<li><a href="#">강원도</a></li>
+								<li><a href="#">충청남도</a></li>
+								<li><a href="#">충청북도</a></li>
+								<li><a href="#">전라남도</a></li>
+								<li><a href="#">전라북도</a></li>
+								<li><a href="#">경상남도</a></li>
+								<li><a href="#">경상북도</a></li>
+								<li><a href="#">제주도</a></li>
 							</ul>
 						</div>
 
-<!-- 첫번째 행의 첫번째 드롭박스 끝 -->
+						<!-- 첫번째 행의 첫번째 드롭박스 끝 -->
 
 
-<!--두번째 드롭박스  -->
+						<!--두번째 드롭박스  -->
 						<div class="input-group-btn">
 							<button type="button" class="btn btn-default dropdown-toggle"
 								data-toggle="dropdown">
 								<span id="srch-sel2">시 선택</span> <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" id="sel2">
-								
+
 							</ul>
 						</div>
 
-<!--세번째 드롭박스  -->
+						<!--세번째 드롭박스  -->
 						<div class="input-group-btn">
 							<button type="button" class="btn btn-default dropdown-toggle"
 								data-toggle="dropdown" id="btn-category">
@@ -100,7 +105,7 @@
 						</div>
 
 
-<!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
+						<!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
 						<input type="hidden" id="txt-sel1"> <input type="hidden"
 							id="txt-sel2"> <input type="hidden" id="txt-category">
 						<input type="hidden" id="txt- numberOfPeople">
@@ -108,10 +113,10 @@
 					</div>
 
 				</form>
-<!--  첫번째 행 완료-->
+				<!--  첫번째 행 완료-->
 
 
-<!-- 두번째 행 시작  -->
+				<!-- 두번째 행 시작  -->
 
 				<form role="keyword">
 					<label for="키워드"> 키워드 </label>
@@ -129,20 +134,19 @@
 								<li><a href="#" data-value="hobby">3명이상</a></li>
 							</ul>
 						</div>
-						<input type="hidden" id="txt-category"> 
-						<input type="text"
-							id="boardKeyword" class="form-control" placeholder="무엇을?(#가을#하늘높다)">
-						<span class="input-group-btn"> 
-					
-							<span class="glyphicon glyphicon-search"></span>
+						<input type="hidden" id="txt-category"> <input type="text"
+							id="boardKeyword" class="form-control"
+							placeholder="무엇을?(#가을#하늘높다)"> <span
+							class="input-group-btn"> <span
+							class="glyphicon glyphicon-search"></span>
 							</button>
 						</span>
 					</div>
-<!-- 두번째 행 끝 -->
+					<!-- 두번째 행 끝 -->
 
 
 
-<!--세번째 행  -->
+					<!--세번째 행  -->
 					<form role="form">
 						<div class="form-group">
 
@@ -150,13 +154,13 @@
 								class="form-control" id="boardTitle" name="boardTitle">
 						</div>
 
-<!--네번째 행 게시판 내용  -->
+						<!--네번째 행 게시판 내용  -->
 						<fieldset class=bound>
 
 							<legend>
 								<label for="내용"> 내용 </label>
 
-<!--게시판 내용 입력 하는 에디터가 들어감   -->
+								<!--게시판 내용 입력 하는 에디터가 들어감   -->
 								<div id="summernote">
 									<p>내용을 입력하세요</p>
 								</div>
@@ -165,7 +169,7 @@
 
 
 
-<!--대표 사진 이미지를 업로드 하는 부분   -->
+							<!--대표 사진 이미지를 업로드 하는 부분   -->
 							<div class="form-group">
 
 								<label for="대표사진"> 대표 이미지 선택 </label>
@@ -173,7 +177,7 @@
 								<div id="fileupload">
 									<input type='file' id="uploadImage" />
 								</div>
-<!-- 업로드 할 이미지를 미리 보여주는 부분 -->
+								<!-- 업로드 할 이미지를 미리 보여주는 부분 -->
 								<div id="preview">
 									<img id="imagePreview" margin="2px" height="100px"
 										width="100px" src="#" alt="Preview upload images" />
@@ -181,7 +185,7 @@
 
 							</div>
 					</form>
-					
+
 					<!-- 저장 버튼으로 자바스크립트를 통해 ajax -> 컨트롤러로 전송하는 부분 -->
 					<button id="save" class="btn btn-primary" type="button">저장</button>
 			</div>
@@ -194,9 +198,9 @@
 	<div class="col-md-2">
 		<!--양 옆 공백을 위한 div 건들지 마시오  -->
 	</div>
-<div>
-<%@include file="/layout/footer.jsp"%>
-</div>  
+	<div>
+		<%@include file="/layout/footer.jsp"%>
+	</div>
 </body>
 
 
@@ -207,9 +211,9 @@
 <script	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> -->
 <!-- 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"	rel="stylesheet">
 	<link href="css/summernote.css" rel="stylesheet"> -->
-	
 
-	
+
+
 
 
 <script>
@@ -371,7 +375,20 @@ var numberOfPeoplessel;
 			focus : true
 		// set focus to editable area after initializing summernote
 		});
-
+	});
+	
+	////////////////////////////////////////////////////
+	<c:url value="/addBoard" var="addBoard"/>
+	$("#form").on("submit", function(e){
+		e.preventDefault();
+		
+		var boardTitle = $("#boardTitle").val();
+		var markupStr = $('#summernote').summernote('code');
+		var locationP = $("#sel1").val()+","+$("#sel2").val();
+		var numberOfPeople = $("#numberOfPeople").val(); 
+		var boardKeyword = $("#boardKeyword").val();
+		var category = $("#category").val();
+		var mainImg = result;
 	});
 
 /* 섬머노트 내용을 서버로 전달하는 부분 */
@@ -552,24 +569,24 @@ var numberOfPeoplessel;
 
 
 <!--시범  -->
- 
+
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/retina-1.1.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery.cookie.js"></script> 
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 
-	<script src="js/jquery.fractionslider.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-	<script type="text/javascript"
-		src="js/jquery.smartmenus.bootstrap.min.js"></script>
-		
-		<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-	<script type="text/javascript" src="js/jflickrfeed.js"></script>
-	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script src="js/jquery.fractionslider.js" type="text/javascript"
+	charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+<script type="text/javascript"
+	src="js/jquery.smartmenus.bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+<script type="text/javascript" src="js/jflickrfeed.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
 
 <script type="text/javascript" src="js/swipe.js"></script>
-	<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
 
-	<script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </html>

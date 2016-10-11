@@ -22,7 +22,7 @@
 		delete
 		from members
 		where id=#{id}
-		</delete>
+	</delete>
 	<select id="getMemberById" parameterType="String" resultType="member">
 		select *
 		from members
@@ -40,4 +40,10 @@
 		from members
 		where nickname=#{nickname}
 	</select>
+	
+	<update id="updateMemberEditor" parameterType="String">
+		update members
+		set division='Editor'
+		where id=#{id}
+	</update>
 </mapper>
