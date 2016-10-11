@@ -22,7 +22,7 @@
 		delete
 		from members
 		where id=#{id}
-		</delete>
+	</delete>
 	<select id="getMemberById" parameterType="String" resultType="member">
 		select *
 		from members
