@@ -10,6 +10,9 @@
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
 	
+	<jsp:include page="/layout/whatcss.jsp"></jsp:include>
+	<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+	
 </head>
 <body>
 		<jsp:include page="/layout/header.jsp"></jsp:include>

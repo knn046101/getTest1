@@ -2507,20 +2507,56 @@ ul.client_items {
 /* ======================================================================== */
 /* 17. BUTTONS                                                              */
 /* ======================================================================== */
-.btn-default{
-    background:#27AB99;
-    color:#fff;
-    border:none;
+ /* .btn-default{
+	
+	font-weight: normal;
+	 font-size: 14px;
+	   text-align: center;
+    background:#ffffff;
+      border-color: #ccc;
+    color: #333;
+    border:1px;
     border-radius:2px;
     transition:all 0.3s ease-in-out;
     -webkit-transition:all 0.3s ease-in-out;
     -moz-transition:all 0.3s ease-in-out;
     -ms-transition:all 0.3s ease-in-out;
     -o-transition:all 0.3s ease-in-out;
+}  */
+
+
+
+.btn {
+   display: inline-block; 
+  padding: 12px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1.5px solid transparent;
+  border-radius: 4px;
+  
+  background:#ffffff;
+  
+    border-color: #eaeaea;
 }
+
+
 .btn-default:hover{
-    background:#D23928;
-    color:#fff;
+    background:#c0c0c0;
+    color:#333;
+    border-color: #adadad;
 }
 
 /* Social Buttons
