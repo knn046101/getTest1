@@ -40,4 +40,10 @@
 		from members
 		where nickname=#{nickname}
 	</select>
+	
+	<update id="updateMemberEditor" parameterType="String">
+		update members
+		set division='Editor'
+		where id=#{id}
+	</update>
 </mapper>
