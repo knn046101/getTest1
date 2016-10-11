@@ -47,81 +47,46 @@ a {
 				</div>
 			</div>
 		</div>
-		<div class="container">
+	
 		<section class="wrapper">
-			<section class="content left_sidebar">
-				<div class="container">
-					<div class="row">
-						<!--Sidebar Widget-->
-						<div class="col-lg-3">
-							<div class="sidebar">
-								<div class="widget widget_categories">
-									<ul class="arrows_list sidenav">
-										<li><img src="../WEB_INF/resources/images/admin.png" class="img-circle"
-											width="150" height="150"> <br>
-										
-												<h4 align="left">
-												${login.nickname } 
-												<span class="label label-default"style="background-color: grey">관리자</span>
-												</h4>
-										</li>
-									</ul>
-								</div>
-							</div>
-							</div>
-							<section class="wrapper">
+		<section class="content service">
 			<div class="container">
 				<div class="row sub_content">
-					
-                    <div class="col-lg-4">
-                        <div class="serviceBox_1">
-                            <div class="icon_service">
-                                <i class="fa fa-laptop"></i>
-                                <h3>Modern Design</h3>
-                            </div>
-                            <div class="fr_content">
-                                <p>Lorem ipsum dolor sit amet, cons adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus mag dis parturient.</p>
-                                <a class="read" href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="serviceBox_1">
-                            <div class="icon_service">
-                                <i class="fa fa-trophy"></i>
-                                <h3>Branding Theme</h3>
-                            </div>
-                            <div class="fr_content">
-                                <p>Lorem ipsum dolor sit amet, cons adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus mag dis parturient.</p>
-                                <a class="read" href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-				</div>
-				
-			</div>
-		</section>
-		</div>
-		
-
-						
-						
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<img src="../WEB_INF/resources/images/admin.png" class="img-circle"
+							 width="150" height="150"> <br>
+						<h4 align="left">
+							${login.nickname } 
+							<span class="label label-default"style="background-color: grey">관리자</span>
+						</h4>
+					</div>
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<div class="serviceBox_2">
+							<a href="mypage/adminpage_board.jsp" style="color:#555;">
+							<i class="fa fa-edit"></i>
+							<h3>총 게시글 관리</h3>
+							<p>Total: 295</p>
+							</a>
+							
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<div class="serviceBox_2">
+							<a href="mypage/adminpage_user.jsp" style="color:#555";>
+							<i class="fa fa-users"></i>
+							<h3>회원 관리</h3>
+							<p>Total: 56</p>
+							</a>
+						</div>
 					</div>
 				</div>
-
-			</section>
+			</div>
 		</section>
-						</div>
-						<div class="col-lg-6 "></div>
-						
+		</section>
 	</div>
 
-
-	
-
-
-
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
+			
+<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script></script>
 
