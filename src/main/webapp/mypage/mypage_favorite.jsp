@@ -105,80 +105,399 @@
 						</div>
 
 						<div class="col-lg-9 ">
-							<div class="carousel slide multi-item-carousel" id="theCarousel">
-								<div class="col-xs-2">
-									
+							<div class="row sub_content">
+								<div class="carousel-intro">
+									<div class="col-md-12">
+										<div class="carousel-navi">
+											<div id="work-prev" class="arrow-left jcarousel-prev">
+												<i class="fa fa-angle-left"></i>
+											</div>
+											<div id="work-next" class="arrow-right jcarousel-next">
+												<i class="fa fa-angle-right"></i>
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
 								</div>
-								<div class="carousel-inner">
-									<div class="item active">
+
+								<div class="jcarousel recent-work-jc">
+									<ul class="jcarousel-list">
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_1.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
 
 
-										<div class="col-xs-4">
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+													</figcaption>
+												</figure>
+											</div>
+										</li>
 
-											<a href="#1"><img
-												src="http://placehold.it/300/f44336/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
-									<div class="item">
-										<div class="col-xs-4">
-											<a href="#1"><img
-												src="http://placehold.it/300/e91e63/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
-									<div class="item">
-										<div class="col-xs-4">
-											<a href="#1"><img
-												src="http://placehold.it/300/9c27b0/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
-									<div class="item">
-										<div class="col-xs-4">
-											<a href="#1"><img
-												src="http://placehold.it/300/673ab7/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
-									<div class="item">
-										<div class="col-xs-4">
-											<a href="#1"><img
-												src="http://placehold.it/300/4caf50/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
-									<div class="item">
-										<div class="col-xs-4">
-											<a href="#1"><img
-												src="http://placehold.it/300/8bc34a/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
-									<!-- add  more items here -->
-									<!-- Example item start:  -->
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_2.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
 
-									<div class="item">
-										<div class="col-xs-4">
-											<a href="#1"><img
-												src="http://placehold.it/300/8bc34a/000000"
-												class="img-responsive"></a>
-										</div>
-									</div>
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
 
-									<!--  Example item end -->
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_3.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_4.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_5.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_5.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_2.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_3.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+									</ul>
+
 								</div>
-								<a class="left carousel-control" href="#theCarousel"
-										data-slide="prev"><i
-										class="glyphicon glyphicon-chevron-left"></i></a>
-								
+								<br>
+								<div class="jcarousel recent-work-jc">
+									<ul class="jcarousel-list">
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_1.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_2.png" alt="" />
+													</div>
+													<div class="option">
+
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_3.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_4.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_5.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_5.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_2.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+
+										<!-- Recent Work Item -->
+										<li class="col-sm-3 col-md-3 col-lg-3">
+											<div class="recent-item">
+												<figure>
+													<div class="touching medium">
+														<img src="images/portfolio/portfolio_3.png" alt="" />
+													</div>
+													<div class="option">
+														<a href="images/portfolio/full/portfolio_1.png"
+															class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+
+														<a href="../board/board_info.jsp" class="hover-link"><i
+															class="fa fa-arrow-right"></i></a>
+
+													</div>
+													<figcaption class="item-description">
+														<h5>Touch and Swipe</h5>
+
+													</figcaption>
+												</figure>
+											</div>
+										</li>
+									</ul>
+
+								</div>
 							</div>
-							
-						</div>
-						<a class="right carousel-control" href="#theCarousel"
-									data-slide="next"><i
-									class="glyphicon glyphicon-chevron-right"></i></a>
-					</div>
 				</div>
 			</section>
 		</section>
