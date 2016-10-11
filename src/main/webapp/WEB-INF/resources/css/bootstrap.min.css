@@ -204,6 +204,7 @@ td, th {
 	a, a:visited {
 		text-decoration: underline
 	}
+
 	a[href]:after {
 		content: " (" attr(href) ")"
 	}
@@ -213,6 +214,7 @@ td, th {
 	a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: ""
 	}
+
 	pre, blockquote {
 		border: 1px solid #999;
 		page-break-inside: avoid
@@ -2324,6 +2326,7 @@ pre code {
 	.col-lg-offset-0 {
 		margin-left: 0
 	}
+	
 }
 
 table {
@@ -4150,7 +4153,12 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 		margin-left: 0
 	}
 }
-
+@media (max-width:768px) {
+	.arrows_list > li > img {
+		margin-left: 28%
+		
+	}
+}
 .navbar-static-top {
 	z-index: 1000;
 	border-width: 0 0 1px

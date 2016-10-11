@@ -42,10 +42,10 @@
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="../images/ma.png" class="img-circle"
-											alt="Cinque Terre" width="150" height="150"> <br>
+										<li><img src="${login.profileImg }" class="img-circle"
+											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
 										</li>
-										<h4 align="left">
+										<h4 align="center">
 
 											${login.nickname }<span class="label label-default"
 												style="background-color: grey">일반회원</span>

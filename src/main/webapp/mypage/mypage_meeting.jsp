@@ -41,13 +41,13 @@
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="../images/ma.png" class="img-circle"
-											alt="Cinque Terre" width="150" height="150"> <br>
-										</li>
-										<h4 align="left">
+										<li><img src="${login.profileImg }" class="img-circle"
+											alt="${login.nickname }" width="150" height="150" hspace="50">
+											<br></li>
+										<h4 align="center">
 
 											${login.nickname } <span class="label label-default"
-												style="background-color: grey">일반회원</span>
+												style="background-color: grey" >일반회원</span>
 										</h4>
 
 										<div class="widget_title">
@@ -55,12 +55,12 @@
 												<span>마이페이지</span>
 											</h4>
 										</div>
-									<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										<c:url value="/mypageUpdate" var="mypageUpdate" />
 										<li style="margin-left: 10px"><a href="${mypageUpdate }">
-										정보수정</a></li>
+												정보수정</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-											내글</a></li>
+												내글</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
 												관심사</a></li>
@@ -69,7 +69,8 @@
 												스크랩</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
-												<i class="fa fa-angle-right"></i>모임</a></li>
+												<i class="fa fa-angle-right"></i>모임
+										</a></li>
 
 									</ul>
 								</div>
@@ -78,9 +79,14 @@
 						</div>
 
 						<div class="col-lg-9 ">
-<div class="row sub_content">
+							<div class="row sub_content">
 								<div class="carousel-intro">
 									<div class="col-md-12">
+										<button class="btn btn-primary"
+											style="background-color: orange; border-color: #fff;">
+											내모임가기 <i class="fa fa-hand-o-right"></i>
+										</button>
+										<br><br><br>
 										<div class="carousel-navi">
 											<div id="work-prev" class="arrow-left jcarousel-prev">
 												<i class="fa fa-angle-left"></i>
@@ -471,9 +477,9 @@
 
 								</div>
 							</div>
-							
+
 						</div>
-						
+
 					</div>
 				</div>
 			</section>
@@ -488,6 +494,6 @@
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
-
+	
 </script>
 </html>
