@@ -14,7 +14,7 @@
 <meta name="description" content="">
 
 <!-- CSS FILES -->
-<link rel="stylesheet" href="css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/style.css"
 	media="screen" data-name="skins">
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="css/style-fraction.css" />
 
 <link rel="stylesheet" type="text/css" href="css/switcher.css"
-	media="screen" />
+	media="screen" /> -->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -51,9 +51,16 @@
                             <c:if test="${!empty (login) }">
                             	<li><span>${login.nickname} 님 환영합니다.</span></li>
                             	<c:url value="/logout" var="logout"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
                             	<li><a href="${logout }" class="my-skype">로그아웃</a></li>
+<<<<<<< HEAD
                             	<li><a href="<%=request.getContextPath()%>/mypage/mypage_main.jsp" class="my-skype">  마이페이지</a></li>
+=======
+                            	<li><a href="<%=request.getContextPath() %>/mypage/mypage_main.jsp" class="my-skype" style="margin-left: 2px;">&nbsp;마이페이지</a></li>
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 
                         	</c:if>
                         
@@ -164,12 +171,12 @@
 
 
 
-	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<!-- 	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.easing.1.3.js"></script>
 	<script src="js/retina-1.1.0.min.js"></script>
 	<script type="text/javascript" src="js/jquery.cookie.js"></script>
-	<!-- jQuery cookie -->
+	jQuery cookie
 	<script src="js/jquery.fractionslider.js" type="text/javascript"
 		charset="utf-8"></script>
 	<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
@@ -182,6 +189,6 @@
 	<script type="text/javascript" src="js/swipe.js"></script>
 	<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
 
-	<script src="js/main.js"></script>
+	<script src="js/main.js"></script> -->
 </body>
 </html>
