@@ -50,8 +50,8 @@
                             <li>
                                  <div class="testimonial-review">
                                     <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>YoungKingBoss</h1>
-                                   
+                                    <h1>YoungKingBoss</h1><br>
+                                   	<h4><button>에디터로 변경</button></h4>
                                 </div>
                             </li>
                             <li>

@@ -223,7 +223,7 @@
 		var numberOfPeople = $("#numberOfPeople").val(); 
 		var boardKeyword = $("#boardKeyword").val();
 		var category = $("#category").val();
-		var mainImg = "<img src ="+result+"/>";
+		var mainImg = result;
 
 		var allData = {
 			"boardTitle": boardTitle,
