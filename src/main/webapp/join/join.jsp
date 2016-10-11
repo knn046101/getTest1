@@ -7,10 +7,12 @@
 <title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-	<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<jsp:include page="/layout/whatcss.jsp"></jsp:include>
+<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+
+
 <!-- CSS FILES -->
  <!--    <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
@@ -26,6 +28,7 @@
 
 <script type="text/javascript">
 </script> -->
+
 
 <style>
 	.errormsg{
