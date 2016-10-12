@@ -24,6 +24,8 @@
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
 							<h4><span>내 주변에서는?</span></h4>
+							<!--위치정보를 받아서 출력해주는 부분  -->
+							<span class=" glyphicon glyphicon-map-marker"  id ="near"> </span>
 
 						</div>
 						
@@ -404,6 +406,224 @@
   
 
     <jsp:include page="/layout/footer.jsp"></jsp:include>
+    
+   <!-- open Api 구글이랑 TourApi 적용 부분 건드리지 마시오 -->
+   
+        <script>
+var googlekey ="AIzaSyB7jJk6mzm9sXtP2N0DIhz-P5JTZAaONXY";
+
+
+		
+ var key ="JSsZ5Smoa%2BwtJchJy5D5EB9SDU5LGZPuK4285EAR7%2F5wisjKDOJkAFSTyHuY0n4uXOHtfemrXCstsw9AFbI7Nw%3D%3D" ;
+
+var locaX;
+var locaY;
+var contentid;
+
+String.prototype.trim = function() {
+    return this.replace(/(^\s*)|(\s*$)/gi, "");
+}
+
+	
+	
+	$(document).ready(function() {
+		
+		if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(showPosition);
+	      
+	    } else { 
+	       console.log("지원 않함");
+	    }
+
+		function showPosition(position) {
+			locaX = position.coords.longitude;
+			locaY =position.coords.latitude; 
+			
+			console.log(locaX+"안에");
+			console.log(locaY+"안에");
+			getgeo();
+}
+		
+		
+		
+	});
+	
+	function getgeo(){
+		var geokey="https://maps.googleapis.com/maps/api/geocode/json?";
+		geokey+="latlng="+locaY+","+locaX+"&key="+googlekey;
+		var myloca="";
+		$.ajax({
+			
+
+			url:geokey,
+			type:"get",
+			success:function(responseTxt){
+				console.log("long:"+ locaX);
+				console.log("lat:"+ locaY);
+				//JSON 계층으로 접근하기
+			
+				console.log(responseTxt);
+				  var resultsArray=responseTxt.results[4].formatted_address; 
+				  
+				  console.log(resultsArray);
+				 
+				 var re = resultsArray.replace(/ /gi,",");
+			
+				 
+				 var splitArray = re.split(",");
+				 
+				 console.log(splitArray[1]+"  "+"  행정구역 도");
+				 console.log(splitArray[2]+"   "+"  행정도시");
+				 
+				 
+				var strdo=  splitArray[1];
+				var strcity = splitArray[2];
+				
+
+				/* myloca+="<a href='#'>"+strdo+" "+strcity+"</a>"; */
+				myloca+=strdo+" "+strcity;
+			
+			$("#near").append(myloca);
+			
+			
+				
+		
+			},
+			
+			error:function(xhr,status,error){
+				alert("fail:"+error);
+			}
+
+		})
+		
+	};
+	
+	
+	
+	
+	
+
+
+$("#getData").on("click",function(){
+	
+	
+	console.log(locaX+"넘김");
+	console.log(locaY+"넘김");
+	
+	
+	
+	
+	/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
+		 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
+
+	  var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
+	 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius=1000&pageNo=1&numOfRows=10&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
+
+	 
+	 
+	 
+$.ajax({
+	
+
+	url:locaurl,
+	type:"get",
+	success:function(responseTxt){
+		//JSON 계층으로 접근하기
+	console.log(locaX+"ajax");
+		console.log(locaY+"ajax");
+		console.log(responseTxt);
+		 var itemArray=responseTxt.response.body.items.item;  
+		/* var itemArray=responseTxt.response.body. */
+		var row="";
+		$.each(itemArray,function(index,item){
+		
+			var title = item.title;
+			var tel = item.tel;
+			var img = item.firstimage;
+			var addr =item.addr1;
+			contentid=item.contentid;
+			row+="<tr><td>"+title+"</td><td>"+tel+"</td><td><img src="+img+"></td><td>"+addr+"</td><td>"+contentid+"</td></tr>";
+			
+			
+		console.log(title,tel,img,addr);	
+		
+		}); 
+		$("#info").html($("#info").html()+row);
+		
+		console.log(responseTxt);
+	},
+	
+	error:function(xhr,status,error){
+		alert("fail:"+error);
+	}
+
+})
+
+
+});
+
+
+
+
+
+
+  $("#getdetail").on("click",function(){ 
+	
+
+	
+	
+	   var detailurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
+		 detailurl+="ServiceKey="+key+"&contentId=126508&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
+
+
+$.ajax({
+	
+
+	url:detailurl,
+	type:"get",
+	success:function(responseTxt){
+		//JSON 계층으로 접근하기
+
+		console.log(responseTxt);
+		 var itemArray=responseTxt.response.body.items.item;
+		 console.log("itemArray:"+itemArray);
+	
+		var row="";
+		$.each(itemArray, function(index, item){
+			console.log("item : "+itemArray);
+			var title = itemArray.title;
+			var tel = itemArray.tel;
+			var img = itemArray.firstimage2;
+			var homepage =itemArray.homepage;
+			var overview = itemArray.overview;
+			row+="<tr><td>"+title+"</td><td>"+tel+"</td><td><img src="+img+"></td><td>"+homepage+"</td><td>"+overview+"</td></tr>";
+			
+			
+		console.log(" 내용 : "+ title,tel,img,homepage,overview);	
+		
+		}); 
+		$("#info").html($("#info").html()+row);
+		
+		console.log(responseTxt);
+	},
+	
+	error:function(xhr,status,error){
+		alert("fail:"+error);
+	}
+
+})
+
+
+}); 
+ 
+
+
+
+</script>
+     
+    
+    
+    
 </body>
 </html>
 
