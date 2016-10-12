@@ -7,8 +7,12 @@ import com.whattodo.dto.Board;
 public interface BoardRepo {
 	public int insertBoard(Board board);
 	public int updateBoard(Board board);
+	/*public int updateBoardScrap(int boardNo);
+	public int updateBoardClick(int boardNo);
+	public int updateBoardGood(int boardNo);*/
 	public int deleteBoard(int boardNo);
 	public List<Board> selectAllBoard();
+	public Board selectBoardbyBoardNo(int boardNo);
 	public List<Board> selectBoardByLocation(String location);
 	public List<Board> selectBoardByNumberOfPeople(String NumberOfPeople);
 	public List<Board> selectBoardByCategory(String Category);

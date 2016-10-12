@@ -50,7 +50,13 @@
                         <span id="srch-sel1">도 선택</span> <span class="caret"></span>
                      </button>
                      <ul class="dropdown-menu" id="sel1">
-                        <li><a href="#">서울</a></li>
+                        <li><a href="#">서울특별시</a></li>
+                        <li><a href="#">인천광역시</a></li>
+                        <li><a href="#">대전광역시</a></li>
+                        <li><a href="#">대구광역시</a></li>
+                        <li><a href="#">광주광역시</a></li>
+                        <li><a href="#">울산광역시</a></li>
+                        <li><a href="#">부산광역시</a></li>
                         <li><a href="#">경기도</a></li>
                         <li><a href="#">강원도</a></li>
                         <li><a href="#">충청남도</a></li>

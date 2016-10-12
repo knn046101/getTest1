@@ -23,6 +23,24 @@
 		where board_no=#{boardNo}
 	</update>
 	
+	<!-- <update id="updateBoardClick" parameterType="int">
+		update boards
+		set click=click+1
+		where board_no=#{boardNo}
+	</update>
+	
+	<update id="updateBoardScarp" parameterType="int">
+		update boards
+		set scrap=scrap+1
+		where board_no=#{boardNo}
+	</update>
+	
+	<update id="updateBoardGood" parameterType="int">
+		update boards
+		set good=good+1
+		where board_no=#{boardNo}
+	</update> -->
+	
 	<delete id="deleteBoard" parameterType="int">
 		delete from boards
 		where board_no=#{boardNo}
@@ -31,6 +49,12 @@
 	<select id="selectAllBoard" resultType="board">
 		select *
 		from boards
+	</select>
+	
+	<select id="selectBoardbyBoardNo" parameterType="int" resultType="board">
+		select *
+		from boards
+		where board_no=#{boardNo}
 	</select>
 	
 	<select id="selectBoardByLocation" parameterType="String" resultType="board">

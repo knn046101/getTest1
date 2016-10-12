@@ -15,6 +15,7 @@ public class BoardService implements BoardServiceInterface{
 
 	@Autowired
 	BoardRepo brepo;
+	@Autowired
 	BoardReplyRepo brrepo;
 	
 	public int insertBoard(Board board) {
@@ -26,14 +27,30 @@ public class BoardService implements BoardServiceInterface{
 	}
 
 	public void deleteBoard(int boardNo) {
-		brepo.deleteBoard(boardNo);
 		brrepo.deleteBoardReplyByBoardNo(boardNo);
+		brepo.deleteBoard(boardNo);
 	}
+	
+	/*public void updateBoardScrap(int boardNo){
+		brepo.updateBoardScrap(boardNo);
+	}
+	
+	public void updateBoardClick(int boardNo){
+		brepo.updateBoardClick(boardNo);
+	}
+	
+	public void updateBoardGood(int boardNo){
+		brepo.updateBoardGood(boardNo);
+	}*/
 
 	public List<Board> selectAllBoard() {
 		return brepo.selectAllBoard();
 	}
 
+	public Board selectBoardbyBoardNo(int boardNo) {
+		return brepo.selectBoardbyBoardNo(boardNo);
+	}
+	
 	public List<Board> selectBoardByLocation(String location) {
 		return brepo.selectBoardByLocation(location);
 	}

@@ -15,4 +15,24 @@ public class BoardReply {
 	private Date boardReplyDate;
 	private Integer boardNo;
 	private String id;
+	private int page;
+	private int recordNum;
+	
+	public BoardReply(String boardReplyContent, Integer boardNo, String id) {
+		super();
+		this.boardReplyContent = boardReplyContent;
+		this.boardNo = boardNo;
+		this.id = id;
+	}
+
+	public BoardReply(Integer boardReplyNo, String boardReplyContent, Date boardReplyDate, Integer boardNo, String id) {
+		super();
+		this.boardReplyNo = boardReplyNo;
+		this.boardReplyContent = boardReplyContent;
+		this.boardReplyDate = boardReplyDate;
+		this.boardNo = boardNo;
+		this.id = id;
+	}
+
+	
 }

@@ -208,7 +208,6 @@ public class MemberController {
 				session.setAttribute("login", member);
 				return "main";
 			}
-			
 		}
 		else{
 			model.addAttribute("loginFail", "다시 입력하여주십시오.");

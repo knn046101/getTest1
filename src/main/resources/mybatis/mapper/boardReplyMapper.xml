@@ -5,7 +5,7 @@
 <mapper namespace="whattodo.dao.BoardReplyMapper">
 	<insert id="insertBoardReply" parameterType="boardReply">
 		insert into boards_replys
-		value(seq_board_reply_no.nextval, #{boardReplyContent}, #{boardReplyDate}, #{boardNo}, #{id})
+		values(seq_board_reply_no.nextval, #{boardReplyContent}, SYSDATE, #{boardNo}, #{id})
 	</insert>
 	
 	<update id="updateBoardReply" parameterType="boardReply">
@@ -31,6 +31,7 @@
 		select *
 		from boards_replys
 		where board_no=#{boardNo}
+		order by board_reply_date asc
 	</select>
 	
 </mapper>

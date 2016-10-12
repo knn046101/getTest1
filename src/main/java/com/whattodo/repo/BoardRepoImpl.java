@@ -32,12 +32,32 @@ public class BoardRepoImpl implements BoardRepo {
 		String statement=NAME_SPACE+"deleteBoard";
 		return template.delete(statement, boardNo);
 	}
+	
+	/*public int updateBoardScrap(int boardNo){
+		String statement=NAME_SPACE+"updateBoardScrap";
+		return template.update(statement, boardNo);
+	}
+	
+	public int updateBoardClick(int boardNo){
+		String statement=NAME_SPACE+"updateBoardClick";
+		return template.update(statement, boardNo);
+	}
+	
+	public int updateBoardGood(int boardNo){
+		String statement=NAME_SPACE+"updateBoardGood";
+		return template.update(statement, boardNo);
+	}*/
 
 	public List<Board> selectAllBoard() {
 		String statement=NAME_SPACE+"selectAllBoard";
 		return template.selectList(statement);
 	}
 
+	public Board selectBoardbyBoardNo(int boardNo) {
+		String statement=NAME_SPACE+"selectBoardbyBoardNo";
+		return template.selectOne(statement, boardNo);
+	}
+	
 	public List<Board> selectBoardByLocation(String location) {
 		String statement=NAME_SPACE+"selectBoardByLocation";
 		return template.selectList(statement, location);

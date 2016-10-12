@@ -142,11 +142,8 @@
                                         </div>
                                         <div class="option">
                                             <a href="images/portfolio/full/portfolio_3.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-
                                             <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-
                                         </div>
                                         <figcaption class="item-description">
                                             <h5>제목</h5>
@@ -405,10 +402,6 @@
 		<!--Start recent work-->
 		<br>
 		<br>
-		
-		
-
-  
 
     <jsp:include page="/layout/footer.jsp"></jsp:include>
     
@@ -423,47 +416,23 @@ var locaX;
 var locaY;
 var contentid;
 
-
-
-
-
-
-
-
-
-
-/*공백을 제거하는 부분 */
-String.prototype.trim = function() {
-    return this.replace(/(^\s*)|(\s*$)/gi, "");
-}
-
-	
+	/*공백을 제거하는 부분 */
+	String.prototype.trim = function() {
+	    return this.replace(/(^\s*)|(\s*$)/gi, "");
+	}
 	
 	$(document).ready(function() {
-		
 		if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
-	      
 	    } else { 
 	       console.log("브라우저가 지원을 안합니다.");
 	    }
-
 		function showPosition(position) {
 			locaX = position.coords.longitude;
 			locaY =position.coords.latitude; 
-			 radius = $('#radius').val(); 
-			console.log(radius+" 초기 범위값");
-			console.log(locaX+"   " +"정상적으로 값이 들어옴 longitude");
-			console.log(locaY+"   "+"정상적으로 값이 들어옴 latitude");
-			
-			
+			radius = $('#radius').val(); 
 			getgeo();
-}
-		
-		
-	
-		
-		
+		}
 	});
 	
 	function getgeo(){
@@ -471,57 +440,27 @@ String.prototype.trim = function() {
 		geokey+="latlng="+locaY+","+locaX+"&key="+googlekey;
 		var myloca="";
 		$.ajax({
-			
-
 			url:geokey,
 			type:"get",
 			success:function(responseTxt){
-				console.log("long:"+ locaX);
-				console.log("lat:"+ locaY);
 				//JSON 계층으로 접근하기
-			
-				console.log(responseTxt);
-				  var resultsArray=responseTxt.results[4].formatted_address; 
-				  
-				  console.log(resultsArray);
-				 
-				 var re = resultsArray.replace(/ /gi,",");
-			
-				 
-				 var splitArray = re.split(",");
-				 
-				 console.log(splitArray[1]+"  "+"  행정구역 도");
-				 console.log(splitArray[2]+"   "+"  행정도시");
-				 
-				 
+				var resultsArray=responseTxt.results[4].formatted_address; 
+				var re = resultsArray.replace(/ /gi,",");
+				var splitArray = re.split(",");
 				var strdo=  splitArray[1];
 				var strcity = splitArray[2];
-				
 
-				
 				myloca+=strdo+" "+strcity;
-			
-			$("#near").append(myloca);
-			
-			getData();
-			
-			
-				
-		
+				$("#near").append(myloca);
+				getData();
 			},
-			
 			error:function(xhr,status,error){
 				alert("fail:"+error);
 			}
-
 		})
-		
 	};
 	
-	
-	
 	/* 범위에 따라 주변 검색*/
-	
 	$('#radius').change(function(){ 
 		radius =$('#radius option:selected').val() ; 
 		console.log(radius+"   "+"정상적으로 값이 변했음 radius");
@@ -529,150 +468,73 @@ String.prototype.trim = function() {
 		getData();
 		
     });
-		
-	
 
-function getData(){
-	$("#searchTour>li").remove();
-	
-
-	
-	console.log(locaX+"받음");
-	console.log(locaY+"받음");
-	console.log(radius+"범위가 변했습니다.");
-	var locaxx = 126.981106;
-	var locayy = 37.568477;
-	
-	
-	/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
-		 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
-
-	  var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
-	 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo=3&numOfRows=4&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
-
+	function getData(){
+		$("#searchTour>li").remove();
+		var locaxx = 126.981106;
+		var locayy = 37.568477;
+		/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
+			 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
+		 var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
+		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo=3&numOfRows=4&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 	 
-	 
-	 
-$.ajax({
-	
-	url:locaurl,
-	type:"get",
-	success:function(responseTxt){
-		//JSON 계층으로 접근하기
-	console.log(locaX+"ajax");
-		console.log(locaY+"ajax");
-		console.log(responseTxt);
-		 var itemArray=responseTxt.response.body.items.item;  
-		 
-			console.log("데이터 가져오는것을 성공했습니다.");
-		/* var itemArray=responseTxt.response.body. */
-		var row="";
-		$.each(itemArray,function(index,item){
-			
+		$.ajax({
+			url:locaurl,
+			type:"get",
+			success:function(responseTxt){
+				 var itemArray=responseTxt.response.body.items.item;  
+				/* var itemArray=responseTxt.response.body. */
+				var row="";
+				$.each(itemArray,function(index,item){
+					var title = item.title;
+					var tel = item.tel;
+					var img = item.firstimage;
+					var addr =item.addr1;
+					contentid=item.contentid;
+					 /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
+					 row="<li class='col-s1m-3 col-md-3 col-lg-3'>"
+							+"<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid="
+							+contentid+"&"
+							+ "title="+title
+							+"  data-toggle='tooltip'+title='"+title+"' >"
+							+"<img src="+img+" alt='' width='200px' height='150px'/>"
+							+"<div>"+title+"</div></a></li>";
+					$('#searchTour').append(row);
+				}); 
+			},
+			error:function(xhr,status,error){
+				alert("fail:"+error);
+			}
+		})
+	};
 		
-				
-			var title = item.title;
-			var tel = item.tel;
-			var img = item.firstimage;
-			var addr =item.addr1;
-			contentid=item.contentid;
-			
-			console.log(index+"번째 콘텐츠 아이디:"+contentid);
-			
-			console.log(title+""+"추가된 아이템");
-		
-				 /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
-				 row="<li class='col-s1m-3 col-md-3 col-lg-3'>"
-						+"<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid="
-						+contentid+"&"
-						+ "title="+title
-						+"  data-toggle='tooltip'+title='"+title+"' >"
-						 +"<img src="+img+" alt='' width='200px' height='150px'/>"
-						+"<div>"+title+"</div></a></li>";
-				 
-			$('#searchTour').append(row);
-			
-			
-			
-		
-			
-			
-		}); 
-	
-	},
-	
-	error:function(xhr,status,error){
-		alert("fail:"+error);
-	}
+	$("#getdetail").on("click",function(){ 
+		var detailurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
+			 detailurl+="ServiceKey="+key+"&contentId=126508&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 
-})
-
-
-};
-
-
-
-
-
-
-  $("#getdetail").on("click",function(){ 
-	
-
-	
-	
-	   var detailurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
-		 detailurl+="ServiceKey="+key+"&contentId=126508&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
-
-
-$.ajax({
-	
-
-	url:detailurl,
-	type:"get",
-	success:function(responseTxt){
-		//JSON 계층으로 접근하기
-
-		console.log(responseTxt);
-		 var itemArray=responseTxt.response.body.items.item;
-		 console.log("itemArray:"+itemArray);
-	
-		var row="";
-		$.each(itemArray, function(index, item){
-			console.log("item : "+itemArray);
-			var title = itemArray.title;
-			var tel = itemArray.tel;
-			var img = itemArray.firstimage2;
-			var homepage =itemArray.homepage;
-			var overview = itemArray.overview;
-			row+="<tr><td>"+title+"</td><td>"+tel+"</td><td><img src="+img+"></td><td>"+homepage+"</td><td>"+overview+"</td></tr>";
-			
-			
-		console.log(" 내용 : "+ title,tel,img,homepage,overview);	
-		
-		}); 
-		$("#info").html($("#info").html()+row);
-		
-		console.log(responseTxt);
-	},
-	
-	error:function(xhr,status,error){
-		alert("fail:"+error);
-	}
-
-})
-
-
-}); 
- 
-
-
-
+		$.ajax({
+			url:detailurl,
+			type:"get",
+			success:function(responseTxt){
+			//JSON 계층으로 접근하기
+				var itemArray=responseTxt.response.body.items.item;
+				var row="";
+				$.each(itemArray, function(index, item){
+					var title = itemArray.title;
+					var tel = itemArray.tel;
+					var img = itemArray.firstimage2;
+					var homepage =itemArray.homepage;
+					var overview = itemArray.overview;
+					row+="<tr><td>"+title+"</td><td>"+tel+"</td><td><img src="+img+"></td><td>"+homepage+"</td><td>"+overview+"</td></tr>";
+				}); 
+				$("#info").html($("#info").html()+row);
+				console.log(responseTxt);
+			},
+			error:function(xhr,status,error){
+				alert("fail:"+error);
+			}
+		})
+	}); 
 </script>
-     
-    
-    
-    
 </body>
 </html>
-
-

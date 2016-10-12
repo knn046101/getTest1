@@ -9,7 +9,11 @@ public interface BoardServiceInterface {
 	public int insertBoard(Board board);
 	public void updateBoard(Board board);
 	public void deleteBoard(int boardNo);
+	/*public void updateBoardScrap(int boardNo);
+	public void updateBoardClick(int boardNo);
+	public void updateBoardGood(int boardNo);*/
 	public List<Board> selectAllBoard();
+	public Board selectBoardbyBoardNo(int boardNo);
 	public List<Board> selectBoardByLocation(String location);
 	public List<Board> selectBoardByNumberOfPeople(String NumberOfPeople);
 	public List<Board> selectBoardByCategory(String Category);

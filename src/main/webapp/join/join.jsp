@@ -169,7 +169,13 @@
             <div class="row">            
                <div class="col-sm-3">
                   <sform:select path="region" class="form-control" id="sel1">
-                     <option>서울</option>
+                     <option>서울특별시</option>
+                     <option>인천광역시</option>
+                     <option>대전광역시</option>
+                     <option>대구광역시</option>
+                     <option>광주광역시</option>
+                     <option>울산광역시</option>
+                     <option>부산광역시</option>
                      <option>경기도</option>
                      <option>강원도</option>
                      <option>충청남도</option>

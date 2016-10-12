@@ -1,5 +1,8 @@
 package com.whattodo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -11,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.whattodo.dto.Board;
+import com.whattodo.dto.BoardReply;
 import com.whattodo.service.BoardService;
 
 
@@ -21,7 +26,7 @@ public class BoardController {
 	private static Logger logger = LoggerFactory.getLogger(BoardController.class);
 	@Autowired
 	BoardService bs;
-	 
+	
 	@RequestMapping(value="/addBoard", method=RequestMethod.POST,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String BoardContent(Model model, HttpServletRequest request){
@@ -45,5 +50,114 @@ public class BoardController {
 			return "실패";
 		}
 	}
+	
+	@RequestMapping(value="/picnic", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String picnic(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
+		String category = request.getParameter("category");
+		List<Board> board=bs.selectBoardByCategory(category);
+		List<Board> afterBoard=new ArrayList<Board>();
+		
+		int end=(page*10<board.size())? page*10 : board.size();
+		
+		for(int i=(page-1)*10; i<end; i++){
+			board.get((page-1)*10).setPage(page);
+			afterBoard.add(board.get(i));
+		}
+		afterBoard.get(0).setRecordNum(board.size());
+		
+		Gson gson = new Gson();
+		String boardStr = "[";
+		for(int i=0; i<afterBoard.size(); i++){
+			if(i==afterBoard.size()-1){
+				boardStr+=gson.toJson(afterBoard.get(i));
+				break;
+			}
+			boardStr+=gson.toJson(afterBoard.get(i))+",";
+		}
+		boardStr+="]";
+		return boardStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/boardReply", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String boardReply(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		List<BoardReply> boardReply=bs.selectBoardReply(boardNo);
+		List<BoardReply> afterBoardReply=new ArrayList<BoardReply>();
+		
+		int end=(page*10<boardReply.size())? page*10 : boardReply.size();
+		
+		for(int i=(page-1)*10; i<end; i++){
+			boardReply.get((page-1)*10).setPage(page);
+			afterBoardReply.add(boardReply.get(i));
+		}
 
+		Gson gson = new Gson();
+		String boardReplyStr = "[";
+		for(int i=0; i<afterBoardReply.size(); i++){
+			if(i==afterBoardReply.size()-1){
+				boardReplyStr+=gson.toJson(afterBoardReply.get(i));
+				break;
+			}
+			boardReplyStr+=gson.toJson(afterBoardReply.get(i))+",";
+		}
+		boardReplyStr+="]";
+		return boardReplyStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/retrieve", method=RequestMethod.GET)
+	public String retrieveBoard(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		Board board = bs.selectBoardbyBoardNo(boardNo);
+		List<BoardReply> boardReply = bs.selectBoardReply(boardNo);
+	/*	bs.updateBoardClick(boardNo);*/
+		model.addAttribute("board", board);
+		model.addAttribute("boardReply", boardReply);
+		return "board/board_info";
+	}
+	
+	@RequestMapping(value="/addBoardReply", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String addBoardReply(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		String comments=request.getParameter("comments");
+		
+		BoardReply boardReply = new BoardReply(comments, boardNo, id);
+		bs.insertBoardReply(boardReply);
+		Board board = bs.selectBoardbyBoardNo(boardNo);
+		List <BoardReply> boardReply2 = bs.selectBoardReply(boardNo);
+		model.addAttribute("board", board);
+		
+		Gson gson = new Gson();
+		String boardReplyStr = "[";
+		for(int i=0; i<boardReply2.size(); i++){
+			if(i==boardReply2.size()-1){
+				boardReplyStr+=gson.toJson(boardReply2.get(i));
+				break;
+			}
+			boardReplyStr+=gson.toJson(boardReply2.get(i))+",";
+		}
+		boardReplyStr+="]";
+		return boardReplyStr;
+	}
+	
+	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
+	public String boardDelete(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		String category=request.getParameter("category");
+		bs.deleteBoard(boardNo);
+		String link="";
+		if(category=="먹거리"){
+			link="list/list_food";
+		}else if(category=="나들이"){
+			link="list/list_picnic";
+		}else{ 
+			link="list/list_hobby";
+		}
+		return link;
+	}
 }
