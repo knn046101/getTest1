@@ -82,12 +82,9 @@ h6 {
 body {
     background: #fafafa;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-
-
+.container{
+	margin:0;
+}
 .arrows_list >h4>button .btnfollow {
     cursor:pointer;
     -moz-border-radius: 5px;

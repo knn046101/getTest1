@@ -15,9 +15,9 @@
 	
 	
 	<div class="container-fluid">
-		<div class="row">
+		
 			<jsp:include page="/layout/header.jsp"></jsp:include>
-		</div>
+		
 		<br>
 		<br>
 	
