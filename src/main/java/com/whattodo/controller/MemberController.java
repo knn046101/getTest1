@@ -15,6 +15,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -159,9 +160,25 @@ public class MemberController {
 		return "mypage/mypage_main"; // 사용할 뷰의 이름 리턴 
 	}
 	
-	@RequestMapping(value="/updateDivision", method=RequestMethod.POST)  
-	public @ResponseBody String updateDivision(Model model, Member member, BindingResult result){
-		List<Member> members=ms.getMemberByDivisionCustomer();
+	@RequestMapping(value="/getCustomer", method=RequestMethod.POST)  
+	public @ResponseBody String getCustomer(Model model, Member member, BindingResult result){
+		List<Member> members= ms.getMemberByDivisionCustomer();
+		String memberstr = "[";
+		Gson gson = new Gson();
+		for(int i=0; i<members.size(); i++){
+			if(i==members.size()-1){
+				memberstr+=gson.toJson(members.get(i));
+				break;
+			}
+			memberstr+=gson.toJson(members.get(i))+",";
+		}
+		memberstr+="]";
+		return memberstr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getEditor", method=RequestMethod.POST)  
+	public @ResponseBody String getEditor(Model model, Member member, BindingResult result){
+		List<Member> members= ms.getMemberByDivisionEditor();
 		String memberstr = "[";
 		Gson gson = new Gson();
 		for(int i=0; i<members.size(); i++){
@@ -205,5 +222,11 @@ public class MemberController {
 		session.removeAttribute("login");
 		session.invalidate();
 		return "redirect:/main.jsp";
+	}
+	
+	@RequestMapping(value="/findId", method=RequestMethod.POST)  
+	public @ResponseBody String findId(@RequestParam String email){ 
+		String id= ms.findIdByEmail(email);
+		return id; // 사용할 뷰의 이름 리턴 
 	}
 }

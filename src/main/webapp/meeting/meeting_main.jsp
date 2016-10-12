@@ -1,5 +1,5 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" /> -->
  	<style>
  		.term{
- 			height:400px;
+ 			height:300px;
  		}
  	 	 body, div, img, ul, li
         {
@@ -136,7 +136,9 @@
 	
 	<br>
 	<div class="clients" style="margin:0;">
-	<button onclick="location='meeting_make.jsp'"style="float:right;background-color:#27AB99;color:white;" onclick="location='meeting_make.jsp'">모임생성</button>
+	<c:if test="${!empty login}">
+		<button onclick="location='meeting_make.jsp'"style="float:right;background-color:#27AB99;color:white;" onclick="location='meeting_make.jsp'">모임생성</button>
+	</c:if>
 			<div class="container">
 				<div class="row sub_content">
 					<div class="col-lg-12 col-md-12 col-sm-12">
@@ -153,7 +155,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">서울</a>
+					                            <a id="seoul" href="#">서울</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -162,7 +164,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">경기</a>
+					                            <a id="kyoungki" href="#">경기</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -171,7 +173,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">충남</a>
+					                            <a id="choongnam" href="#">충남</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -180,7 +182,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">충북</a>
+					                            <a id="choongbook" href="#">충북</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -189,7 +191,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">전남</a>
+					                            <a id="jeonnam" href="#">전남</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -202,7 +204,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">전북</a>
+					                            <a id="jeonbook" href="#">전북</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -211,7 +213,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">경남</a>
+					                            <a id="kyoungnam" href="#">경남</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -220,7 +222,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">경북</a>
+					                            <a id="kyoungbook" href="#">경북</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -229,7 +231,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="#">강원</a>
+					                            <a id="kangone" href="#">강원</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -243,29 +245,17 @@
 			</div>
 		</div>
 		
-		
-	
    <div class="term"></div>
    	 <center>
-		 <a class="btn btn-lg btn-default" href="meeting_info.jsp">모임(임시로)</a>
+		 <a class="btn btn-lg btn-default" href="meeting_info.jsp">신전모임</a>
 	 </center>
+	 
 	 <br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-     <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script src="js/jquery.fractionslider.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-    <script type="text/javascript" src="js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/swipe.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-
-    <script src="js/main.js"></script>
+<script>
+	$("#choongnam").on("click",function(){
+		$(".term").html("")
+	});
+</script>
 </html>

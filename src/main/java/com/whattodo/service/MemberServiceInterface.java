@@ -15,5 +15,8 @@ public interface MemberServiceInterface {
 	public Member getMemberByNickname(String nickname);
 	
 	public Admin getAdmin(String adminId);
+	
 	public List<Member> getMemberByDivisionCustomer();
+	public List<Member> getMemberByDivisionEditor();
+	public String findIdByEmail(String email);
 }

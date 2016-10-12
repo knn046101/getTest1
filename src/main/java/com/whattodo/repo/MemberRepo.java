@@ -12,5 +12,8 @@ public interface MemberRepo {
 	public Member getMemberById(String id);
 	public Member getMemberByEmail(String email);
 	public Member getMemberByNickname(String nickname);
+	
 	public List<Member> getMemberByDivisionCustomer();
+	public List<Member> getMemberByDivisionEditor();
+	public String findIdbyEmail(String email);
 }

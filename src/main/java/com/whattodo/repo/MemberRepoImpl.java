@@ -55,5 +55,14 @@ public class MemberRepoImpl implements MemberRepo {
 		String statement = NAME_SPACE+"selectCustomer";
 		return template.selectList(statement);
 	}
-
+	
+	public List<Member> getMemberByDivisionEditor(){
+		String statement = NAME_SPACE+"selectEditor";
+		return template.selectList(statement);
+	}
+	
+	public String findIdbyEmail(String email){
+		String statement = NAME_SPACE+"findId";
+		return template.selectOne(statement,email);
+	}
 }

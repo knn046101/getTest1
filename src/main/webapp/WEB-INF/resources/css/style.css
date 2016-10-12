@@ -2813,7 +2813,22 @@ ul.nav-tabs li.last-tab a
     margin:0;
     padding:0;
 }
+
+.recent_tab_list2
+{
+    margin:0;
+    padding:0;
+}
 ul.recent_tab_list li
+{
+    margin: 0 0 15.5px;
+    padding: 0 0 17px;
+    list-style-type: none;
+    border-bottom: 1px solid #ebebeb;
+    float: left;
+    width: 100%;
+}
+ul.recent_tab_list2 li
 {
     margin: 0 0 15.5px;
     padding: 0 0 17px;
@@ -2865,6 +2880,54 @@ ul.recent_tab_list li
     margin: 0px 0px 0px 0px;
     border-bottom: 0px solid #f5f6f6;
 }
+
+/* recent_tab_list2 복사본 */
+
+.recent_tab_list2 li span {
+    float: left;
+    margin-right: 15px;
+}
+.recent_tab_list2 li a {
+    color: #444444;
+    display: block;
+    font-size: 12px;
+    text-decoration: none;
+}
+.recent_tab_list2 li a:hover {
+    color: #27AB99;
+}
+.recent_tab_list2 li span img {
+    float: left;
+    margin-right: 0px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+}
+.recent_tab_list2 li span img:hover {
+    float: left;
+    margin-right: 0px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+}
+.recent_tab_list2 li i {
+    padding: 1px 0px 0px 0px;
+    margin: 0px;
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    color: #9e9e9e;
+    font-family:Lato;
+}
+.recent_tab_list2 li.last {
+    padding: 0px 0px 7px 0px;
+    margin: 0px 0px 0px 0px;
+    border-bottom: 0px solid #f5f6f6;
+}
+
+/* recent_tab_list2 복사본 끝 */
 
 /* Comment Tab
 ====================================*/
