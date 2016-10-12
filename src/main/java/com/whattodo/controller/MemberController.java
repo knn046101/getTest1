@@ -159,6 +159,21 @@ public class MemberController {
 		return "mypage/mypage_main"; // 사용할 뷰의 이름 리턴 
 	}
 	
+	@RequestMapping(value="/updateDivision", method=RequestMethod.POST)  
+	public @ResponseBody String updateDivision(Model model, Member member, BindingResult result){
+		List<Member> members=ms.getMemberByDivisionCustomer();
+		String memberstr = "[";
+		Gson gson = new Gson();
+		for(int i=0; i<members.size(); i++){
+			if(i==members.size()-1){
+				memberstr+=gson.toJson(members.get(i));
+				break;
+			}
+			memberstr+=gson.toJson(members.get(i))+",";
+		}
+		memberstr+="]";
+		return memberstr; // 사용할 뷰의 이름 리턴 
+	}
 
 	
 	

@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
-<!--<![endif]-->
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +9,11 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 </head>
 <body>
    <!--Start Header-->
@@ -146,10 +146,13 @@
 	</header>
 	<!--End Header-->
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 </body>
 </html>

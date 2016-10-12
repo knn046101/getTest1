@@ -46,4 +46,12 @@
 		set division='Editor'
 		where id=#{id}
 	</update>
+	
+	<select id="selectCustomer" resultType="member">
+		select * from members where division='Customer'
+	</select>
+	
+	<select id="selectEditor" resultType="member">
+		select * from members where division='Editor'
+	</select>
 </mapper>
