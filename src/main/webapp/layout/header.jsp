@@ -16,8 +16,7 @@
         <div id="top-bar">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-7 hidden-xs top-info">
-                      
+                    <div class="col-sm-7 hidden-xs top-info">  
                     </div>
                     <div class="col-sm-5 top-info">
                        <ul>
