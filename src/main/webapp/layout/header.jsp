@@ -9,11 +9,6 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
-<<<<<<< HEAD
-
-
-=======
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 </head>
 <body>
    <!--Start Header-->
@@ -146,13 +141,6 @@
 	</header>
 	<!--End Header-->
 
-<<<<<<< HEAD
 
-
-
-
-
-=======
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 </body>
 </html>
