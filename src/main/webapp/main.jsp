@@ -16,7 +16,8 @@
 </head>
 <body>
 		<jsp:include page="/layout/header.jsp"></jsp:include>
-	
+		<br>
+		<br>
 		<section class="clients">
 			<div class="container">
 				<div class="row sub_content">
@@ -41,7 +42,7 @@
 			</div>
 		</section>
 	    <!--end wrapper-->
-   
+   	
     
 		<!--Start recent work-->
 		<section class="latest_work">
@@ -398,7 +399,8 @@
 			</div>
 		</section>
 		<!--Start recent work-->
-		
+		<br>
+		<br>
 		
 		
 
