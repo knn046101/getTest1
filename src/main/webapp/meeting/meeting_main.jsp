@@ -153,7 +153,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="meeting_info.jsp">서울</a>
+					                            <a href="#">서울</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -162,7 +162,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="meeting_info.jsp">경기</a>
+					                            <a href="#">경기</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -171,7 +171,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="meeting_info.jsp">충남</a>
+					                            <a href="#">충남</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -180,7 +180,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="meeting_info.jsp">충북</a>
+					                            <a href="#">충북</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -189,7 +189,7 @@
 					                <div class="boxS">
 					                    <div class="boxT" style="background-color:#27AB99;">
 					                        <div class="overlay">
-					                            <a href="meeting_info.jsp">전남</a>
+					                            <a href="#">전남</a>
 					                        </div>
 					                    </div>
 					                </div>
@@ -243,9 +243,13 @@
 			</div>
 		</div>
 		
+		
 	
    <div class="term"></div>
-
+   	 <center>
+		 <a class="btn btn-lg btn-default" href="meeting_info.jsp">모임(임시로)</a>
+	 </center>
+	 <br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>

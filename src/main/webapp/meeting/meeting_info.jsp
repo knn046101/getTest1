@@ -10,16 +10,6 @@
 <meta name="description" content="">
 <%@include file="/layout/whatcss.jsp"%>
 <%@include file="/layout/whatjs.jsp"%>
-<!-- CSS FILES -->
-<!-- <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="../css/layout/wide.css" data-name="layout">
-
-    <link rel="stylesheet" href="../css/fractionslider.css"/>
-    <link rel="stylesheet" href="../css/style-fraction.css"/>
-
-    <link rel="stylesheet" type="text/css" href="../css/switcher.css" media="screen" /> -->
 </head>
 
 
@@ -46,7 +36,7 @@
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
 										<li><img src="${login.profileImg }" class="img-circle"
-											alt="${login.nickname }" width="150" height="150" hspace="50">
+											 width="150" height="150" hspace="50">
 											<br></li>
 										<h4 align="center">
 											${login.nickname } 
