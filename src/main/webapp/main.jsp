@@ -25,16 +25,20 @@
 						<div class="dividerHeading">
 							<h4><span>내 주변에서는?</span></h4>
 							<!--위치정보를 받아서 출력해주는 부분  -->
-							<span class=" glyphicon glyphicon-map-marker"  id ="near"> </span>
+							<span class=" glyphicon glyphicon-map-marker"  id ="near">
+								<select id="radius">
+							    <option value="">범위 선택</option>
+							    <option value="2000">2KM</option>
+							    <option value="5000" selected="selected">5KM</option>
+							    <option value="10000">10KM</option>
+								</select>
+							 </span>
 
 						</div>
 						
 						<div class="our_clients">
-							<ul class="client_items clearfix">
-								<li class="col-s1m-3 col-md-3 col-lg-3"><a href="/services.html"  data-placement="bottom" data-toggle="tooltip" title="Client 1" ><img src="images/clients/1.png" alt="" /></a></li>
-								<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html" data-placement="bottom" data-toggle="tooltip" title="Client 2" ><img src="images/clients/2.png" alt="" /></a></li>
-								<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html" data-placement="bottom" data-toggle="tooltip" title="Client 3" ><img src="images/clients/3.png" alt="" /></a></li>
-								<li class="col-sm-3 col-md-3 col-lg-3"><a href="services.html" data-placement="bottom" data-toggle="tooltip" title="Client 4" ><img src="images/clients/4.png" alt="" /></a></li>
+							<ul class="client_items clearfix" id ="searchTour">
+								
 							</ul><!--/ .client_items-->
 						</div>
 					</div>
@@ -410,17 +414,25 @@
     
    <!-- open Api 구글이랑 TourApi 적용 부분 건드리지 마시오 -->
    
-        <script>
+<script>
 var googlekey ="AIzaSyB7jJk6mzm9sXtP2N0DIhz-P5JTZAaONXY";
+var key ="JSsZ5Smoa%2BwtJchJy5D5EB9SDU5LGZPuK4285EAR7%2F5wisjKDOJkAFSTyHuY0n4uXOHtfemrXCstsw9AFbI7Nw%3D%3D" ;
 
-
-		
- var key ="JSsZ5Smoa%2BwtJchJy5D5EB9SDU5LGZPuK4285EAR7%2F5wisjKDOJkAFSTyHuY0n4uXOHtfemrXCstsw9AFbI7Nw%3D%3D" ;
-
+var radius; 
 var locaX;
 var locaY;
 var contentid;
 
+
+
+
+
+
+
+
+
+
+/*공백을 제거하는 부분 */
 String.prototype.trim = function() {
     return this.replace(/(^\s*)|(\s*$)/gi, "");
 }
@@ -433,18 +445,23 @@ String.prototype.trim = function() {
 	        navigator.geolocation.getCurrentPosition(showPosition);
 	      
 	    } else { 
-	       console.log("지원 않함");
+	       console.log("브라우저가 지원을 안합니다.");
 	    }
 
 		function showPosition(position) {
 			locaX = position.coords.longitude;
 			locaY =position.coords.latitude; 
+			 radius = $('#radius').val(); 
+			console.log(radius+" 초기 범위값");
+			console.log(locaX+"   " +"정상적으로 값이 들어옴 longitude");
+			console.log(locaY+"   "+"정상적으로 값이 들어옴 latitude");
 			
-			console.log(locaX+"안에");
-			console.log(locaY+"안에");
+			
 			getgeo();
 }
 		
+		
+	
 		
 		
 	});
@@ -481,10 +498,12 @@ String.prototype.trim = function() {
 				var strcity = splitArray[2];
 				
 
-				/* myloca+="<a href='#'>"+strdo+" "+strcity+"</a>"; */
+				
 				myloca+=strdo+" "+strcity;
 			
 			$("#near").append(myloca);
+			
+			getData();
 			
 			
 				
@@ -501,31 +520,41 @@ String.prototype.trim = function() {
 	
 	
 	
+	/* 범위에 따라 주변 검색*/
 	
+	$('#radius').change(function(){ 
+		radius =$('#radius option:selected').val() ; 
+		console.log(radius+"   "+"정상적으로 값이 변했음 radius");
+		$("#searchTour>li").remove();
+		getData();
+		
+    });
+		
 	
 
+function getData(){
+	$("#searchTour>li").remove();
+	
 
-$("#getData").on("click",function(){
 	
-	
-	console.log(locaX+"넘김");
-	console.log(locaY+"넘김");
-	
-	
+	console.log(locaX+"받음");
+	console.log(locaY+"받음");
+	console.log(radius+"범위가 변했습니다.");
+	var locaxx = 126.981106;
+	var locayy = 37.568477;
 	
 	
 	/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
 		 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
 
 	  var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
-	 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius=1000&pageNo=1&numOfRows=10&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
+	 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo=3&numOfRows=4&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 
 	 
 	 
 	 
 $.ajax({
 	
-
 	url:locaurl,
 	type:"get",
 	success:function(responseTxt){
@@ -534,24 +563,42 @@ $.ajax({
 		console.log(locaY+"ajax");
 		console.log(responseTxt);
 		 var itemArray=responseTxt.response.body.items.item;  
+		 
+			console.log("데이터 가져오는것을 성공했습니다.");
 		/* var itemArray=responseTxt.response.body. */
 		var row="";
 		$.each(itemArray,function(index,item){
+			
 		
+				
 			var title = item.title;
 			var tel = item.tel;
 			var img = item.firstimage;
 			var addr =item.addr1;
 			contentid=item.contentid;
-			row+="<tr><td>"+title+"</td><td>"+tel+"</td><td><img src="+img+"></td><td>"+addr+"</td><td>"+contentid+"</td></tr>";
 			
+			console.log(index+"번째 콘텐츠 아이디:"+contentid);
 			
-		console.log(title,tel,img,addr);	
+			console.log(title+""+"추가된 아이템");
 		
+				 /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
+				 row="<li class='col-s1m-3 col-md-3 col-lg-3'>"
+						+"<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid="
+						+contentid+"&"
+						+ "title="+title
+						+"  data-toggle='tooltip'+title='"+title+"' >"
+						 +"<img src="+img+" alt='' width='200px' height='150px'/>"
+						+"<div>"+title+"</div></a></li>";
+				 
+			$('#searchTour').append(row);
+			
+			
+			
+		
+			
+			
 		}); 
-		$("#info").html($("#info").html()+row);
-		
-		console.log(responseTxt);
+	
 	},
 	
 	error:function(xhr,status,error){
@@ -561,7 +608,7 @@ $.ajax({
 })
 
 
-});
+};
 
 
 

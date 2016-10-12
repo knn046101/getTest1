@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<!--Start recent work-->
-		<section class="latest_work">
+		<section class="latest_work" style="margin: 0;">
 			<div class="container">
 				<div class="row sub_content">
 					<div class="carousel-intro">
