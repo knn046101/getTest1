@@ -54,4 +54,8 @@
 	<select id="selectEditor" resultType="member">
 		select * from members where division='Editor'
 	</select>
+	
+	<select id="findId" resultType="String" parameterType="String">
+		select * from members where email=#{email}
+	</select>
 </mapper>

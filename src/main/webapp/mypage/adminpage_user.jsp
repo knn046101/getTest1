@@ -43,38 +43,16 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                
                 <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a data-toggle="tab" href="#Popular">일반회원</a></li>
-                    <li class=""><a data-toggle="tab" href="#Recent">에디터</a></li>
+                    <li class="active"><a data-toggle="tab" href="#Popular" class="customerCate">일반회원</a></li>
+                    <li class=""><a data-toggle="tab" href="#Recent" class="editorCate">에디터</a></li>
                    
                 </ul>
 
                 <div class="tab-content clearfix" id="myTabContent">
                     <div id="Popular" class="tab-pane fade active in">
                         <ul class="recent_tab_list">
-                            <li>
-                                 <div class="testimonial-review">
-                                    <img alt="testimoni" src="images/testimonials/1.png">
-                                    <c:url value="/updateDivision" var="updateDivision"/>
-                                    <h1>${updateDivision.nickname }
-                                    <small><button>에디터로 변경</button></small></h1>
-                                </div>
-                            </li>
-                            <li>
-                                 <div class="testimonial-review">
-                                    <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>코천종연
-                                    <small><button>에디터로 변경</button></small>
-                                    </h1>
-                                </div>
-                            </li>
-                            <li class="last">
-                                 <div class="testimonial-review">
-                                    <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>경으니
-                                    <small><button>에디터로 변경</button></small>
-                                    </h1>
-                                </div>
-                            </li>
+                     
+                           
                         </ul>
                         
                     </div>
@@ -82,31 +60,8 @@
                     <!-- 에디터 에디터 에디터 에디터 에디터  -->
                     
                     <div id="Recent" class="tab-pane fade">
-                        <ul class="recent_tab_list">
-                            <li>
-                                <div class="testimonial-review">
-                                    <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>YoungKingBoss
-                                    <small><button>일반회원으로 변경</button></small>
-                                    </h1>
-                                </div>
-                            </li>
-                            <li>
-                                 <div class="testimonial-review">
-                                    <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>현정찡
-                                    <small><button>일반회원으로 변경</button></small>
-                                    </h1>
-                                </div>
-                            </li>
-                            <li class="last">
-                                 <div class="testimonial-review">
-                                    <img alt="testimoni" src="images/testimonials/1.png">
-                                    <h1>뿡기님
-                                    <small><button>일반회원으로 변경</button></small>
-                                    </h1>
-                                </div>
-                            </li>
+                        <ul class="recent_tab_list2">
+                            
                         </ul>
                     </div>
                 </div>
@@ -133,31 +88,52 @@
 </body>
 
 <script>
-<c:url value="/updateDivision" var="updateDivision"/>
-	$("#sel1").on("ready", function(){
+<c:url value="/getCustomer" var="getCustomer"/>
+	$(document).on("ready", function(){
 		var memberStr="";
-		var sel1=$("#sel1").val();
-		$(".sel2").remove();
 		$.ajax({
-			type:"get",
-			url:"${changeCapital}",
+			type:"post",
+			url:"${getCustomer}",
 			dataType:"json",
-			data: {
-				"sel1":sel1	
-			},
+			
 			success:function(data){
 				for(var i=0; i<data.length; i++){
-				
-					citystr+="<li><a href='#'>"+data[i].city+"</a></li>";
+				memberStr+="<li class='customerList'><div class='testimonial-review'><img alt='testimoni' src='"+data[i].profile_img+"'><h1>"+data[i].id+"<small><button>에디터로 변경</button></small></h1></div></li>";
+					
 				}
-				$("#sel2").append(citystr);
+				$(".recent_tab_list").append(memberStr);
 			},
-			error : function(xhr, status, error){
+			error:function(xhr, status, error){
 				alert(error);
 			},
 			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
 		});
 	});
+	
+	<c:url value="/getEditor" var="getEditor"/>
+		$(".editorCate").on("click", function(){
+			$(".customerList2").remove();
+			var memberStr="";
+			$.ajax({
+				type:"post",
+				url:"${getEditor}",
+				dataType:"json",
+				
+				success:function(data){
+					for(var i=0; i<data.length; i++){
+					memberStr+="<li class='customerList2'><div class='testimonial-review'><img alt='testimoni' src='"+data[i].profile_img+"'><h1>"+data[i].id+"<small><button>일반회원으로 변경</button></small></h1></div></li>";
+						
+					}
+					$(".recent_tab_list2").append(memberStr);
+				},
+				error:function(xhr, status, error){
+					alert(error);
+				},
+				ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+			});
+		});
+	
+	
 
 </script>
 </html>

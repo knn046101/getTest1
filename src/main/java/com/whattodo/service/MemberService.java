@@ -53,4 +53,12 @@ public class MemberService implements MemberServiceInterface{
 	public List<Member> getMemberByDivisionCustomer(){
 		return mrepo.getMemberByDivisionCustomer();
 	}
+	
+	public List<Member> getMemberByDivisionEditor(){
+		return mrepo.getMemberByDivisionEditor();
+	}
+	
+	public String findIdByEmail(String email){
+		return mrepo.findIdbyEmail(email);
+	}
 }
