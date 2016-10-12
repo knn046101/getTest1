@@ -139,6 +139,5 @@
 		</div>
 		<!--/.container -->
 	</header>
-	<!--End Header-->
 </body>
 </html>
