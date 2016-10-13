@@ -44,8 +44,10 @@ a {
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="${login.profileImg }" class="img-circle"
-											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
+										<li><img src=${login.profileImg } class="img-circle"
+
+										 width="150" height="150" hspace="50"> <br>
+
 										</li>
 										<h4 align="center">
 											${login.nickname} <span class="label label-default"
@@ -63,11 +65,11 @@ a {
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-												<i class="fa fa-angle-right"></i> 내글
+												<i class="fa fa-angle-right"></i> 내 글
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												<i class="fa fa-angle-right"></i> 관심사
+												<i class="fa fa-angle-right"></i> 관심 키워드
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
@@ -739,5 +741,7 @@ a {
 
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
-<script></script>
+<script>
+	console.log(${login.profileImg});
+</script>
 </html>

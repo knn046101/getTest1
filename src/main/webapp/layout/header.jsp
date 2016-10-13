@@ -71,9 +71,10 @@
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse"
 							data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
+							<span class="sr-only">Toggle navigation</span> 
+							<span class="icon-bar"></span> 
+							<span class="icon-bar"></span> 
+							<span class="icon-bar"></span>
 						</button>
 
 					</div>
@@ -106,26 +107,35 @@
 
 							<li><a href="#">검색</a>
 								<ul class="dropdown-menu">
-									<li><a href="#"><input type="text" placeholder="어디에서"></a></li>
-									<li><a href="#"> <select>
+									<li><a href="#">
+										<input type="text" placeholder="어디에서">
+									</a></li>
+									<li><a href="#"> 
+											<select>
 												<option>몇 명이서</option>
 												<option>혼자서</option>
 												<option>둘이서</option>
 												<option>3명이상</option>
-										</select></a></li>
-									<li><a href="#"> <select>
+											</select>
+									</a></li>
+									<li><a href="#"> 
+										<select>
 												<option>카테고리</option>
 												<option>먹거리</option>
 												<option>나들이</option>
 												<option>취미</option>
-										</select></a></li>
-									<li><a href="#"><input type="text" placeholder="무엇을"></a></li>
+										</select>
+									</a></li>
+									<li><a href="#">
+										<input type="text" placeholder="무엇을">
+									</a></li>
 									<li><button
 											onclick="location='<%=request.getContextPath()%>/list/list_search.jsp'"
 											style="margin: 20px 20px 20px 20px; color: #303436;">
 											<i class="fa fa-search"></i>
 										</button></li>
-								</ul></li>
+								</ul>
+							</li>
 
 
 						</ul>

@@ -10,14 +10,16 @@
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
 	
-	<jsp:include page="/layout/whatcss.jsp"></jsp:include>
+	
 	<jsp:include page="/layout/whatjs.jsp"></jsp:include>
 	
 </head>
 <body>
 		<jsp:include page="/layout/header.jsp"></jsp:include>
+		<jsp:include page="/layout/whatcss.jsp"></jsp:include>
 		<br>
 		<br>
+		
 		<section class="clients">
 			<div class="container">
 				<div class="row sub_content">
@@ -496,7 +498,7 @@ var contentid;
 							+"<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid="
 							+contentid+"&"
 							+ "title="+title
-							+"  data-toggle='tooltip'+title='"+title+"' >"
+							+"  data-toggle='tooltip'+title='"+title+"' style='color:#323A45;' >"
 							+"<img src="+img+" alt='' width='200px' height='150px'/>"
 							+"<div>"+title+"</div></a></li>";
 					$('#searchTour').append(row);

@@ -246,13 +246,6 @@ a:focus{
     border-radius:3px;
     margin-top:5px;
 }
-.navbar-toggle2{
- background:#303436;
-    border:none;
-    padding:10px 10px;
-    border-radius:3px;
-    margin-top:5px;
-}
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
     background:#303436;
 }
@@ -3703,7 +3696,7 @@ blockquote.default {
 /* ===================================================== */
 /* 32. Media Query										 */
 /* ===================================================== */
-@media only screen and (min-width: 980px) and (max-width: 1280px){
+@media screen and (min-width: 980px) and (max-width: 1280px){
     /*.menu ul > li > a { padding-right:10px; padding-left:10px; }*/
 
     .names{font-size:14px}
@@ -3730,7 +3723,7 @@ blockquote.default {
 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 989px){
+@media screen and (min-width: 768px) and (max-width: 989px){
 
     #logo{margin:0;width:78px;}
 
@@ -3755,7 +3748,7 @@ blockquote.default {
     .team_social { margin: 37% 0 0 29%; }
 }
 
-@media only screen and (max-width:768px) {
+@media screen and (max-width:768px) {
 	.arrows_list > li > img {
 	
 		
@@ -3779,7 +3772,7 @@ blockquote.default {
     .shares li.shareslabel h3{ padding:8px 14px; }
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
     #logo-bar{ display: none;}
 
@@ -3800,10 +3793,7 @@ blockquote.default {
         position: absolute;
         width: 100%;
     }
-    .navbar-collapse2{
-        position: absolute;
-        width: 100%;
-    }
+   
     .navbar-nav > li ul > li:first-child > a{border-top:none;}
     .navbar-default .navbar-nav > li > a,.navbar-nav .dropdown-menu > li > a
     {
@@ -3919,7 +3909,7 @@ blockquote.default {
 
     .copyright{ text-align:left; float:left; }
 }
-@media only screen and (min-width: 481px) and (max-width: 767px){
+@media screen and (min-width: 481px) and (max-width: 767px){
     .large-images .recent-item:hover a.hover-zoom,.medium-images .recent-item:hover a.hover-zoom,
     .small-images .recent-item:hover a.hover-zoom{left:37%;}
 
@@ -3931,7 +3921,7 @@ blockquote.default {
 
     .author_bio {margin-top:35%; position: relative;}
 }
-@media only screen and (max-width: 480px){
+@media screen and (max-width: 480px){
 
     .team_social { margin: 37% 0 0 31%; }
 

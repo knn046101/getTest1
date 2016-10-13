@@ -37,6 +37,10 @@
 								<i class="fa fa-arrow-circle-o-left"></i>
 								홈으로
 							</a>
+							<a href="login/login.jsp" class="btn btn-default btn-lg back_home">
+								<i class="fa fa-user"></i>
+								로그인
+							</a>
 						</div>
 					</div>
 				</div>

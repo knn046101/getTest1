@@ -42,8 +42,8 @@
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="${login.profileImg }" class="img-circle"
-											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
+										<li><img src=${login.profileImg } class="img-circle"
+											width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
 
@@ -84,7 +84,7 @@
 
 							<div class="form-group">
 								<sform:label path="profileImg" class="col-sm-3 control-label"
-									for="inputEmail">프로필 사진 등록</sform:label>
+									for="image">프로필 사진 수정</sform:label>
 								<div class="col-sm-6">
 									<div id="imagePreview"></div>
 									<br>
@@ -195,7 +195,7 @@
 
 
 
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
+<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
 var checkIdComplete=false;
@@ -244,20 +244,20 @@ var profileImg="";
 
 	$("#form").on("submit", function(e){
 		e.preventDefault();
- 		if(checkIdComplete && checkEmailComplete && checkNicknameComplete){
-			if($("#agree").is(":checked")){
+ 		if(checkNicknameComplete){
+			
 				if($("#inputPassword").val()==$("#inputPasswordCheck").val()){
 					this.submit();	
 				}else{
 					alert("비밀번호를 일치하여 주십시오.");	
 				}
-			}else{
-				alert("약관에 동의하여 주십시오.");	
-			}
+			
 		}else{
 			alert("중복 확인을 클릭하여 주십시오.");
 		} 
+ 		console.log(checkNicknameComplete);
 	});
+	
     var memberDel = function(){
       location.href="<%=request.getContextPath()%>/mypage/mypage_member_delete.jsp";
 	}

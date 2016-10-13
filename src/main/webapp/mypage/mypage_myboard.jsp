@@ -27,7 +27,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="dividerHeading">
 					<h4>
-						<span>내글</span>
+						<span>내 글</span>
 					</h4>
 
 				</div>
@@ -42,7 +42,7 @@
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="${login.profileImg }" class="img-circle"
+										<li><img src=${login.profileImg } class="img-circle"
 											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">

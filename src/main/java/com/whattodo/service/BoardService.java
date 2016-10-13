@@ -22,8 +22,8 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.insertBoard(board);
 	}
 
-	public void updateBoard(Board board) {
-		brepo.updateBoard(board);
+	public int updateBoard(Board board) {
+		return brepo.updateBoard(board);
 	}
 
 	public void deleteBoard(int boardNo) {

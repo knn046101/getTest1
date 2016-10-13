@@ -133,6 +133,7 @@ public class MemberController {
 		if(result.hasErrors()){
 			return "join/join";
 		}
+		logger.trace(member.getProfileImg());
 		if(member.getId().trim().equals("") && member.getPass().trim().equals("")
 				&& member.getNickname().trim().equals("") && member.getEmail().equals("")
 				&& member.getRegion().trim().equals("") && member.getBirth().trim().equals("")
@@ -158,6 +159,12 @@ public class MemberController {
 		}
 		ms.updateMember(member);
 		return "mypage/mypage_main"; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/delUser", method=RequestMethod.POST)  
+	public String delUser(@RequestParam String id,Model model, Member member, BindingResult result){
+		ms.deleteMember(id);
+		return "mypage/join_after"; // 사용할 뷰의 이름 리턴 
 	}
 	
 	@RequestMapping(value="/getCustomer", method=RequestMethod.POST)  

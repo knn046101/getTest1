@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
+import com.whattodo.dto.Member;
 import com.whattodo.service.BoardService;
 
 
@@ -51,7 +52,30 @@ public class BoardController {
 		}
 	}
 	
-	@RequestMapping(value="/picnic", method=RequestMethod.GET,
+	@RequestMapping(value="/updateBoard", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String updateBoard(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		String boardTitle=request.getParameter("boardTitle");
+		String boardContent=request.getParameter("boardContent");
+		String location=request.getParameter("location");
+		String numberOfPeople=request.getParameter("numberOfPeople");
+		String what=request.getParameter("what");
+		String category=request.getParameter("category");
+		String id=request.getParameter("id");
+		String mainImg=request.getParameter("mainImg");
+
+		Board board = new Board(boardNo, boardTitle, boardContent, location, numberOfPeople,
+				what, category, mainImg, id);
+		int result=bs.updateBoard(board);
+		if(result==1){
+			return "저장";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/getBoards", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String picnic(Model model, HttpServletRequest request){
 		int page = Integer.parseInt(request.getParameter("pageno"));
@@ -59,9 +83,9 @@ public class BoardController {
 		List<Board> board=bs.selectBoardByCategory(category);
 		List<Board> afterBoard=new ArrayList<Board>();
 		
-		int end=(page*10<board.size())? page*10 : board.size();
-		
-		for(int i=(page-1)*10; i<end; i++){
+		int end=(page*16<board.size())? page*16 : board.size();
+
+		for(int i=16*(page-1); i<end; i++){
 			board.get((page-1)*10).setPage(page);
 			afterBoard.add(board.get(i));
 		}
@@ -84,17 +108,19 @@ public class BoardController {
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String boardReply(Model model, HttpServletRequest request){
 		int page = Integer.parseInt(request.getParameter("pageno"));
+		logger.trace("page:{}",page);
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		logger.trace("boardNo:{}",boardNo);
 		List<BoardReply> boardReply=bs.selectBoardReply(boardNo);
 		List<BoardReply> afterBoardReply=new ArrayList<BoardReply>();
 		
 		int end=(page*10<boardReply.size())? page*10 : boardReply.size();
-		
+
 		for(int i=(page-1)*10; i<end; i++){
 			boardReply.get((page-1)*10).setPage(page);
 			afterBoardReply.add(boardReply.get(i));
 		}
-
+		afterBoardReply.get(0).setRecordNum(boardReply.size());
 		Gson gson = new Gson();
 		String boardReplyStr = "[";
 		for(int i=0; i<afterBoardReply.size(); i++){
@@ -105,6 +131,7 @@ public class BoardController {
 			boardReplyStr+=gson.toJson(afterBoardReply.get(i))+",";
 		}
 		boardReplyStr+="]";
+		logger.trace("boardReply:{}",boardReply);
 		return boardReplyStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -112,10 +139,8 @@ public class BoardController {
 	public String retrieveBoard(Model model, HttpServletRequest request){
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		Board board = bs.selectBoardbyBoardNo(boardNo);
-		List<BoardReply> boardReply = bs.selectBoardReply(boardNo);
 	/*	bs.updateBoardClick(boardNo);*/
 		model.addAttribute("board", board);
-		model.addAttribute("boardReply", boardReply);
 		return "board/board_info";
 	}
 	
@@ -143,6 +168,14 @@ public class BoardController {
 		}
 		boardReplyStr+="]";
 		return boardReplyStr;
+	}
+	
+	@RequestMapping(value="/getUpdateBoard", method=RequestMethod.GET)
+	public String getUpdateBoard(Model model, HttpServletRequest request){
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		Board board=bs.selectBoardbyBoardNo(boardNo);
+		model.addAttribute("board",board);
+		return "board/board_update";
 	}
 	
 	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
