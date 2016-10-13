@@ -223,7 +223,7 @@ var category="";
 	                            	+"<img src="+args[i].mainImg+" width='200px' height='145px'/>"
 	                      			+"</div>"
 	                        		+"<div class='option'>"
-	                            	+"<a href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-arrow-right'></i></a>"
+	                            	+"<a style='color:#323A45;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-arrow-right'></i></a>"
 	                        		+"</div>"
 	                        		+"<figcaption class='item-description'>"
 	                            	+"<h5>"+args[i].boardTitle+"</h5>"
@@ -296,10 +296,10 @@ var category="";
 //				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText="";
-				pageText+="<a class='paging' href='#' onclick=send('${picnic }?pageno=1&category="+category+"')>[맨앞으로]</a>";
-				pageText+="<a class='paging' href='#' onclick=send('${picnic }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${picnic }?pageno=1&category="+category+"')>[맨앞으로]</a>";
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${picnic }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
 				for(var i=page_sno; i<=page_eno; i++){ 
-					pageText+="<a class='paging' href='#' onclick=send('${picnic }?pageno="+i+"&category="+category+"')>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${picnic }?pageno="+i+"&category="+category+"')>";
 					if(pageno == i){ 
 						pageText+="["+i+"]";
 					}else{ 
@@ -311,8 +311,8 @@ var category="";
 						pageText+="<span class='paging'> , </span>";
 					} 
 				} 
-				pageText+="<a class='paging' href='#' onclick=send('${picnic }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";			
-				pageText+="<a class='paging' href='#' onclick=send('${picnic }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";				
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${picnic }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";			
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${picnic }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";				
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr){

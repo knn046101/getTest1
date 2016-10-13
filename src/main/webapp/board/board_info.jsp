@@ -26,6 +26,8 @@
 							<div class="row sub_content">
 								<div class="col-lg-8 col-md-8 col-sm-8">
 								<!--Project Details Page-->
+									<br>
+									<br>
 									${board.boardContent }
 								</div>
 					
@@ -38,21 +40,20 @@
 								<li><span>작성자 :</span>${board.id }</li>
 								<li><span>작성일 :</span><fmt:formatDate value="${board.writeDate }" pattern="yyyy.MM.dd"/></li>
 							</ul>
-							
 						</div>
 						<div class="project_details">
 							<div class="widget_title">
-								<h4><span>글 정보</span></h4>
+								<h3><span>글 정보</span></h3>
 							</div>
 							<ul class="details">
 								<li><span>카테고리 :</span>${board.category }</li>
 								<li><span>몇명이서 :</span>${board.numberOfPeople }</li>
 								<li><span>키워드 :</span>${board.what }</li>
 								<li>
-									<button id="scrap" class="scrap" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 스크랩</button>
+									<button id="scrap" class="scrap" style="color:black;"><i class="fa fa-bookmark" style="color:black;"></i> 스크랩</button>
 									<button id="good" class="good" style="color:black;"><i class="fa fa-thumbs-up" style="color:black;"></i> 좋아요</button>
 									<button id="update" class="update" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 수정</button>
-									<button id="delete" class="delete" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 삭제</button>
+									<button id="delete" class="delete" style="color:black;"><i class="fa fa-trash-o" style="color:black;"></i> 삭제</button>
 								</li>
 							</ul>
 						</div>

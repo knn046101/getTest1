@@ -98,7 +98,7 @@
 			
 			success:function(data){
 				for(var i=0; i<data.length; i++){
-				memberStr+="<li class='customerList'><div class='testimonial-review'><img alt='testimoni' src='"+data[i].profile_img+"'><h1>"+data[i].id+"<small><button>에디터로 변경</button></small></h1></div></li>";
+				memberStr+="<li class='customerList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button>에디터로 변경</button></small></h1></div></li>";
 					
 				}
 				$(".recent_tab_list").append(memberStr);
@@ -121,7 +121,7 @@
 				
 				success:function(data){
 					for(var i=0; i<data.length; i++){
-					memberStr+="<li class='customerList2'><div class='testimonial-review'><img alt='testimoni' src='"+data[i].profile_img+"'><h1>"+data[i].id+"<small><button>일반회원으로 변경</button></small></h1></div></li>";
+					memberStr+="<li class='customerList2'><div class='testimonial-review'><img alt='testimoni' src=${"+data[i].profileImg+"}><h1>"+data[i].id+"<small><button>일반회원으로 변경</button></small></h1></div></li>";
 						
 					}
 					$(".recent_tab_list2").append(memberStr);

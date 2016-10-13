@@ -160,6 +160,12 @@ public class MemberController {
 		return "mypage/mypage_main"; // 사용할 뷰의 이름 리턴 
 	}
 	
+	@RequestMapping(value="/delUser", method=RequestMethod.POST)  
+	public String delUser(@RequestParam String id,Model model, Member member, BindingResult result){
+		ms.deleteMember(id);
+		return "mypage/join_after"; // 사용할 뷰의 이름 리턴 
+	}
+	
 	@RequestMapping(value="/getCustomer", method=RequestMethod.POST)  
 	public @ResponseBody String getCustomer(Model model, Member member, BindingResult result){
 		List<Member> members= ms.getMemberByDivisionCustomer();
