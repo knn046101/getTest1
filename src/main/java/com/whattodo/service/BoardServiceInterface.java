@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
+import com.whattodo.dto.BoardsFollows;
 
 public interface BoardServiceInterface {
 	public int insertBoard(Board board);
@@ -23,8 +24,9 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople, String category);
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByFollow(String id);
+	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo);
 	public List<Board> selectBoardByGood(String id);
-	public void insertBoardFollow(int boardNo, String id);
+	public int insertBoardFollow(int boardNo, String id);
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);
 	public void insertBoardGood(int boardNo, String id);

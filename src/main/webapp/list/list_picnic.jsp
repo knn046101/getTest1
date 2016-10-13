@@ -10,6 +10,13 @@
    <title>뭐 하 지 ?</title>
    <meta name="description" content="">
    <jsp:include page="/layout/whatcss.jsp"></jsp:include>
+   <style>
+   		.jcarousel-list li{
+   			width: 235px;
+   			padding-left: 5px;
+   			padding-right: 5px;
+   		}
+   </style>
 </head>
 <body>
    <div class="container-fluid">
@@ -96,7 +103,7 @@ var category="";
                              +"<div class='recent-item'>"
                              +"<figure>"
                               +"<div class='touching medium'>"
-                               +"<img src="+args[i].mainImg+" height='145px'/>"
+                               +"<img src="+args[i].mainImg+" width='200px' height='145px'/>"
                                +"</div>"
                               +"<figcaption class='item-description'  href='${retrieve}?boardNo="+args[i].boardNo+"'>"
                                +"<h5>"+args[i].boardTitle+"</h5>"

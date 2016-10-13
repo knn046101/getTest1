@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
-import com.whattodo.dto.Member;
+import com.whattodo.dto.BoardsFollows;
 import com.whattodo.service.BoardService;
 
 
@@ -42,9 +42,7 @@ public class BoardController {
 
 		Board board = new Board(boardTitle, boardContent, location, numberOfPeople,
 				what, category, mainImg, id);
-		logger.trace("데이터 삽입 전 board : {}", board);
 		int result=bs.insertBoard(board);
-		logger.trace("데이터 삽입 후 result : {}",result);
 		if(result==1){
 			return "저장";
 		}else{
@@ -108,9 +106,7 @@ public class BoardController {
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String boardReply(Model model, HttpServletRequest request){
 		int page = Integer.parseInt(request.getParameter("pageno"));
-		logger.trace("page:{}",page);
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
-		logger.trace("boardNo:{}",boardNo);
 		List<BoardReply> boardReply=bs.selectBoardReply(boardNo);
 		List<BoardReply> afterBoardReply=new ArrayList<BoardReply>();
 		
@@ -192,5 +188,23 @@ public class BoardController {
 			link="list/list_hobby";
 		}
 		return link;
+	}
+	
+	@RequestMapping(value="/addScrap", method=RequestMethod.GET)
+	public @ResponseBody String addScrap(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		int result=0;
+		
+		BoardsFollows bf=bs.selectboardFollowsByIdAndBoardNo(id,boardNo);
+		if(bf==null){
+			result = bs.insertBoardFollow(boardNo, id);
+			////////////스크랩수
+		}
+		if(result==1){
+			return "성공";
+		}else{
+			return "실패";
+		}
 	}
 }

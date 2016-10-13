@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.whattodo.dto.Board;
+import com.whattodo.dto.BoardsFollows;
 
 @Repository
 public class BoardRepoImpl implements BoardRepo {
@@ -156,5 +157,13 @@ public class BoardRepoImpl implements BoardRepo {
 	public int deleteBoardGood(String id){
 		String statement=NAME_SPACE+"deleteBoardGoodById";
 		return template.insert(statement, id);
+	}
+
+	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo) {
+		String statement=NAME_SPACE+"selectboardFollowsByIdAndBoardNo";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("id", id);
+		return template.selectOne(statement, map);
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
+import com.whattodo.dto.BoardsFollows;
 import com.whattodo.repo.BoardReplyRepo;
 import com.whattodo.repo.BoardRepo;
 
@@ -92,8 +93,8 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.selectBoardByGood(id);
 	}
 
-	public void insertBoardFollow(int boardNo, String id) {
-		brepo.insertBoardFollow(boardNo, id);
+	public int insertBoardFollow(int boardNo, String id) {
+		return brepo.insertBoardFollow(boardNo, id);
 	}
 
 	public void deleteBoardFollow(int boardNo) {
@@ -130,6 +131,10 @@ public class BoardService implements BoardServiceInterface{
 
 	public List<BoardReply> selectBoardReply(int boardNo) {
 		return brrepo.selectBoardReply(boardNo);
+	}
+
+	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo) {
+		return brepo.selectboardFollowsByIdAndBoardNo(id, boardNo);
 	}
 
 }

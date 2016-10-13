@@ -146,4 +146,9 @@
 		where id=#{id}
 	</delete>
 	
+	<select id="selectboardFollowsByIdAndBoardNo" parameterType="map" resultType="boardsFollows">
+		select *
+		from boards_follows
+		where board_no=#{boardNo} and id=#{id}
+	</select>
 </mapper>
