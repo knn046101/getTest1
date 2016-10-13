@@ -75,7 +75,7 @@ public class BoardController {
 		}
 	}
 	
-	@RequestMapping(value="/picnic", method=RequestMethod.GET,
+	@RequestMapping(value="/getBoards", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String picnic(Model model, HttpServletRequest request){
 		int page = Integer.parseInt(request.getParameter("pageno"));
@@ -83,12 +83,9 @@ public class BoardController {
 		List<Board> board=bs.selectBoardByCategory(category);
 		List<Board> afterBoard=new ArrayList<Board>();
 		
-		int end=(page*15<board.size())? page*15 : board.size();
-		int start=0;
-		if(page>1){
-			start=15*(page-1);
-		}
-		for(int i=start; i<end; i++){
+		int end=(page*16<board.size())? page*16 : board.size();
+
+		for(int i=16*(page-1); i<end; i++){
 			board.get((page-1)*10).setPage(page);
 			afterBoard.add(board.get(i));
 		}
