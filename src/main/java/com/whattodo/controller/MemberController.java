@@ -133,6 +133,7 @@ public class MemberController {
 		if(result.hasErrors()){
 			return "join/join";
 		}
+		logger.trace(member.getProfileImg());
 		if(member.getId().trim().equals("") && member.getPass().trim().equals("")
 				&& member.getNickname().trim().equals("") && member.getEmail().equals("")
 				&& member.getRegion().trim().equals("") && member.getBirth().trim().equals("")

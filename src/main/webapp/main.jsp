@@ -16,6 +16,7 @@
 </head>
 <body>
 		<jsp:include page="/layout/header.jsp"></jsp:include>
+<<<<<<< HEAD
 		
 		<!--Start Slider-->
         <div class="slider-wrapper">
@@ -56,6 +57,10 @@
             </div>
         </div>
 		<!--End Slider-->
+=======
+		<br>
+		<br>
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 		
 		<section class="clients">
 			<div class="container">
