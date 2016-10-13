@@ -3793,10 +3793,7 @@ blockquote.default {
         position: absolute;
         width: 100%;
     }
-    .navbar-collapse2{
-        position: absolute;
-        width: 100%;
-    }
+   
     .navbar-nav > li ul > li:first-child > a{border-top:none;}
     .navbar-default .navbar-nav > li > a,.navbar-nav .dropdown-menu > li > a
     {

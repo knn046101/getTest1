@@ -235,7 +235,7 @@ var category="";
 	                        		+"</figcaption>"
 	                    			+"</figure>"
 	                				+"</div>"
-	                				+"<div><a href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-arrow-right'></i>"+args[i].boardTitle+"</a></div>"
+	                				+"<div><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
 	            					+"</li>";
 				}
 				$("#boardByPicnic").append(htmlText);

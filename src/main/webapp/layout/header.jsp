@@ -134,7 +134,8 @@
 											style="margin: 20px 20px 20px 20px; color: #303436;">
 											<i class="fa fa-search"></i>
 										</button></li>
-								</ul></li>
+								</ul>
+							</li>
 
 
 						</ul>
