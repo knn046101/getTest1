@@ -16,20 +16,10 @@
 <jsp:include page="/layout/whatjs.jsp"></jsp:include>
 <link rel="stylesheet" href="css/bootstrapCarousel.css" />
 
-=======
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>뭐 하 지 ?</title>
-	<meta name="description" content="">
-	
-	
-	<jsp:include page="/layout/whatjs.jsp"></jsp:include>
-	
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
+
 </head>
 <body>
-<<<<<<< HEAD
+
 
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 
@@ -38,12 +28,7 @@
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
 
-=======
-		<jsp:include page="/layout/header.jsp"></jsp:include>
-		<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-		<br>
-		<br>
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
+
 		
 		<section class="clients">
 
