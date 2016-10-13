@@ -16,51 +16,9 @@
 </head>
 <body>
 		<jsp:include page="/layout/header.jsp"></jsp:include>
-<<<<<<< HEAD
-		
-		<!--Start Slider-->
-        <div class="slider-wrapper">
-            <div class="slider">
-                <div class="fs_loader"></div>
-                <div class="slide">
-                    <!--1- slide background-->
-                    <img src="/gadgets/laptop-lg.png" data-position="-30,550" data-in="bottom" data-delay="500" data-out="fade"  width="800" height="750">                                     <!--3- laptop-->
 
-                    <p class="para-new" data-position="10,600" data-in="top"  data-out="Right" data-delay="">Welcome to Eve</p>
-                </div>
-                <div class="slide">
-                    <img src="/WEB-INF/resources/images/fraction-slider/fraction_2.png" data-in="fade" data-delay="" data-out="fade" width="1920" height="450">     <!--2- slide background-->
-
-                    <img src="/WEB-INF/resources/images/fraction-slider/slider-boy.png" width="600" height="600" data-position="8,1240" data-in="bottomLeft" data-delay="500" data-out="fade" style="width:auto; height:auto">
-
-                </div>
-                <div class="slide">
-                    <img src="/WEB-INF/resources/images/fraction-slider/build.png" data-in="fade" data-out="fade" width="1920" height="450"/>                                     <!--3- slide background-->
-
-                    <img src="/gadgets/laptop.png" width="456" height="272" data-position="103,1180" data-in="bottom" data-out="bottom" data-delay="400">
-
-                    <img src="/gadgets/mack.png" width="357" height="313" data-position="60,1040" data-in="top" data-out="bottom" data-delay="200">
-
-                    <img src="/gadgets/ipad.png" width="120" height="170" data-position="230,1030" data-in="left" data-delay="300" data-out="left">
-
-                    <img src="/gadgets/smartphone.png" width="70" height="140" data-position="270,1320" data-in="right" data-delay="300" data-out="right">
-
-                    <a href=""	class="slider-read" data-position="360,250" data-in="bottom"  data-out="Right" data-delay="3500">Free Download</a>
-                </div>
-                <div class="slide">
-                    <img src="/WEB-INF/resources/images/fraction-slider/fraction_6.png" data-in="fade" data-out="fade" width="1920" height="auto">         <!--4- slide background-->
-
-                    <img src="/WEB-INF/resources/images/fraction-slider/slider-girl.png" width="480" height="480" data-position="-20,250" data-in="right" data-delay="500" data-out="fade" style="width:auto; height:auto">
-
-                    <a href=""	class="slider-read" data-position="340,1330" data-in="bottom" data-out="top" data-delay="6500">download Now</a>
-                </div>
-            </div>
-        </div>
-		<!--End Slider-->
-=======
 		<br>
 		<br>
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 		
 		<section class="clients">
 			<div class="container">
