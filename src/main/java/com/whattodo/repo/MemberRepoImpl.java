@@ -23,12 +23,12 @@ public class MemberRepoImpl implements MemberRepo {
 	
 	public int updateMember(Member member) {
 		String statement = NAME_SPACE+"updateMember";
-		return template.insert(statement, member);
+		return template.update(statement, member);
 	}
 
 	public int deleteMember(String id) {
 		String statement = NAME_SPACE+"deleteMemberById";
-		return template.insert(statement, id);
+		return template.delete(statement, id);
 	}
 
 	public Member getMemberById(String id) {

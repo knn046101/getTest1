@@ -59,9 +59,12 @@ public class BoardController {
 		List<Board> board=bs.selectBoardByCategory(category);
 		List<Board> afterBoard=new ArrayList<Board>();
 		
-		int end=(page*10<board.size())? page*10 : board.size();
-		
-		for(int i=(page-1)*10; i<end; i++){
+		int end=(page*15<board.size())? page*15 : board.size();
+		int start=0;
+		if(page>1){
+			start=15*(page-1);
+		}
+		for(int i=start; i<end; i++){
 			board.get((page-1)*10).setPage(page);
 			afterBoard.add(board.get(i));
 		}
@@ -89,7 +92,7 @@ public class BoardController {
 		List<BoardReply> afterBoardReply=new ArrayList<BoardReply>();
 		
 		int end=(page*10<boardReply.size())? page*10 : boardReply.size();
-		
+
 		for(int i=(page-1)*10; i<end; i++){
 			boardReply.get((page-1)*10).setPage(page);
 			afterBoardReply.add(boardReply.get(i));
