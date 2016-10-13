@@ -10,6 +10,11 @@
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
 <jsp:include page="/layout/whatcss.jsp"></jsp:include>
+<style>
+	#page{
+		height:30px;
+	}
+</style>
 </head>
 <body>
 	
@@ -117,8 +122,14 @@
 </body>
 <jsp:include page="/layout/whatjs.jsp"></jsp:include>
 <script>
-var boardNo="";
-<c:url value="/boardReply" var="boardReply"/>
+	var boardNo="";
+
+	<c:url value="/boardReply" var="boardReply"/>
+	$(document).on("ready", function(e){
+		send("${boardReply }?pageno=1&boardNo=${board.boardNo}");
+	});
+	
+	<c:url value="/addBoardReply" var="addBoardReply"/>
 	 $("#form").on("submit", function(e){
 		e.preventDefault();
 		if("${login.id}"==""){
@@ -129,6 +140,7 @@ var boardNo="";
 			var page_eno;
 			var page_sno;
 			var htmlText="";
+			var pageText="";
 			 <c:url value="/addBoardReply" var="addBoardReply"/> 
 			var allData={
 				"boardNo": "${board.boardNo }",
@@ -148,7 +160,7 @@ var boardNo="";
 	           						+"<div class='comment-container'>"
 	                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a></h4>"
 	                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
-	                				+args.toLocaleDateString()+"</div>"
+	                				+date.toLocaleDateString()+"</div>"
 	                				+"<div class='comment-body'>"
 	                    			+"<p>"+args[i].boardReplyContent+"</p>"
 	                				+"</div>"
@@ -220,7 +232,6 @@ var boardNo="";
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 
-					var pageText="";
 					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
 					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
 					for(var i=page_sno; i<=page_eno; i++){ 
@@ -238,7 +249,9 @@ var boardNo="";
 					} 
 					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
 					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
+					console.log(pageText);
 					$("#page").appned(pageText);
+					$("#comments").val("");
 				},
 				error : function(xhr, status, error) {
 					alert("게시판 가져오기 실패..");
@@ -246,8 +259,7 @@ var boardNo="";
 				"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 			});
 		}
-	});
-	 
+	 });
 		function send(inputUrl){
 			var url=inputUrl;
 			var htmlText="";
@@ -268,13 +280,14 @@ var boardNo="";
 		           						+"<div class='comment-container'>"
 		                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a></h4>"
 		                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
-		                				+args.toLocaleDateString()+"</div>"
+		                				+date.toLocaleDateString()+"</div>"
 		                				+"<div class='comment-body'>"
 		                    			+"<p>"+args[i].boardReplyContent+"</p>"
 		                				+"</div>"
 		            					+"</div>"
 		       							+"</li>";
-						}
+					}
+					boardNo=args[0].boardNo;
 					$("#comment-list").append(htmlText);  
 					////////////////////// 불러온 테이블 끝////////////////////////
 					var recordNum=args[0].recordNum;
@@ -355,7 +368,8 @@ var boardNo="";
 					} 
 					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
 					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
-					$("#page").appned(pageText);
+					$("#page").append(pageText);
+					$("#comments").val("");
 				},
 				error : function(txt, txt2, xhr){
 					console.log("error", xhr);
@@ -368,15 +382,23 @@ var boardNo="";
 	
 	$("#good").on("click",function(){});
 	
-	$("#update").on("click",function(){});
+	$("#update").on("click",function(){
+		var response
+		if("${login.id}"!="${board.id}"){
+			alert("작성자만 게시글을 수정할 수 있습니다.");
+		}else{
+			<c:url value="/getUpdateBoard" var="getUpdateBoard"/> 
+			location.href="${getUpdateBoard}?boardNo="+${board.boardNo};
+		}
+	});
 	
 	$("#delete").on("click",function(){
+		var response
 		if("${login.id}"!="${board.id}"){
 			alert("작성자만 게시글을 삭제할 수 있습니다.");
 		}else{
-			
+			response=confirm("정말로 삭제하시겠습니까 ?ㅠㅜ");
 		}
-		var response=confirm("정말로 삭제하시겠습니까 ?ㅠㅜ");
 		if(response==true){
 			<c:url value="/boardDelete" var="boardDelete"/> 
 			location.href="${boardDelete}?boardNo="+${board.boardNo}+"&category=${board.category}";

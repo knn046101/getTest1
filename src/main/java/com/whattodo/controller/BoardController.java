@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
+import com.whattodo.dto.Member;
 import com.whattodo.service.BoardService;
 
 
@@ -44,6 +45,29 @@ public class BoardController {
 		logger.trace("데이터 삽입 전 board : {}", board);
 		int result=bs.insertBoard(board);
 		logger.trace("데이터 삽입 후 result : {}",result);
+		if(result==1){
+			return "저장";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/updateBoard", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String updateBoard(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		String boardTitle=request.getParameter("boardTitle");
+		String boardContent=request.getParameter("boardContent");
+		String location=request.getParameter("location");
+		String numberOfPeople=request.getParameter("numberOfPeople");
+		String what=request.getParameter("what");
+		String category=request.getParameter("category");
+		String id=request.getParameter("id");
+		String mainImg=request.getParameter("mainImg");
+
+		Board board = new Board(boardNo, boardTitle, boardContent, location, numberOfPeople,
+				what, category, mainImg, id);
+		int result=bs.updateBoard(board);
 		if(result==1){
 			return "저장";
 		}else{
@@ -87,7 +111,9 @@ public class BoardController {
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String boardReply(Model model, HttpServletRequest request){
 		int page = Integer.parseInt(request.getParameter("pageno"));
+		logger.trace("page:{}",page);
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		logger.trace("boardNo:{}",boardNo);
 		List<BoardReply> boardReply=bs.selectBoardReply(boardNo);
 		List<BoardReply> afterBoardReply=new ArrayList<BoardReply>();
 		
@@ -97,7 +123,7 @@ public class BoardController {
 			boardReply.get((page-1)*10).setPage(page);
 			afterBoardReply.add(boardReply.get(i));
 		}
-
+		afterBoardReply.get(0).setRecordNum(boardReply.size());
 		Gson gson = new Gson();
 		String boardReplyStr = "[";
 		for(int i=0; i<afterBoardReply.size(); i++){
@@ -108,6 +134,7 @@ public class BoardController {
 			boardReplyStr+=gson.toJson(afterBoardReply.get(i))+",";
 		}
 		boardReplyStr+="]";
+		logger.trace("boardReply:{}",boardReply);
 		return boardReplyStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -115,10 +142,8 @@ public class BoardController {
 	public String retrieveBoard(Model model, HttpServletRequest request){
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		Board board = bs.selectBoardbyBoardNo(boardNo);
-		List<BoardReply> boardReply = bs.selectBoardReply(boardNo);
 	/*	bs.updateBoardClick(boardNo);*/
 		model.addAttribute("board", board);
-		model.addAttribute("boardReply", boardReply);
 		return "board/board_info";
 	}
 	
@@ -146,6 +171,14 @@ public class BoardController {
 		}
 		boardReplyStr+="]";
 		return boardReplyStr;
+	}
+	
+	@RequestMapping(value="/getUpdateBoard", method=RequestMethod.GET)
+	public String getUpdateBoard(Model model, HttpServletRequest request){
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		Board board=bs.selectBoardbyBoardNo(boardNo);
+		model.addAttribute("board",board);
+		return "board/board_update";
 	}
 	
 	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
