@@ -19,70 +19,67 @@
 		
 	</div>
 	
-	<section class="clients">
+	<section class="content about">
 			<div class="container">
 				<div class="row sub_content">
-					<div class="col-lg-12 ">
-						<div class="dividerHeading">
-							<h4><span id ="title"></span></h4>
-							
-							
-						</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 ">
 						
-						
-					<div class="row">
-						<div class="col-md-5" id="img">
-							
-						</div>
-						
-							<div class="col-md-2" >
-							<!-- 공백을 위한 div -->
-						</div>
-						
-						<div class="col-md-5" id="maincontent">
-						<h1 class="row sub_content">소개</h1>
-							
-						</div>
-					</div>
-						
-						
-						
-						
-						
-						
-				<div class="row">
-				<div class="col-md-5">
-					<h2 id ="intro">
-						기본 정보
-					</h2>
-					
-					
-	
-				</div>
-				
-				
-				<div class="col-md-2">
-				<!-- 공백을 위한 div -->
-	
-				</div>
-				<div class="col-md-5">
-					<h2 id ="detail">
-						상세 정보
-					</h2>
-					
-					
-				</div>
-				
-			</div>
-					</div>
+							<h1><span id ="title"></span></h1>
+						<nav style="background-color:grey;" id="breadcrumbs">
+							<ul>
+								<li>You are here:</li>
+								<li><a href="../main.jsp">Home</a></li>
+								<li><a href="../main.jsp">내주변에서는?</a></li>
+								<li>내주변 post</li>
+							</ul>
+						</nav>
+									</div>
 				</div>
 			</div>
 		</section>
-	
-	
-
 		
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6" id="img">
+						<div class="col-md-2" id="img">
+							<!-- 공백을 위한 div -->
+						</div>
+						
+						</div>
+							<div class="col-lg-5 col-sm-5 col-md-5" id="maincontent">
+							<div class="dividerHeading">
+								<h4><span>소개</span></h4>
+							</div>
+						</div>
+						
+					</div>
+				<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6" >
+					<div class="col-md-2" >
+					</div>
+				</div>
+				<div class="col-lg-5 col-sm-5 col-md-5" >
+					
+					<h2 id="intro">
+					<div class="dividerHeading ">
+						<h4><span>상세정보</span></h4>
+						
+					</div>
+					<h2 id="detail">
+					</h2>
+					</h2>
+					<div class="col-md-8" >
+					<h2  style="">
+					
+					</h2>
+					
+					</div>
+					<h2><br><br></h2>
+				</div>
+	</div>
+				
+				
 
+<br><br><br>
 	<div class="row">
 		<div class="col-md-12">
 		<jsp:include page="/layout/footer.jsp"></jsp:include>
@@ -150,16 +147,16 @@ $.ajax({
 			var homepage =itemArray.homepage;//홈페이지
 			var tel = itemArray.tel;//전화번호
 			
-			introhomepage ="<br><h3>홈페이지</h3><p>"+homepage+"</p>";
+			introhomepage ="<h4>홈페이지: "+homepage+"</h4>";
 			
-			introtel="<br><p>전화번호: "+tel+"</p>";
+			introtel="<h4>전화번호: "+tel+"</h4>";
 			
 	       /*상세정보 */
 	       var address=itemArray.addr1;
 	       var zip=itemArray.zipcode;
 	       
-	        insertaddress = "<br><h3>주소</h3><p> "+address+"</p>";
-			insertzip="<br><p>우편번호: "+zip+"</p>";
+	        insertaddress = "<h4>주소: "+address+"</h4> ";
+			insertzip="<h4>우편번호: "+zip+"</h4>";
 			
 			
 		/*html에 삽입하는 부분 */
