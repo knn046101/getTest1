@@ -40,6 +40,20 @@ public class Board {
 		this.id = id;
 	}
 
+	public Board(int boardNo, String boardTitle, String boardContent, String location, String numberOfPeople,
+			String what, String category, String mainImg, String id) {
+		super();
+		this.boardNo = boardNo;
+		this.boardTitle = boardTitle;
+		this.boardContent = boardContent;
+		this.location = location;
+		this.numberOfPeople = numberOfPeople;
+		this.what = what;
+		this.category = category;
+		this.mainImg = mainImg;
+		this.id = id;
+	}
+	
 	public Board(Integer boardNo, String boardTitle, String boardContent, Date writeDate, String location,
 			String numberOfPeople, String what, String category, Integer click, Integer good, Integer scrap,
 			String mainImg, String id) {

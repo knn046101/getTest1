@@ -18,7 +18,6 @@
 		NUMBEROFPEOPLE=#{numberOfPeople},
 		what=#{what},
 		category=#{category},
-		id=#{id},
 		main_img=#{mainImg}
 		where board_no=#{boardNo}
 	</update>
