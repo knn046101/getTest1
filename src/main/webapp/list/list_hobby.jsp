@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					
-				<div >
+				<div class="jcarousel recent-work-jc">
                         <ul class="jcarousel-list">
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
