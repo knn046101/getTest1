@@ -13,24 +13,28 @@
 
 <jsp:include page="/layout/whatcss.jsp"></jsp:include>
 <jsp:include page="/layout/whatjs.jsp"></jsp:include>
+<link rel="stylesheet" href="css/bootstrapCarousel.css" />
 
 </head>
 <body>
+
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-	<br>
-	<br>
+
 
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
-	<section class="latest_work">
+
+		
+		<section class="clients">
+
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
 							<h4><span>내 주변에서는?</span></h4>
-							위치정보를 받아서 출력해주는 부분 
+							
 							<span class=" glyphicon glyphicon-map-marker"  id ="near">
 								<select id="radius">
 							    <option value="">범위 선택</option>
@@ -40,20 +44,79 @@
 								</select>
 							 </span>
 							 	</div>
-							<div class="carousel-navi">
-												<div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
-												<div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
-											</div>
-											<div class="clearfix"></div>						
+							 	
+							 	
+							 	
+						<!-- 위치 내용 시작  --> 	
+				<!-- 	<div class="clearfix"></div>						
 						<div class="">
 							<ul class="" id ="searchTour">
-								
+							내용이 append 될 자리 
 							</ul>
-						</div>
+					
+						</div>			
 					</div>
 				</div>
 			</div>
 			</div>
+			 -->
+			 
+			 <!--추가  -->
+ <div id="myCarousel" class="row carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" id="carouseltotal" >
+
+      <div class="item active">
+        
+        <ul class="thumbnails" id ="searchTour1">
+          
+        </ul>
+      </div> <!-- /Slide1 --> 
+
+
+      <div class="item">
+        <ul class="thumbnails" id = "searchTour2">
+          
+    
+          
+        </ul>
+      </div><!-- /Slide2 --> 
+
+
+      <div class="item">
+        <ul class="thumbnails" id = "searchTour3">
+         
+     
+        </ul>
+      </div><!-- /Slide3 --> 
+
+
+
+    </div><!-- /Wrapper for slides .carousel-inner -->
+
+
+
+    <!-- Control box -->
+    <div class="control-box">                            
+      <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+      <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+    </div><!-- /.control-box -->   
+
+
+
+  </div><!-- /#myCarousel -->
+
+
+</div><!-- /.col-sm-12 -->          
+</div><!-- /.row --> 
+</div><!-- /.container -->
+
+                            
+
+			 <!--추가 시범  -->
+			
+										
 		</section> 
 	<!--end wrapper-->
 
@@ -529,19 +592,34 @@ var contentid;
 	$('#radius').change(function(){ 
 		radius =$('#radius option:selected').val() ; 
 		console.log(radius+"   "+"정상적으로 값이 변했음 radius");
-		$("#searchTour>li").remove();
+		$("#searchTour1>li").remove();
+		$("#searchTour2>li").remove();
+		$("#searchTour3>li").remove();
 		getData();
 		
     });
+	
+	
+	
+	 function intervalstop() {
+		    $('.carousel').carousel({
+		      interval: false
+		      
+		      
+		    });
+		    console.log("인터벌 스톱 호출됨");
+		  };
 
 	function getData(){
-		$("#searchTour>li").remove();
+		$("#searchTour1>li").remove();
+		$("#searchTour2>li").remove();
+		$("#searchTour3>li").remove();
 		var locaxx = 126.981106;
 		var locayy = 37.568477;
 		/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
 			 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
 		 var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
-		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo=3&numOfRows=4&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
+		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo=1&numOfRows=12&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 	 
 		$.ajax({
 			url:locaurl,
@@ -558,139 +636,103 @@ var contentid;
 					
 					var title = item.title;
 					var tel = item.tel;
-					var img = item.firstimage;
+					var img=item.firstimage;
+					
+					if(title==undefined){
+						console.log(title+"타이틀 없음");
+						intervalstop();
+						
+					}
+
+					if(img==undefined){
+						console.log(img);
+						img="<%=request.getContextPath()%>/images/logo.png";
+						
+					} 
+					
+					/* 타이틀이 없으면 바로 멈추게 할것 
+					$('#carouseltotal').attr("class","row carousel");
+					 console.log("클래스가 바뀜");
+	*/
 					var addr =item.addr1;
 					contentid=item.contentid;
 					 /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
-					 row="<li class='col-s1m-3 col-md-3 col-lg-3'>"
-							+"<a href=<%=request.getContextPath()%>"
-		                                                +"/api/apiservice_info.jsp?contentid="
-														+ contentid
-														+ "&"
-														+ "title="
-														+ title
-														+ "  data-toggle='tooltip'+title='"
-														+ title
-														+ "' >"
-														+ "<img src="+img+" alt='' width='200px' height='150px'/>"
-														+ "<div>"
-														+ title
-														+ "</div></a></li>";
-														
-														
-														/*추가               */
-														
-														
-					 htmlText="<li class='col-sm-3 col-md-3 col-lg-3 delete'>"
-             			+"<div class='recent-item'>"
-             			+"<figure>"
-                 		+"<div class='touching medium'>"
-                     	+"<img src="+img+" height='145px'/>"
-               			+"</div>"
-                 		+"<div class='option'>"
-                 		/*  */                 		
-                 		+"<a href=<%=request.getContextPath()%>"
-                         +"/api/apiservice_info.jsp?contentid="
-							+ contentid
-							+ "&"
-							+ "title="
-							+ title
-							+ "  data-toggle='tooltip'+title='"
-							+ title
-							+ "'  class='hover-link' >"                 
-                 		+"<i class='fa fa-arrow-right'></i></a>"
-                     	/*  */
-                 		+"</div>"
-                 		+"<figcaption class='item-description'>"
-                     	+"<h5>"+title+"</h5>"
-                 		+"</figcaption>"
-             			+"</figure>"
-         				+"</div>"
 
-     				
-         				
-         				+"<div>"
-         				+"<a href=<%=request.getContextPath()%>"
-                        +"/api/apiservice_info.jsp?contentid="
-							+ contentid
-							+ "&"
-							+ "title="
-							+ title
-							+ "  data-toggle='tooltip'+title='"
-							+ title
-							+">"
-         				
-         				+title+"</a></div>"
-         				+"</li>";
-			
-
-
-/*  $('#searchTour').append(row);  */
-														
-														
- $('#searchTour').append(htmlText);
+							
 					
-				})
-				
+																								
+								rowtest ="<li class='col-sm-3'>"
+										        +"<div class='thumbnail'>"
+										         +  "<a href=<%=request.getContextPath()%>"
+	                                                +"/api/apiservice_info.jsp?contentid="
+													+ contentid
+													+ "&"
+													+ "title="
+													+ title
+													+ "  data-toggle='tooltip'+title='"
+													+title
+													+ "' >"
+													+ "<img src="+img+" alt='' width='300px' height='240px'/>"+"</a></div>"
+										            +"<div class='caption-box'>"
+										            + "<a href=<%=request.getContextPath()%>"
+	                                                +"/api/apiservice_info.jsp?contentid="
+													+ contentid
+													+ "&"
+													+ "title='"+title+"'>"												
+										            +"<h4>"+title+"</h4></a></div></li>";     
+										              														      									  		  									  		      										  		  
+										            
+										            if(0<=index&&index<4){
+										            	if(title!=undefined){
+										            		console.log("첫번째 인덱스:"+index);
+											            	console.log("첫번째아이템이름:"+title);
+											            	$('#searchTour1').append(rowtest);
+											            	
+										            	}
+										            	else{
+										            		
+										            		return false;
+										            	}
+										            
+										            }
+										            
+										            
+										            
+										            else if(4<=index&&index<8){
+										            	if(title!=undefined){
+										            		console.log("두번째 인덱스:"+index);
+											            	console.log("두번째아이템이름:"+title);
+											            	$('#searchTour2').append(rowtest);
+										            	}
+										            	else{
+										            		
+										            		return false;
+										            	}
+										            	
+										            	
+										            	
+										            }
+										            else if(8<=index&&index<12){
+										            	if(title!=undefined){
+										            		console.log("세번째 인덱스:"+index);
+											            	console.log("세번째아이템이름:"+title);
+											            	$('#searchTour3').append(rowtest);
+											            	}
+										            	}else{
+										            		
+										            		return false;
+										            	}
+										            	
+										            	
+										            
+				}); 
 			},
-			error : function(xhr, status, error) {
-				alert("fail:" + error);
-			},
-			"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"								
-		
-		});
-						
-	}
-						
-					
-		
+			error:function(xhr,status,error){
+				alert("fail:"+error);
+			}
+		})
+	};
 
-		$("#getdetail")
-				.on(
-						"click",
-						function() {
-							var detailurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
-							detailurl += "ServiceKey="
-									+ key
-									+ "&contentId=126508&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json";
-
-							$
-									.ajax({
-										url : detailurl,
-										type : "get",
-										success : function(responseTxt) {
-											//JSON 계층으로 접근하기
-											var itemArray = responseTxt.response.body.items.item;
-											var row = "";
-											$
-													.each(
-															itemArray,
-															function(index,
-																	item) {
-																var title = itemArray.title;
-																var tel = itemArray.tel;
-																var img = itemArray.firstimage2;
-																var homepage = itemArray.homepage;
-																var overview = itemArray.overview;
-																row += "<tr><td>"
-																		+ title
-																		+ "</td><td>"
-																		+ tel
-																		+ "</td><td><img src="+img+"></td><td>"
-																		+ homepage
-																		+ "</td><td>"
-																		+ overview
-																		+ "</td></tr>";
-															});
-											$("#info").html(
-													$("#info").html() + row);
-											console.log(responseTxt);
-										},
-										error : function(xhr, status, error) {
-											alert("fail:" + error);
-										}
-									})
-						});
 	</script>
 </body>
 </html>

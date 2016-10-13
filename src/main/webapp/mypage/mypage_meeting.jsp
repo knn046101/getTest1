@@ -41,8 +41,8 @@
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="${login.profileImg }" class="img-circle"
-											alt="${login.nickname }" width="150" height="150" hspace="50">
+										<li><img src=${login.profileImg } class="img-circle"
+											 width="150" height="150" hspace="50">
 											<br></li>
 										<h4 align="center">
 
