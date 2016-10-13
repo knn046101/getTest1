@@ -34,6 +34,7 @@ public class MvcConfig  extends WebMvcConfigurerAdapter{
     	registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/resources/images/");
     	registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/resources/js/");
     	registry.addResourceHandler("/fonts/**").addResourceLocations("/WEB-INF/resources/fonts/");
+    	registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/resources/img/");
     	
     	registry.addResourceHandler("/list/css/**").addResourceLocations("/WEB-INF/resources/css/");
     	registry.addResourceHandler("/list/images/**").addResourceLocations("/WEB-INF/resources/images/");
@@ -67,6 +68,7 @@ public class MvcConfig  extends WebMvcConfigurerAdapter{
     	
     	registry.addResourceHandler("/api/css/**").addResourceLocations("/WEB-INF/resources/css/");
     	registry.addResourceHandler("/api/images/**").addResourceLocations("/WEB-INF/resources/images/");
+    	registry.addResourceHandler("/api/img/**").addResourceLocations("/WEB-INF/resources/img/");
     	registry.addResourceHandler("/api/js/**").addResourceLocations("/WEB-INF/resources/js/");
     	registry.addResourceHandler("/api/fonts/**").addResourceLocations("/WEB-INF/resources/fonts/");
     	super.addResourceHandlers(registry);

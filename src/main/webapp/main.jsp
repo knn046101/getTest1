@@ -1,30 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<html class="no-js" lang="en"> 
+<html class="no-js" lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>뭐 하 지 ?</title>
-	<meta name="description" content="">
-	
-	<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-	<jsp:include page="/layout/whatjs.jsp"></jsp:include>
-	
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>뭐 하 지 ?</title>
+<meta name="description" content="">
+
+<jsp:include page="/layout/whatcss.jsp"></jsp:include>
+<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+
 </head>
 <body>
-		<jsp:include page="/layout/header.jsp"></jsp:include>
-		<br>
-		<br>
-		<section class="clients">
+	<jsp:include page="/layout/header.jsp"></jsp:include>
+	<br>
+	<br>
+
+	<!--Start recent work-->
+<jsp:include page="/api/slider.jsp"></jsp:include>
+
+	<section class="latest_work">
 			<div class="container">
 				<div class="row sub_content">
+				<div class="carousel-intro">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
 							<h4><span>내 주변에서는?</span></h4>
-							<!--위치정보를 받아서 출력해주는 부분  -->
+							위치정보를 받아서 출력해주는 부분 
 							<span class=" glyphicon glyphicon-map-marker"  id ="near">
 								<select id="radius">
 							    <option value="">범위 선택</option>
@@ -33,381 +39,440 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
-
-						</div>
-						
-						<div class="our_clients">
-							<ul class="client_items clearfix" id ="searchTour">
+							 	</div>
+							<div class="carousel-navi">
+												<div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
+												<div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
+											</div>
+											<div class="clearfix"></div>						
+						<div class="">
+							<ul class="" id ="searchTour">
 								
-							</ul><!--/ .client_items-->
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-	    <!--end wrapper-->
-   	
-    
-		<!--Start recent work-->
-		<section class="latest_work">
-			<div class="container">
-				<div class="row sub_content">
-					<div class="carousel-intro">
-						<div class="col-md-12">
-							<div class="dividerHeading">
-								<h4><span>추천!꿀팁 Best</span></h4>
-							</div>
-							<div class="carousel-navi">
-								<div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
-								<div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
-							</div>
-							<div class="clearfix"></div>
+			</div>
+		</section> 
+	<!--end wrapper-->
+
+	 
+	
+
+
+	<!--Start recent work-->
+	<section class="latest_work">
+		<div class="container">
+			<div class="row sub_content">
+				<div class="carousel-intro">
+					<div class="col-md-12">
+						<div class="dividerHeading">
+							<h4>
+								<span>추천!꿀팁 Best</span>
+							</h4>
 						</div>
+						<div class="carousel-navi">
+							<div id="work-prev" class="arrow-left jcarousel-prev">
+								<i class="fa fa-angle-left"></i>
+							</div>
+							<div id="work-next" class="arrow-right jcarousel-next">
+								<i class="fa fa-angle-right"></i>
+							</div>
+						</div>
+						<div class="clearfix"></div>
 					</div>
+				</div>
+
+				<div class="jcarousel recent-work-jc">
+					<ul class="jcarousel-list">
 					
-					<div class="jcarousel recent-work-jc">
-                        <ul class="jcarousel-list">
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_1.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium" >
+									<a></a>
+										<img src="images/portfolio/portfolio_1.png" />
+									</div>
+									
+									<div class="option">
+										<!-- 여기가 호버됬을때 링크생기는부분 -->
+										<a href="board/board_info.jsp" class="hover-link">
+										<i	class="fa fa-arrow-right"></i></a>
 
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5 id="hovertitle">호버제목</h5>
+									</figcaption>
+									</figure>
+								
+							</div>
+							<div><p>리얼제목</p></div>
+						</li>
 
-                                            
-                                        </div>
-                                        <figcaption class="item-description">
-                                             <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
 
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_2.png" alt="" />
-                                        </div>
-                                        <div class="option">
+<%-- 
+<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid= "contentid" &title="title"  data-toggle='tooltip'+title='title'  class='hover-link' >"                 
+                 		+"<i class='fa fa-arrow-right'></i></a>" --%>
 
-                                            <a href="images/portfolio/full/portfolio_2.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_2.png" alt="" />
+									</div>
+									<div class="option">
 
-                                            <a href="images/portfolio/full/portfolio_2.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
+										<a href="images/portfolio/full/portfolio_2.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a> <a
+											href="images/portfolio/full/portfolio_2.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
 
-                                        </div>
-                                        <figcaption class="item-description">
-                                            <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
 
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_3.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_3.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_8.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
 
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a> <a href="board/board_info.jsp"
+											class="hover-link"><i class="fa fa-arrow-right"></i></a>
 
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
 
-                                        </div>
-                                        <figcaption class="item-description">
-                                             <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_4.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_3.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a> <a href="board/board_info.jsp"
+											class="hover-link"><i class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
 
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_4.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_3.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                            <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_5.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_4.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
 
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_5.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_4.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                            <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_5.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_1.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
 
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_5.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                            <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
+						<!-- Recent Work Item -->
 
-                            <!-- Recent Work Item -->
-                            
-                            
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_2.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_7.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                             <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
 
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_3.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                           	 <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-                        </ul>
-					</div>
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_2.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_7.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_3.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_8.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
-		</section>
-		<!--Start recent work-->
-		
-		<!--Start recent work-->
-		<section class="latest_work">
-			<div class="container">
-				<div class="row sub_content">
-					<div class="carousel-intro">
-						<div class="col-md-12">
-							<div class="dividerHeading">
-								<h4><span>에디터게시글 Best</span></h4>
-							</div>
-							<div class="carousel-navi">
-								<div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
-								<div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
-							</div>
-							<div class="clearfix"></div>
+		</div>
+	</section>
+	<!--Start recent work-->
+
+	<!--Start recent work-->
+	<section class="latest_work">
+		<div class="container">
+			<div class="row sub_content">
+				<div class="carousel-intro">
+					<div class="col-md-12">
+						<div class="dividerHeading">
+							<h4>
+								<span>에디터게시글 Best</span>
+							</h4>
 						</div>
-					</div>
-					
-					<div class="jcarousel recent-work-jc">
-                        <ul class="jcarousel-list">
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_1.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                           	 <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_2.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_2.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                             <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_3.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                         	 <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_4.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_3.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                             <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_5.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_4.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                          	 <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_5.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_1.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                            <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_2.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_7.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                             <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <div class="recent-item">
-                                    <figure>
-                                        <div class="touching medium">
-                                            <img src="images/portfolio/portfolio_3.png" alt="" />
-                                        </div>
-                                        <div class="option">
-                                            <a href="images/portfolio/full/portfolio_8.png" class="hover-zoom mfp-image" ><i class="fa fa-search"></i></a>
-                                            <a href="board/board_info.jsp" class="hover-link"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                        <figcaption class="item-description">
-                                            <h5>제목</h5>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </li>
-                        </ul>
+						<div class="carousel-navi">
+							<div id="work-prev" class="arrow-left jcarousel-prev">
+								<i class="fa fa-angle-left"></i>
+							</div>
+							<div id="work-next" class="arrow-right jcarousel-next">
+								<i class="fa fa-angle-right"></i>
+							</div>
+						</div>
+						<div class="clearfix"></div>
 					</div>
 				</div>
-			</div>
-		</section>
-		<!--Start recent work-->
-		<br>
-		<br>
 
-    <jsp:include page="/layout/footer.jsp"></jsp:include>
-    
-   <!-- open Api 구글이랑 TourApi 적용 부분 건드리지 마시오 -->
-   
-<script>
+				<div class="jcarousel recent-work-jc">
+					<ul class="jcarousel-list">
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_1.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_1.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_2.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_2.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_3.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_8.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_4.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_3.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_5.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_4.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_5.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_1.png"
+											class="hover-zoom mfp-image">
+									<i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_2.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_7.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+
+						<!-- Recent Work Item -->
+						<li class="col-sm-3 col-md-3 col-lg-3">
+							<div class="recent-item">
+								<figure>
+									<div class="touching medium">
+										<img src="images/portfolio/portfolio_3.png" alt="" />
+									</div>
+									<div class="option">
+										<a href="images/portfolio/full/portfolio_8.png"
+											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
+										<a href="board/board_info.jsp" class="hover-link"><i
+											class="fa fa-arrow-right"></i></a>
+									</div>
+									<figcaption class="item-description">
+										<h5>제목</h5>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Start recent work-->
+	<br>
+	<br>
+
+	<jsp:include page="/layout/footer.jsp"></jsp:include>
+
+	<!-- open Api 구글이랑 TourApi 적용 부분 건드리지 마시오 -->
+
+	<script>
 var googlekey ="AIzaSyB7jJk6mzm9sXtP2N0DIhz-P5JTZAaONXY";
 var key ="JSsZ5Smoa%2BwtJchJy5D5EB9SDU5LGZPuK4285EAR7%2F5wisjKDOJkAFSTyHuY0n4uXOHtfemrXCstsw9AFbI7Nw%3D%3D" ;
 
@@ -482,10 +547,15 @@ var contentid;
 			url:locaurl,
 			type:"get",
 			success:function(responseTxt){
-				 var itemArray=responseTxt.response.body.items.item;  
-				/* var itemArray=responseTxt.response.body. */
+				
+				/*구분자  */
+				
+				var itemArray=responseTxt.response.body.items.item;  
+				
 				var row="";
+				var htmlText="";
 				$.each(itemArray,function(index,item){
+					
 					var title = item.title;
 					var tel = item.tel;
 					var img = item.firstimage;
@@ -493,48 +563,134 @@ var contentid;
 					contentid=item.contentid;
 					 /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
 					 row="<li class='col-s1m-3 col-md-3 col-lg-3'>"
-							+"<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid="
-							+contentid+"&"
-							+ "title="+title
-							+"  data-toggle='tooltip'+title='"+title+"' >"
-							+"<img src="+img+" alt='' width='200px' height='150px'/>"
-							+"<div>"+title+"</div></a></li>";
-					$('#searchTour').append(row);
-				}); 
-			},
-			error:function(xhr,status,error){
-				alert("fail:"+error);
-			}
-		})
-	};
-		
-	$("#getdetail").on("click",function(){ 
-		var detailurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
-			 detailurl+="ServiceKey="+key+"&contentId=126508&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
+							+"<a href=<%=request.getContextPath()%>"
+		                                                +"/api/apiservice_info.jsp?contentid="
+														+ contentid
+														+ "&"
+														+ "title="
+														+ title
+														+ "  data-toggle='tooltip'+title='"
+														+ title
+														+ "' >"
+														+ "<img src="+img+" alt='' width='200px' height='150px'/>"
+														+ "<div>"
+														+ title
+														+ "</div></a></li>";
+														
+														
+														/*추가               */
+														
+														
+					 htmlText="<li class='col-sm-3 col-md-3 col-lg-3 delete'>"
+             			+"<div class='recent-item'>"
+             			+"<figure>"
+                 		+"<div class='touching medium'>"
+                     	+"<img src="+img+" height='145px'/>"
+               			+"</div>"
+                 		+"<div class='option'>"
+                 		/*  */                 		
+                 		+"<a href=<%=request.getContextPath()%>"
+                         +"/api/apiservice_info.jsp?contentid="
+							+ contentid
+							+ "&"
+							+ "title="
+							+ title
+							+ "  data-toggle='tooltip'+title='"
+							+ title
+							+ "'  class='hover-link' >"                 
+                 		+"<i class='fa fa-arrow-right'></i></a>"
+                     	/*  */
+                 		+"</div>"
+                 		+"<figcaption class='item-description'>"
+                     	+"<h5>"+title+"</h5>"
+                 		+"</figcaption>"
+             			+"</figure>"
+         				+"</div>"
 
-		$.ajax({
-			url:detailurl,
-			type:"get",
-			success:function(responseTxt){
-			//JSON 계층으로 접근하기
-				var itemArray=responseTxt.response.body.items.item;
-				var row="";
-				$.each(itemArray, function(index, item){
-					var title = itemArray.title;
-					var tel = itemArray.tel;
-					var img = itemArray.firstimage2;
-					var homepage =itemArray.homepage;
-					var overview = itemArray.overview;
-					row+="<tr><td>"+title+"</td><td>"+tel+"</td><td><img src="+img+"></td><td>"+homepage+"</td><td>"+overview+"</td></tr>";
-				}); 
-				$("#info").html($("#info").html()+row);
-				console.log(responseTxt);
+     				
+         				
+         				+"<div>"
+         				+"<a href=<%=request.getContextPath()%>"
+                        +"/api/apiservice_info.jsp?contentid="
+							+ contentid
+							+ "&"
+							+ "title="
+							+ title
+							+ "  data-toggle='tooltip'+title='"
+							+ title
+							+">"
+         				
+         				+title+"</a></div>"
+         				+"</li>";
+			
+
+
+/*  $('#searchTour').append(row);  */
+														
+														
+ $('#searchTour').append(htmlText);
+					
+				})
+				
 			},
-			error:function(xhr,status,error){
-				alert("fail:"+error);
-			}
-		})
-	}); 
-</script>
+			error : function(xhr, status, error) {
+				alert("fail:" + error);
+			},
+			"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"								
+		
+		});
+						
+	}
+						
+					
+		
+
+		$("#getdetail")
+				.on(
+						"click",
+						function() {
+							var detailurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
+							detailurl += "ServiceKey="
+									+ key
+									+ "&contentId=126508&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json";
+
+							$
+									.ajax({
+										url : detailurl,
+										type : "get",
+										success : function(responseTxt) {
+											//JSON 계층으로 접근하기
+											var itemArray = responseTxt.response.body.items.item;
+											var row = "";
+											$
+													.each(
+															itemArray,
+															function(index,
+																	item) {
+																var title = itemArray.title;
+																var tel = itemArray.tel;
+																var img = itemArray.firstimage2;
+																var homepage = itemArray.homepage;
+																var overview = itemArray.overview;
+																row += "<tr><td>"
+																		+ title
+																		+ "</td><td>"
+																		+ tel
+																		+ "</td><td><img src="+img+"></td><td>"
+																		+ homepage
+																		+ "</td><td>"
+																		+ overview
+																		+ "</td></tr>";
+															});
+											$("#info").html(
+													$("#info").html() + row);
+											console.log(responseTxt);
+										},
+										error : function(xhr, status, error) {
+											alert("fail:" + error);
+										}
+									})
+						});
+	</script>
 </body>
 </html>
