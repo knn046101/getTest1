@@ -70,7 +70,7 @@
 		</div>
 
          <div class="form-group">
-            <label class="col-sm-3 control-label" for="inputEmail">프로필 사진 등록</label>
+            <label class="col-sm-3 control-label" for="image">프로필 사진 등록</label>
             <div class="col-sm-6">
                <input id="image" type="file" ></input>
                <div id="preview">

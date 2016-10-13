@@ -42,8 +42,8 @@
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-										<li><img src="${login.profileImg }" class="img-circle"
-											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
+										<li><img src=${login.profileImg } class="img-circle"
+											 width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
 
@@ -113,7 +113,7 @@
 									<button class="btn btn-primary" onclick="location='../main.jsp'" type="submit"
 										style="background-color: #27AB99; border-color: #fff;">홈으로</button>
 									
-									<button onclick="location='mypage_member_delete_after.jsp'" class="btn btn-primary"
+									<button onclick="memberDel()" class="btn btn-primary"
 										type="button"
 										style="background-color: orange; border-color: #fff;">회원탈퇴</button>
 
@@ -135,5 +135,11 @@
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
+<c:url value="/getEditor" var="getEditor"/>
+function memberDel{
+	var id = $("#inputId").val();
+	var pass = $("#inputPassword").val();
+}
+
 </script>
 </html>

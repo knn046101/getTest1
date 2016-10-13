@@ -38,7 +38,7 @@ a {
 			<div class="container">
 				<div class="row sub_content">
 					<div class="col-sm-4 col-md-4 col-lg-4">
-						<img src="../WEB_INF/resources/images/admin.png" class="img-circle"
+						<img src=${login.profileImg} class="img-circle"
 							 width="150" height="150"> <br>
 						<h4 align="left">
 							${login.nickname } 

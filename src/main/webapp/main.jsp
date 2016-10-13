@@ -16,6 +16,7 @@
 </head>
 <body>
 		<jsp:include page="/layout/header.jsp"></jsp:include>
+
 		<br>
 		<br>
 		
@@ -497,7 +498,7 @@ var contentid;
 							+"<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid="
 							+contentid+"&"
 							+ "title="+title
-							+"  data-toggle='tooltip'+title='"+title+"' >"
+							+"  data-toggle='tooltip'+title='"+title+"' style='color:#323A45;' >"
 							+"<img src="+img+" alt='' width='200px' height='150px'/>"
 							+"<div>"+title+"</div></a></li>";
 					$('#searchTour').append(row);
