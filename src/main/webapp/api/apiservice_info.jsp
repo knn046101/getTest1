@@ -22,7 +22,7 @@
 	<section class="content about">
 			<div class="container">
 				<div class="row sub_content">
-					<div class="col-lg-12 col-md-12 col-sm-12 ">
+					<div class="col-lg-14 col-md-14 col-sm-14 " style="background-color: #bebebe">
 						
 							<h1><span id ="title"></span></h1>
 						<nav style="background-color:grey;" id="breadcrumbs">
