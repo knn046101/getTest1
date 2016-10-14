@@ -54,6 +54,8 @@ public class BoardRepoImpl implements BoardRepo {
 		String statement=NAME_SPACE+"selectAllBoard";
 		return template.selectList(statement);
 	}
+	
+	
 
 	public Board selectBoardbyBoardNo(int boardNo) {
 		String statement=NAME_SPACE+"selectBoardbyBoardNo";
@@ -174,5 +176,11 @@ public class BoardRepoImpl implements BoardRepo {
 		map.put("boardNo", boardNo);
 		map.put("id", id);
 		return template.selectOne(statement, map);
+	}
+
+	public List<Board> selectBoardByGoodMainBest() {
+		String statement=NAME_SPACE+"selectBoardByGoodMainBest";
+		
+		return template.selectList(statement);
 	}
 }

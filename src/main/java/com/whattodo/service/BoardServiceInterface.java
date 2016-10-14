@@ -29,6 +29,8 @@ public interface BoardServiceInterface {
 	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo);
 	public List<Board> selectBoardByGood(String id);
 	public int insertBoardFollow(int boardNo, String id);
+	public List<Board> selectBoardByGoodMainBest();
+	
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);
 	public int insertBoardGood(int boardNo, String id);

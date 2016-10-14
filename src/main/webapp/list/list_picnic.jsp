@@ -80,7 +80,7 @@
       </div>
      
 </body>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+
 <script>
 var category="";
    <c:url value="/getBoards" var="getBoards"/>

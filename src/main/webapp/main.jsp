@@ -11,10 +11,9 @@
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
 
-<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
-<link rel="stylesheet" href="css/bootstrapCarousel.css" />
 
+
+<link rel="stylesheet" href="css/bootstrapCarousel.css" />
 
 </head>
 <body>
@@ -28,15 +27,21 @@
 
 
 
+<<<<<<< HEAD
 		
 		<section class="clients">
+=======
+		<br>
+		<section class="latest_work">
+		<br>
+	
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
 							<h4><span>내 주변에서는?</span></h4>
-							
 							<span class=" glyphicon glyphicon-map-marker"  id ="near">
 								<select id="radius">
 							    <option value="">범위 선택</option>
@@ -45,25 +50,14 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
+<<<<<<< HEAD
 						</div>
+=======
+							 </div>
+							 
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 							 	
 							 	
-							 	
-						<!-- 위치 내용 시작  --> 	
-				<!-- 	<div class="clearfix"></div>						
-						<div class="">
-							<ul class="" id ="searchTour">
-							내용이 append 될 자리 
-							</ul>
-					
-						</div>			
-					</div>
-				</div>
-			</div>
-			</div>
-			 -->
-			 
-			 <!--추가  -->
  <div id="myCarousel" class="row carousel slide" data-ride="carousel">
 
     <!-- Wrapper for slides -->
@@ -110,7 +104,8 @@
   </div><!-- /#myCarousel -->
 
 
-</div><!-- /.col-sm-12 -->          
+</div>          
+</div><!-- /.col-sm-12 -->
 </div><!-- /.row --> 
 </div><!-- /.container -->
 </div>
@@ -138,207 +133,66 @@
 								<span>추천!꿀팁 Best</span>
 							</h4>
 						</div>
-						<div class="carousel-navi">
-							<div id="work-prev" class="arrow-left jcarousel-prev">
-								<i class="fa fa-angle-left"></i>
-							</div>
-							<div id="work-next" class="arrow-right jcarousel-next">
-								<i class="fa fa-angle-right"></i>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
+						
+						
+	<div id="myCarousel1" class="row carousel slide" data-ride="carousel">
 
-				<div class="jcarousel recent-work-jc">
-					<ul class="jcarousel-list">
-					
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium" >
-									<a></a>
-										<img src="images/portfolio/portfolio_1.png" />
-									</div>
-									
-									<div class="option">
-										<!-- 여기가 호버됬을때 링크생기는부분 -->
-										<a href="board/board_info.jsp" class="hover-link">
-										<i	class="fa fa-arrow-right"></i></a>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" id="carouseltotal" >
 
-									</div>
-									<figcaption class="item-description">
-										<h5 id="hovertitle">호버제목</h5>
-									</figcaption>
-									</figure>
-								
-							</div>
-							<div><p>리얼제목</p></div>
-						</li>
+      <div class="item active">
+        
+        <ul class="thumbnails" id ="BestTip1">
+          
+        </ul>
+      </div> <!-- /Slide1 --> 
 
 
-<%-- 
-<a href=<%=request.getContextPath()%>/api/apiservice_info.jsp?contentid= "contentid" &title="title"  data-toggle='tooltip'+title='title'  class='hover-link' >"                 
-                 		+"<i class='fa fa-arrow-right'></i></a>" --%>
-
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_2.png" alt="" />
-									</div>
-									<div class="option">
-
-										<a href="images/portfolio/full/portfolio_2.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a> <a
-											href="images/portfolio/full/portfolio_2.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_3.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_8.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a> <a href="board/board_info.jsp"
-											class="hover-link"><i class="fa fa-arrow-right"></i></a>
-
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_4.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_3.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a> <a href="board/board_info.jsp"
-											class="hover-link"><i class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_5.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_4.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_5.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_1.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Recent Work Item -->
+      <div class="item">
+        <ul class="thumbnails" id = "BestTip2">
+          
+    
+          
+        </ul>
+      </div><!-- /Slide2 --> 
 
 
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_2.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_7.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
+      <div class="item">
+        <ul class="thumbnails" id = "BestTip3">
+         
+     
+        </ul>
+      </div><!-- /Slide3 --> 
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_3.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_8.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+
+
+    </div><!-- /Wrapper for slides .carousel-inner -->
+
+
+
+    <!-- Control box -->
+    <div class="control-box">                            
+      <a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
+      <a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
+    </div><!-- /.control-box -->   
+
+
+
+  </div><!-- /#myCarousel -->
+
+
+</div>          
+</div><!-- /.col-sm-12 -->
+</div><!-- /.row --> 
+</div><!-- /.container -->
 	</section>
 	<!--Start recent work-->
+	
+	
+	
+	
+	
+	
 
 	<!--Start recent work-->
 	<section class="latest_work">
@@ -351,184 +205,57 @@
 								<span>에디터게시글 Best</span>
 							</h4>
 						</div>
-						<div class="carousel-navi">
-							<div id="work-prev" class="arrow-left jcarousel-prev">
-								<i class="fa fa-angle-left"></i>
-							</div>
-							<div id="work-next" class="arrow-right jcarousel-next">
-								<i class="fa fa-angle-right"></i>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
+						
+	<div id="myCarousel2" class="row carousel slide" data-ride="carousel">
 
-				<div class="jcarousel recent-work-jc">
-					<ul class="jcarousel-list">
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_1.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_1.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" id="carouseltotal" >
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_2.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_2.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
+      <div class="item active">
+        
+        <ul class="thumbnails" id ="EditerBest1">
+          
+        </ul>
+      </div> <!-- /Slide1 --> 
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_3.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_8.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_4.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_3.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
+      <div class="item">
+        <ul class="thumbnails" id = "EditerBest2">
+          
+    
+          
+        </ul>
+      </div><!-- /Slide2 --> 
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_5.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_4.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_5.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_1.png"
-											class="hover-zoom mfp-image">
-									<i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
+      <div class="item">
+        <ul class="thumbnails" id = "EditerBest3">
+         
+     
+        </ul>
+      </div><!-- /Slide3 --> 
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_2.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_7.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
 
-						<!-- Recent Work Item -->
-						<li class="col-sm-3 col-md-3 col-lg-3">
-							<div class="recent-item">
-								<figure>
-									<div class="touching medium">
-										<img src="images/portfolio/portfolio_3.png" alt="" />
-									</div>
-									<div class="option">
-										<a href="images/portfolio/full/portfolio_8.png"
-											class="hover-zoom mfp-image"><i class="fa fa-search"></i></a>
-										<a href="board/board_info.jsp" class="hover-link"><i
-											class="fa fa-arrow-right"></i></a>
-									</div>
-									<figcaption class="item-description">
-										<h5>제목</h5>
-									</figcaption>
-								</figure>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+
+    </div><!-- /Wrapper for slides .carousel-inner -->
+
+
+
+    <!-- Control box -->
+    <div class="control-box">                            
+      <a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
+      <a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
+    </div><!-- /.control-box -->   
+
+
+
+  </div><!-- /#myCarousel -->
+
+
+</div>          
+</div><!-- /.col-sm-12 -->
+</div><!-- /.row --> 
+</div><!-- /.container -->
 	</section>
 	<!--Start recent work-->
 	<br>
@@ -546,11 +273,19 @@ var radius;
 var locaX;
 var locaY;
 var contentid;
+var random;
+
 
 	/*공백을 제거하는 부분 */
 	String.prototype.trim = function() {
 	    return this.replace(/(^\s*)|(\s*$)/gi, "");
 	}
+	
+	
+	function generateRandom(min, max) {
+		   var ranNum = Math.floor(Math.random()*(max-min+1)) + min;
+		      return ranNum;
+		   }	
 	
 	$(document).ready(function() {
 		if (navigator.geolocation) {
@@ -559,6 +294,9 @@ var contentid;
 	       console.log("브라우저가 지원을 안합니다.");
 	    }
 		function showPosition(position) {
+			
+			random = generateRandom(1, 3);
+			 console.log("랜덤값:"+random);
 			locaX = position.coords.longitude;
 			locaY =position.coords.latitude; 
 			radius = $('#radius').val(); 
@@ -583,7 +321,8 @@ var contentid;
 
 				myloca+=strdo+" "+strcity;
 				$("#near").append(myloca);
-				getData();
+				getDataApi();
+				getBoardBestData();	
 			},
 			error:function(xhr,status,error){
 				alert("fail:"+error);
@@ -598,31 +337,28 @@ var contentid;
 		$("#searchTour1>li").remove();
 		$("#searchTour2>li").remove();
 		$("#searchTour3>li").remove();
-		getData();
+		getDataApi();
 		
     });
 	
 	
 	
-	 function intervalstop() {
-		    $('.carousel').carousel({
-		      interval: false
-		      
-		      
-		    });
-		    console.log("인터벌 스톱 호출됨");
-		  };
+	
 
-	function getData(){
+	   
+
+
+
+
+function getDataApi(){
 		$("#searchTour1>li").remove();
 		$("#searchTour2>li").remove();
 		$("#searchTour3>li").remove();
-		var locaxx = 126.981106;
-		var locayy = 37.568477;
+
 		/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
 			 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
 		 var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
-		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo=1&numOfRows=12&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
+		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo="+random+"&numOfRows=12&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 	 
 		$.ajax({
 			url:locaurl,
@@ -630,41 +366,57 @@ var contentid;
 			success:function(responseTxt){
 				
 				/*구분자  */
-				
-				var itemArray=responseTxt.response.body.items.item;  
-				
-				var row="";
-				var htmlText="";
-				$.each(itemArray,function(index,item){
 					
+				var itemArray=responseTxt.response.body.items.item;  
+			     console.log(itemArray.length+"뭐가왔을까");
+				
+				if(length==undefined){
+					var none ="<h1> 주변에 아무것도 없습니다<br>-한국관광공사-<h1>";
+					$('searchTour1').append(none);
+						
+					}
+				var row="";
+				
+				$.each(itemArray,function(index,item){
+						
 					var title = item.title;
 					var tel = item.tel;
 					var img=item.firstimage;
+
 					
+					
+					/*타이틀을 받아오는지 확인 하는 부분  */
 					if(title==undefined){
 						console.log(title+"타이틀 없음");
-						intervalstop();
 						
 					}
-
+/*이미지값이 정의되지 않아 받아올수 없을때 기본 이미지를 띄워주는 부분  */
 					if(img==undefined){
 						console.log(img);
 						img="<%=request.getContextPath()%>/images/logo.png";
 						
 					} 
 					
-					/* 타이틀이 없으면 바로 멈추게 할것 
-					$('#carouseltotal').attr("class","row carousel");
-					 console.log("클래스가 바뀜");
-	*/
+					 if (itemArray.length<5){
+						 $('#carouseltotal').attr("class","row carousel");
+						 console.log("클래스를 바꿔서 인터벌을 중지함");
+			          }
+					 else{
+			        	  $('#carouseltotal').attr("class","carousel-inner");
+							 console.log("클래스가 원상복귀"); 
+			          }
+					
+					
+					
+	
 					var addr =item.addr1;
 					contentid=item.contentid;
-					 /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
-
-							
 					
-																								
-								rowtest ="<li class='col-sm-3'>"
+					
+					
+					/*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
+																							
+								row ="<li class='col-sm-3'>"
 										        +"<div class='thumbnail'>"
 										         +  "<a href=<%=request.getContextPath()%>"
 	                                                +"/api/apiservice_info.jsp?contentid="
@@ -675,7 +427,7 @@ var contentid;
 													+ "  data-toggle='tooltip'+title='"
 													+title
 													+ "' >"
-													+ "<img src="+img+" alt='' width='300px' height='240px'/>"+"</a></div>"
+													+ "<img src="+img+" alt='' width='300px' height='120px' class ='imgresize'/>"+"</a></div>"
 										            +"<div class='caption-box'>"
 										            + "<a href=<%=request.getContextPath()%>"
 	                                                +"/api/apiservice_info.jsp?contentid="
@@ -684,12 +436,12 @@ var contentid;
 													+ "title='"+title+"'>"												
 										            +"<h4>"+title+"</h4></a></div></li>";     
 										              														      									  		  									  		      										  		  
-										            
+										         
 										            if(0<=index&&index<4){
 										            	if(title!=undefined){
 										            		console.log("첫번째 인덱스:"+index);
 											            	console.log("첫번째아이템이름:"+title);
-											            	$('#searchTour1').append(rowtest);
+											            	$('#searchTour1').append(row);
 											            	
 										            	}
 										            	else{
@@ -705,7 +457,7 @@ var contentid;
 										            	if(title!=undefined){
 										            		console.log("두번째 인덱스:"+index);
 											            	console.log("두번째아이템이름:"+title);
-											            	$('#searchTour2').append(rowtest);
+											            	$('#searchTour2').append(row);
 										            	}
 										            	else{
 										            		
@@ -719,16 +471,137 @@ var contentid;
 										            	if(title!=undefined){
 										            		console.log("세번째 인덱스:"+index);
 											            	console.log("세번째아이템이름:"+title);
-											            	$('#searchTour3').append(rowtest);
+											            	$('#searchTour3').append(row);
 											            	}
 										            	}else{
 										            		
 										            		return false;
 										            	}
 										            	
+										            	            	
+										            
+				 }); 
+			},
+			error:function(xhr,status,error){
+				alert("fail:"+error);
+			}
+		})
+	};
+	
+	
+	/*추천 꿀팁  */
+	
+	
+<c:url value="/getGoodBestBoards" var="getGoodBestBoards"/>
+	function getBoardBestData(){
+		/* $("#searchTour1>li").remove();
+		$("#searchTour2>li").remove();
+		$("#searchTour3>li").remove(); */
+ /* 1. 처음 문서가 로딩될때 함수가 호출된다  
+ 2. 좋아요 수를 */
+
+		$.ajax({
+			url:"${getGoodBestBoards}",
+			type:"get",
+			success:function(responseTxt){
+				
+				/*구분자  */
+					
+				var itemArray=JSON.parse(responseTxt); 
+
+				var row="";
+				
+				$.each(itemArray,function(index,item){
+						
+					var title = item.boardTitle;
+					var boardNo = item.boardNo;
+					var img=item.mainImg;
+
+					console.log(boardNo+"넘버 ");
+					console.log(title+"타이틀 ");
+					
+					/*타이틀을 받아오는지 확인 하는 부분  */
+					 if(title==undefined){
+						console.log(title+"타이틀 없음");
+						title = "존재하지 않습니다";
+					} 
+/*이미지값이 정의되지 않아 받아올수 없을때 
+ 기본 이미지를 띄워주는 부분  */
+				<%-- 	 if(item.mainimage==undefined){
+						console.log("이미지가 없습니다.현재인덱스 :"+index);
+						console.log(img+"이미지가 없다고?")
+						img="<%=request.getContextPath()%>/images/logo.png";
+						
+					}   --%>
+					console.log("현재인덱스"+index);	 				 	 
+					/*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
+							 <c:url value="/retrieve" var="retrieve"/>																
+							row ="<li class='col-sm-3'>"
+										        +"<div class='thumbnail'>"
+										        /*이미지에 링크를 하려고 a태그 */
+										         +  "<a href=<%=request.getContextPath()%>"
+	                                                +"/retrieve?boardNo="
+													+ boardNo
+													
+													+ " >"
+													/* 아래에 이미지 삽입 */
+													+ "<img src="+img+" alt='' class ='imgresize'/>"+"</a></div>"
+										            +"<div class='caption-box'>"
+										            /*아래: 제목에 a태그  */
+										            + "<a href=${retrieve}?boardNo="	                                             
+													+ boardNo
+													+">"	
+													/*아래: a태그완료  */
+										            +"<h4>"+title+"</h4></a></div></li>";   
+										              														      									  		  									  		      										  		  
+										          /*   /retrieve?boardNo=85 */
+										            		
+										            		
+										            		
+										           if(0<=index&&index<4){
+										            	if(title!=undefined){
+										            		console.log("첫번째 인덱스:"+index);
+											            	console.log("첫번째아이템이름:"+title);
+											            	$('#BestTip1').append(row);
+											            	
+										            	}
+										            	else{
+										            		
+										            		return false;
+										            	}
+										            
+										            }
+										            
+										            
+										            
+										            else if(4<=index&&index<8){
+										            	if(title!=undefined){
+										            		console.log("두번째 인덱스:"+index);
+											            	console.log("두번째아이템이름:"+title);
+											            	$('#BestTip2').append(row);
+										            	}
+										            	else{
+										            		
+										            		return false;
+										            	}
+										            	
+										            	
+										            	
+										            }
+										            else if(8<=index&&index<12){
+										            	if(title!=undefined){
+										            		console.log("세번째 인덱스:"+index);
+											            	console.log("세번째아이템이름:"+title);
+											            	$('#BestTip3').append(row);
+											            	}
+										            	}else{
+										            		
+										            		return false;
+										            	} 
+										            	
 										            	
 										            
-				}); 
+				 });  
 			},
 			error:function(xhr,status,error){
 				alert("fail:"+error);

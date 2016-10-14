@@ -8,17 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
-		 <%@include file="/layout/whatcss.jsp"%>
-	 <%@include file="/layout/whatjs.jsp"%> 
-	<!-- CSS FILES -->
-   <!--  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
-
-    <link rel="stylesheet" href="css/fractionslider.css"/>
-    <link rel="stylesheet" href="css/style-fraction.css"/>
-	
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" /> -->
+		
  	<style>
  		.term{
  			height:300px;

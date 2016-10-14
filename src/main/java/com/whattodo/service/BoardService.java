@@ -93,6 +93,11 @@ public class BoardService implements BoardServiceInterface{
 	public List<Board> selectBoardByGood(String id){
 		return brepo.selectBoardByGood(id);
 	}
+	
+public List<Board> selectBoardByGoodMainBest() {
+	return	brepo.selectBoardByGoodMainBest();
+		 
+	}
 
 	public int insertBoardFollow(int boardNo, String id) {
 		return brepo.insertBoardFollow(boardNo, id);
@@ -141,5 +146,4 @@ public class BoardService implements BoardServiceInterface{
 	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo){
 		return brepo.selectboardGoodsByIdAndBoardNo(id, boardNo);
 	}
-
 }

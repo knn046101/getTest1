@@ -74,6 +74,21 @@ public class BoardController {
 		}
 	}
 	
+	@RequestMapping(value="/getGoodBestBoards", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String selectBoardByGoodMainBest(Model model, HttpServletRequest request){
+		
+		
+		List<Board> board=bs.selectBoardByGoodMainBest();
+		
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		logger.trace(boardGoodBestStr);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	
+	
 	@RequestMapping(value="/getBoards", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String picnic(Model model, HttpServletRequest request){

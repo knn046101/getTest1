@@ -17,7 +17,7 @@
    			overflow: hidden; 
    			white-space: nowrap; 
    		}
-   </style>
+   	</style>
 </head>
 <body>
    <div class="container-fluid">
