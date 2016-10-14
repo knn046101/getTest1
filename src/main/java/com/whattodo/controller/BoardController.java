@@ -79,7 +79,6 @@ public class BoardController {
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String selectBoardByGoodMainBest(Model model, HttpServletRequest request){
 		
-		
 		List<Board> board=bs.selectBoardByGoodMainBest();
 		
 		Gson gson = new Gson();

@@ -118,7 +118,7 @@
 	
 	
 	<select id="selectBoardByGoodMainBest" resultType="board">
-		select * 
+		select board_no, board_title, main_img 
 		from (
 			select * 
 			from boards 
