@@ -8,10 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>뭐 하 지 ?</title>
-	<meta name="description" content="">
-	
-	 <%@include file="/layout/whatcss.jsp"%>
-	 <%@include file="/layout/whatjs.jsp"%> 
+	<meta name="description" content=""> 
 </head>
 <body>
 	<div class="container-fluid">

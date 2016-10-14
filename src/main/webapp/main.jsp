@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-<<<<<<< HEAD
+
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -12,10 +12,9 @@
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
 
-<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
-<link rel="stylesheet" href="css/bootstrapCarousel.css" />
 
+
+<link rel="stylesheet" href="css/bootstrapCarousel.css" />
 
 </head>
 <body>
@@ -29,7 +28,7 @@
 
 
 
-		
+		<br>
 		<section class="clients">
 
 			<div class="container">

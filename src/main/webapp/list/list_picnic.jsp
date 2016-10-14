@@ -9,8 +9,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <title>뭐 하 지 ?</title>
    <meta name="description" content="">
-   <jsp:include page="/layout/whatcss.jsp"></jsp:include>
+   
 </head>
+<style>
+	.jcarousel-list li{
+            width: 235px;
+            padding-left: 5px;
+            padding-right: 5px;
+         }
+</style>
 <body>
    <div class="container-fluid">
       <div class="row">
@@ -72,7 +79,7 @@
       </div>
      
 </body>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+
 <script>
 var category="";
    <c:url value="/getBoards" var="getBoards"/>
