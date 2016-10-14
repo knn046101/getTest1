@@ -31,7 +31,14 @@
 		<br>
 		<section class="latest_work">
 		<br>
-	<span class=" glyphicon glyphicon-map-marker"  id ="near">
+	
+			<div class="container">
+				<div class="row sub_content">
+				<div class="carousel-intro">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="dividerHeading">
+							<h4><span>내 주변에서는?</span></h4>
+							<span class=" glyphicon glyphicon-map-marker"  id ="near">
 								<select id="radius">
 							    <option value="">범위 선택</option>
 							    <option value="2000">2KM</option>
@@ -39,13 +46,8 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
-			<div class="container">
-				<div class="row sub_content">
-				<div class="carousel-intro">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="dividerHeading">
-							<h4><span>내 주변에서는?</span></h4>
 							 </div>
+							 
 							 	
 							 	
  <div id="myCarousel" class="row carousel slide" data-ride="carousel">
@@ -85,8 +87,8 @@
 
     <!-- Control box -->
     <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel" class="carousel-control right">‹</a>
-      <a data-slide="next" href="#myCarousel" class="carousel-control left">›</a>
+      <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+      <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
     </div><!-- /.control-box -->   
 
 
