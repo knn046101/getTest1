@@ -75,75 +75,40 @@
                 </div>
                 <div class="col-sm-6 col-md-3 col-lg-3">
                     <div class="widget_title">
-                        <h4><span>뭐하지? Gallery</span></h4>
+                        <h4><span>뭐하조 Gallery</span></h4>
                     </div>
                     <div class="widget_content">
                         <div class="flickr">
-                            <ul id="flickrFeed" class="flickr-feed">
+                            <ul id="flickrFeed" class="flickr-feed" >
                                <li>
-                                  <a class="mfp-gallery" title="9" href="images/footerimage/menu9.png">
+                                  <a class="mfp-gallery" title="팀장" href="images/footerimage/영기.png">
                                      <i class="fa fa-search"></i>
                                     
                                   </a>
-                                  <img src="images/footerimage/menu9.png" alt="9">
+                                  <img class="img-circle"src="images/footerimage/영기1.png" alt="9">
                                </li>
-                                                              <li>
-                                  <a class="mfp-gallery" title="8" href="images/footerimage/menu8.png">
+                                                              <li >
+                                  <a class="mfp-gallery" title="조원" href="images/footerimage/경은.png">
                                      <i class="fa fa-search"></i>
                                     
                                   </a>
-                                  <img src="images/footerimage/menu8.png" alt="8">
+                                  <img class="img-circle" src="images/footerimage/경은1.png" alt="8">
                                </li>
                                                               <li>
-                                  <a class="mfp-gallery" title="7" href="images/footerimage/menu7.png">
+                                  <a class="mfp-gallery" title="조원" href="images/footerimage/종연.png">
                                      <i class="fa fa-search"></i>
                                     
                                   </a>
-                                  <img src="images/footerimage/menu7.png" alt="7">
+                                  <img class="img-circle" src="images/footerimage/종연1.png" alt="7">
                                </li>
                                                               <li>
-                                  <a class="mfp-gallery" title="6" href="images/footerimage/menu6.png">
+                                  <a class="mfp-gallery" title="조원" href="images/footerimage/현정.png">
                                      <i class="fa fa-search"></i>
                                     
                                   </a>
-                                  <img src="images/footerimage/menu6.png" alt="6">
+                                  <img class="img-circle" src="images/footerimage/현정1.png" alt="6">
                                </li>
-                                                              <li>
-                                  <a class="mfp-gallery" title="5" href="images/footerimage/menu5.png">
-                                     <i class="fa fa-search"></i>
-                                   
-                                  </a>
-                                  <img src="images/footerimage/menu5.png" alt="5">
-                               </li>
-                                                              <li>
-                                  <a class="mfp-gallery" title="4" href="images/footerimage/menu4.png">
-                                     <i class="fa fa-search"></i>
-                                    
-                                  </a>
-                                  <img src="images/footerimage/menu4.png" alt="4">
-                               </li>
-                                                              <li>
-                                  <a class="mfp-gallery" title="3" href="images/footerimage/menu3.png">
-                                     <i class="fa fa-search"></i>
-                                    
-                                  </a>
-                                  <img src="images/footerimage/menu3.png" alt="3">
-                               </li>
-                                                              <li>
-                                  <a class="mfp-gallery" title="2" href="images/footerimage/menu2.png">
-                                     <i class="fa fa-search"></i>
-                                    
-                                  </a>
-                                  <img src="images/footerimage/menu2.png" alt="2">
-                               </li>
-                               <li>
-                                  <a class="mfp-gallery" title="1" href="images/footerimage/menu1.png">
-                                     <i class="fa fa-search"></i>
-                                     
-                                  </a>
-                                  <img src="images/footerimage/menu1.png" alt="1">
-                               </li>
-                               
+                                                             
                             
                             </ul>
                         </div>

@@ -14,8 +14,7 @@
 	<script src="js/jquery.fractionslider.js" type="text/javascript"
 		charset="utf-8"></script>
 	<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-	<script type="text/javascript"
-		src="js/jquery.smartmenus.bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
 	<script type="text/javascript" src="js/jflickrfeed.js"></script>
 	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
@@ -24,6 +23,21 @@
 	<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
 
 	<script src="js/main.js"></script>
+	
+	<script>
+        $(window).load(function(){
+            $('.slider').fractionSlider({
+                'fullWidth': 			true,
+                'controls': 			true,
+                'responsive': 			true,
+                'dimensions': 			"1920,450",
+                'increase': 			true,
+                'pauseOnHover': 		true,
+                'slideEndAnimation': 	true,
+                'autoChange':           true
+            });
+        });
+    </script>
 
 </head>
 </html>

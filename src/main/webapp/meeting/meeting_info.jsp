@@ -8,13 +8,12 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
-<%@include file="/layout/whatcss.jsp"%>
-<%@include file="/layout/whatjs.jsp"%>
+
 </head>
 
 
 <body>
-	<jsp:include page="../layout/header.jsp"></jsp:include>
+	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<div class="container-fluid">
 		<div class="row sub_content">
 			<section class="page_head">
@@ -79,7 +78,7 @@
 	
 	
 	</div>
-	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	<jsp:include page="/layout/footer.jsp"></jsp:include>
 
 </body>
 <script>
