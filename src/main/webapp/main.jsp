@@ -29,7 +29,7 @@
 
 
 		<br>
-		<section class="clients">
+		<section class="latest_work">
 		<br>
 	<span class=" glyphicon glyphicon-map-marker"  id ="near">
 								<select id="radius">
@@ -85,8 +85,8 @@
 
     <!-- Control box -->
     <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+      <a data-slide="prev" href="#myCarousel" class="carousel-control right">‹</a>
+      <a data-slide="next" href="#myCarousel" class="carousel-control left">›</a>
     </div><!-- /.control-box -->   
 
 
@@ -416,7 +416,7 @@ function getDataApi(){
 													+ "  data-toggle='tooltip'+title='"
 													+title
 													+ "' >"
-													+ "<img src="+img+" alt='' width='300px' height='120px'/>"+"</a></div>"
+													+ "<img src="+img+" alt='' width='300px' height='120px' class ='imgresize'/>"+"</a></div>"
 										            +"<div class='caption-box'>"
 										            + "<a href=<%=request.getContextPath()%>"
 	                                                +"/api/apiservice_info.jsp?contentid="
@@ -535,7 +535,7 @@ function getDataApi(){
 													
 													+ " >"
 													/* 아래에 이미지 삽입 */
-													+ "<img src="+img+" alt='' width='300px' height='120px'/>"+"</a></div>"
+													+ "<img src="+img+" alt='' class ='imgresize'/>"+"</a></div>"
 										            +"<div class='caption-box'>"
 										            /*아래: 제목에 a태그  */
 										            + "<a href=${retrieve}?boardNo="	                                             
