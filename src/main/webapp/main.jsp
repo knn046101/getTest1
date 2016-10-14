@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-<<<<<<< HEAD
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -31,7 +30,6 @@
 
 		
 		<section class="clients">
-
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
@@ -47,7 +45,7 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
-							 	</div>
+						</div>
 							 	
 							 	
 							 	
@@ -115,6 +113,7 @@
 </div><!-- /.col-sm-12 -->          
 </div><!-- /.row --> 
 </div><!-- /.container -->
+</div>
 
                             
 

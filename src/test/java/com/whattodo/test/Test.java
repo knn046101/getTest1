@@ -19,6 +19,7 @@ import com.whattodo.dto.Advertisement;
 import com.whattodo.dto.Benefit;
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardsFollows;
+import com.whattodo.dto.BoardsGoods;
 import com.whattodo.dto.City;
 import com.whattodo.dto.Meeting;
 import com.whattodo.dto.MeetingBoard;
@@ -287,5 +288,17 @@ public class Test {
 	public void getBoardsFollows(){
 		BoardsFollows bf = bsi.selectboardFollowsByIdAndBoardNo("knn046101", 85);
 		assertThat(bf, is(notNullValue()));
+	}
+	
+	@org.junit.Test
+	public void updateBoardScrap(){
+		int result=boardrepo.updateBoardScrap(92);
+		assertThat(result, is(1));
+	}
+	
+	@org.junit.Test
+	public void selectboardGoodsByIdAndBoardNo(){
+		BoardsGoods bg=boardrepo.selectboardGoodsByIdAndBoardNo("test2", 83);
+		assertThat(bg, is(notNullValue()));
 	}
 }

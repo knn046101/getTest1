@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 import com.whattodo.dto.BoardsFollows;
+import com.whattodo.dto.BoardsGoods;
 import com.whattodo.service.BoardService;
 
 
@@ -135,7 +136,7 @@ public class BoardController {
 	public String retrieveBoard(Model model, HttpServletRequest request){
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		Board board = bs.selectBoardbyBoardNo(boardNo);
-	/*	bs.updateBoardClick(boardNo);*/
+		bs.updateBoardClick(boardNo);
 		model.addAttribute("board", board);
 		return "board/board_info";
 	}
@@ -190,17 +191,36 @@ public class BoardController {
 		return link;
 	}
 	
-	@RequestMapping(value="/addScrap", method=RequestMethod.GET)
+	@RequestMapping(value="/addScrap", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
 	public @ResponseBody String addScrap(Model model, HttpServletRequest request){
 		String id = request.getParameter("id");
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		int result=0;
-		
 		BoardsFollows bf=bs.selectboardFollowsByIdAndBoardNo(id,boardNo);
 		if(bf==null){
 			result = bs.insertBoardFollow(boardNo, id);
-			////////////스크랩수
+			bs.updateBoardScrap(boardNo);
 		}
+		if(result==1){
+			return "성공";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/addGood", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String addGood(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		int result=0;
+		BoardsGoods bg=bs.selectboardGoodsByIdAndBoardNo(id,boardNo);
+		if(bg==null){
+			result = bs.insertBoardGood(boardNo, id);
+			bs.updateBoardGood(boardNo);
+		}
+		logger.trace("result:{}",result);
 		if(result==1){
 			return "성공";
 		}else{

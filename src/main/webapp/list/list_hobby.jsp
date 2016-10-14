@@ -11,10 +11,11 @@
    <meta name="description" content="">
    <jsp:include page="/layout/whatcss.jsp"></jsp:include>
    <style>
-   		.jcarousel-list li{
-   			width: 235px;
-   			padding-left: 5px;
-   			padding-right: 5px;
+   		.title{
+   			width:220px; 
+   			text-overflow: ellipsis; 
+   			overflow: hidden; 
+   			white-space: nowrap; 
    		}
    </style>
 </head>
@@ -110,7 +111,7 @@ var category="";
                               +"</figcaption>"
                              +"</figure>"
                             +"</div>"
-                            +"<div><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
+                            +"<div class='title'><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
                            +"</li>"
             }
             category=args[0].category;
@@ -235,7 +236,7 @@ var category="";
 	                        		+"</figcaption>"
 	                    			+"</figure>"
 	                				+"</div>"
-	                				+"<div><a href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-arrow-right'></i>"+args[i].boardTitle+"</a></div>"
+	                				+"<div class='title'><a href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-arrow-right'></i>"+args[i].boardTitle+"</a></div>"
 	            					+"</li>";
 				}
 				$("#boardByHobby").append(htmlText);

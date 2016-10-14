@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 import com.whattodo.dto.BoardsFollows;
+import com.whattodo.dto.BoardsGoods;
 import com.whattodo.repo.BoardReplyRepo;
 import com.whattodo.repo.BoardRepo;
 
@@ -27,13 +28,13 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.updateBoard(board);
 	}
 
+	public void updateBoardScrap(int boardNo){
+		brepo.updateBoardScrap(boardNo);
+	}
+	
 	public void deleteBoard(int boardNo) {
 		brrepo.deleteBoardReplyByBoardNo(boardNo);
 		brepo.deleteBoard(boardNo);
-	}
-	
-	/*public void updateBoardScrap(int boardNo){
-		brepo.updateBoardScrap(boardNo);
 	}
 	
 	public void updateBoardClick(int boardNo){
@@ -42,7 +43,7 @@ public class BoardService implements BoardServiceInterface{
 	
 	public void updateBoardGood(int boardNo){
 		brepo.updateBoardGood(boardNo);
-	}*/
+	}
 
 	public List<Board> selectAllBoard() {
 		return brepo.selectAllBoard();
@@ -105,8 +106,8 @@ public class BoardService implements BoardServiceInterface{
 		brepo.deleteBoardFollow(id);
 	}
 	
-	public void insertBoardGood(int boardNo, String id){
-		brepo.insertBoardGood(boardNo, id);
+	public int insertBoardGood(int boardNo, String id){
+		return brepo.insertBoardGood(boardNo, id);
 	}
 	
 	public void deleteBoardGood(int boardNo){
@@ -135,6 +136,10 @@ public class BoardService implements BoardServiceInterface{
 
 	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo) {
 		return brepo.selectboardFollowsByIdAndBoardNo(id, boardNo);
+	}
+	
+	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo){
+		return brepo.selectboardGoodsByIdAndBoardNo(id, boardNo);
 	}
 
 }

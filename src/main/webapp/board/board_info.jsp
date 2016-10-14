@@ -395,10 +395,11 @@
 				url:"${addScrap }",
 				data:allData,
 				success:function(args){
+					console.log(args)
 					if(args=="성공"){
-						alert("스크랩하였습니다. 마이 페이지에서 확인하실 수 있습니다.");
+						alert("'스크랩' 마이 페이지에서 확인하실 수 있습니다.");
 					}else{
-						alert("이미 스크랩하셨습니다.");
+						alert("이미 '스크랩'하셨습니다.");
 					}
 				},
 				error:function(txt, txt2, xhr){
@@ -412,7 +413,30 @@
 	$("#good").on("click",function(){
 		if("${login.id}"==""){
 			alert("로그인 후에 이용해주십시오.");
-		}
+		}else{
+			<c:url value="/addGood" var="addGood"/>
+				 var allData={
+						 "id":"${login.id}",
+						 "boardNo":"${board.boardNo}"
+				 };
+				$.ajax({
+					type:"get",
+					url:"${addGood }",
+					data:allData,
+					success:function(args){
+						console.log(args)
+						if(args=="성공"){
+							alert("'좋아요' 마이 페이지에서 확인하실 수 있습니다.");
+						}else{
+							alert("이미 '좋아요'하셨습니다.");
+						}
+					},
+					error:function(txt, txt2, xhr){
+						console.log("error", xhr);
+					},
+					"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
+				});
+			}
 	});
 	
 	$("#update").on("click",function(){
