@@ -46,7 +46,7 @@
 							 </span>
 						</div>
 							 </div>
-							 
+
  <div id="myCarousel" class="row carousel slide" data-ride="carousel">
 
     <!-- Wrapper for slides -->
@@ -275,6 +275,8 @@ var random;
 		   }	
 	
 	$(document).ready(function() {
+		getBoardBestData();	
+		
 		if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
 	    } else { 
@@ -283,7 +285,6 @@ var random;
 		function showPosition(position) {
 			
 			random = generateRandom(1, 3);
-			 console.log("랜덤값:"+random);
 			locaX = position.coords.longitude;
 			locaY =position.coords.latitude; 
 			radius = $('#radius').val(); 
@@ -309,7 +310,7 @@ var random;
 				myloca+=strdo+" "+strcity;
 				$("#near").append(myloca);
 				getDataApi();
-				getBoardBestData();	
+				
 			},
 			error:function(xhr,status,error){
 				alert("fail:"+error);
@@ -320,7 +321,6 @@ var random;
 	/* 범위에 따라 주변 검색*/
 	$('#radius').change(function(){ 
 		radius =$('#radius option:selected').val() ; 
-		console.log(radius+"   "+"정상적으로 값이 변했음 radius");
 		$("#searchTour1>li").remove();
 		$("#searchTour2>li").remove();
 		$("#searchTour3>li").remove();
@@ -355,7 +355,6 @@ function getDataApi(){
 				/*구분자  */
 					
 				var itemArray=responseTxt.response.body.items.item;  
-			     console.log(itemArray.length+"뭐가왔을까");
 				
 				if(length==undefined){
 					var none ="<h1> 주변에 아무것도 없습니다<br>-한국관광공사-<h1>";
@@ -374,23 +373,22 @@ function getDataApi(){
 					
 					/*타이틀을 받아오는지 확인 하는 부분  */
 					if(title==undefined){
-						console.log(title+"타이틀 없음");
+						/* console.log(title+"타이틀 없음"); */
 						
 					}
 /*이미지값이 정의되지 않아 받아올수 없을때 기본 이미지를 띄워주는 부분  */
 					if(img==undefined){
-						console.log(img);
+						/* console.log(img); */
 						img="<%=request.getContextPath()%>/images/logo.png";
 						
 					} 
 					
 					 if (itemArray.length<5){
 						 $('#carouseltotal').attr("class","row carousel");
-						 console.log("클래스를 바꿔서 인터벌을 중지함");
+						 /* console.log("클래스를 바꿔서 인터벌을 중지함"); */
 			          }
 					 else{
 			        	  $('#carouseltotal').attr("class","carousel-inner");
-							 console.log("클래스가 원상복귀"); 
 			          }
 					
 					
@@ -426,8 +424,8 @@ function getDataApi(){
 										         
 										            if(0<=index&&index<4){
 										            	if(title!=undefined){
-										            		console.log("첫번째 인덱스:"+index);
-											            	console.log("첫번째아이템이름:"+title);
+										            		/* console.log("첫번째 인덱스:"+index);
+											            	console.log("첫번째아이템이름:"+title); */
 											            	$('#searchTour1').append(row);
 											            	
 										            	}
@@ -442,8 +440,8 @@ function getDataApi(){
 										            
 										            else if(4<=index&&index<8){
 										            	if(title!=undefined){
-										            		console.log("두번째 인덱스:"+index);
-											            	console.log("두번째아이템이름:"+title);
+										            		/* console.log("두번째 인덱스:"+index);
+											            	console.log("두번째아이템이름:"+title); */
 											            	$('#searchTour2').append(row);
 										            	}
 										            	else{
@@ -456,8 +454,8 @@ function getDataApi(){
 										            }
 										            else if(8<=index&&index<12){
 										            	if(title!=undefined){
-										            		console.log("세번째 인덱스:"+index);
-											            	console.log("세번째아이템이름:"+title);
+										            		/* console.log("세번째 인덱스:"+index);
+											            	console.log("세번째아이템이름:"+title); */
 											            	$('#searchTour3').append(row);
 											            	}
 										            	}else{
@@ -504,12 +502,12 @@ function getDataApi(){
 					var boardNo = item.boardNo;
 					var img=item.mainImg;
 
-					console.log(boardNo+"넘버 ");
-					console.log(title+"타이틀 ");
+					/* console.log(boardNo+"넘버 ");
+					console.log(title+"타이틀 "); */
 					
 					/*타이틀을 받아오는지 확인 하는 부분  */
 					 if(title==undefined){
-						console.log(title+"타이틀 없음");
+						/* console.log(title+"타이틀 없음"); */
 						title = "존재하지 않습니다";
 					} 
 /*이미지값이 정의되지 않아 받아올수 없을때 
@@ -520,7 +518,8 @@ function getDataApi(){
 						img="<%=request.getContextPath()%>/images/logo.png";
 						
 					}   --%>
-					console.log("현재인덱스"+index);	 				 	 
+					
+					/* console.log("현재인덱스"+index);	 				 	 */ 
 					/*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
 							 <c:url value="/retrieve" var="retrieve"/>																
 							row ="<li class='col-sm-3'>"
@@ -547,8 +546,8 @@ function getDataApi(){
 										            		
 										           if(0<=index&&index<4){
 										            	if(title!=undefined){
-										            		console.log("첫번째 인덱스:"+index);
-											            	console.log("첫번째아이템이름:"+title);
+										            		/* console.log("첫번째 인덱스:"+index);
+											            	console.log("첫번째아이템이름:"+title); */
 											            	$('#BestTip1').append(row);
 											            	
 										            	}
@@ -563,8 +562,8 @@ function getDataApi(){
 										            
 										            else if(4<=index&&index<8){
 										            	if(title!=undefined){
-										            		console.log("두번째 인덱스:"+index);
-											            	console.log("두번째아이템이름:"+title);
+										            		/* console.log("두번째 인덱스:"+index);
+											            	console.log("두번째아이템이름:"+title); */
 											            	$('#BestTip2').append(row);
 										            	}
 										            	else{
@@ -577,8 +576,8 @@ function getDataApi(){
 										            }
 										            else if(8<=index&&index<12){
 										            	if(title!=undefined){
-										            		console.log("세번째 인덱스:"+index);
-											            	console.log("세번째아이템이름:"+title);
+										            		/* console.log("세번째 인덱스:"+index);
+											            	console.log("세번째아이템이름:"+title); */
 											            	$('#BestTip3').append(row);
 											            	}
 										            	}else{
