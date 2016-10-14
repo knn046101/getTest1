@@ -4,14 +4,16 @@ import java.util.List;
 
 import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
+import com.whattodo.dto.BoardsFollows;
+import com.whattodo.dto.BoardsGoods;
 
 public interface BoardServiceInterface {
 	public int insertBoard(Board board);
 	public int updateBoard(Board board);
+	public void updateBoardScrap(int boardNo);
 	public void deleteBoard(int boardNo);
-	/*public void updateBoardScrap(int boardNo);
 	public void updateBoardClick(int boardNo);
-	public void updateBoardGood(int boardNo);*/
+	public void updateBoardGood(int boardNo);
 	public List<Board> selectAllBoard();
 	public Board selectBoardbyBoardNo(int boardNo);
 	public List<Board> selectBoardByLocation(String location);
@@ -23,13 +25,15 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople, String category);
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByFollow(String id);
+	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo);
+	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo);
 	public List<Board> selectBoardByGood(String id);
+	public int insertBoardFollow(int boardNo, String id);
 	public List<Board> selectBoardByGoodMainBest();
 	
-	public void insertBoardFollow(int boardNo, String id);
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);
-	public void insertBoardGood(int boardNo, String id);
+	public int insertBoardGood(int boardNo, String id);
 	public void deleteBoardGood(int boardNo);
 	public void deleteBoardGood(String id);
 	

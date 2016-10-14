@@ -9,15 +9,16 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <title>뭐 하 지 ?</title>
    <meta name="description" content="">
-   
+   <jsp:include page="/layout/whatcss.jsp"></jsp:include>
+   <style>
+   		.title{
+   			width:220px; 
+   			text-overflow: ellipsis; 
+   			overflow: hidden; 
+   			white-space: nowrap; 
+   		}
+   </style>
 </head>
-<style>
-	.jcarousel-list li{
-            width: 235px;
-            padding-left: 5px;
-            padding-right: 5px;
-         }
-</style>
 <body>
    <div class="container-fluid">
       <div class="row">
@@ -103,14 +104,14 @@ var category="";
                              +"<div class='recent-item'>"
                              +"<figure>"
                               +"<div class='touching medium'>"
-                               +"<img src="+args[i].mainImg+" height='145px'/>"
+                               +"<img src="+args[i].mainImg+" width='200px' height='145px'/>"
                                +"</div>"
                               +"<figcaption class='item-description'  href='${retrieve}?boardNo="+args[i].boardNo+"'>"
                                +"<h5>"+args[i].boardTitle+"</h5>"
                               +"</figcaption>"
                              +"</figure>"
                             +"</div>"
-                            +"<div><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
+                            +"<div class='title'><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
                            +"</li>"
             }
             category=args[0].category;
@@ -235,7 +236,7 @@ var category="";
 	                        		+"</figcaption>"
 	                    			+"</figure>"
 	                				+"</div>"
-	                				+"<div><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
+	                				+"<div class='title'><b><a style='color:#363636;' href='${retrieve}?boardNo="+args[i].boardNo+"' class='hover-link'><i class='fa fa-hand-o-right'></i>&nbsp;"+args[i].boardTitle+"</a></b></div>"
 	            					+"</li>";
 				}
 				$("#boardByPicnic").append(htmlText);

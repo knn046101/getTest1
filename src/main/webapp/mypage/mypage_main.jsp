@@ -41,15 +41,8 @@ a {
 							<div class="sidebar">
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
-<<<<<<< HEAD
 										<li><img src=${login.profileImg } class="img-circle"
 											 width="150" height="150" hspace="50"> <br>
-=======
-										<li><img src=${login.profileImg } class="img-circle"
-
-										 width="150" height="150" hspace="50"> <br>
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-
 										</li>
 										<h4 align="center">
 											${login.nickname} <span class="label label-default"
