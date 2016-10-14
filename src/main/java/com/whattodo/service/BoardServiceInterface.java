@@ -24,6 +24,8 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByFollow(String id);
 	public List<Board> selectBoardByGood(String id);
+	public List<Board> selectBoardByGoodMainBest();
+	
 	public void insertBoardFollow(int boardNo, String id);
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);

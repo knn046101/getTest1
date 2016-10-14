@@ -134,6 +134,13 @@ public class Test {
 	}
 	
 	@org.junit.Test
+	
+	public void selectgoodmainbesttest(){
+		List<Board> result=boardrepo.selectBoardByGoodMainBest();
+		assertThat(result, is(notNullValue()));
+	}
+	
+	@org.junit.Test
 	public void selectAllAdvertisement(){
 		java.util.List <Advertisement> list = adrepo.selectAllAdvertisement();
 		assertThat(list.size(), is(1));

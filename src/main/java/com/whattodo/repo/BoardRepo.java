@@ -21,6 +21,7 @@ public interface BoardRepo {
 	public List<Board> selectBoardByNumberOfPeopleAndCategory(String NumberOfPeople, String category);
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople, String category);
 	public List<Board> selectBoardByEditor();
+	public List<Board> selectBoardByGoodMainBest();
 	public List<Board> selectBoardByFollow(String id);
 	public List<Board> selectBoardByGood(String id);
 	public int insertBoardFollow(int boardNo, String id);

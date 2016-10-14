@@ -91,6 +91,11 @@ public class BoardService implements BoardServiceInterface{
 	public List<Board> selectBoardByGood(String id){
 		return brepo.selectBoardByGood(id);
 	}
+	
+public List<Board> selectBoardByGoodMainBest() {
+	return	brepo.selectBoardByGoodMainBest();
+		 
+	}
 
 	public void insertBoardFollow(int boardNo, String id) {
 		brepo.insertBoardFollow(boardNo, id);
@@ -131,5 +136,7 @@ public class BoardService implements BoardServiceInterface{
 	public List<BoardReply> selectBoardReply(int boardNo) {
 		return brrepo.selectBoardReply(boardNo);
 	}
+
+	
 
 }
