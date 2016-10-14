@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Advertisement {
-	private int adsNo;
 	private String adsTitle;
 	private String adsImg;
 	private String link;
 	private String adminId;
 }
+
+	
+ 
