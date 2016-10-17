@@ -61,7 +61,7 @@
                     <!-- Logo / Mobile Menu -->
                     <div class="col-xs-12">
                         <div id="logo">
-                            <h1><a href="<%=request.getContextPath()%>/main.jsp"><img src="images/logo.png" /></a></h1>
+                            <h1><a href="<%=request.getContextPath()%>/main.jsp"><img src="images/로고.png" /></a></h1>
                         </div>
                     </div>
                 </div>

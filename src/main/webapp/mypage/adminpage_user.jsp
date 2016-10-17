@@ -24,7 +24,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="dividerHeading">
-						<h4><span><a href="adminpage_board.jsp" style="color:#27AB99;"><i class="fa fa-chevron-circle-left"></i></a>&nbsp;&nbsp;관리자 계정 (회원관리)</span></h4>
+						<h4><span>관리자 계정 (회원관리)&nbsp;&nbsp;<a href="adminpage_adv_board.jsp" style="color:#27AB99;"><i class="fa fa-chevron-circle-right"></i></a> </span></h4>
 					</div>
 					<label class="col-sm-3 control-label"></label>
 					 <div class="col-sm-6">

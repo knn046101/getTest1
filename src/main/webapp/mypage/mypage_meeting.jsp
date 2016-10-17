@@ -62,7 +62,7 @@
 												내글</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												관심사</a></li>
+												관심 키워드</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
 												스크랩</a></li>

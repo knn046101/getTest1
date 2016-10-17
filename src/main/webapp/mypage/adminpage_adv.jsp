@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -28,42 +29,46 @@
 				<div class="row">
 					<div class="dividerHeading">
 						<h4>
-							<span>관리자 계정 (광고배너 관리)&nbsp;&nbsp;<a
-								href="adminpage_adv.jsp" style="color: #27AB99;"><i
-									class="fa fa-chevron-circle-right"></i></a>
-							</span>
+							<span><a href="adminpage_adv_board.jsp"
+								style="color: #27AB99;"><i class="fa fa-chevron-circle-left"></i></a>&nbsp;&nbsp;관리자
+								계정 (광고배너 관리)&nbsp;&nbsp; </span>
 						</h4>
 					</div>
-					<label class="col-sm-3 control-label"></label>
-					<br> <br>
-					<div class="row sub_content">
+					<label class="col-sm-3 control-label"></label> <br> <br>
+					<div class="row sub_content center">
 						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="col-lg-2 col-md-2 col-sm-2"></div>
+							<c:url value="/addAdv" var="addAdv" />
 							<form id="form" class="form-horizontal" role="form" method="post"
-								action="#">
+								action="${addAdv}">
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="image">배너
 										이미지 등록</label>
-									<div class="col-sm-3">
-										<input id="image" type="file"></input>
+									<div class="col-sm-6">
+										<input id="image" type="file" path="adsImg"></input>
 										<div id="preview">
 											<img id="imagePreview" />
 										</div>
 									</div>
 								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="image">광고 제목</label>
+									<label class="col-sm-3 control-label" for="adsTitle">광고
+										제목</label>
 									<div class="col-sm-3">
 										<input type="text" path="adsTitle"
 											class="form-control col-sm-3" id="adsTitle"></input>
 									</div>
 								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2"></div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="image">광고 링크</label>
+									<label class="col-sm-3 control-label" for="link">광고 링크</label>
 									<div class="col-sm-3">
-										<input type="url" path="link" class="form-control col-sm-3"
-											id="link"> </input>
+										<input type="text" path="link" class="form-control col-sm-3"
+											id="link"></input>
 									</div>
 								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2"></div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="image">관리자
 										ID</label>
@@ -76,14 +81,15 @@
 								<div class="form-group">
 									<div class="col-sm-12 text-center">
 										<button class="btn btn-primary"
-											style="background-color:orange; border-color:#fff;">
-                 						 광고 등록<i class="fa fa-check spaceLeft"></i>
+											style="background-color: orange; border-color: #fff;">
+											광고 등록<i class="fa fa-check spaceLeft"></i>
 										</button>
 									</div>
 								</div>
 
 							</form>
 						</div>
+
 					</div>
 					<!--./row-->
 				</div>

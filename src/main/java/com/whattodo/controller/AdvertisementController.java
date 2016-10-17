@@ -28,7 +28,7 @@ public class AdvertisementController {
 	
 	@InitBinder
 	public void setEssentialFields(WebDataBinder binder){
-		binder.setRequiredFields("adsTitle", "adsImg", "link", "adminId");
+		binder.setRequiredFields("adsNo","adsTitle", "adsImg", "link", "adminId");
 		logger.trace("바인더");
 	}
 	@RequestMapping(value="/adv",method=RequestMethod.POST)
@@ -42,19 +42,20 @@ public class AdvertisementController {
 	@RequestMapping(value="/addAdv", method=RequestMethod.POST,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String addAdvertisement(Model model, HttpServletRequest request){
+	
 		String adsTitle=request.getParameter("adsTitle");
 		String adsImg=request.getParameter("adsImg");
 		String link=request.getParameter("link");
 		String adminId=request.getParameter("adminId");
 
 
-		Advertisement ad = new Advertisement(adsTitle, adsImg, link,
+		Advertisement ads = new Advertisement(adsTitle, adsImg, link,
 				adminId);
-		logger.trace("데이터 삽입 전 advertisement : {}", ad);
-		int result=as.insertAd(ad);
+		logger.trace("데이터 삽입 전 advertisement : {}", ads);
+		int result=as.insertAd(ads);
 		logger.trace("데이터 삽입 후 result : {}",result);
 		if(result==1){
-			return "저장";
+			return "mypage/admin_adv_board.jsp"; // 사용할 뷰의 이름 리턴 
 		}else{
 			return "실패";
 		}

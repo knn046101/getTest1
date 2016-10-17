@@ -25,19 +25,10 @@
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
-<<<<<<< HEAD
 		<section class="clients">
-=======
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-
 		<br>
 		<section class="latest_work">
 		<br>
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
