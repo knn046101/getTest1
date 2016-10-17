@@ -25,26 +25,13 @@
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
-<<<<<<< HEAD
-		<section class="clients">
-=======
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 
-		<br>
-		<section class="latest_work">
-		<br>
-<<<<<<< HEAD
+<br>
 
-=======
-	
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-			<div class="container">
-				<div class="row sub_content">
-				<div class="carousel-intro">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="dividerHeading">
-							<h4><span>내 주변에서는?</span></h4>
-							<span class=" glyphicon glyphicon-map-marker"  id ="near">
+<center>
+
+<span class=" glyphicon glyphicon-map-marker"  id ="near">
+
 								<select id="radius">
 							    <option value="">범위 선택</option>
 							    <option value="2000">2KM</option>
@@ -52,6 +39,21 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
+
+							 </center>
+
+
+
+		<section class="latest_work">
+
+			<div class="container">
+				<div class="row sub_content">
+				<div class="carousel-intro">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="dividerHeading">
+							<h4><span>내 주변에서는?</span></h4>
+						
+						</div>
 
 							 </div>
 
