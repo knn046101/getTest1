@@ -13,6 +13,8 @@ public interface MemberRepo {
 	public Member getMemberByEmail(String email);
 	public Member getMemberByNickname(String nickname);
 	
+	public int setEditor(String id);
+	public int setCustomer(String id);
 	public List<Member> getMemberByDivisionCustomer();
 	public List<Member> getMemberByDivisionEditor();
 	public String findIdbyEmail(String email);

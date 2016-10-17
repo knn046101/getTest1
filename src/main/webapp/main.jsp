@@ -19,7 +19,7 @@
 	
 	<br>
 	<center>
-		<span class=" glyphicon glyphicon-map-marker"  id ="near">
+		<span class="glyphicon glyphicon-map-marker"  id ="near">
 			<select id="radius">
 				<option value="">범위 선택</option>
 				<option value="2000">2KM</option>

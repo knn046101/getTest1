@@ -51,6 +51,16 @@ public class MemberRepoImpl implements MemberRepo {
 		return template.update(statement, id);
 	}
 	
+	public int setEditor(String id){
+		String statement = NAME_SPACE+"setEditor";
+		return template.update(statement, id);
+	}
+	
+	public int setCustomer(String id){
+		String statement = NAME_SPACE+"setCustomer";
+		return template.update(statement, id);
+	}
+	
 	public List<Member> getMemberByDivisionCustomer(){
 		String statement = NAME_SPACE+"selectCustomer";
 		return template.selectList(statement);

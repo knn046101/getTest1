@@ -96,7 +96,7 @@
 			
 			success:function(data){
 				for(var i=0; i<data.length; i++){
-				memberStr+="<li class='customerList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button>에디터로 변경</button></small></h1></div></li>";
+				memberStr+="<li class='customerList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button onclick=Editor('"+data[i].id+"')>에디터로 변경</button></small></h1></div></li>";
 					
 				}
 				$(".recent_tab_list").append(memberStr);
@@ -110,7 +110,7 @@
 	
 	<c:url value="/getEditor" var="getEditor"/>
 		$(".editorCate").on("click", function(){
-			$(".customerList2").remove();
+			$(".editorList").remove();
 			var memberStr="";
 			$.ajax({
 				type:"post",
@@ -119,7 +119,7 @@
 				
 				success:function(data){
 					for(var i=0; i<data.length; i++){
-					memberStr+="<li class='customerList2'><div class='testimonial-review'><img alt='testimoni' src=${"+data[i].profileImg+"}><h1>"+data[i].id+"<small><button>일반회원으로 변경</button></small></h1></div></li>";
+					memberStr+="<li class='editorList'><div class='testimonial-review'><img alt='testimoni' src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button onclick=Customer('"+data[i].id+"')>일반회원으로 변경</button></small></h1></div></li>";
 						
 					}
 					$(".recent_tab_list2").append(memberStr);
@@ -131,7 +131,56 @@
 			});
 		});
 	
-	
+	<c:url value="/setCustomer" var="setCustomer"/>
+	var Customer = function(id){
+		var memberStr="";
+		$(".editorList").remove();
+		var data = {
+			"id":id
+		}
+		$.ajax({
+			type:"post",
+			url:"${setCustomer }",
+			dataType:"json",
+			data:data,
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+					memberStr+="<li class='editorList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button onclick=Customer('"+data[i].id+"')>일반회원으로 변경</button></small></h1></div></li>";
+				}
+				$(".recent_tab_list2").append(memberStr);
+			},
+			error:function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	}	
+			
+	<c:url value="/setEditor" var="setEditor"/>
+	var Editor = function(id){
+		var memberStr="";
+		$(".customerList").remove();
+		var data = {
+			"id":id
+		}
+		$.ajax({
+			type:"post",
+			url:"${setEditor}",
+			dataType:"json",
+			data:data,
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+				memberStr+="<li class='customerList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button onclick=Editor('"+data[i].id+"')>에디터로 변경</button></small></h1></div></li>";
+					
+				}
+				$(".recent_tab_list").append(memberStr);
+			},
+			error:function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	}
 
 </script>
 </html>

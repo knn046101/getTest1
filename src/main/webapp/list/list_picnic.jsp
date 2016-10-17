@@ -66,10 +66,8 @@
          </div>
       </div>
               	 
-               		<center>
                			<div id="page">
                			</div>
-               		</center>
                		
             	</div>
             	</center>

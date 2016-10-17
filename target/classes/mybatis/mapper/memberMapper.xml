@@ -47,6 +47,18 @@
 		where id=#{id}
 	</update>
 	
+	<update id="setEditor" parameterType="String">
+		update members
+		set division='Editor'
+		where id=#{id}
+	</update>
+	
+	<update id="setCustomer" parameterType="String">
+		update members
+		set division='Customer'
+		where id=#{id}
+	</update>
+	
 	<select id="selectCustomer" resultType="member">
 		select * from members where division='Customer'
 	</select>
