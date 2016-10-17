@@ -16,27 +16,30 @@
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
-
-
-		<br>
-		<section class="latest_work">
-		<br>
 	
+	<br>
+	<center>
+		<span class=" glyphicon glyphicon-map-marker"  id ="near">
+			<select id="radius">
+				<option value="">범위 선택</option>
+				<option value="2000">2KM</option>
+				<option value="5000" selected="selected">5KM</option>
+				<option value="10000">10KM</option>
+			</select>
+		</span>
+	</center>
+
+		<section class="latest_work">
+
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="dividerHeading">
 							<h4><span>내 주변에서는?</span></h4>
-							<span class="glyphicon glyphicon-map-marker"  id ="near">
-								<select id="radius">
-								    <option value="">범위 선택</option>
-								    <option value="2000">2KM</option>
-								    <option value="5000" selected="selected">5KM</option>
-								    <option value="10000">10KM</option>
-								</select>
-							 </span>
+						
 						</div>
+
 							 </div>
 
  <div id="myCarousel" class="row carousel slide" data-ride="carousel">
