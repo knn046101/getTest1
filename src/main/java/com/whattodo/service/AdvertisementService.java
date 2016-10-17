@@ -13,8 +13,8 @@ public class AdvertisementService implements AdvertisementInterface{
 
 	@Autowired
 	AdvertisementRepo adrepo;
-	public void insertAd(Advertisement ad) {
-		adrepo.insertAd(ad);
+	public int insertAd(Advertisement ad) {
+		return adrepo.insertAd(ad);
 	}
 
 	public void updateAd(Advertisement ad) {

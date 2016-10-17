@@ -25,10 +25,13 @@
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
+
 <br>
-<section class="latest_work">
+
 <center>
-		<span class=" glyphicon glyphicon-map-marker"  id ="near">
+
+<span class=" glyphicon glyphicon-map-marker"  id ="near">
+
 								<select id="radius">
 							    <option value="">범위 선택</option>
 							    <option value="2000">2KM</option>
@@ -36,11 +39,13 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
+
 							 </center>
-		
-	
-		
-			
+
+
+
+		<section class="latest_work">
+
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
@@ -49,10 +54,9 @@
 							<h4><span>내 주변에서는?</span></h4>
 						
 						</div>
+
 							 </div>
-							 
-							 	
-							 	
+
  <div id="myCarousel" class="row carousel slide" data-ride="carousel">
 
     <!-- Wrapper for slides -->
@@ -525,7 +529,7 @@ function getDataApi(){
 						
 					}   --%>
 					
-					/* console.log("현재인덱스"+index);	 				 	 */ 
+					/* console.log("현재인덱스"+index);	 */				
 					/*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
 							 <c:url value="/retrieve" var="retrieve"/>																
 							row ="<li class='col-sm-3'>"
