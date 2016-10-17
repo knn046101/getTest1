@@ -90,7 +90,7 @@ var category="";
       $(".delete").remove();   
       var page_eno;
       var page_sno;
-      var data = {"category":"먹거리"};   
+      var data = {"category":"취미"};   
       $.ajax({
          type : "get",
          url : "${getBoards }?pageno=1",
