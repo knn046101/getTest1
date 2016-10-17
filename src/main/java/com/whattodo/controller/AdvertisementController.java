@@ -58,8 +58,6 @@ public class AdvertisementController {
 		}else{
 			return "실패";
 		}
-		
-		
 	}
 	
 }

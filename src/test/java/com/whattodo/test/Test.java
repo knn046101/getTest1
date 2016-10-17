@@ -34,6 +34,7 @@ import com.whattodo.repo.MeetingBoardRepo;
 import com.whattodo.repo.MeetingRepo;
 import com.whattodo.repo.MemberRepo;
 import com.whattodo.service.BoardServiceInterface;
+import com.whattodo.service.MemberService;
 import com.whattodo.service.RegionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -67,9 +68,18 @@ public class Test {
 	public void ddtest() {
 		assertThat(ac, is(notNullValue()));
 	}
+	@Autowired
+	MemberService ms;
 	
 	@org.junit.Test
 	public void test() {
+		Admin admin=ms.getAdmin("admin");
+		assertThat(admin, is(notNullValue()));
+		assertThat(admin.getPass(), is("admin123!"));
+	}
+	
+	@org.junit.Test
+	public void serviceAdminTest() {
 		Admin admin=adminInterface.getAdmin("admin");
 		assertThat(admin, is(notNullValue()));
 		assertThat(admin.getPass(), is("1234"));
@@ -158,7 +168,6 @@ public class Test {
 	@org.junit.Test
 	public void updateAd(){
 		Advertisement ad = new Advertisement();
-		ad.setAdsNo(15);
 		ad.setAdsTitle("mid");
 		ad.setAdsImg("img");
 		ad.setLink("link");

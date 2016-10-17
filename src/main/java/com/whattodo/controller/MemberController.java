@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.google.gson.Gson;
+import com.whattodo.dto.Admin;
 import com.whattodo.dto.City;
 import com.whattodo.dto.Member;
 import com.whattodo.service.MemberService;
@@ -205,21 +206,23 @@ public class MemberController {
 	public String checkLogin(Model model, HttpServletRequest request, HttpSession session){
 		String id = request.getParameter("inputId");
 		String pass = request.getParameter("inputPassword");
-		Member member = ms.getMemberById(id);
-		if(member!=null && member.getPass().equals(pass)){
-			if(member.getId().equals("admin")){
-				session.setAttribute("login", member);
+		Admin admin = ms.getAdmin(id);
+		if(admin!=null){
+			if(admin.getPass().equals(pass)){
+				session.setAttribute("admin", admin);
 				return "mypage/adminpage_main";
 			}
-			else{
+		}
+		
+		Member member = ms.getMemberById(id);
+		if(member!=null){
+			if(member.getPass().equals(pass)){
 				session.setAttribute("login", member);
 				return "main";
 			}
 		}
-		else{
-			model.addAttribute("loginFail", "다시 입력하여주십시오.");
-			return "login/login";
-		}
+		model.addAttribute("loginFail", "다시 입력하여주십시오.");
+		return "login/login";
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
