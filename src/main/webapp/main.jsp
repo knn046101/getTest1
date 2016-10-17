@@ -25,17 +25,12 @@
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
-
-
-<<<<<<< HEAD
-		
 		<section class="clients">
-=======
+
 		<br>
 		<section class="latest_work">
 		<br>
-	
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
+
 			<div class="container">
 				<div class="row sub_content">
 				<div class="carousel-intro">
@@ -50,14 +45,11 @@
 							    <option value="10000">10KM</option>
 								</select>
 							 </span>
-<<<<<<< HEAD
+
 						</div>
-=======
+
 							 </div>
-							 
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
-							 	
-							 	
+
  <div id="myCarousel" class="row carousel slide" data-ride="carousel">
 
     <!-- Wrapper for slides -->
