@@ -158,7 +158,6 @@ public class Test {
 	@org.junit.Test
 	public void updateAd(){
 		Advertisement ad = new Advertisement();
-		ad.setAdsNo(15);
 		ad.setAdsTitle("mid");
 		ad.setAdsImg("img");
 		ad.setLink("link");
