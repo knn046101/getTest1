@@ -25,10 +25,11 @@
 	<!--Start recent work-->
 <jsp:include page="/api/slider.jsp"></jsp:include>
 
-
+<br>
 <br>
 
 <center>
+
 
 <span class=" glyphicon glyphicon-map-marker"  id ="near">
 
