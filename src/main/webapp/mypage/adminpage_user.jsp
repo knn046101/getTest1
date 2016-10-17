@@ -8,9 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
-	
-	<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-	<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+
 </head>
 <body>
 	

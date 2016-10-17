@@ -21,6 +21,8 @@
 		<typeAlias type="com.whattodo.dto.Member" alias="member"/>
 		<typeAlias type="com.whattodo.dto.Capital" alias="capital"/>
 		<typeAlias type="com.whattodo.dto.City" alias="city"/>
+		<typeAlias type="com.whattodo.dto.BoardsFollows" alias="boardsFollows"/>
+		<typeAlias type="com.whattodo.dto.BoardsGoods" alias="boardsGoods"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mapper/adminMapper.xml" />

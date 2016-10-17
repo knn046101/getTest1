@@ -7,8 +7,6 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
 <style>
 a {
 	color: #27AB99;

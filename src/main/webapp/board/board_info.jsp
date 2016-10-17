@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>뭐 하 지 ?</title>
 	<meta name="description" content="">
-<jsp:include page="/layout/whatcss.jsp"></jsp:include>
 <style>
 	#page{
 		height:30px;
@@ -23,48 +22,21 @@
 			<jsp:include page="/layout/header.jsp"></jsp:include>
 		</div>
 	
-		<div class="row">
-			<div class="col-md-12">
+			<section class="content blog">
+			<div class="container">
 				<div class="row">
-					<div class="col-md-4" style="text-align:center;">
-						<div class="container">
-							<div class="row sub_content">
-								<div class="col-lg-8 col-md-8 col-sm-8">
-								<!--Project Details Page-->
-									<br>
-									<br>
-									${board.boardContent }
-								</div>
-					
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<div class="project_details">
-							<div class="widget_title">
-								<h3><span>${board.boardTitle }</span></h3>
-							</div>
-							<ul class="details">
-								<li><span>작성자 :</span>${board.id }</li>
-								<li><span>작성일 :</span><fmt:formatDate value="${board.writeDate }" pattern="yyyy.MM.dd"/></li>
-							</ul>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<div class="blog_single">
+							<article class="post">
+								<figure class="post_img">
+									<a href="#">
+										${board.boardContent }
+									</a>
+								</figure>							
+							</article>
+							
 						</div>
-						<div class="project_details">
-							<div class="widget_title">
-								<h3><span>글 정보</span></h3>
-							</div>
-							<ul class="details">
-								<li><span>카테고리 :</span>${board.category }</li>
-								<li><span>몇명이서 :</span>${board.numberOfPeople }</li>
-								<li><span>키워드 :</span>${board.what }</li>
-								<li>
-									<button id="scrap" class="scrap" style="color:black;"><i class="fa fa-bookmark" style="color:black;"></i> 스크랩</button>
-									<button id="good" class="good" style="color:black;"><i class="fa fa-thumbs-up" style="color:black;"></i> 좋아요</button>
-									<button id="update" class="update" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 수정</button>
-									<button id="delete" class="delete" style="color:black;"><i class="fa fa-trash-o" style="color:black;"></i> 삭제</button>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-						
+
 						<!--News Comments-->
                         <div class="news_comments">
                             <div class="dividerHeading">
@@ -112,6 +84,51 @@
                         </div>
 				    </div>
 					
+					
+					<div class="col-xs-12 col-md-4 col-lg-4 col-sm-4">
+						<div class="sidebar">							
+							<div class="widget widget_categories">
+								<div class="widget_title">
+									<h4><span>${board.boardTitle }</span></h4>
+									</div>
+								<ul class="arrows_list">
+									<li><span>작성자 :</span>${board.id }</li>
+									<li><span>작성일 :</span><fmt:formatDate value="${board.writeDate }" pattern="yyyy.MM.dd"/></li>
+								</ul>
+							</div>
+							
+							<div class="widget widget_about">
+								<div class="widget_title">
+									<h4><span>글 정보</span></h4>
+								</div>
+								<ul class="arrows_list">
+									<li><span>카테고리 :</span>${board.category }</li>
+								<li><span>몇명이서 :</span>${board.numberOfPeople }</li>
+								<li><span>키워드 :</span>${board.what }</li>
+								<li>
+									<button id="scrap" class="scrap" style="color:black;"><i class="fa fa-bookmark" style="color:black;"></i> 스크랩</button>
+									<button id="good" class="good" style="color:black;"><i class="fa fa-thumbs-up" style="color:black;"></i> 좋아요</button>
+									<button id="update" class="update" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 수정</button>
+									<button id="delete" class="delete" style="color:black;"><i class="fa fa-trash-o" style="color:black;"></i> 삭제</button>
+								</li>
+								</ul>
+								
+							</div>
+
+
+							
+							
+							
+						</div>
+					</div>
+					
+					
+				
+				</div>
+						
+						
+				    </div>
+					
 					</div><!--/.row-->
 				</div> <!--/.container-->
 				</div>
@@ -121,7 +138,7 @@
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 	</div> 
 </body>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
+
 <script>
 	var boardNo="";
 
@@ -379,9 +396,65 @@
 			});
 		}
 		
-	$("#scrap").on("click",function(){});
+	$("#scrap").on("click",function(){
+		if("${login.id}"==""){
+			alert("로그인 후에 이용해주십시오.");
+		}else if("${login.id}"=="${board.id}"){
+			alert("자신의 게시물은 스크랩하실 수 없습니다.");
+		}else{
+			<c:url value="/addScrap" var="addScrap"/>
+			 var allData={
+					 "id":"${login.id}",
+					 "boardNo":"${board.boardNo}"
+			 };
+			$.ajax({
+				type:"get",
+				url:"${addScrap }",
+				data:allData,
+				success:function(args){
+					console.log(args)
+					if(args=="성공"){
+						alert("'스크랩' 마이 페이지에서 확인하실 수 있습니다.");
+					}else{
+						alert("이미 '스크랩'하셨습니다.");
+					}
+				},
+				error:function(txt, txt2, xhr){
+					console.log("error", xhr);
+				},
+				"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
+			});
+		}
+	});
 	
-	$("#good").on("click",function(){});
+	$("#good").on("click",function(){
+		if("${login.id}"==""){
+			alert("로그인 후에 이용해주십시오.");
+		}else{
+			<c:url value="/addGood" var="addGood"/>
+				 var allData={
+						 "id":"${login.id}",
+						 "boardNo":"${board.boardNo}"
+				 };
+				$.ajax({
+					type:"get",
+					url:"${addGood }",
+					data:allData,
+					success:function(args){
+						console.log(args)
+						if(args=="성공"){
+							alert("'좋아요' 마이 페이지에서 확인하실 수 있습니다.");
+						}else{
+							alert("이미 '좋아요'하셨습니다.");
+						}
+					},
+					error:function(txt, txt2, xhr){
+						console.log("error", xhr);
+					},
+					"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
+				});
+			}
+	});
 	
 	$("#update").on("click",function(){
 		var response

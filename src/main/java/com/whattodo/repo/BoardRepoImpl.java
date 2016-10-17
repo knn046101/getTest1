@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.whattodo.dto.Board;
+import com.whattodo.dto.BoardsFollows;
+import com.whattodo.dto.BoardsGoods;
 
 @Repository
 public class BoardRepoImpl implements BoardRepo {
@@ -33,7 +35,7 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.delete(statement, boardNo);
 	}
 	
-	/*public int updateBoardScrap(int boardNo){
+	public int updateBoardScrap(int boardNo){
 		String statement=NAME_SPACE+"updateBoardScrap";
 		return template.update(statement, boardNo);
 	}
@@ -46,12 +48,14 @@ public class BoardRepoImpl implements BoardRepo {
 	public int updateBoardGood(int boardNo){
 		String statement=NAME_SPACE+"updateBoardGood";
 		return template.update(statement, boardNo);
-	}*/
+	}
 
 	public List<Board> selectAllBoard() {
 		String statement=NAME_SPACE+"selectAllBoard";
 		return template.selectList(statement);
 	}
+	
+	
 
 	public Board selectBoardbyBoardNo(int boardNo) {
 		String statement=NAME_SPACE+"selectBoardbyBoardNo";
@@ -156,5 +160,27 @@ public class BoardRepoImpl implements BoardRepo {
 	public int deleteBoardGood(String id){
 		String statement=NAME_SPACE+"deleteBoardGoodById";
 		return template.insert(statement, id);
+	}
+
+	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo) {
+		String statement=NAME_SPACE+"selectboardFollowsByIdAndBoardNo";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("id", id);
+		return template.selectOne(statement, map);
+	}
+	
+	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo){
+		String statement=NAME_SPACE+"selectboardGoodsByIdAndBoardNo";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("id", id);
+		return template.selectOne(statement, map);
+	}
+
+	public List<Board> selectBoardByGoodMainBest() {
+		String statement=NAME_SPACE+"selectBoardByGoodMainBest";
+		
+		return template.selectList(statement);
 	}
 }

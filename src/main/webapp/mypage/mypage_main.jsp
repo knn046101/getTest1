@@ -9,9 +9,6 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
-
 <style>
 a {
 	color: #27AB99;
@@ -46,6 +43,7 @@ a {
 									<ul class="arrows_list sidenav">
 										<li><img src=${login.profileImg } class="img-circle"
 											 width="150" height="150" hspace="50"> <br>
+										</li>
 										<h4 align="center">
 											${login.nickname} <span class="label label-default"
 												style="background-color: grey">일반회원</span>

@@ -22,15 +22,15 @@
 		where board_no=#{boardNo}
 	</update>
 	
-	<!-- <update id="updateBoardClick" parameterType="int">
-		update boards
-		set click=click+1
-		where board_no=#{boardNo}
-	</update>
-	
-	<update id="updateBoardScarp" parameterType="int">
+	<update id="updateBoardScrap" parameterType="int">
 		update boards
 		set scrap=scrap+1
+		where board_no=#{boardNo}
+	</update>
+	 
+	 <update id="updateBoardClick" parameterType="int">
+		update boards
+		set click=click+1
 		where board_no=#{boardNo}
 	</update>
 	
@@ -38,7 +38,7 @@
 		update boards
 		set good=good+1
 		where board_no=#{boardNo}
-	</update> -->
+	</update>
 	
 	<delete id="deleteBoard" parameterType="int">
 		delete from boards
@@ -116,6 +116,17 @@
 		where b.board_no=bg.board_no and bg.id=#{id} 
 	</select>
 	
+	
+	<select id="selectBoardByGoodMainBest" resultType="board">
+		select board_no, board_title, main_img 
+		from (
+			select * 
+			from boards 
+			order by good desc
+			)
+	where rownum between 0 and 12 
+	</select>
+	
 	<insert id="insertBoardFollow" parameterType="map">
 		insert into boards_follows
 		values(#{boardNo}, #{id})
@@ -145,5 +156,17 @@
 		delete from boards_goods
 		where id=#{id}
 	</delete>
+	
+	<select id="selectboardFollowsByIdAndBoardNo" parameterType="map" resultType="boardsFollows">
+		select *
+		from boards_follows
+		where board_no=#{boardNo} and id=#{id}
+	</select>
+	
+	<select id="selectboardGoodsByIdAndBoardNo" parameterType="map" resultType="boardsGoods">
+		select *
+		from boards_goods
+		where board_no=#{boardNo} and id=#{id}
+	</select>
 	
 </mapper>

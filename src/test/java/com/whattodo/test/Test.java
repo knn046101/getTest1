@@ -18,6 +18,8 @@ import com.whattodo.dto.Admin;
 import com.whattodo.dto.Advertisement;
 import com.whattodo.dto.Benefit;
 import com.whattodo.dto.Board;
+import com.whattodo.dto.BoardsFollows;
+import com.whattodo.dto.BoardsGoods;
 import com.whattodo.dto.City;
 import com.whattodo.dto.Meeting;
 import com.whattodo.dto.MeetingBoard;
@@ -31,6 +33,7 @@ import com.whattodo.repo.MeetingBoardReplyRepo;
 import com.whattodo.repo.MeetingBoardRepo;
 import com.whattodo.repo.MeetingRepo;
 import com.whattodo.repo.MemberRepo;
+import com.whattodo.service.BoardServiceInterface;
 import com.whattodo.service.RegionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -131,6 +134,13 @@ public class Test {
 	public void deleteAds(){
 		int result=adrepo.deleteAd(9);
 		assertThat(result, is(1));
+	}
+	
+	@org.junit.Test
+	
+	public void selectgoodmainbesttest(){
+		List<Board> result=boardrepo.selectBoardByGoodMainBest();
+		assertThat(result, is(notNullValue()));
 	}
 	
 	@org.junit.Test
@@ -277,5 +287,25 @@ public class Test {
 	public void getRegion(){
 		List<City> city = rs.getCity("강원도");
 		System.out.println(city);
+	}
+	
+	@Autowired
+	BoardServiceInterface bsi;
+	@org.junit.Test
+	public void getBoardsFollows(){
+		BoardsFollows bf = bsi.selectboardFollowsByIdAndBoardNo("knn046101", 85);
+		assertThat(bf, is(notNullValue()));
+	}
+	
+	@org.junit.Test
+	public void updateBoardScrap(){
+		int result=boardrepo.updateBoardScrap(92);
+		assertThat(result, is(1));
+	}
+	
+	@org.junit.Test
+	public void selectboardGoodsByIdAndBoardNo(){
+		BoardsGoods bg=boardrepo.selectboardGoodsByIdAndBoardNo("test2", 83);
+		assertThat(bg, is(notNullValue()));
 	}
 }

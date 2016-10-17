@@ -6,10 +6,7 @@
 <title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <%@include file="/layout/whatcss.jsp"%>
-	 <%@include file="/layout/whatjs.jsp"%> 
-<!-- <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	 
 </head>
 <style>
 </style>

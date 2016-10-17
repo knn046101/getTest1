@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,18 +10,9 @@
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
 
-    <!-- CSS FILES -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
-	<!-- <link rel="stylesheet" href="css/bootstrapCarousel.css" /> -->
-    <link rel="stylesheet" href="css/fractionslider.css"/>
-    <link rel="stylesheet" href="css/style-fraction.css"/>
-
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+</head>
 <body>
-	<!--Start Header-->
+   <!--Start Header-->
    <header id="header" class="clearfix">
         <div id="top-bar">
             <div class="container">
@@ -52,24 +43,30 @@
                 </div>
             </div>
         </div>
+
+		<!-- LOGO bar -->
+		<div id="logo-bar" class="clearfix">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<!-- Logo / Mobile Menu -->
+					<div class="col-xs-12">
+						<div id="logo">
+							<h1>
+								<a href="<%=request.getContextPath()%>/main.jsp"><img
+									src="images/logo.png" alt="" /></a>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Container / End -->
+		</div>
+		<!--LOGO bar / End-->
+		
+
         
-        <!-- LOGO bar -->
-        <div id="logo-bar" class="clearfix">
-            <!-- Container -->
-            <div class="container">
-                <div class="row">
-                    <!-- Logo / Mobile Menu -->
-                    <div class="col-xs-12">
-                        <div id="logo">
-                            <h1><a href="<%=request.getContextPath()%>/main.jsp"><img src="images/logo.png" /></a></h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Container / End -->
-        </div>
-        <!--LOGO bar / End-->
-     
+        
 		<!-- Navigation
 ================================================== -->
 		<div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -154,43 +151,12 @@
 			<!--/.row -->
 		</div>
 		<!--/.container -->
-    </header>
+
+	</header>
 	<!--End Header-->
-	
+
 
 	
 
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script src="js/jquery.fractionslider.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-    <script type="text/javascript" src="js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/swipe.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-
-    <script src="js/main.js"></script>
-
-    <script>
-        $(window).load(function(){
-            $('.slider').fractionSlider({
-                'fullWidth': 			true,
-                'controls': 			true,
-                'responsive': 			true,
-                'dimensions': 			"1920,450",
-                'increase': 			true,
-                'pauseOnHover': 		true,
-                'slideEndAnimation': 	true,
-                'autoChange':           true
-            });
-        });
-    </script>
 </body>
 </html>
