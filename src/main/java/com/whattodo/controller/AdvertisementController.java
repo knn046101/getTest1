@@ -18,7 +18,7 @@ import com.whattodo.dto.Advertisement;
 import com.whattodo.service.AdvertisementService;
 
 @Controller
-@SessionAttributes({"advertisement"})
+
 public class AdvertisementController {
 
 	private static Logger logger = LoggerFactory.getLogger(AdvertisementController.class);
@@ -39,7 +39,7 @@ public class AdvertisementController {
 		
 	}
 	
-	@RequestMapping(value="/addAdv", method=RequestMethod.POST,
+	@RequestMapping(value="/addAdv", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String addAdvertisement(Model model, HttpServletRequest request){
 		String adsTitle=request.getParameter("adsTitle");
@@ -48,9 +48,8 @@ public class AdvertisementController {
 		String adminId=request.getParameter("adminId");
 
 
-		Advertisement ad = new Advertisement(adsTitle, adsImg, link,
-				adminId);
-		logger.trace("데이터 삽입 전 advertisement : {}", ad);
+		Advertisement ad = new Advertisement(adsTitle, adsImg, link,adminId);
+		/*logger.trace("데이터 삽입 전 advertisement : {}", ad);*/
 		int result=as.insertAd(ad);
 		logger.trace("데이터 삽입 후 result : {}",result);
 		if(result==1){

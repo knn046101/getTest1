@@ -114,11 +114,6 @@
 										
 		</section> 
 	<!--end wrapper-->
-
-	 
-	
-
-
 	<!--Start recent work-->
 	<section class="latest_work">
 		<div class="container">
@@ -185,11 +180,7 @@
 	</section>
 	<!--Start recent work-->
 	
-	
-	
-	
-	
-	
+
 
 	<!--Start recent work-->
 	<section class="latest_work">
@@ -338,23 +329,16 @@ var random;
 		
     });
 	
-	
-	
-	
-
-	   
-
-
-
 
 function getDataApi(){
 		$("#searchTour1>li").remove();
 		$("#searchTour2>li").remove();
 		$("#searchTour3>li").remove();
+	
 
 		/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
 			 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
-		 var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
+		 var locaurl ="https://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
 		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo="+random+"&numOfRows=12&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 	 
 		$.ajax({
@@ -406,7 +390,7 @@ function getDataApi(){
 	
 					var addr =item.addr1;
 					contentid=item.contentid;
-					
+				
 					
 					
 					/*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
@@ -478,7 +462,7 @@ function getDataApi(){
 				 }); 
 			},
 			error:function(xhr,status,error){
-				alert("fail:"+error);
+			//console.log("fail:"+error);
 			}
 		})
 	};
@@ -600,7 +584,7 @@ function getDataApi(){
 				 });  
 			},
 			error:function(xhr,status,error){
-				alert("fail:"+error);
+				/* alert("로딩중입니다.:"+error); */
 			}
 		})
 	};
