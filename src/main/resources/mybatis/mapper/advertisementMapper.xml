@@ -3,16 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.AdvertisementMapper">
+
 	<insert id="insertAd" parameterType="advertisement">
-		insert into ads
+		insert into ads(ads_no, ads_title, ads_img, link, admin_id)
 		values(seq_ads_no.nextval, #{adsTitle}, #{adsImg}, #{link}, #{adminId})
 	</insert>
 	
 	<update id="updateAd" parameterType="advertisement">
 		update ads
-		set ads_title=#{adsTitle},
-		ads_img=#{adsImg},
-		link=#{link}
+		set option_flag=#{optionFlag}
 		where ads_no=#{adsNo}
 	</update>
 	
@@ -27,7 +26,9 @@
 	
 	<select id="selectAdvertisement"  parameterType="int" resultType="advertisement">
 		select * from ads
-		where ads_no=#{adsNo}
+		where option_flag =1
 	</select>
+	
+	
 	
 </mapper>

@@ -90,7 +90,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/getBoards", method=RequestMethod.GET,
 	         produces="application/text;charset=UTF-8")
-	   public @ResponseBody String picnic(Model model, HttpServletRequest request){
+	   public @ResponseBody String getBoards(Model model, HttpServletRequest request){
 	      int page = Integer.parseInt(request.getParameter("pageno"));
 	      String category = request.getParameter("category");
 	      List<Board> board=bs.selectBoardByCategory(category);
@@ -276,4 +276,103 @@ public class BoardController {
 			return "실패";
 		}
 	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public String search(Model model, HttpServletRequest request){
+		String location=request.getParameter("location");
+		String numberOfPeople=request.getParameter("numberOfPeople");
+		String category=request.getParameter("category");
+		String what=request.getParameter("what");
+		model.addAttribute("location",location);
+		model.addAttribute("numberOfPeople",numberOfPeople);
+		model.addAttribute("category",category);
+		model.addAttribute("what",what);
+		return "list/list_search";
+	}
+	
+	@RequestMapping(value="/getBoardsBySearch", method=RequestMethod.POST,
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String getBoardsBySearch(Model model, HttpServletRequest request){
+		logger.trace("진입");
+	      int page = Integer.parseInt(request.getParameter("pageno"));
+	      String location =request.getParameter("location");
+	      String numberOfPeople = request.getParameter("numberOfPeople");
+	      String category = request.getParameter("category");
+	      String what = request.getParameter("what");
+	     
+	      List<Board> boards = null;
+	      List<Board> afterBoard=new ArrayList<Board>();
+	      if(location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("그냥 아무것도 없이 검색");
+	    	  boards=bs.selectAllBoard();
+	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("지역으로 검색");
+	    	  boards=bs.selectBoardByLocation(location);
+	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("인원으로 검색");
+	    	  boards=bs.selectBoardByNumberOfPeople(numberOfPeople);
+	      }else if(location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("카테고리 검색");
+	    	  boards=bs.selectBoardByCategory(category);
+	      }else if(location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("무엇으로 검색");
+	    	  boards=bs.selectBoardByWhat(what);
+	      }else if(!location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("지역, 인원으로 검색");
+	    	  boards=bs.selectBoardByLocationAndNumberOfPeople(location, numberOfPeople);
+	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("지역, 카테고리로 검색");
+	    	  boards=bs.selectBoardByLocationAndCategory(location, category);
+	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("지역, 무엇으로 검색");
+	    	  boards=bs.selectBoardByLocationAndWhat(location, what);
+	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("인원, 카테고리로 검색");
+	    	  boards=bs.selectBoardByNumberOfPeopleAndCategory(numberOfPeople, category);
+	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("인원, 무엇으로 검색");
+	    	  boards=bs.selectBoardByNumberOfPeopleAndWhat(numberOfPeople, what);
+	      }else if(location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("카테고리, 무엇으로 검색");
+	    	  boards=bs.selectBoardByCategoryAndWhat(category, what);
+	      }else if(!location.equals("") && !numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	    	  logger.trace("지역, 인원, 카테고리로 검색");
+	    	  boards=bs.selectBoardByLocationAndNumberOfPeopleAndCategory(location, numberOfPeople, category);
+	      }else if(!location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("지역, 인원, 무엇으로 검색");
+	    	  boards=bs.selectBoardByLocationAndNumberOfPeopleAndWhat(location, numberOfPeople, what);
+	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("지역, 카테고리, 무엇으로 검색");
+	    	  boards=bs.selectBoardByLocationAndCategoryAndWhat(location, category, what);
+	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && !what.equals("")){
+	    	  logger.trace("인원, 카테고리, 무엇으로 검색");
+	    	  boards=bs.selectBoardByNumberOfPeopleAndCategoryAndWhat(numberOfPeople, category, what);
+	      }else {
+	    	  logger.trace("모든 것으로 검색");
+	    	  boards=bs.selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(location, numberOfPeople, category, what);
+	      }
+	      
+	      int end=(page*16<boards.size())? page*16 : boards.size();
+
+	      for(int i=16*(page-1); i<end; i++){
+	    	  boards.get((page-1)*10).setPage(page);
+	         afterBoard.add(boards.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(boards.size());
+	      for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	      }
+	      
+	      Gson gson = new Gson();
+	      String boardStr = "[";
+	      for(int i=0; i<afterBoard.size(); i++){
+	         if(i==afterBoard.size()-1){
+	            boardStr+=gson.toJson(afterBoard.get(i));
+	            break;
+	         }
+	         boardStr+=gson.toJson(afterBoard.get(i))+",";
+	      }
+	      boardStr+="]";
+	      return boardStr; // 사용할 뷰의 이름 리턴 
+	   }
 }

@@ -60,6 +60,7 @@ public class Test {
 	@Autowired
 	BoardRepo boardrepo;
 	
+	
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -161,17 +162,19 @@ public class Test {
 	
 	@org.junit.Test
 	public void selectAdvertisement(){
-		Advertisement ad = adrepo.selectAdvertisement(15);
-		assertThat(ad.getAdminId(), is("admin"));
+		List <Advertisement> list = adrepo.selectAdvertisement();
+		assertThat(list, notNullValue());
 	}
 	
 	@org.junit.Test
 	public void updateAd(){
 		Advertisement ad = new Advertisement();
+		ad.setAdsNo(25);
 		ad.setAdsTitle("mid");
 		ad.setAdsImg("img");
 		ad.setLink("link");
 		ad.setAdminId("admin");
+		ad.setOptionFlag(1);
 		int result = adrepo.updateAd(ad);
 		assertThat(result, is(1));
 	}
@@ -218,7 +221,6 @@ public class Test {
 		MeetingBoard meetingBoard = new MeetingBoard();
 		meetingBoard.setMeetingBoardTitle("까메오");
 		meetingBoard.setMeetingBoardContent("쑤ㅠ바랑");
-		meetingBoard.setPlace("경기도 광주시");
 		meetingBoard.setMeetingNo(1);
 		meetingBoard.setId("jong");
 		int result=mbr.insertMeetingBoard(meetingBoard);
@@ -317,4 +319,11 @@ public class Test {
 		BoardsGoods bg=boardrepo.selectboardGoodsByIdAndBoardNo("test2", 83);
 		assertThat(bg, is(notNullValue()));
 	}
+	
+	@org.junit.Test
+	public void selectBoardByLocation(){
+		List<Board> boards=boardrepo.selectBoardByLocation("통영");
+		assertThat(boards, is(notNullValue()));
+	}
+	
 }

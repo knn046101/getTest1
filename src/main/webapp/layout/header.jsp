@@ -92,69 +92,70 @@
 						</button>
 
 					</div>
-
-					<div class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li><a
-								href="<%=request.getContextPath()%>/list/list_best.jsp">추천!꿀팁</a>
-							</li>
-
-							<li><a
-								href="<%=request.getContextPath()%>/list/list_editor.jsp">에디터게시글</a>
-							</li>
-
-							<li><a
-								href="<%=request.getContextPath()%>/meeting/meeting_main.jsp">모임</a>
-							</li>
-
-							<li><a
-								href="<%=request.getContextPath()%>/list/list_food.jsp">먹거리</a>
-							</li>
-
-							<li><a
-								href="<%=request.getContextPath()%>/list/list_picnic.jsp">나들이</a>
-							</li>
-
-							<li><a
-								href="<%=request.getContextPath()%>/list/list_hobby.jsp">취미</a>
-							</li>
-
-							<li><a href="#">검색</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">
-										<input type="text" placeholder="어디에서">
-									</a></li>
-									<li><a href="#"> 
-											<select>
-												<option>몇 명이서</option>
-												<option>혼자서</option>
-												<option>둘이서</option>
-												<option>3명이상</option>
-											</select>
-									</a></li>
-									<li><a href="#"> 
-										<select>
-												<option>카테고리</option>
-												<option>먹거리</option>
-												<option>나들이</option>
-												<option>취미</option>
-										</select>
-									</a></li>
-									<li><a href="#">
-										<input type="text" placeholder="무엇을">
-									</a></li>
-									<li><button
-											onclick="location='<%=request.getContextPath()%>/list/list_search.jsp'"
-											style="margin: 20px 20px 20px 20px; color: #303436;">
-											<i class="fa fa-search"></i>
-										</button></li>
-								</ul>
-							</li>
-
-
-						</ul>
-					</div>
-
+					
+					<c:url value="/search" var="search"/>
+					<form action="${search }">
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li><a
+									href="<%=request.getContextPath()%>/list/list_best.jsp">추천!꿀팁</a>
+								</li>
+	
+								<li><a
+									href="<%=request.getContextPath()%>/list/list_editor.jsp">에디터게시글</a>
+								</li>
+	
+								<li><a
+									href="<%=request.getContextPath()%>/meeting/meeting_main.jsp">모임</a>
+								</li>
+	
+								<li><a
+									href="<%=request.getContextPath()%>/list/list_food.jsp">먹거리</a>
+								</li>
+	
+								<li><a
+									href="<%=request.getContextPath()%>/list/list_picnic.jsp">나들이</a>
+								</li>
+	
+								<li><a
+									href="<%=request.getContextPath()%>/list/list_hobby.jsp">취미</a>
+								</li>
+								
+									<li><a href="#">검색</a>
+										<ul class="dropdown-menu">
+											<li><a href="#">
+												<input type="text" name="location" placeholder="어디에서">
+											</a></li>
+											<li><a href="#"> 
+													<select name="numberOfPeople">
+														<option>몇 명이서</option>
+														<option>혼자서</option>
+														<option>둘이서</option>
+														<option>3명이상</option>
+													</select>
+											</a></li>
+											<li><a href="#"> 
+												<select name="category">
+														<option>카테고리</option>
+														<option>먹거리</option>
+														<option>나들이</option>
+														<option>취미</option>
+												</select>
+											</a></li>
+											<li><a href="#">
+												<input type="text" name="what" placeholder="무엇을">
+											</a></li>
+											<li><button
+													style="margin: 20px 20px 20px 20px; color: #303436;">
+													<i class="fa fa-search"></i>
+												</button></li>
+										</ul>
+									</li>
+								
+	
+							</ul>
+						</div>
+					</form>
 
 				</div>
 			</div>
@@ -198,6 +199,7 @@
                 'autoChange':           true
             });
         });
+        
     </script>
 </body>
 </html>

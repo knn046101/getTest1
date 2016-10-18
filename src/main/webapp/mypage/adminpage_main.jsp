@@ -57,7 +57,7 @@ a {
 						</div>
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/mypage/adminpage_adv.jsp" style="color: #555";> <i
+								<a href="<%=request.getContextPath() %>/mypage/adminpage_adv_board.jsp" style="color: #555";> <i
 									class="fa fa-bullhorn"></i>
 									<h3>광고글 관리</h3>
 									<p>Total: 11</p>
