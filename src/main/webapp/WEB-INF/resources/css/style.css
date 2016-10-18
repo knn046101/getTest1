@@ -3760,6 +3760,8 @@ blockquote.default {
     .team_social { margin: 37% 0 0 29%; }
 }
 
+
+
 @media screen and (max-width:768px) {
 	.arrows_list > li > img {
 	
@@ -3767,7 +3769,7 @@ blockquote.default {
 	}
     #logo a img {height: auto;}
 
-    .jcarousel-list li{ width:248px; }
+    .jcarousel-list li{ width:248px; margin-right:80%; }
 
     #myTabContent{margin-bottom:30px;}
 
@@ -3950,3 +3952,19 @@ blockquote.default {
 
     #filter li a{padding:10px;}
 }
+<<<<<<< HEAD
+=======
+
+
+@media screen and (max-width: 767px){
+	.jcarousel-list li {
+	    width:85%;
+	}
+}
+@media screen and (min-width: 768px){
+.jcarousel-list li {
+   margin-left:20px;
+   margin-right:20px
+	}
+}
+
