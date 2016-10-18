@@ -29,6 +29,9 @@
 		</span>
 	</center>
 
+<br>
+<br>
+
 		<section class="latest_work">
 
 			<div class="container">
