@@ -218,7 +218,6 @@ public class Test {
 		MeetingBoard meetingBoard = new MeetingBoard();
 		meetingBoard.setMeetingBoardTitle("까메오");
 		meetingBoard.setMeetingBoardContent("쑤ㅠ바랑");
-		meetingBoard.setPlace("경기도 광주시");
 		meetingBoard.setMeetingNo(1);
 		meetingBoard.setId("jong");
 		int result=mbr.insertMeetingBoard(meetingBoard);

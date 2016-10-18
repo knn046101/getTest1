@@ -19,6 +19,7 @@ import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 import com.whattodo.dto.BoardsFollows;
 import com.whattodo.dto.BoardsGoods;
+import com.whattodo.dto.Member;
 import com.whattodo.service.BoardService;
 
 
@@ -276,4 +277,19 @@ public class BoardController {
 			return "실패";
 		}
 	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public String search(Model model, HttpServletRequest request){
+		logger.trace("진입");
+		String location=request.getParameter("location");
+		String numberOfPeople=request.getParameter("numberOfPeople");
+		String category=request.getParameter("category");
+		String what=request.getParameter("what");
+		model.addAttribute("location",location);
+		model.addAttribute("numberOfPeople",numberOfPeople);
+		model.addAttribute("category",category);
+		model.addAttribute("what",what);
+		return "list/list_search";
+	}
+	
 }

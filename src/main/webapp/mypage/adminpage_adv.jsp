@@ -54,15 +54,15 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="image">광고 제목</label>
 									<div class="col-sm-3">
-										<input type="text" path="adsTitle"
+										<input type="text" 
 											class="form-control col-sm-3" id="adsTitle"></input>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="image">광고 링크</label>
 									<div class="col-sm-3">
-										<input type="url" path="link" class="form-control col-sm-3"
-											id="link"> </input>
+										<input type="url"  class="form-control col-sm-3"
+											id="link"> 
 									</div>
 								</div>
 								<!-- <div class="form-group">
@@ -76,8 +76,8 @@
 								<br>
 								<div class="form-group">
 									<div class="col-sm-12 text-center">
-										<button class="btn btn-primary"
-											style="background-color:orange; border-color:#fff;" id = "adjoin">
+										<button class="btn btn-primary" type="button"
+											style="background-color:orange; border-color:#fff;" id="adjoin">
                  						 광고 등록<i class="fa fa-check spaceLeft"></i>
 										</button>
 									</div>
@@ -137,15 +137,14 @@
 							// 미리보기 부분을 null로 바꾼다.
 						} else {
 							$('#imagePreview').attr('src', e.target.result);
-							$('#imagePreview').css('weight', "1300px");
-							$('#imagePreview').css('height', "500px");
+							$('#imagePreview').css('weight', "150px");
+							$('#imagePreview').css('height', "50px");
 							//썸네일로 미리보기 된 결과값(base64로 인코딩)을  result에 넣는다 
 							//문자열 앞에 ""를 넣기 위해 앞뒤로 추가
 							adsImg = "\"" + e.target.result + "\"";
 							
 							$("#adsImg").val(adsImg);
 							adsImg = "\"" + e.target.result + "\"";
-							console.log(adsImg);
 						}
 					} else {
 						alert("HTML5를 지원하는 브라우저에서 접속해 주세요");
@@ -161,47 +160,35 @@
 	}
 	
 	/*  광고 데이타베이스에 저장  */
- 
-	
-		<c:url value="/addAdv" var="addAdv"/>
-	$('#adjoin').on("click",function(){
+
+	<c:url value="/insertAd" var="insertAd"/>
+	$("#adjoin").on("click", function(){
 		
-		var adsTitle= $('#adsTitle').val();
-		var link = $('#link').val();
-		var adminId = $('#adminId').val();
-		
-		console.log(adsTitle);
-		console.log(link);
-		console.log(adminId);
-		
-		 var allData = {
-				 "adsImg":adsImg,
-				 "adsTitle":adsTitle,
-				 "link":link,
-				 "adminId":adminId
-		 };
+		allData={
+			"adsTitle":$("#adsTitle").val(),
+			"adsImg":adsImg,
+			"link":$("#link").val(),
+			"adminId":"${admin.adminId}"
+		};
 		
 		$.ajax({
-			url:"${addAdv}",
-			type:"get",
+			type:"post",
+			url:"${insertAd }",
 			data: allData,
-			success:function(responseTxt){
-				
-			console.log("전송되었습니다.");
-										            
+			success:function(data){
+				if(data=="저장"){
+					alert("저장되었습니다.");
+					<%-- location.href="<%=request.getContextPath()%>/"; --%>
+				}else{
+					alert("저장 실패");
+				}
 			},
-			error:function(xhr,status,error){
-				alert("실패:"+error); 
-			}
+			error:function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
 		});
-		
-	
 	});
-	
-		
-		
-		
-
 
 	
 </script>

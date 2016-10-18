@@ -20,7 +20,7 @@
    </style>
 </head>
 <body>
-
+<center>
    <div class="container-fluid">
   
       <div class="row">
@@ -53,12 +53,10 @@
                               </div>
                            </div>
              
-                       	<center>
                			<div id="jcarousel recent-work-jc">
                         	 <ul class="jcarousel-list" id="boardByPicnic" >
                        	 	</ul>
               		 	</div>
-              		 	</center> 
               		 	
               	 		</div>
               	 	</div>
@@ -70,16 +68,15 @@
          </div>
       </div>
       	 
-               		<center>
                			<div id="page">
                			</div>
-               		</center>
+    	</center>
       <br>
       <br>
       <div class="row">
        		<jsp:include page="/layout/footer.jsp"></jsp:include>
       </div>
- 
+ 	
 </body>
 
 <script>
