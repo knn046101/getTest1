@@ -30,7 +30,10 @@
    </center>
 
 <br>
+
 <br>
+
+
 
       <section class="latest_work">
 
@@ -494,14 +497,14 @@ function getDataApi(){
                } 
 /*이미지값이 정의되지 않아 받아올수 없을때 
  기본 이미지를 띄워주는 부분  */
-            <%--     if(item.mainimage==undefined){
+                <%--  if(item.mainimage==undefined){
                   console.log("이미지가 없습니다.현재인덱스 :"+index);
                   console.log(img+"이미지가 없다고?")
                   img="<%=request.getContextPath()%>/images/logo.png";
                   
                }   --%>
                
-               /* console.log("현재인덱스"+index);    */            
+               /* console.log("현재인덱스"+index);     */            
                /*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
                       <c:url value="/retrieve" var="retrieve"/>                                                
                      row ="<li class='col-sm-3'>"

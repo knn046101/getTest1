@@ -1,130 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>뭐 하 지 ?</title>
-	<meta name="description" content="">
-		
- 	<style>
- 		.term{
- 			height:300px;
- 		}
- 	 	 body, div, img, ul, li
-        {
-       	     margin: 0;
-            padding: 0;
-        }
-        body
-        {
-            font-size: 12px;
-            background-color: #fff;
-            min-width: 1200px;
-        }
-        ul, ul li
-        {
-            list-style: none;
-        }
-        .clear
-        {
-            clear: both;
-        }       
-        .box
-        {
-            position: relative;
-            width: 630px;
-            margin-left: 300px;
-           
-          
-        }
-        .lineF, .lineS
-        {
-            position: absolute;
-            visibility: visible;
-        }
-        .lineS
-        {
-            top: 91px;
-            left: 53px;
-        }
-        .boxF, .boxS, .boxT, .overlay
-        {
-            width: 100px;
-            height: 125px;
-            overflow: hidden;
-        }
-        .boxF, .boxS
-        {
-            visibility: hidden;
-        }
-        .boxF
-        {
-            transform: rotate(120deg);
-            float: left;
-            margin-left: 5px;
-            -ms-transform: rotate(120deg);
-            -moz-transform: rotate(120deg);
-            -webkit-transform: rotate(120deg);
-        }
-        .boxS
-        {
-            transform: rotate(-60deg);
-            -ms-transform: rotate(-60deg);
-            -moz-transform: rotate(-60deg);
-            -webkit-transform: rotate(-60deg);
-        }
-        .boxT
-        {
-            transform: rotate(-60deg);
-            background: no-repeat 50% center;
-            background-size: 125% auto;
-            -ms-transform: rotate(-60deg);
-            -moz-transform: rotate(-60deg);
-            -webkit-transform: rotate(-60deg);
-            visibility: visible;
-        }
-        .overlay
-        {
-            transition: all 250ms ease-in-out 0s;
-            display: none;
-            position: relative;
-        }
-        .overlay:hover
-        {
-            background-color: rgba(0,0,0,0.6);
-        }
-        .boxT:hover .overlay
-        {
-            display: block;
-        }
-        .overlay a
-        {
-            display: inline-block;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: -16px 0 0 -16px;
-            border-radius: 4px;
-            text-align: center;
-            line-height: 32px;
-            width: 32px;
-            height: 32px;
-            text-decoration: none;
-            color: White;
-            font-size: 15px;
-            font-weight: bolder;
-        }
- </style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>뭐 하 지 ?</title>
+<meta name="description" content="">
 </head>
 <body>
-
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<br>
-	
 	<br>
+	
 	<div class="clients" style="margin:0;">
 	<c:if test="${!empty login}">
 		<button onclick="location='meeting_make.jsp'"style="float:right;background-color:#27AB99;color:white;" onclick="location='meeting_make.jsp'">모임생성</button>
@@ -135,120 +26,119 @@
 						<div class="dividerHeading">
 							<h4><span>모임</span></h4>
 						</div>
-						
-					<div class="our_clients">
-						 <div class="box">
-						 
-      						  <!--첫째 줄(lineFirst)-->
-       						  <div class="lineF">
-     							 <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="seoul" href="#">서울</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="kyoungki" href="#">경기</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					             <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="choongnam" href="#">충남</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					             <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="choongbook" href="#">충북</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-								 <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="jeonnam" href="#">전남</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					        
-					        <!--둘째 줄(lineSecond)-->
-					        <div class="lineS">
-					         <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="jeonbook" href="#">전북</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="kyoungnam" href="#">경남</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="kyoungbook" href="#">경북</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					             <div class="boxF">
-					                <div class="boxS">
-					                    <div class="boxT" style="background-color:#27AB99;">
-					                        <div class="overlay">
-					                            <a id="kangone" href="#">강원</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					          </div>
-					          
-					    </div>
-						</div>
+
 					</div>
-				</div>
-			</div>
-		</div>
+       			</div>
+            </div>               
+	</div>
 		
-   <div class="term"></div>
-   	 <center>
+		<center>	
+		<!--start info service-->
+		<section class="info_service">
+			<div class="container">
+                <div class="row sub_content">
+                	<div class="col-lg-12 col-md-12 col-sm-12">
+                		
+                		 <button type="button" class="btn btn-default dropdown-toggle"
+                        				data-toggle="dropdown">
+                        			<span id="srch-sel1">도 선택</span> <span class="caret"></span>
+                    			 </button>
+                    		 <ul class="dropdown-menu" id="sel1">
+		                        <li><a href="#">서울특별시</a></li>
+		                        <li><a href="#">인천광역시</a></li>
+		                        <li><a href="#">대전광역시</a></li>
+		                        <li><a href="#">대구광역시</a></li>
+		                        <li><a href="#">광주광역시</a></li>
+		                        <li><a href="#">울산광역시</a></li>
+		                        <li><a href="#">부산광역시</a></li>
+		                        <li><a href="#">경기도</a></li>
+		                        <li><a href="#">강원도</a></li>
+		                        <li><a href="#">충청남도</a></li>
+		                        <li><a href="#">충청북도</a></li>
+		                        <li><a href="#">전라남도</a></li>
+		                        <li><a href="#">전라북도</a></li>
+		                        <li><a href="#">경상남도</a></li>
+		                        <li><a href="#">경상북도</a></li>
+		                        <li><a href="#">제주도</a></li>
+                    		 </ul>
+                    		 
+                    		 <button type="button" class="btn btn-default dropdown-toggle"
+                        			data-toggle="dropdown">
+                        		<span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
+                    		 </button>
+                     		<ul class="dropdown-menu" id="sel2">
+
+                    		 </ul>
+                    		 
+                    		 <input type="text" placeholder="#키워드 " class="btn btn-default dropdown-toggle">
+                    		<button id="search" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">검색
+           					 </button>
+                	
+                	</div>
+			</div>
+		</section>
+
+	
 		 <span class="input-group-btn">
             <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">신전모임
             </button>
          </span>
 	 </center>
 	 
-	 <br>
+	<br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
+	
+						
 </body>
 <script>
-	$("#choongnam").on("click",function(){
-		$(".term").html("")
-	});
+var sel1;
+var sel2;
+var categorysel;
+var numberOfPeoplessel;
+
+/*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
+   $(function() {
+      $('#sel1').find('a').click(function(e) {
+         e.preventDefault();
+         var cat = $(this).text();
+         $('#srch-sel1').text(cat);
+         $('#txt-sel1').val(cat);
+         sel1=cat;
+         
+         <c:url value="/changeCapital" var="changeCapital"/>
+         var citystr="";
+         $(".sel2").remove();
+         $.ajax({
+            type:"get",
+            url:"${changeCapital }",
+            dataType:"json",
+            data: {
+               "sel1":sel1   
+            },
+            success:function(data){
+               console.log(data);
+               for(var i=0; i<data.length; i++){
+                  citystr+="<li class='sel2'><a id='sel2check' href='#'>"+data[i].city+"</a></li>";
+               }
+               $("#sel2").append(citystr);
+            },
+            error : function(xhr, status, error){
+               alert(error);
+            },
+            ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+         });
+      });
+
+      $("#sel2").on("click", "#sel2check",function(e) {
+         e.preventDefault();
+         var cat = $(this).text();
+         $('#srch-sel2').text(cat);
+         $('#txt-sel2').val(cat);
+         sel2=cat;
+      });
+  
+   });
+
 </script>
+
 </html>

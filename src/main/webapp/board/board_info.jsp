@@ -25,6 +25,24 @@
 			<section class="content blog">
 			<div class="container">
 				<div class="row">
+				
+						<div class="col-xs-12 col-md-4 col-lg-4 col-sm-4">
+						<div class="sidebar">							
+							<div class="widget widget_categories">
+								<div class="widget_title">
+									<h4><span>${board.boardTitle }</span></h4>
+									</div>
+								<ul class="arrows_list" style="text-align: center;">
+									<li><span>작성자 :&nbsp; </span>${board.id }</li>
+									<li><span>작성일 :&nbsp;</span><fmt:formatDate value="${board.writeDate }" pattern="yyyy.MM.dd"/></li>
+									<li><span>카테고리 :&nbsp; </span>${board.category }</li>
+									<li><span>몇명이서 :&nbsp; </span>${board.numberOfPeople }</li>
+									<li><span>키워드 :&nbsp; </span>${board.what }</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				
 					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 						<div class="blog_single">
 							<article class="post">
@@ -35,7 +53,19 @@
 								</figure>							
 							</article>
 							
+							
 						</div>
+						
+							<center>		
+							<div class="widget widget_about">
+							   <button id="scrap" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-share-square-o" style="color:#fff;"></i> 스크랩</button>	
+							   <button id="good" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-thumbs-up" style="color:#fff;"></i> 좋아요</button>	
+							   <button id="update" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-edit" style="color:#fff;"></i> 수정</button>	
+							   <button id="delete" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-trash-o" style="color:#fff;"></i> 삭제</button>
+							</div>
+							</center>	
+					
+					
 
 						<!--News Comments-->
                         <div class="news_comments">
@@ -78,49 +108,18 @@
                                     </p>
                                 </div>
                             </div>
-
-                            <button class="btn btn-lg btn-default">댓글등록</button>
+                            
+							 <center>
+                             	<button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">댓글등록
+          					 	</button>
+          					 </center>
+          					 
                             </form>
                         </div>
 				    </div>
 					
 					
-					<div class="col-xs-12 col-md-4 col-lg-4 col-sm-4">
-						<div class="sidebar">							
-							<div class="widget widget_categories">
-								<div class="widget_title">
-									<h4><span>${board.boardTitle }</span></h4>
-									</div>
-								<ul class="arrows_list">
-									<li><span>작성자 :</span>${board.id }</li>
-									<li><span>작성일 :</span><fmt:formatDate value="${board.writeDate }" pattern="yyyy.MM.dd"/></li>
-								</ul>
-							</div>
-							
-							<div class="widget widget_about">
-								<div class="widget_title">
-									<h4><span>글 정보</span></h4>
-								</div>
-								<ul class="arrows_list">
-									<li><span>카테고리 :</span>${board.category }</li>
-								<li><span>몇명이서 :</span>${board.numberOfPeople }</li>
-								<li><span>키워드 :</span>${board.what }</li>
-								<li>
-									<button id="scrap" class="scrap" style="color:black;"><i class="fa fa-bookmark" style="color:black;"></i> 스크랩</button>
-									<button id="good" class="good" style="color:black;"><i class="fa fa-thumbs-up" style="color:black;"></i> 좋아요</button>
-									<button id="update" class="update" style="color:black;"><i class="fa fa-share" style="color:black;"></i> 수정</button>
-									<button id="delete" class="delete" style="color:black;"><i class="fa fa-trash-o" style="color:black;"></i> 삭제</button>
-								</li>
-								</ul>
-								
-							</div>
-
-
-							
-							
-							
-						</div>
-					</div>
+			
 					
 					
 				
