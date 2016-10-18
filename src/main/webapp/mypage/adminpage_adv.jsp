@@ -178,7 +178,7 @@
          success:function(data){
             if(data=="저장"){
                alert("저장되었습니다.");
-               <%-- location.href="<%=request.getContextPath()%>/"; --%>
+                location.href="<%=request.getContextPath()%>/mypage/adminpage_adv_board.jsp";
             }else{
                alert("저장 실패");
             }

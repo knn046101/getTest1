@@ -43,30 +43,27 @@ public class AdvertisementController {
 		
 	}
 	
-	@RequestMapping(value="/addAdv", method=RequestMethod.POST,
-			produces="application/text;charset=UTF-8")
-	public @ResponseBody String addAdvertisement(Model model, HttpServletRequest request){
-	
-		String adsTitle=request.getParameter("adsTitle");
-		String adsImg=request.getParameter("adsImg");
-		String link=request.getParameter("link");
-		String adminId=request.getParameter("adminId");
+	@RequestMapping(value="/insertAd", method=RequestMethod.POST,
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String insertAd(Model model, HttpServletRequest request){
+	      String adsTitle=request.getParameter("adsTitle");
+	      String adsImg=request.getParameter("adsImg");
+	      String link=request.getParameter("link");
+	      String adminId=request.getParameter("adminId");
 
-
-		Advertisement ads = new Advertisement(adsTitle, adsImg, link,
-				adminId);
-		logger.trace("데이터 삽입 전 advertisement : {}", ads);
-		int result=as.insertAd(ads);
-		Advertisement ad = new Advertisement(adsTitle, adsImg, link,adminId);
-		/*logger.trace("데이터 삽입 전 advertisement : {}", ad);*/
-
-		logger.trace("데이터 삽입 후 result : {}",result);
-		if(result==1){
-			return "mypage/admin_adv_board.jsp"; // 사용할 뷰의 이름 리턴 
-		}else{
-			return "실패";
-		}
-	}
+	      logger.trace(adsTitle);
+	      logger.trace(adsImg);
+	      logger.trace(link);
+	      logger.trace(adminId);
+	      
+	      Advertisement ad = new Advertisement(adsTitle, adsImg, link, adminId);
+	      int result=as.insertAd(ad);
+	      if(result==1){
+	         return "저장";
+	      }else{
+	         return "실패";
+	      }
+	   }
 	
 	
 	/*데이터를 가져오기*/
