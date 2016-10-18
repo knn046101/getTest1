@@ -20,7 +20,7 @@
    </style>
 </head>
 <body>
- <center>
+
    <div class="container-fluid">
   
       <div class="row">
@@ -28,7 +28,10 @@
       </div>
       <br>
       <c:if test="${!empty login}">
-         <button style="float:right;background-color:#27AB99;color:white;border-color:#fff;" onclick="location='<%=request.getContextPath()%>/board/board_write.jsp'">글작성 <i class="fa fa-pencil"></i></button>
+         <span class="input-group-btn">
+            <button onclick="location='<%=request.getContextPath()%>/board/board_write.jsp'" id="writeboard" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;float:right;">글작성
+            <i class="fa fa-pencil"></i></button>
+         </span>
       </c:if>
       <br>
       <br>
@@ -65,12 +68,12 @@
             </div>
          </div>
       </div>
-              	 
-               			<div id="page">
-               			</div>
-               		
+              	 		<center>
+               				<div id="page">
+               				</div>
+               			</center>
             	</div>
-            	</center>
+            	
       <!--Start recent work-->
    
    
@@ -177,10 +180,10 @@
             }
 
             var pageText="";
-            pageText+="<a class='paging' href='#' onclick=send('${getEditorBoards }?pageno=1')>[맨앞으로]</a>";
-            pageText+="<a class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+prev_pageno+"')>[이전]</a>";
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno=1')>[맨앞으로]</a>";
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+prev_pageno+"')>[이전]</a>";
             for(var i=page_sno; i<=page_eno; i++){ 
-               pageText+="<a class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+i+"')>";
+               pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+i+"')>";
                if(pageno == i){ 
                   pageText+="["+i+"]";
                }else{ 
@@ -192,8 +195,8 @@
                   pageText+="<span class='paging'> , </span>";
                } 
             } 
-            pageText+="<a class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+next_pageno+"')>[다음]</a>";         
-            pageText+="<a class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";            
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+next_pageno+"')>[다음]</a>";         
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";            
             $("#page").append(pageText);
          },
          error : function(xhr, status, error) {
