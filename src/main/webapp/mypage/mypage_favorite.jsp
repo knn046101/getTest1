@@ -7,18 +7,10 @@
 <title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 
 <style>
 .errormsg {
 	color: red;
-}
-
-.carousel-control {
-	padding-top: 10%;
-	width: 5%;
 }
 </style>
 </head>
@@ -33,7 +25,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="dividerHeading">
 					<h4>
-						<span>관심 키워드</span>
+						<span>내 글</span>
 					</h4>
 
 				</div>
@@ -49,12 +41,13 @@
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
 										<li><img src=${login.profileImg } class="img-circle"
-											 width="150" height="150" hspace="50"> <br>
+											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
 
 											${login.nickname } <span class="label label-default"
 												style="background-color: grey">일반회원</span>
+												
 										</h4>
 
 										<div class="widget_title">
@@ -62,16 +55,15 @@
 												<span>마이페이지</span>
 											</h4>
 										</div>
-										<c:url value="/mypageUpdate" var="mypageUpdate" />
+									<c:url value="/mypageUpdate" var="mypageUpdate"/>
 										<li style="margin-left: 10px"><a href="${mypageUpdate }">
-												정보수정</a></li>
+										정보수정</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-												내글</a></li>
-										<li><a
+											내글</a></li>
+										<li ><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												<i class="fa fa-angle-right"></i>관심사
-										</a></li>
+												<i class="fa fa-angle-right"></i>관심 키워드</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
 												스크랩</a></li>
@@ -86,7 +78,7 @@
 						</div>
 
 						<div class="col-lg-9 ">
-							<div class="row sub_content">
+<div class="row sub_content">
 								<div class="carousel-intro">
 									<div class="col-md-12">
 										<div class="carousel-navi">
@@ -479,6 +471,9 @@
 
 								</div>
 							</div>
+						</div>
+						
+					</div>
 				</div>
 			</section>
 		</section>
@@ -489,26 +484,9 @@
 
 
 
-
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
-<script
-	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-<script
-	src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-
-<script src="../js/index.js"></script>
-
 <script>
-	$(document).ready(function() {
-		$('#myCarousel').carousel({
-			interval : 10000
-		})
 
-		$('#myCarousel').on('slid.bs.carousel', function() {
-			//alert("slid");
-		});
-
-	});
 </script>
 </html>

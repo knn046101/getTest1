@@ -9,5 +9,5 @@ public interface AdvertisementRepo {
 	public int updateAd(Advertisement ad);
 	public int deleteAd(int adsNo);
 	public List<Advertisement> selectAllAdvertisement();
-	public Advertisement selectAdvertisement(int adsNo);
+	public List<Advertisement> selectAdvertisement();
 }

@@ -162,17 +162,19 @@ public class Test {
 	
 	@org.junit.Test
 	public void selectAdvertisement(){
-		Advertisement ad = adrepo.selectAdvertisement(15);
-		assertThat(ad.getAdminId(), is("admin"));
+		List <Advertisement> list = adrepo.selectAdvertisement();
+		assertThat(list, notNullValue());
 	}
 	
 	@org.junit.Test
 	public void updateAd(){
 		Advertisement ad = new Advertisement();
+		ad.setAdsNo(25);
 		ad.setAdsTitle("mid");
 		ad.setAdsImg("img");
 		ad.setLink("link");
 		ad.setAdminId("admin");
+		ad.setOptionFlag(1);
 		int result = adrepo.updateAd(ad);
 		assertThat(result, is(1));
 	}
