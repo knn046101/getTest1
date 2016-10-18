@@ -114,7 +114,7 @@
                   </div>
                   <input type="hidden" id="txt-category"> <input type="text"
                      id="boardKeyword" class="form-control"
-                     placeholder="무엇을?(#가을#하늘높다)"> <span
+                     placeholder="무엇을? (#가을 #하늘높다)"> <span
                      class="input-group-btn"> <span
                      class="glyphicon glyphicon-search"></span>
                   </span>
@@ -363,7 +363,7 @@ var numberOfPeoplessel;
    });
    
    $(document).ready(function() {
-      if( ${empty login } ){
+      if( ${empty (login) } ){
          alert("로그인 후에 이용하여 주십시오.");
          location.href="<%=request.getContextPath()%>/login/login.jsp";
       } 

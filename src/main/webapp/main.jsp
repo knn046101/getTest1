@@ -30,7 +30,6 @@
    </center>
 
 <br>
-<br>
 
       <section class="latest_work">
 
