@@ -13,6 +13,7 @@ public class Advertisement {
 	private String adsImg;
 	private String link;
 	private String adminId;
+	private Integer optionFlag;
 	
 	
 	
@@ -26,6 +27,35 @@ public class Advertisement {
 		this.adminId = adminId;
 
 	}
+
+
+
+
+
+	public Advertisement(String adsTitle, String adsImg, String link, String adminId, Integer optionFlag) {
+		super();
+		this.adsTitle = adsTitle;
+		this.adsImg = adsImg;
+		this.link = link;
+		this.adminId = adminId;
+		this.optionFlag = optionFlag;
+	}
+
+
+
+
+
+	public Advertisement(Integer adsNo, Integer optionFlag) {
+		super();
+		this.adsNo = adsNo;
+		this.optionFlag = optionFlag;
+	}
+	
+	
+	
+	
+
+	
 }
 
 	

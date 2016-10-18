@@ -54,8 +54,6 @@ public class BoardRepoImpl implements BoardRepo {
 		String statement=NAME_SPACE+"selectAllBoard";
 		return template.selectList(statement);
 	}
-	
-	
 
 	public Board selectBoardbyBoardNo(int boardNo) {
 		String statement=NAME_SPACE+"selectBoardbyBoardNo";
@@ -77,11 +75,16 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, Category);
 	}
 
+	public List<Board> selectBoardByWhat(String what){
+		String statement=NAME_SPACE+"selectBoardByWhat";
+		return template.selectList(statement, what);
+	}
+	
 	public List<Board> selectBoardByLocationAndNumberOfPeople(String location, String numberOfPeople) {
 		String statement=NAME_SPACE+"selectBoardByLocationAndNumberOfPeople";
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("location", location);
-		map.put("location", numberOfPeople);
+		map.put("numberOfPeople", numberOfPeople);
 		return template.selectList(statement, map);
 	}
 
@@ -90,6 +93,14 @@ public class BoardRepoImpl implements BoardRepo {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("location", location);
 		map.put("category", category);
+		return template.selectList(statement, map);
+	}
+	
+	public List<Board> selectBoardByLocationAndWhat(String location, String what){
+		String statement=NAME_SPACE+"selectBoardByLocationAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("location", location);
+		map.put("what", what);
 		return template.selectList(statement, map);
 	}
 
@@ -101,6 +112,22 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, map);
 	}
 
+	public List<Board> selectBoardByNumberOfPeopleAndWhat(String numberOfPeople, String what){
+		String statement=NAME_SPACE+"selectBoardByNumberOfPeopleAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("numberOfPeople", numberOfPeople);
+		map.put("what", what);
+		return template.selectList(statement, map);
+	}
+	
+	public List<Board> selectBoardByCategoryAndWhat(String category, String what){
+		String statement=NAME_SPACE+"selectBoardByCategoryAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("category", category);
+		map.put("what", what);
+		return template.selectList(statement, map);
+	}
+	
 	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String numberOfPeople,
 			String category) {
 		String statement=NAME_SPACE+"selectBoardByLocationAndNumberOfPeopleAndCategory";
@@ -111,6 +138,43 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, map);
 	}
 
+	public List<Board> selectBoardByLocationAndNumberOfPeopleAndWhat(String location, String numberOfPeople, String what){
+		String statement=NAME_SPACE+"selectBoardByLocationAndNumberOfPeopleAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("location", location);
+		map.put("numberOfPeople", numberOfPeople);
+		map.put("what", what);
+		return template.selectList(statement, map);
+	}
+	
+	public List<Board> selectBoardByLocationAndCategoryAndWhat(String location, String category, String what){
+		String statement=NAME_SPACE+"selectBoardByLocationAndCategoryAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("location", location);
+		map.put("category", category);
+		map.put("what", what);
+		return template.selectList(statement, map);
+	}
+	
+	public List<Board> selectBoardByNumberOfPeopleAndCategoryAndWhat(String numberOfPeople, String category, String what){
+		String statement=NAME_SPACE+"selectBoardByNumberOfPeopleAndCategoryAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("numberOfPeople", numberOfPeople);
+		map.put("category", category);
+		map.put("what", what);
+		return template.selectList(statement, map);
+	}
+	
+	public List<Board> selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(String location, String numberOfPeople, String category, String what){
+		String statement=NAME_SPACE+"selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("location", location);
+		map.put("numberOfPeople", numberOfPeople);
+		map.put("category", category);
+		map.put("what", what);
+		return template.selectList(statement, map);
+	}
+	
 	public List<Board> selectBoardByEditor(){
 		String statement=NAME_SPACE+"selectBoardByEditor";
 		return template.selectList(statement);

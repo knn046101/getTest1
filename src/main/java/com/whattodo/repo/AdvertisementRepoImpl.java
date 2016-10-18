@@ -34,9 +34,9 @@ public class AdvertisementRepoImpl implements AdvertisementRepo{
 		return template.selectList(statement);
 	}
 
-	public Advertisement selectAdvertisement(int adsNo) {
+	public List<Advertisement> selectAdvertisement() {
 		String statement=NAME_SPACE+"selectAdvertisement";
-		return template.selectOne(statement, adsNo);
+		return template.selectList(statement);
 	}
 
 }

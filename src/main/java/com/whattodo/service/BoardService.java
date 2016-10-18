@@ -57,31 +57,61 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.selectBoardByLocation(location);
 	}
 
-	public List<Board> selectBoardByNumberOfPeople(String NumberOfPeople) {
-		return brepo.selectBoardByNumberOfPeople(NumberOfPeople);
+	public List<Board> selectBoardByNumberOfPeople(String numberOfPeople) {
+		return brepo.selectBoardByNumberOfPeople(numberOfPeople);
 	}
 
 	public List<Board> selectBoardByCategory(String Category) {
 		return brepo.selectBoardByCategory(Category);
 	}
 
-	public List<Board> selectBoardByLocationAndNumberOfPeople(String location, String NumberOfPeople) {
-		return brepo.selectBoardByLocationAndNumberOfPeople(location, NumberOfPeople);
+	public List<Board> selectBoardByWhat(String what){
+		return brepo.selectBoardByWhat(what);
+	}
+	
+	public List<Board> selectBoardByLocationAndNumberOfPeople(String location, String numberOfPeople) {
+		return brepo.selectBoardByLocationAndNumberOfPeople(location, numberOfPeople);
 	}
 
 	public List<Board> selectBoardByLocationAndCategory(String location, String category) {
 		return brepo.selectBoardByLocationAndCategory(location, category);
 	}
-
-	public List<Board> selectBoardByNumberOfPeopleAndCategory(String NumberOfPeople, String category) {
-		return brepo.selectBoardByNumberOfPeopleAndCategory(NumberOfPeople, category);
+	
+	public List<Board> selectBoardByLocationAndWhat(String location, String what){
+		return brepo.selectBoardByLocationAndWhat(location, what);
+	}
+	public List<Board> selectBoardByNumberOfPeopleAndCategory(String numberOfPeople, String category) {
+		return brepo.selectBoardByNumberOfPeopleAndCategory(numberOfPeople, category);
 	}
 
-	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String NumberOfPeople,
-			String category) {
-		return brepo.selectBoardByLocationAndNumberOfPeopleAndCategory(location, NumberOfPeople, category);
+	public List<Board> selectBoardByNumberOfPeopleAndWhat(String numberOfPeople, String what){
+		return brepo.selectBoardByNumberOfPeopleAndWhat(numberOfPeople, what);
+	}
+	
+	public List<Board> selectBoardByCategoryAndWhat(String category, String what){
+		return brepo.selectBoardByCategoryAndWhat(category, what);
+	}
+	
+	public List<Board> selectBoardByLocationAndNumberOfPeopleAndCategory(String location, String numberOfPeople, String category) {
+		return brepo.selectBoardByLocationAndNumberOfPeopleAndCategory(location, numberOfPeople, category);
 	}
 
+	public List<Board> selectBoardByLocationAndNumberOfPeopleAndWhat(String location, String numberOfPeople, String what){
+		return brepo.selectBoardByLocationAndNumberOfPeopleAndWhat(location, numberOfPeople, what);
+	}
+	
+	public List<Board> selectBoardByLocationAndCategoryAndWhat(String location, String category, String what){
+		return brepo.selectBoardByLocationAndCategoryAndWhat(location, category, what);
+	}
+	
+	public List<Board> selectBoardByNumberOfPeopleAndCategoryAndWhat(String numberOfPeople, String category, String what){
+		return brepo.selectBoardByLocationAndCategoryAndWhat(numberOfPeople, category, what);
+	}
+	
+	public List<Board> selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(String location, String numberOfPeople, String category, String what){
+		return brepo.selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(location, numberOfPeople, category, what);
+	}
+	
 	public List<Board> selectBoardByEditor() {
 		return brepo.selectBoardByEditor();
 	}
@@ -94,9 +124,8 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.selectBoardByGood(id);
 	}
 	
-public List<Board> selectBoardByGoodMainBest() {
-	return	brepo.selectBoardByGoodMainBest();
-		 
+	public List<Board> selectBoardByGoodMainBest() {
+		return	brepo.selectBoardByGoodMainBest();
 	}
 
 	public int insertBoardFollow(int boardNo, String id) {
@@ -146,4 +175,5 @@ public List<Board> selectBoardByGoodMainBest() {
 	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo){
 		return brepo.selectboardGoodsByIdAndBoardNo(id, boardNo);
 	}
+
 }

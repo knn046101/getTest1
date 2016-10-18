@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +18,11 @@
     <!-- This code works without jquery library. -->
     <script src="js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+    
+    
+    
+    /*  */
+    
         jssor_1_slider_init = function() {
             
             var jssor_1_SlideoTransitions = [
@@ -60,7 +67,7 @@
             $Jssor$.$AddEvent(window, "resize", ScaleSlider);
             $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
             /*responsive code end*/
-        };
+        };        
         
     </script>
     <style>
@@ -122,9 +129,9 @@
     
     <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1100px; height: 320px; overflow: hidden; visibility: hidden;">
         <!-- Loading Screen -->
-         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1100px; height: 320px; overflow: hidden;">
+         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1100px; height: 320px; overflow: hidden;" id="adslider">
            
-            <div data-p="225.00" style="display: none;">
+     		<!-- <div data-p="225.00" style="display: none;">
                 <img data-u="image" src="img/sk1.jpg" />        
                </div>
                
@@ -134,7 +141,7 @@
             
             <div data-p="225.00" data-po="80% 55%" style="display: none;">
                 <img data-u="image" src="img/sk3.png" />
-            </div>
+            </div>  -->
             
           <!--   <a data-u="any" href="http://www.jssor.com" style="display:none">Full Width Slider</a> -->
         </div>
@@ -147,8 +154,73 @@
         <span data-u="arrowleft" class="jssora22l" style="top:0px;left:8px;width:40px;height:58px;" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora22r" style="top:0px;right:8px;width:40px;height:58px;" data-autocenter="2"></span>
     </div>
-    <script type="text/javascript">jssor_1_slider_init();</script>
+ <!--    <script type="text/javascript">
+     optionloading(); 
+   
+    console.log("시작1");
+   
+    </script> -->
     <!-- #endregion Jssor Slider End -->
 </body>
+<script type="text/javascript">
+<c:url value="/optionAd" var="optionAd"/>
+	   
+	   function optionloading(){
+	   	
+	   	$('.adrow').remove();
+	   	
+	   	$.ajax({
+	   		 url:"${optionAd}",
+	   		 type:"get",
+
+	   		 success:function(res){
+
+	   		
+	   		var fromServerToObj = JSON.parse(res);
+	   		
+	   		
+	   		var row="";
+	   		
+	   		$.each(fromServerToObj,function(index,item){
+	   		
+	   	/*데이터를 받아 변수에 삽입하는 부분  */
+	   		
+	   		var adsImg= item.adsImg;
+	   	
+	             var link= item.link;
+
+	           
+
+	   		  row =  "<div data-p='225.00'  class='adrow' style='display: none;'>"
+	                    + "<a href="+link+">"
+	   		  			+"<img data-u='image' src="+adsImg+"/>" 
+	                       +"</a>"
+	                        +"</div>";
+	   		 
+	   		 /*  */
+	   		 
+	   		
+	   		
+	   		
+	   		$('#adslider').append(row);
+	   
+	   		
+	   	});/*$each  */
+	   	 jssor_1_slider_init();
+	   		
+	   	},/*suceess  */
+
+	   	error:function(xhr,status,error){
+	   	    console.log("불러오기 실패:"+error);
+	   	}/*error  */
+
+	   	});/*ajax  */
+	   	}
+	   
+
+
+
+</script>
+
 </html>
 
