@@ -32,7 +32,7 @@
                        <ul>
                        		<c:choose>
                        			<c:when test="${!empty (admin) }">
-                        			<li><span>${login.nickname} 님 환영합니다.</span></li>
+                        			<li><span>${admin.adminId} 님 환영합니다.</span></li>
                             		<c:url value="/logout" var="logout"/>
 
                             		<li><a href="${logout }" class="my-skype">로그아웃</a>&#10072;</li>
@@ -46,7 +46,7 @@
                             	</c:when>
                             
                            		<c:when test="${!empty (login) }">
-                            		<li><span>${admin.adminId } 님 환영합니다.</span></li>
+                            		<li><span>${login.nickname } 님 환영합니다.</span></li>
                             		<c:url value="/logout" var="logout"/>
 
                             		<li><a href="${logout }" class="my-skype">로그아웃</a>&#10072;</li>
