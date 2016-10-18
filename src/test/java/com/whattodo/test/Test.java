@@ -60,6 +60,7 @@ public class Test {
 	@Autowired
 	BoardRepo boardrepo;
 	
+	
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -316,4 +317,11 @@ public class Test {
 		BoardsGoods bg=boardrepo.selectboardGoodsByIdAndBoardNo("test2", 83);
 		assertThat(bg, is(notNullValue()));
 	}
+	
+	@org.junit.Test
+	public void selectBoardByLocation(){
+		List<Board> boards=boardrepo.selectBoardByLocation("통영");
+		assertThat(boards, is(notNullValue()));
+	}
+	
 }

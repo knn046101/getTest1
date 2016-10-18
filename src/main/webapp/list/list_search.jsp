@@ -20,7 +20,7 @@
    </style>
 </head>
 <body>
-
+${location }, ${numberOfPeople }, ${category }, ${what }
 <center>
    <div class="container-fluid">
   
@@ -184,10 +184,10 @@ var category="";
             }
 
             var pageText="";
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')>[맨앞으로]</a>";
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1')>[맨앞으로]</a>";
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"')>[이전]</a>";
             for(var i=page_sno; i<=page_eno; i++){ 
-               pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
+               pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"')>";
                if(pageno == i){ 
                   pageText+="["+i+"]";
                }else{ 
@@ -199,8 +199,8 @@ var category="";
                   pageText+="<span class='paging'> , </span>";
                } 
             } 
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";         
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";            
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"')>[다음]</a>";         
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";            
             $("#page").append(pageText);
          },
          error : function(xhr, status, error) {
@@ -217,9 +217,16 @@ var category="";
 		$(".paging").remove();
 		var page_eno;
 		var page_sno;
+		var data = {
+				"location":"${location }",
+				"numberOfPeople":"${numberOfPeople}",
+				"category":"${category}",
+				"what":"${what }"
+	      };  
 		$.ajax({
-			type:"get",
+			type:"post",
 			url: url,
+			data:data,
 			dataType:"json",
 			// xhr.readyState ==4&& xhr.status==200 상황
 			success : function(args){
@@ -307,10 +314,10 @@ var category="";
 //				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText="";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')>[맨앞으로]</a>";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1')>[맨앞으로]</a>";
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"')>[이전]</a>";
 				for(var i=page_sno; i<=page_eno; i++){ 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"')>";
 					if(pageno == i){ 
 						pageText+="["+i+"]";
 					}else{ 
@@ -322,8 +329,8 @@ var category="";
 						pageText+="<span class='paging'> , </span>";
 					} 
 				} 
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";			
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";				
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"')>[다음]</a>";			
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";				
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr){
