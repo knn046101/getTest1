@@ -29,7 +29,9 @@
 	
 	<select id="selectAdvertisement"  parameterType="int" resultType="advertisement">
 		select * from ads
-		where ads_no=#{adsNo}
+		where option_flag =1
 	</select>
+	
+	
 	
 </mapper>

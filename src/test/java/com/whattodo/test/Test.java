@@ -161,8 +161,8 @@ public class Test {
 	
 	@org.junit.Test
 	public void selectAdvertisement(){
-		Advertisement ad = adrepo.selectAdvertisement(15);
-		assertThat(ad.getAdminId(), is("admin"));
+		List <Advertisement> list = adrepo.selectAdvertisement();
+		assertThat(list, notNullValue());
 	}
 	
 	@org.junit.Test

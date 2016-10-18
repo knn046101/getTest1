@@ -29,8 +29,8 @@ public class AdvertisementService implements AdvertisementInterface{
 		return adrepo.selectAllAdvertisement();
 	}
 
-	public Advertisement selectAdvertisement(int adsNo) {
-		return adrepo.selectAdvertisement(adsNo);
+	public List<Advertisement> selectAdvertisement() {
+		return adrepo.selectAdvertisement();
 	}
 
 }

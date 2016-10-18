@@ -15,7 +15,8 @@
 <body>
    <jsp:include page="/layout/header.jsp"></jsp:include>
    <!--Start recent work-->
-<jsp:include page="/api/slider.jsp"></jsp:include>
+<%-- <jsp:include page="/api/slider.jsp"></jsp:include> --%>
+<%@include file="/api/slider.jsp"%> 
    
    <br>
    <center>
@@ -267,6 +268,7 @@ var random;
          }   
    
    $(document).ready(function() {
+	   optionloading();
       getBoardBestData();   
       
       if (navigator.geolocation) {
@@ -579,6 +581,13 @@ function getDataApi(){
          }
       })
    };
+   
+   
+   
+   
+/*추가  */
+   
+
 
    </script>
 </body>

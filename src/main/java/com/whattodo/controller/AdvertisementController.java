@@ -142,6 +142,32 @@ public class AdvertisementController {
 	
 	
 	
+	
+	
+	
+	
+	/*데이터를 가져오기*/
+	@RequestMapping(value="/optionAd", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String optionAdvertisement(Model model, HttpServletResponse response) throws IOException{
+	
+		List<Advertisement> list = as.selectAdvertisement();
+		
+		Gson gson = new Gson();
+		
+		String jsonType = gson.toJson(list);
+		
+		
+	
+		return jsonType;		 
+		
+			
+		}
+	
+	
+	
+	
+	
 	}
 	
 

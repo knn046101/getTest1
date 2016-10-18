@@ -98,17 +98,7 @@ var optionFlag;
 $(document).ready(function() {
 	listloading();
 
-
 });/*document ready  */
-
-
-
-
-
-
-
-
-
 
 function listloading(){
 	

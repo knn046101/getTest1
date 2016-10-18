@@ -9,5 +9,5 @@ public interface AdvertisementInterface {
 	public void updateAd(Advertisement ad);
 	public void deleteAd(int adsNo);
 	public List<Advertisement> selectAllAdvertisement();
-	public Advertisement selectAdvertisement(int adsNo);
+	public List<Advertisement> selectAdvertisement();
 }
