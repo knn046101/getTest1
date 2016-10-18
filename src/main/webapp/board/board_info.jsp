@@ -29,9 +29,9 @@
 						<div class="blog_single">
 							<article class="post">
 								<figure class="post_img">
-									<a href="#">
+									
 										${board.boardContent }
-									</a>
+									
 								</figure>							
 							</article>
 							

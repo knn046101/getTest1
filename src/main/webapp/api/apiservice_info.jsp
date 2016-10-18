@@ -102,7 +102,7 @@ console.log(contentid);
 var key ="JSsZ5Smoa%2BwtJchJy5D5EB9SDU5LGZPuK4285EAR7%2F5wisjKDOJkAFSTyHuY0n4uXOHtfemrXCstsw9AFbI7Nw%3D%3D" ;
 
 
-var detailurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
+var detailurl ="https://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?";
 	  detailurl+="ServiceKey="+key+"&contentId="+contentid+"&defaultYN=Y&firstImageYN=Y&addrinfoYN=Y&overviewYN=Y&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 	  
 
@@ -220,7 +220,7 @@ $.ajax({
 	},
 	
 	error:function(xhr,status,error){
-		alert("fail:"+error);
+		console.log("https의 이슈로 인한 css mixissue");
 	}
 
 })

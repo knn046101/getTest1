@@ -23,235 +23,273 @@
 
 
 	<!--Start recent work-->
-<jsp:include page="/api/slider.jsp"></jsp:include>
+	<jsp:include page="/api/slider.jsp"></jsp:include>
 
-		<section class="clients">
+	<section class="clients">
 		<br>
 		<section class="latest_work">
-		<br>
+			<br>
 			<div class="container">
 				<div class="row sub_content">
-				<div class="carousel-intro">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="dividerHeading">
-							<h4><span>내 주변에서는?</span></h4>
-							<span class=" glyphicon glyphicon-map-marker"  id ="near">
-								<select id="radius">
-							    <option value="">범위 선택</option>
-							    <option value="2000">2KM</option>
-							    <option value="5000" selected="selected">5KM</option>
-							    <option value="10000">10KM</option>
-								</select>
-							 </span>
+					<div class="carousel-intro">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="dividerHeading">
+								<h4>
+									<span>내 주변에서는?</span>
+								</h4>
+								<span class=" glyphicon glyphicon-map-marker" id="near">
+									<br> <br>
 
-							 </div>
-
- <div id="myCarousel" class="row carousel slide" data-ride="carousel">
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" id="carouseltotal" >
-
-      <div class="item active">
-        
-        <ul class="thumbnails" id ="searchTour1">
-          
-        </ul>
-      </div> <!-- /Slide1 --> 
+									<center>
 
 
-      <div class="item">
-        <ul class="thumbnails" id = "searchTour2">
-          
-    
-          
-        </ul>
-      </div><!-- /Slide2 --> 
+										<span class=" glyphicon glyphicon-map-marker" id="near">
 
+											<select id="radius">
+												<option value="">범위 선택</option>
+												<option value="2000">2KM</option>
+												<option value="5000" selected="selected">5KM</option>
+												<option value="10000">10KM</option>
+										</select>
+										</span>
 
-      <div class="item">
-        <ul class="thumbnails" id = "searchTour3">
-         
-     
-        </ul>
-      </div><!-- /Slide3 --> 
+									</center>
 
 
 
-    </div><!-- /Wrapper for slides .carousel-inner -->
+									<section class="latest_work">
+
+										<div class="container">
+											<div class="row sub_content">
+												<div class="carousel-intro">
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="dividerHeading">
+															<h4>
+																<span>내 주변에서는?</span>
+															</h4>
+
+														</div>
+
+													</div>
+
+													<div id="myCarousel" class="row carousel slide"
+														data-ride="carousel">
+
+														<!-- Wrapper for slides -->
+														<div class="carousel-inner" id="carouseltotal">
+
+															<div class="item active">
+
+																<ul class="thumbnails" id="searchTour1">
+
+																</ul>
+															</div>
+															<!-- /Slide1 -->
+
+
+															<div class="item">
+																<ul class="thumbnails" id="searchTour2">
 
 
 
-    <!-- Control box -->
-    <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-    </div><!-- /.control-box -->   
+																</ul>
+															</div>
+															<!-- /Slide2 -->
+
+
+															<div class="item">
+																<ul class="thumbnails" id="searchTour3">
+
+
+																</ul>
+															</div>
+															<!-- /Slide3 -->
 
 
 
-  </div><!-- /#myCarousel -->
-
-
-</div>          
-</div><!-- /.col-sm-12 -->
-</div><!-- /.row --> 
-
-                            
-
-			 <!--추가 시범  -->
-			
-										
-		</section> 
-	<!--end wrapper-->
-
-	 
-	
-
-
-	<!--Start recent work-->
-	<section class="latest_work">
-		<div class="container">
-			<div class="row sub_content">
-				<div class="carousel-intro">
-					<div class="col-md-12">
-						<div class="dividerHeading">
-							<h4>
-								<span>추천!꿀팁 Best</span>
-							</h4>
-						</div>
-						
-						
-	<div id="myCarousel1" class="row carousel slide" data-ride="carousel">
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" id="carouseltotal" >
-
-      <div class="item active">
-        
-        <ul class="thumbnails" id ="BestTip1">
-          
-        </ul>
-      </div> <!-- /Slide1 --> 
-
-
-      <div class="item">
-        <ul class="thumbnails" id = "BestTip2">
-          
-    
-          
-        </ul>
-      </div><!-- /Slide2 --> 
-
-
-      <div class="item">
-        <ul class="thumbnails" id = "BestTip3">
-         
-     
-        </ul>
-      </div><!-- /Slide3 --> 
+														</div>
+														<!-- /Wrapper for slides .carousel-inner -->
 
 
 
-    </div><!-- /Wrapper for slides .carousel-inner -->
+														<!-- Control box -->
+														<div class="control-box">
+															<a data-slide="prev" href="#myCarousel"
+																class="carousel-control left">‹</a> <a data-slide="next"
+																href="#myCarousel" class="carousel-control right">›</a>
+														</div>
+														<!-- /.control-box -->
 
 
 
-    <!-- Control box -->
-    <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
-    </div><!-- /.control-box -->   
+													</div>
+													<!-- /#myCarousel -->
+
+
+												</div>
+											</div>
+											<!-- /.col-sm-12 -->
+										</div>
+										<!-- /.row -->
 
 
 
-  </div><!-- /#myCarousel -->
+										<!--추가 시범  -->
 
 
-</div>          
-</div><!-- /.col-sm-12 -->
-</div><!-- /.row --> 
-</div><!-- /.container -->
-	</section>
-	<!--Start recent work-->
-	
-	
-	
-	
-	
-	
-
-	<!--Start recent work-->
-	<section class="latest_work">
-		<div class="container">
-			<div class="row sub_content">
-				<div class="carousel-intro">
-					<div class="col-md-12">
-						<div class="dividerHeading">
-							<h4>
-								<span>에디터게시글 Best</span>
-							</h4>
-						</div>
-						
-	<div id="myCarousel2" class="row carousel slide" data-ride="carousel">
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" id="carouseltotal" >
-
-      <div class="item active">
-        
-        <ul class="thumbnails" id ="EditerBest1">
-          
-        </ul>
-      </div> <!-- /Slide1 --> 
+									</section> <!--end wrapper--> <!--Start recent work-->
+									<section class="latest_work">
+										<div class="container">
+											<div class="row sub_content">
+												<div class="carousel-intro">
+													<div class="col-md-12">
+														<div class="dividerHeading">
+															<h4>
+																<span>추천!꿀팁 Best</span>
+															</h4>
+														</div>
 
 
-      <div class="item">
-        <ul class="thumbnails" id = "EditerBest2">
-          
-    
-          
-        </ul>
-      </div><!-- /Slide2 --> 
+														<div id="myCarousel1" class="row carousel slide"
+															data-ride="carousel">
+
+															<!-- Wrapper for slides -->
+															<div class="carousel-inner" id="carouseltotal">
+
+																<div class="item active">
+
+																	<ul class="thumbnails" id="BestTip1">
+
+																	</ul>
+																</div>
+																<!-- /Slide1 -->
 
 
-      <div class="item">
-        <ul class="thumbnails" id = "EditerBest3">
-         
-     
-        </ul>
-      </div><!-- /Slide3 --> 
+																<div class="item">
+																	<ul class="thumbnails" id="BestTip2">
 
 
 
-    </div><!-- /Wrapper for slides .carousel-inner -->
+																	</ul>
+																</div>
+																<!-- /Slide2 -->
+
+
+																<div class="item">
+																	<ul class="thumbnails" id="BestTip3">
+
+
+																	</ul>
+																</div>
+																<!-- /Slide3 -->
 
 
 
-    <!-- Control box -->
-    <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
-    </div><!-- /.control-box -->   
+															</div>
+															<!-- /Wrapper for slides .carousel-inner -->
 
 
 
-  </div><!-- /#myCarousel -->
+															<!-- Control box -->
+															<div class="control-box">
+																<a data-slide="prev" href="#myCarousel1"
+																	class="carousel-control left">‹</a> <a
+																	data-slide="next" href="#myCarousel1"
+																	class="carousel-control right">›</a>
+															</div>
+															<!-- /.control-box -->
 
 
-</div>          
-</div><!-- /.col-sm-12 -->
-</div><!-- /.row --> 
-</div><!-- /.container -->
-	</section>
-	<!--Start recent work-->
-	<br>
-	<br>
 
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
+														</div>
+														<!-- /#myCarousel -->
 
-	<!-- open Api 구글이랑 TourApi 적용 부분 건드리지 마시오 -->
 
-	<script>
+													</div>
+												</div>
+												<!-- /.col-sm-12 -->
+											</div>
+											<!-- /.row -->
+										</div>
+										<!-- /.container -->
+									</section> <!--Start recent work--> <!--Start recent work-->
+									<section class="latest_work">
+										<div class="container">
+											<div class="row sub_content">
+												<div class="carousel-intro">
+													<div class="col-md-12">
+														<div class="dividerHeading">
+															<h4>
+																<span>에디터게시글 Best</span>
+															</h4>
+														</div>
+
+														<div id="myCarousel2" class="row carousel slide"
+															data-ride="carousel">
+
+															<!-- Wrapper for slides -->
+															<div class="carousel-inner" id="carouseltotal">
+
+																<div class="item active">
+
+																	<ul class="thumbnails" id="EditerBest1">
+
+																	</ul>
+																</div>
+																<!-- /Slide1 -->
+
+
+																<div class="item">
+																	<ul class="thumbnails" id="EditerBest2">
+
+
+
+																	</ul>
+																</div>
+																<!-- /Slide2 -->
+
+
+																<div class="item">
+																	<ul class="thumbnails" id="EditerBest3">
+
+
+																	</ul>
+																</div>
+																<!-- /Slide3 -->
+
+
+
+															</div>
+															<!-- /Wrapper for slides .carousel-inner -->
+
+
+
+															<!-- Control box -->
+															<div class="control-box">
+																<a data-slide="prev" href="#myCarousel2"
+																	class="carousel-control left">‹</a> <a
+																	data-slide="next" href="#myCarousel2"
+																	class="carousel-control right">›</a>
+															</div>
+															<!-- /.control-box -->
+
+
+
+														</div>
+														<!-- /#myCarousel -->
+
+
+													</div>
+												</div>
+												<!-- /.col-sm-12 -->
+											</div>
+											<!-- /.row -->
+										</div>
+										<!-- /.container -->
+									</section> <!--Start recent work--> <br> <br> <jsp:include
+										page="/layout/footer.jsp"></jsp:include> <!-- open Api 구글이랑 TourApi 적용 부분 건드리지 마시오 -->
+
+									<script>
 var googlekey ="AIzaSyB7jJk6mzm9sXtP2N0DIhz-P5JTZAaONXY";
 var key ="JSsZ5Smoa%2BwtJchJy5D5EB9SDU5LGZPuK4285EAR7%2F5wisjKDOJkAFSTyHuY0n4uXOHtfemrXCstsw9AFbI7Nw%3D%3D" ;
 
@@ -327,23 +365,16 @@ var random;
 		
     });
 	
-	
-	
-	
-
-	   
-
-
-
 
 function getDataApi(){
 		$("#searchTour1>li").remove();
 		$("#searchTour2>li").remove();
 		$("#searchTour3>li").remove();
+	
 
 		/*  var myurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?";
 			 myurl+="ServiceKey="+key+"&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json";  */
-		 var locaurl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
+		 var locaurl ="https://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?";
 		 locaurl+="ServiceKey="+key+"&mapX="+locaX+"&mapY="+locaY+"&radius="+radius+"&pageNo="+random+"&numOfRows=12&listYN=Y&arrange=P&MobileOS=ETC&MobileApp=AppTesting&_type=json"; 
 	 
 		$.ajax({
@@ -395,7 +426,7 @@ function getDataApi(){
 	
 					var addr =item.addr1;
 					contentid=item.contentid;
-					
+				
 					
 					
 					/*행을 추가하는 부분 (row+= 이 아닌 row=으로 하는 이유는 row+로 하면 계속 누적되지만 row=으로 하면 계속 초기화 되서 덮어씌워진다.)  */
@@ -467,7 +498,7 @@ function getDataApi(){
 				 }); 
 			},
 			error:function(xhr,status,error){
-				alert("fail:"+error);
+			//console.log("fail:"+error);
 			}
 		})
 	};
@@ -589,7 +620,7 @@ function getDataApi(){
 				 });  
 			},
 			error:function(xhr,status,error){
-				alert("fail:"+error);
+				/* alert("로딩중입니다.:"+error); */
 			}
 		})
 	};

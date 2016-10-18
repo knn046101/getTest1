@@ -20,21 +20,26 @@
    </style>
 </head>
 <body>
+
    <div class="container-fluid">
+  
       <div class="row">
          <jsp:include page="/layout/header.jsp"></jsp:include>
       </div>
       <br>
       <c:if test="${!empty login}">
-         <button style="float:right;background-color:#27AB99;color:white;border-color:#fff;" onclick="location='<%=request.getContextPath()%>/board/board_write.jsp'">글작성 <i class="fa fa-pencil"></i></button>
+        <span class="input-group-btn">
+            <button onclick="location='<%=request.getContextPath()%>/board/board_write.jsp'" id="writeboard" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;float:right;">글작성
+            <i class="fa fa-pencil"></i></button>
+         </span>
       </c:if>
       <br>
       <br>
-      
+       
       <div class="container row">
          <div class="col-md-12">
             <div class="row">
-               <div class="col-md-4">
+               
                   <!--Start recent work-->
                  <section class="latest_work" style="margin:0;">
                      <div class="container">
@@ -48,12 +53,13 @@
                               </div>
                            </div>
              
-                       
+                       	<center>
                			<div id="jcarousel recent-work-jc">
-                        	 <ul class="jcarousel-list" id="boardByPicnic" style="margin-left:15px;margin-right:15px;">
+                        	 <ul class="jcarousel-list" id="boardByPicnic" >
                        	 	</ul>
               		 	</div>
-              		 
+              		 	</center> 
+              		 	
               	 		</div>
               	 	</div>
               	 </section>
@@ -63,22 +69,18 @@
             </div>
          </div>
       </div>
-              	 
+      	 
                		<center>
                			<div id="page">
                			</div>
                		</center>
                		
-            	</div>
-      <!--Start recent work-->
-   
-      
       <br>
       <br>
       <div class="row">
        		<jsp:include page="/layout/footer.jsp"></jsp:include>
       </div>
-     
+ 
 </body>
 
 <script>
@@ -100,7 +102,7 @@ var category="";
             var length=args.length;
             for(var i=0; i<length; i++){
                <c:url value="/retrieve" var="retrieve"/>
-               htmlText+="<li style='margin-left:20px;margin-right:20px;' class='col-sm-3 col-md-3 col-lg-3 delete'>"
+               htmlText+="<li class='col-sm-3 col-md-3 col-lg-3 delete'>"
                              +"<div class='recent-item'>"
                              +"<figure>"
                               +"<div class='touching medium'>"
@@ -179,10 +181,10 @@ var category="";
             }
 
             var pageText="";
-            pageText+="<a class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')>[맨앞으로]</a>";
-            pageText+="<a class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')>[맨앞으로]</a>";
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
             for(var i=page_sno; i<=page_eno; i++){ 
-               pageText+="<a class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
+               pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
                if(pageno == i){ 
                   pageText+="["+i+"]";
                }else{ 
@@ -194,8 +196,8 @@ var category="";
                   pageText+="<span class='paging'> , </span>";
                } 
             } 
-            pageText+="<a class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";         
-            pageText+="<a class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";            
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";         
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";            
             $("#page").append(pageText);
          },
          error : function(xhr, status, error) {
@@ -222,7 +224,7 @@ var category="";
 				console.log(args);
 				for(var i=0; i<length; i++){
 					<c:url value="/retrieve" var="retrieve"/>
-						htmlText+="<li style='margin-left:20px;margin-right:20px;' class='col-sm-3 col-md-3 col-lg-3 delete'>"
+						htmlText+="<li class='col-sm-3 col-md-3 col-lg-3 delete'>"
 	                    			+"<div class='recent-item'>"
 	                    			+"<figure>"
 	                        		+"<div class='touching medium'>"

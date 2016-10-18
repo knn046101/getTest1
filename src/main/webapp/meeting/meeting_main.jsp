@@ -237,7 +237,10 @@
 		
    <div class="term"></div>
    	 <center>
-		 <a class="btn btn-lg btn-default" href="meeting_info.jsp">신전모임</a>
+		 <span class="input-group-btn">
+            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">신전모임
+            </button>
+         </span>
 	 </center>
 	 
 	 <br>

@@ -120,9 +120,9 @@
         .jssora22r.jssora22rds { background-position: -70px -31px; opacity: .3; pointer-events: none; }
     </style>
     
-    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; visibility: hidden;">
+    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1100px; height: 320px; overflow: hidden; visibility: hidden;">
         <!-- Loading Screen -->
-         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1100px; height: 320px; overflow: hidden;">
            
             <div data-p="225.00" style="display: none;">
                 <img data-u="image" src="img/sk1.jpg" />        
