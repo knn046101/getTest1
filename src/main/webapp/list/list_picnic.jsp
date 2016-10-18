@@ -74,7 +74,6 @@
                			<div id="page">
                			</div>
                		</center>
-               		
       <br>
       <br>
       <div class="row">

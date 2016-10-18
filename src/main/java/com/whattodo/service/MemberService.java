@@ -50,6 +50,14 @@ public class MemberService implements MemberServiceInterface{
 		return arepo.getAdmin(adminId);
 	}
 	
+	public void setEditor(String id){
+		mrepo.setEditor(id);
+	}
+	
+	public void setCustomer(String id){
+		mrepo.setCustomer(id);
+	}
+	
 	public List<Member> getMemberByDivisionCustomer(){
 		return mrepo.getMemberByDivisionCustomer();
 	}

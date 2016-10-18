@@ -89,20 +89,55 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="/getBoards", method=RequestMethod.GET,
-			produces="application/text;charset=UTF-8")
-	public @ResponseBody String picnic(Model model, HttpServletRequest request){
-		int page = Integer.parseInt(request.getParameter("pageno"));
-		String category = request.getParameter("category");
-		List<Board> board=bs.selectBoardByCategory(category);
-		List<Board> afterBoard=new ArrayList<Board>();
-		
-		int end=(page*16<board.size())? page*16 : board.size();
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String picnic(Model model, HttpServletRequest request){
+	      int page = Integer.parseInt(request.getParameter("pageno"));
+	      String category = request.getParameter("category");
+	      List<Board> board=bs.selectBoardByCategory(category);
+	      List<Board> afterBoard=new ArrayList<Board>();
+	      
+	      int end=(page*16<board.size())? page*16 : board.size();
 
+	      for(int i=16*(page-1); i<end; i++){
+	         board.get((page-1)*10).setPage(page);
+	         afterBoard.add(board.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(board.size());
+	      for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	      }
+	      
+	      Gson gson = new Gson();
+	      String boardStr = "[";
+	      for(int i=0; i<afterBoard.size(); i++){
+	         if(i==afterBoard.size()-1){
+	            boardStr+=gson.toJson(afterBoard.get(i));
+	            break;
+	         }
+	         boardStr+=gson.toJson(afterBoard.get(i))+",";
+	      }
+	      boardStr+="]";
+	      return boardStr; // 사용할 뷰의 이름 리턴 
+	   }
+	
+	@RequestMapping(value="/getEditorBoards", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getEditorBoards(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
+
+		List<Board> board=bs.selectBoardByEditor();
+		List<Board> afterBoard=new ArrayList<Board>();
+
+		int end=(page*16<board.size())? page*16 : board.size();
+		
 		for(int i=16*(page-1); i<end; i++){
-			board.get((page-1)*10).setPage(page);
-			afterBoard.add(board.get(i));
+				board.get((page-1)*10).setPage(page);
+				afterBoard.add(board.get(i));
 		}
 		afterBoard.get(0).setRecordNum(board.size());
+		for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	    }
 		
 		Gson gson = new Gson();
 		String boardStr = "[";

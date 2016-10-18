@@ -20,6 +20,7 @@
    </style>
 </head>
 <body>
+<center>
    <div class="container-fluid">
       <div class="row">
          <jsp:include page="/layout/header.jsp"></jsp:include>
@@ -67,12 +68,11 @@
          </div>
       </div>
               	 
-               		<center>
                			<div id="page">
                			</div>
-               		</center>
                		
             	</div>
+       </center>
       <!--Start recent work-->
    
       

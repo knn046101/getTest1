@@ -16,6 +16,8 @@ public interface MemberServiceInterface {
 	
 	public Admin getAdmin(String adminId);
 	
+	public void setEditor(String id);
+	public void setCustomer(String id);
 	public List<Member> getMemberByDivisionCustomer();
 	public List<Member> getMemberByDivisionEditor();
 	public String findIdByEmail(String email);

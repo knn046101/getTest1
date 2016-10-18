@@ -10,23 +10,29 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
-
-
-
 <link rel="stylesheet" href="css/bootstrapCarousel.css" />
-
 </head>
 <body>
-
-
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-
-
 	<!--Start recent work-->
 	<jsp:include page="/api/slider.jsp"></jsp:include>
-
+<jsp:include page="/api/slider.jsp"></jsp:include>
+	
+	<br>
+	<center>
+		<span class="glyphicon glyphicon-map-marker"  id ="near">
+			<select id="radius">
+				<option value="">범위 선택</option>
+				<option value="2000">2KM</option>
+				<option value="5000" selected="selected">5KM</option>
+				<option value="10000">10KM</option>
+			</select>
+		</span>
+	</center>
 	<section class="clients">
 		<br>
+<br>
+<br>
 		<section class="latest_work">
 			<br>
 			<div class="container">

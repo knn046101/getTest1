@@ -1,5 +1,7 @@
 package com.whattodo.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.google.gson.Gson;
+import com.whattodo.dto.Admin;
 import com.whattodo.dto.City;
 import com.whattodo.dto.Member;
 import com.whattodo.service.MemberService;
@@ -167,7 +170,28 @@ public class MemberController {
 		return "mypage/join_after"; // 사용할 뷰의 이름 리턴 
 	}
 	
-	@RequestMapping(value="/getCustomer", method=RequestMethod.POST)  
+	@RequestMapping(value="/setCustomer", method=RequestMethod.POST)  
+	public @ResponseBody String setCustomer(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		ms.setCustomer(id);
+		
+		List<Member> members= ms.getMemberByDivisionEditor();
+		String memberstr = "[";
+		Gson gson = new Gson();
+		for(int i=0; i<members.size(); i++){
+			if(i==members.size()-1){
+				memberstr+=gson.toJson(members.get(i));
+				break;
+			}
+			memberstr+=gson.toJson(members.get(i))+",";
+		}
+		memberstr+="]";
+		
+		return memberstr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getCustomer", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
 	public @ResponseBody String getCustomer(Model model, Member member, BindingResult result){
 		List<Member> members= ms.getMemberByDivisionCustomer();
 		String memberstr = "[";
@@ -183,7 +207,29 @@ public class MemberController {
 		return memberstr; // 사용할 뷰의 이름 리턴 
 	}
 	
-	@RequestMapping(value="/getEditor", method=RequestMethod.POST)  
+	@RequestMapping(value="/setEditor", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
+	public @ResponseBody String setEditor(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		ms.setEditor(id);
+		
+		List<Member> members= ms.getMemberByDivisionCustomer();
+		String memberstr = "[";
+		Gson gson = new Gson();
+		for(int i=0; i<members.size(); i++){
+			if(i==members.size()-1){
+				memberstr+=gson.toJson(members.get(i));
+				break;
+			}
+			memberstr+=gson.toJson(members.get(i))+",";
+		}
+		memberstr+="]";
+		
+		return memberstr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getEditor", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
 	public @ResponseBody String getEditor(Model model, Member member, BindingResult result){
 		List<Member> members= ms.getMemberByDivisionEditor();
 		String memberstr = "[";
@@ -199,27 +245,27 @@ public class MemberController {
 		return memberstr; // 사용할 뷰의 이름 리턴 
 	}
 
-	
-	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String checkLogin(Model model, HttpServletRequest request, HttpSession session){
 		String id = request.getParameter("inputId");
 		String pass = request.getParameter("inputPassword");
-		Member member = ms.getMemberById(id);
-		if(member!=null && member.getPass().equals(pass)){
-			if(member.getId().equals("admin")){
-				session.setAttribute("login", member);
+		Admin admin = ms.getAdmin(id);
+		if(admin!=null){
+			if(admin.getPass().equals(pass)){
+				session.setAttribute("admin", admin);
 				return "mypage/adminpage_main";
 			}
-			else{
+		}
+		
+		Member member = ms.getMemberById(id);
+		if(member!=null){
+			if(member.getPass().equals(pass)){
 				session.setAttribute("login", member);
 				return "main";
 			}
 		}
-		else{
-			model.addAttribute("loginFail", "다시 입력하여주십시오.");
-			return "login/login";
-		}
+		model.addAttribute("loginFail", "다시 입력하여주십시오.");
+		return "login/login";
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
