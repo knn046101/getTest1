@@ -43,7 +43,7 @@ public class AdvertisementController {
 		
 	}
 	
-	@RequestMapping(value="/addAdv", method=RequestMethod.GET,
+	@RequestMapping(value="/addAdv", method=RequestMethod.POST,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String addAdvertisement(Model model, HttpServletRequest request){
 	
