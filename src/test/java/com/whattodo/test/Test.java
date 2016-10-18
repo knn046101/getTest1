@@ -168,10 +168,12 @@ public class Test {
 	@org.junit.Test
 	public void updateAd(){
 		Advertisement ad = new Advertisement();
+		ad.setAdsNo(25);
 		ad.setAdsTitle("mid");
 		ad.setAdsImg("img");
 		ad.setLink("link");
 		ad.setAdminId("admin");
+		ad.setOptionFlag(1);
 		int result = adrepo.updateAd(ad);
 		assertThat(result, is(1));
 	}

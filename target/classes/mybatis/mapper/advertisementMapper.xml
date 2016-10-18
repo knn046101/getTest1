@@ -8,13 +8,23 @@
 		values(seq_ads_no.nextval, #{adsTitle}, #{adsImg}, #{link}, #{adminId})
 	</insert>
 	
-	<update id="updateAd" parameterType="advertisement">
+<!-- 	<update id="updateAd" parameterType="advertisement">
 		update ads
 		set ads_title=#{adsTitle},
 		ads_img=#{adsImg},
-		link=#{link}
+		link=#{link},
+		option_flag=#{optionFlag}
 		where ads_no=#{adsNo}
 	</update>
+	 -->
+	
+		<update id="updateAd" parameterType="advertisement">
+		update ads
+		set option_flag=#{optionFlag}
+		where ads_no=#{adsNo}
+	</update>
+	
+	
 	
 	<delete id="deleteAd" parameterType="int">
 		delete from ads
