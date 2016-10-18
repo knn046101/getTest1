@@ -16,8 +16,7 @@
 
    <%@include file="/layout/header.jsp"%>
 
-   <link
-      href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
+   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
       rel="stylesheet">
    <script src="js/summernote.js"></script>
 
@@ -147,13 +146,13 @@
                         </div>
                      </div>
                <!-- 저장 버튼으로 자바스크립트를 통해 ajax -> 컨트롤러로 전송하는 부분 -->
-        <center>
+       <div class="col-sm-12 text-center">
        	<span class="input-group-btn">
             <button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">저장
            </button>
          </span>
          <br>
-         </center>
+         </div>
             </form>
          </div>
       </div>

@@ -56,14 +56,15 @@
 							
 						</div>
 						
-							<center>		
+							<div class="col-sm-12 text-center">	
 							<div class="widget widget_about">
 							   <button id="scrap" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-share-square-o" style="color:#fff;"></i> 스크랩</button>	
 							   <button id="good" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-thumbs-up" style="color:#fff;"></i> 좋아요</button>	
 							   <button id="update" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-edit" style="color:#fff;"></i> 수정</button>	
 							   <button id="delete" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-trash-o" style="color:#fff;"></i> 삭제</button>
 							</div>
-							</center>	
+							</div>	
+							<br>
 					
 					
 
@@ -109,10 +110,10 @@
                                 </div>
                             </div>
                             
-							 <center>
+							<div class="col-sm-12 text-center">
                              	<button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">댓글등록
           					 	</button>
-          					 </center>
+          					 </div>
           					 
                             </form>
                         </div>
@@ -249,10 +250,10 @@
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
 					for(var i=page_sno; i<=page_eno; i++){ 
-						pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
+						pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
 						if(pageno == i){ 
 							pageText+="["+i+"]";
 						}else{ 
@@ -264,8 +265,8 @@
 							pageText+="<span class='paging'> , </span>";
 						} 
 					} 
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
 					console.log(pageText);
 					$("#page").appned(pageText);
 					$("#comments").val("");
@@ -368,10 +369,10 @@
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 					var pageText="";
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
 					for(var i=page_sno; i<=page_eno; i++){ 
-						pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
+						pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
 						if(pageno == i){ 
 							pageText+="["+i+"]";
 						}else{ 
@@ -383,8 +384,8 @@
 							pageText+="<span class='paging'> , </span>";
 						} 
 					} 
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
-					pageText+="<a class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
 					$("#page").append(pageText);
 					$("#comments").val("");
 				},

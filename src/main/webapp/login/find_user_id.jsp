@@ -30,17 +30,17 @@
                placeholder="회원가입시 등록한 이메일을 주소를 작성해주세요." />
                
             <br>
-            <center>
-            	<a class="btn btn-lg btn-default">OK</a>
-            </center>
-             
+           <div class="col-sm-12 text-center">
+            	<button class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">ID 확인하기</button>
+            </div>
+          
          </div>
        	
         
       </div>
 	</div>
 
-	
+		<br>
 		<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 		</div>

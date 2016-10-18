@@ -85,8 +85,6 @@
 									<div class="col-sm-12 text-center">
 										<button class="btn btn-primary"
 											style="background-color: orange; border-color: #fff;">
-											광고 등록<i class="fa fa-check spaceLeft"></i>
-											style="background-color:orange; border-color:#fff;" id = "adjoin">
                  						 광고 등록<i class="fa fa-check spaceLeft"></i>
 										</button>
 									</div>

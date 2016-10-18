@@ -22,7 +22,7 @@ public class MeetingController {
 	@Autowired
 	MeetingService ms;
 	
-/*	@RequestMapping(value="/addBoard", method=RequestMethod.POST,
+/*	@RequestMapping(value="/addMeeting", method=RequestMethod.POST,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String MeetingMake(Model model, HttpServletRequest request){
 		String meetingTitle=request.getParameter("meetingTitle");

@@ -18,7 +18,7 @@
 <jsp:include page="/api/slider.jsp"></jsp:include>
    
    <br>
-   <center>
+   <div class="col-sm-12 text-center">
       <span class="glyphicon glyphicon-map-marker"  id ="near">
          <select id="radius">
             <option value="">범위 선택</option>
@@ -27,7 +27,7 @@
             <option value="10000">10KM</option>
          </select>
       </span>
-   </center>
+   </div>
 
 <br>
 
