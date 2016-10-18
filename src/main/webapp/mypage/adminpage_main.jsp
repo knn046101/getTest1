@@ -35,15 +35,8 @@ a {
 			<section class="content service">
 				<div class="container">
 					<div class="row sub_content">
-						<div class="col-sm-3 col-md-3 col-lg-3">
-							<img src=${login.profileImg } class="img-circle" width="150"
-								height="150"> <br>
-							<h4 align="left">
-								${login.nickname } <span class="label label-default"
-									style="background-color: grey">관리자</span>
-							</h4>
 						</div>
-						<div class="col-sm-3 col-md-3 col-lg-3">
+						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
 								<a href="<%=request.getContextPath() %>/mypage/adminpage_board.jsp" style="color: #555;"> <i
 									class="fa fa-edit"></i>
@@ -53,7 +46,7 @@ a {
 
 							</div>
 						</div>
-						<div class="col-sm-3 col-md-3 col-lg-3">
+						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
 								<a href="<%=request.getContextPath() %>/mypage/adminpage_user.jsp" style="color: #555";> <i
 									class="fa fa-users"></i>
@@ -62,7 +55,7 @@ a {
 								</a>
 							</div>
 						</div>
-						<div class="col-sm-3 col-md-3 col-lg-3">
+						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
 								<a href="<%=request.getContextPath() %>/mypage/adminpage_adv.jsp" style="color: #555";> <i
 									class="fa fa-bullhorn"></i>
@@ -73,6 +66,7 @@ a {
 						</div>
 					</div>
 				</div>
+				
 			</section>
 		</section>
 	</div>
