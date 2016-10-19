@@ -7,16 +7,16 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
+   content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
 <jsp:include page="/layout/whatcss.jsp"></jsp:include>
 <style>
 .title {
-	width: 220px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+   width: 220px;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   white-space: nowrap;
 }
 </style>
 </head>
@@ -32,10 +32,8 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="dividerHeading">
 					<h4>
-
-						<span>에디터 게시글</span>
-						
-					</h4>
+					<span>에디터 게시글</span>
+				</h4>
 					<c:if test="${!empty login}">
 						<button
 							style="float: right; background-color: #27AB99; color: white; border-color: #fff;"
@@ -48,19 +46,15 @@
 				<div class="col-md-12" id="jcarousel recent-work-jc">
 					<ul class="jcarousel-list" id="boardList">
 					</ul>
-
 				</div>
 				<div style="text-align: center;" id="page"></div>
 			</div>
 		</div>
-		<br> <br> <br>
 	</div>
+   <br>
+   <br>
 
-	<!--Start recent work-->
-	<br>
-	<br>
-
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
+   <jsp:include page="/layout/footer.jsp"></jsp:include>
 
 
 </body>
@@ -119,7 +113,6 @@
 							pageno = 1;
 						}
 						total_record = recordNum;
-
 						var page_per_record_cnt = 16; //페이지 당 레코드 수
 						var group_per_page_cnt = 5; //페이지 당 보여줄 번호 수[1],[2],[3],[4],[5]
 											//                                                       [6],[7],[8],[9],[10]                                 
@@ -136,7 +129,6 @@
 						var group_no = Math.floor(pageno / group_per_page_cnt) + (pageno % group_per_page_cnt > 0 ? 1 : 0);
 						//               현재 그룹번호 = 현재페이지 / 페이지당 보여줄 번호수 (현재 페이지 % 페이지당 보여줄 번호 수 >0 ? 1:0)   
 						//            ex)    14      =   13(몫)      =    (66 / 5)      1   (1(나머지) =66 % 5)           
-
 						page_eno = group_no	* group_per_page_cnt;
 						//               현재 그룹 끝 번호 = 현재 그룹번호 * 페이지당 보여줄 번호 
 						//            ex)    70      =   14   *   5
@@ -148,7 +140,6 @@
 							page_eno = total_page;
 							//               현재 그룹 끝 번호와 = 전체페이지 수를 같게
 						}
-
 						var prev_pageno = page_sno - group_per_page_cnt; // <<  *[이전]* [21],[22],[23]... [30] [다음]  >>
 							//               이전 페이지 번호   = 현재 그룹 시작 번호 - 페이지당 보여줄 번호수   
 							//            ex)      46      =   51 - 5            
@@ -167,7 +158,7 @@
 								//               다음 페이지 = 전체페이지수 / 페이지당 보여줄 번호수 * 페이지당 보여줄 번호수 + 1 
 								//            ex)            =    76 / 5 * 5 + 1   ????????       
 						}
-
+      
 						var pageText = "";
 						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno=1&category="+ category +"')>[맨앞으로]</a>";
 						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getEditorBoards }?pageno="+ prev_pageno+"&category="+category+"')>[이전]</a>";
@@ -191,8 +182,9 @@
 						error : function(xhr, status, error) {
 						},
 						"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
-					});
+				});
 		});
+
 
 		function send(inputUrl) {
 			var url = inputUrl;
@@ -324,5 +316,6 @@
 				"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 			});
 		}
+
 </script>
 </html>

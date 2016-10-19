@@ -3,7 +3,6 @@
 
 package com.whattodo.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import java.util.List;
 
@@ -256,7 +255,7 @@ public class MemberController {
 		if(admin!=null){
 			if(admin.getPass().equals(pass)){
 				session.setAttribute("admin", admin);
-				return "mypage/adminpage_main";
+				return "admin/adminpage_main";
 			}
 		}
 		
