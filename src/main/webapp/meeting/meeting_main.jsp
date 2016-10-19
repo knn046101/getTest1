@@ -83,8 +83,18 @@
 		</div>
 	</div>
 
+<<<<<<< HEAD
 
 
+=======
+	
+		 <span class="input-group-btn">
+            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:orange; border-color:#fff;">모임샘플
+            </button>
+         </span>
+	 </center>
+	 
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 	<br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 

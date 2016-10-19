@@ -22,6 +22,7 @@
    <script src="js/summernote.js"></script>
 
    <br>
+   
    <div class="container-fluid">
       <div class="row">
          <div class="col-md-2">
@@ -38,71 +39,141 @@
             
             <c:url value="/addMeeting" var="addMeeting"/>            
             <form id="form" action="${addMeeting }">
-            <!-- 게시글 정보를 가둬 놓는 form -->
-          
-          		<!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
-                  <input type="hidden" id="txt-sel1"> <input type="hidden"
-                     id="txt-sel2"> <input type="hidden" id="txt-category">
-                  <input type="hidden" id="txt-numberOfPeople">
-               
-            
-               <label for="키워드">검색 키워드 등록 </label>
-               <div class="input-group">
-                  <input type="hidden" id="txt-category"> 
-                  <input type="text" id="boardKeyword" class="form-control" placeholder="ex) #배드민턴 #자전거"> 
-                  <span class="input-group-btn"> 
-                 	 <span class="glyphicon glyphicon-search"></span>
-                  </span>
-               </div>
+                		<div class="form-group">
+                		<label for="">모임 정보 등록</label><br> 
+                		<button type="button" class="btn btn-default dropdown-toggle"
+                        		data-toggle="dropdown">
+                        	<span id="srch-sel1">도 선택</span> <span class="caret"></span>
+                    	</button>
+                    	<ul class="dropdown-menu" id="sel1">
+		                        <li><a href="#">서울특별시</a></li>
+		                        <li><a href="#">인천광역시</a></li>
+		                        <li><a href="#">대전광역시</a></li>
+		                        <li><a href="#">대구광역시</a></li>
+		                        <li><a href="#">광주광역시</a></li>
+		                        <li><a href="#">울산광역시</a></li>
+		                        <li><a href="#">부산광역시</a></li>
+		                        <li><a href="#">경기도</a></li>
+		                        <li><a href="#">강원도</a></li>
+		                        <li><a href="#">충청남도</a></li>
+		                        <li><a href="#">충청북도</a></li>
+		                        <li><a href="#">전라남도</a></li>
+		                        <li><a href="#">전라북도</a></li>
+		                        <li><a href="#">경상남도</a></li>
+		                        <li><a href="#">경상북도</a></li>
+		                        <li><a href="#">제주도</a></li>
+                    	</ul>
+                    		 
+                    <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown">
+                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="sel2">
 
-                  <div class="form-group">
-                     <label for="boardTitle">모임 이름</label> 
-                     <input type="text" class="form-control" id="boardTitle" name="boardTitle">
-                  </div>
+                    </ul>
+                    		 
+                   
+		</div>
+		
+		<div class="form-group"> 
+			<label for="keyword">검색 키워드 등록</label><br>
+			 <input type="text" placeholder="ex) #자전거 #배드민턴" class="btn btn-default dropdown-toggle">
+		</div>
+        
+        <div class="form-group">
+            <label for="boardTitle">모임 이름</label> 
+            <input type="text" class="form-control" id="boardTitle" name="boardTitle">
+        </div>
                   
-                  <div class="form-group">
-                     <label for="boardContent">모임 설명</label> 
-                     <textarea class="form-control" id="boardContent" name="boardContent"></textarea>
-                  </div>
+        <div class="form-group">
+            <label for="boardContent">모임 설명</label> 
+            <textarea class="form-control" id="boardContent" name="boardContent"></textarea>
+        </div>
 
-                     <!--대표 사진 이미지를 업로드 하는 부분   -->
-                  <div class="form-group">
-                     <label for="uploadImage">모임 커버 사진</label>
-                     <div id="fileupload">
-                        <input type='file' id="uploadImage" />
-                     </div>
-                     <!-- 업로드 할 이미지를 미리 보여주는 부분 -->
-                        <div id="preview">
-                           <img id="imagePreview"/>
-                        </div>
-                     </div>
-               <!-- 저장 버튼으로 자바스크립트를 통해 ajax -> 컨트롤러로 전송하는 부분 -->
-               
-        <center>
-       	<span class="input-group-btn">
+        <!--대표 사진 이미지를 업로드 하는 부분   -->
+        <div class="form-group">
+             <label for="uploadImage">모임 커버 사진</label>
+             <div id="fileupload">
+                  <input type='file' id="uploadImage" />
+              </div>
+                     
+        	  <!-- 업로드 할 이미지를 미리 보여주는 부분 -->
+              <div id="preview">
+                   <img id="imagePreview"/>
+              </div>
+          </div>
+          
+          <!-- 저장 버튼으로 자바스크립트를 통해 ajax -> 컨트롤러로 전송하는 부분 -->
+          <center>
+       	   <span class="input-group-btn">
             <button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">만들기
-           </button>
-         </span>
-         <br>
+            </button>
+          </span>
+          <br>
          </center>
-            </form>
-         </div>
-      </div>
+      </form>
+     </div>
    </div>
+ </div>
 
    <div class="col-md-2">
       <!--양 옆 공백을 위한 div 건들지 마시오  -->
    </div>
+   
    <div>
       <%@include file="/layout/footer.jsp"%>
    </div>
 </body>
 <script>
+
 var sel1;
 var sel2;
 var categorysel;
 var numberOfPeoplessel;
 
+/*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
+   $(function() {
+      $('#sel1').find('a').click(function(e) {
+         e.preventDefault();
+         var cat = $(this).text();
+         $('#srch-sel1').text(cat);
+         $('#txt-sel1').val(cat);
+         sel1=cat;
+         
+         <c:url value="/changeCapital" var="changeCapital"/>
+         var citystr="";
+         $(".sel2").remove();
+         $.ajax({
+            type:"get",
+            url:"${changeCapital }",
+            dataType:"json",
+            data: {
+               "sel1":sel1   
+            },
+            success:function(data){
+               console.log(data);
+               for(var i=0; i<data.length; i++){
+                  citystr+="<li class='sel2'><a id='sel2check' href='#'>"+data[i].city+"</a></li>";
+               }
+               $("#sel2").append(citystr);
+            },
+            error : function(xhr, status, error){
+               alert(error);
+            },
+            ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+         });
+      });
+
+      $("#sel2").on("click", "#sel2check",function(e) {
+         e.preventDefault();
+         var cat = $(this).text();
+         $('#srch-sel2').text(cat);
+         $('#txt-sel2').val(cat);
+         sel2=cat;
+      });
+  
+   });
+   
 /* 대표 이미지 파일 업로드 하는 부분 */
    var reader;
    var result;
@@ -161,7 +232,7 @@ var numberOfPeoplessel;
    
    ////////////////////////////////////////////////////
    <c:url value="/addMeeting" var="addMeeting"/>
-   $("#form").on("submit", function(e){
+   $("#save").on("click ", function(e){
       e.preventDefault();
       
       var boardTitle = $("#boardTitle").val();
@@ -228,6 +299,8 @@ var numberOfPeoplessel;
       } 
    });
    
+   
+  
 </script>
 
 <script src="js/jquery.easing.1.3.js"></script>
