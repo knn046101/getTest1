@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -12,8 +13,6 @@
 <title>뭐 하 지 ?</title>
 <meta name="description" content="">
 
-<jsp:include page="/layout/whatcss.jsp"></jsp:include>
-<jsp:include page="/layout/whatjs.jsp"></jsp:include>
 </head>
 <body>
 
