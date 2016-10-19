@@ -95,7 +95,7 @@ public class BoardController {
 	      String category = request.getParameter("category");
 	      List<Board> board=bs.selectBoardByCategory(category);
 	      List<Board> afterBoard=new ArrayList<Board>();
-	      
+	      logger.trace("pageNo:{}, category:{}", page, category);
 	      int end=(page*16<board.size())? page*16 : board.size();
 
 	      for(int i=16*(page-1); i<end; i++){
