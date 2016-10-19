@@ -83,7 +83,7 @@
 
 	
 		 <span class="input-group-btn">
-            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:orange; border-color:#fff;">신전모임
+            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:orange; border-color:#fff;">모임샘플
             </button>
          </span>
 	 </center>

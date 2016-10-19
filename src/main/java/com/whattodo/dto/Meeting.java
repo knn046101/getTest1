@@ -16,4 +16,16 @@ public class Meeting {
 	private String place;
 	private Integer meetingFollow;
 	private String id;
+	
+	public Meeting(String meetingTitle,String meetingContent,String meetingKeyword,String meetingImg,String place,String id){
+		super();
+		this.meetingTitle=meetingTitle;
+		this.meetingContent=meetingContent;
+		this.meetingKeyword=meetingKeyword;
+		this.meetingImg=meetingImg;
+		this.place=place;
+		this.id=id;
+	}
 }
+
+
