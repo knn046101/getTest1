@@ -38,7 +38,7 @@ a {
 						</div>
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/mypage/adminpage_board.jsp" style="color: #555;"> <i
+								<a href="<%=request.getContextPath() %>/admin/adminpage_board.jsp" style="color: #555;"> <i
 									class="fa fa-edit"></i>
 									<h3>총 게시글 관리</h3>
 									<p>Total: 295</p>
@@ -48,7 +48,7 @@ a {
 						</div>
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/mypage/adminpage_user.jsp" style="color: #555";> <i
+								<a href="<%=request.getContextPath() %>/admin/adminpage_user.jsp" style="color: #555";> <i
 									class="fa fa-users"></i>
 									<h3>회원 관리</h3>
 									<p>Total: 56</p>
@@ -57,7 +57,7 @@ a {
 						</div>
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/mypage/adminpage_adv_board.jsp" style="color: #555";> <i
+								<a href="<%=request.getContextPath() %>/admin/adminpage_adv_board.jsp" style="color: #555";> <i
 									class="fa fa-bullhorn"></i>
 									<h3>광고글 관리</h3>
 									<p>Total: 11</p>
