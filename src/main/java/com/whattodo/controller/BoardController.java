@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,15 +78,20 @@ public class BoardController {
 	@RequestMapping(value="/getGoodBestBoards", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String selectBoardByGoodMainBest(Model model, HttpServletRequest request){
-		
 		List<Board> board=bs.selectBoardByGoodMainBest();
-		
 		Gson gson = new Gson();
 		String boardGoodBestStr = gson.toJson(board);
-		logger.trace(boardGoodBestStr);
 		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
 	}
 	
+	@RequestMapping(value="/getBoardEditorBoards", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardEditorBoards(Model model, HttpServletRequest request){
+		List<Board> board=bs.selectBoardByMainEditor();
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}
 	
 	
 	@RequestMapping(value="/getBoards", method=RequestMethod.GET,
@@ -150,6 +156,60 @@ public class BoardController {
 		}
 		boardStr+="]";
 		return boardStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getNearBoards", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBestBoards(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
+		String strdo = request.getParameter("strdo");
+		String strcity = request.getParameter("strcity");
+		String loginLocation = request.getParameter("loginLocation");
+		List<Board> boards=null;
+		List<Board> afterBoard=new ArrayList<Board>();
+		logger.trace("strdo:{}, strcity :{}", strdo, strcity);
+		logger.trace("loginLocation:{}", loginLocation);
+		
+		if(!strdo.equals("")){
+			boards=bs.selectBoardByCapitalAndCity(strdo, strcity);
+		}else if(strdo.equals("") && !loginLocation.equals("")){
+			boards=bs.selectBoardByLocation(loginLocation);
+		}else{
+			boards=bs.selectBoardByCapitalAndCity("서울특별시", "");
+		}
+		
+		int end=(page*16<boards.size())? page*16 : boards.size();
+		
+		for(int i=16*(page-1); i<end; i++){
+			boards.get((page-1)*10).setPage(page);
+				afterBoard.add(boards.get(i));
+		}
+		afterBoard.get(0).setRecordNum(boards.size());
+		for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	    }
+		
+		Gson gson = new Gson();
+		String boardStr = "[";
+		for(int i=0; i<afterBoard.size(); i++){
+			if(i==afterBoard.size()-1){
+				boardStr+=gson.toJson(afterBoard.get(i));
+				break;
+			}
+			boardStr+=gson.toJson(afterBoard.get(i))+",";
+		}
+		boardStr+="]";
+		return boardStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getBoardMyBoardsMain", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardMyBoardsMain(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		List<Board> board=bs.selectboardMyBoardsMain(id);
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
 	}
 	
 	@RequestMapping(value="/boardReply", method=RequestMethod.GET,
@@ -275,6 +335,15 @@ public class BoardController {
 		}else{
 			return "실패";
 		}
+	}
+	
+	@RequestMapping(value="/near", method=RequestMethod.GET)
+	public String near(HttpServletRequest request, HttpSession session){
+		String strdo=request.getParameter("strdo");
+		String strcity=request.getParameter("strcity");
+		session.setAttribute("strdo", strdo);
+		session.setAttribute("strcity", strcity);
+		return "list/list_best";
 	}
 	
 	@RequestMapping(value="/search", method=RequestMethod.GET)

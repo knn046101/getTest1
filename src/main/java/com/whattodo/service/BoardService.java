@@ -112,10 +112,18 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(location, numberOfPeople, category, what);
 	}
 	
+	public List <Board>selectBoardByCapitalAndCity(String capital, String city){
+		return brepo.selectBoardByCapitalAndCity(capital, city);
+	}
+	
 	public List<Board> selectBoardByEditor() {
 		return brepo.selectBoardByEditor();
 	}
 
+	public List<Board> selectboardMyBoardsMain(String id){
+		return brepo.selectboardMyBoardsMain(id);
+	}
+	
 	public List<Board> selectBoardByFollow(String id) {
 		return brepo.selectBoardByFollow(id);
 	}
@@ -125,7 +133,11 @@ public class BoardService implements BoardServiceInterface{
 	}
 	
 	public List<Board> selectBoardByGoodMainBest() {
-		return	brepo.selectBoardByGoodMainBest();
+		return	 brepo.selectBoardByGoodMainBest();
+	}
+	
+	public List<Board> selectBoardByMainEditor(){
+		return	 brepo.selectBoardByMainEditor();
 	}
 
 	public int insertBoardFollow(int boardNo, String id) {

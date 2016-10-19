@@ -326,4 +326,10 @@ public class Test {
 		assertThat(boards, is(notNullValue()));
 	}
 	
+	@org.junit.Test
+	public void selectBoardByCapitalAndCity(){
+		List<Board> boards=boardrepo.selectBoardByCapitalAndCity("충청남도","천안시");
+		assertThat(boards, is(notNullValue()));
+	}
+	
 }

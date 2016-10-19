@@ -94,11 +94,12 @@
 					</div>
 					
 					<c:url value="/search" var="search"/>
+					<c:url value="/near" var="near"/>
 					<form action="${search }">
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
 								<li><a
-									href="<%=request.getContextPath()%>/list/list_best.jsp">추천!꿀팁</a>
+									href="#" onclick="near()">내 주변 추천</a>
 								</li>
 	
 								<li><a
@@ -199,7 +200,15 @@
                 'autoChange':           true
             });
         });
-        
+        var strdo="";
+        var near = function(){
+    		<c:url var="near" value="/near"/>
+    		if(strdo!=""){
+    			location.href="${near }?strdo="+strdo+"&strcity="+strcity;
+       		}else{
+       			location.href="${near }?strdo=${strdo }&strcity=${strcity }";
+       		}
+    	};
     </script>
 </body>
 </html>

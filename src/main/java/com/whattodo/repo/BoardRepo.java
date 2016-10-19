@@ -30,8 +30,14 @@ public interface BoardRepo {
 	public List<Board> selectBoardByLocationAndCategoryAndWhat(String location, String category, String what);
 	public List<Board> selectBoardByNumberOfPeopleAndCategoryAndWhat(String numberOfPeople, String category, String what);
 	public List<Board> selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(String loaction, String numberOfPeople, String category, String what);
+	
+	public List<Board> selectBoardByCapitalAndCity(String capital, String city);
+	
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByGoodMainBest();
+	public List<Board> selectBoardByMainEditor();
+	public List<Board> selectboardMyBoardsMain(String id);
+	
 	public List<Board> selectBoardByFollow(String id);
 	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo);
 	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo);

@@ -34,6 +34,9 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByNumberOfPeopleAndCategoryAndWhat(String numberOfPeople, String category, String what);
 	
 	public List<Board> selectBoardByLoactionAndNumberOfPeopleAndCategoryAndWhat(String location, String numberOfPeople, String category, String what);
+	
+	public List <Board>selectBoardByCapitalAndCity(String capital, String city);
+	
 	public List<Board> selectBoardByEditor();
 	public List<Board> selectBoardByFollow(String id);
 	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo);
@@ -41,6 +44,8 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByGood(String id);
 	public int insertBoardFollow(int boardNo, String id);
 	public List<Board> selectBoardByGoodMainBest();
+	public List<Board> selectBoardByMainEditor();
+	public List<Board> selectboardMyBoardsMain(String id);
 	
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);

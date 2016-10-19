@@ -43,9 +43,17 @@
 											 width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
-
-											${login.nickname } <span class="label label-default"
-												style="background-color: grey">일반회원</span>
+											${login.nickname }
+											<c:choose>
+												<c:when test="${login.division eq 'Customer' }">
+													<span class="label label-default"
+														style="background-color: grey">일반회원</span>
+												</c:when>
+												<c:when test="${login.division eq 'Editor' }">
+													<span class="label label-default"
+														style="background-color: yellow">에디터</span>
+												</c:when>
+											</c:choose>
 										</h4>
 
 										<div class="widget_title">
@@ -53,9 +61,9 @@
 												<span>마이페이지</span>
 											</h4>
 										</div>
-										<c:url value="/mypageUpdate" var="mypageUpdate" />
-										<li><a href="${mypageUpdate }"> <i
-												class="fa fa-angle-right"></i>정보수정
+										<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										<li><a href="${mypageUpdate }?loginId=${login.id }">
+										<i class="fa fa-angle-right"></i>정보수정</a></li>
 										</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">

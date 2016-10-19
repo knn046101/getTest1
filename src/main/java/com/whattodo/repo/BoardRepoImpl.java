@@ -175,11 +175,24 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, map);
 	}
 	
+	public List<Board> selectBoardByCapitalAndCity(String capital, String city){
+		String statement=NAME_SPACE+"selectBoardByCapitalAndCity";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("capital", capital);
+		map.put("city", city);
+		return template.selectList(statement, map);
+	}
+	
 	public List<Board> selectBoardByEditor(){
 		String statement=NAME_SPACE+"selectBoardByEditor";
 		return template.selectList(statement);
 	}
 
+	public List<Board> selectboardMyBoardsMain(String id){
+		String statement=NAME_SPACE+"selectboardMyBoardsMain";
+		return template.selectList(statement, id);
+	}
+	
 	public List<Board> selectBoardByFollow(String id){
 		String statement=NAME_SPACE+"selectBoardByFollow";
 		return template.selectList(statement, id);
@@ -244,7 +257,13 @@ public class BoardRepoImpl implements BoardRepo {
 
 	public List<Board> selectBoardByGoodMainBest() {
 		String statement=NAME_SPACE+"selectBoardByGoodMainBest";
-		
 		return template.selectList(statement);
 	}
+
+	public List<Board> selectBoardByMainEditor() {
+		String statement=NAME_SPACE+"selectBoardByMainEditor";
+		return template.selectList(statement);
+	}
+	
+	
 }
