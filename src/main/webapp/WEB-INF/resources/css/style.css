@@ -3952,13 +3952,20 @@ blockquote.default {
 
     #filter li a{padding:10px;}
 }
-<<<<<<< HEAD
-=======
 
 
 @media screen and (max-width: 767px){
 	.jcarousel-list li {
 	    width:85%;
+	    margin-right:20%
+
+	}
+}
+@media screen and (max-width: 442px){
+	.jcarousel-list li {
+	    width:85%;
+	    margin-right:180%;
+
 	}
 }
 @media screen and (min-width: 768px){
@@ -3966,5 +3973,18 @@ blockquote.default {
    margin-left:20px;
    margin-right:20px
 	}
+}
+@media screen and (max-width: 768px){}
+ .arrows_list > li > img {
+    margin-left: 26%;
+}
+@media screen and (min-width:228) and (max-width: 768px){
+ .arrows_list > li > img {
+    margin-left: 150%;
+}
+
+@media screen and (max-width:20x){
+ .arrows_list > li > img {
+    margin-left:1%;
 }
 

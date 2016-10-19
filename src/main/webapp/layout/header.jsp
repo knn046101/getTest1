@@ -36,7 +36,7 @@
                             		<c:url value="/logout" var="logout"/>
 
                             		<li><a href="${logout }" class="my-skype">로그아웃</a>&#10072;</li>
-                            		<li><a href="<%=request.getContextPath() %>/mypage/adminpage_main.jsp" class="my-skype" style="margin-left: 2px;">&nbsp;관리페이지</a></li>
+                            		<li><a href="<%=request.getContextPath() %>/admin/adminpage_main.jsp" class="my-skype" style="margin-left: 2px;">&nbsp;관리페이지</a></li>
                         		</c:when>
                         		
                        			<c:when test="${empty (login) }">
