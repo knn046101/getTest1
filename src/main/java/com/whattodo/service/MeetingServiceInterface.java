@@ -7,7 +7,7 @@ import com.whattodo.dto.MeetingBoard;
 import com.whattodo.dto.MeetingBoardReply;
 
 public interface MeetingServiceInterface {
-	public void insertMeeting(Meeting meeting);
+	public int insertMeeting(Meeting meeting);
 	public void updateMeeting(Meeting meeting);
 	public void deleteMeeting(int meetingNo);
 	public List<Meeting> selectAllMeetings();

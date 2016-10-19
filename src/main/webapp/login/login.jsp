@@ -14,12 +14,13 @@
    <jsp:include page="/layout/header.jsp"></jsp:include>
  
    <br>
+   <div class="dividerHeading">
+		<h4><span>로그인</span></h4>
+	</div>
    <c:url value="/login" var="login"/>
    <form class="form-horizontal" role="form" method="post"
      	action="${login }">
-     <div class="dividerHeading">
-		<h4><span>로그인</span></h4>
-	</div>
+   
 	<br>
 	<br>
       <div class="form-group">

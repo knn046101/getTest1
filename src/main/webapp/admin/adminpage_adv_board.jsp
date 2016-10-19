@@ -39,7 +39,7 @@
 										</div>
                		</div>
                		</center>
-               		<button onclick="location='<%=request.getContextPath()%>/mypage/adminpage_adv.jsp'" style="background-color:#27AB99;color:#fff;border-style: none;">광고 등록</button>
+               		<button onclick="location='<%=request.getContextPath()%>/admin/adminpage_adv.jsp'" style="background-color:#27AB99;color:#fff;border-style: none;">광고 등록</button>
                		<br>
                		<br>
 					<div class="row sub_content">
