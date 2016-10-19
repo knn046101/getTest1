@@ -31,12 +31,11 @@ public class AdvertisementController {
 	
 	@InitBinder
 	public void setEssentialFields(WebDataBinder binder){
-		binder.setRequiredFields("adsNo","adsTitle", "adsImg", "link", "adminId");
+		binder.setRequiredFields("adsTitle", "adsImg", "link");
 		logger.trace("바인더");
 	}
 	
-	/*데이터를 가져오기*/
-	@RequestMapping(value="/loadingAd", method=RequestMethod.GET,
+	@RequestMapping(value="/insertAd", method=RequestMethod.POST,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String insertAd(Model model, HttpServletRequest request){
 		String adsTitle=request.getParameter("adsTitle");
@@ -44,7 +43,7 @@ public class AdvertisementController {
 		String link=request.getParameter("link");
 		String adminId=request.getParameter("adminId");
 
-		Advertisement ad = new Advertisement(adsTitle, adsImg, link,adminId);
+		Advertisement ad = new Advertisement(adsTitle, adsImg, link, adminId);
 		int result=as.insertAd(ad);
 		if(result==1){
 			return "저장";
@@ -53,6 +52,8 @@ public class AdvertisementController {
 		}
 	}
 	
+	@RequestMapping(value="/loadingAd", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
 	public @ResponseBody String loadAdvertisement(Model model, HttpServletResponse response) throws IOException{
 		List<Advertisement> list = as.selectAllAdvertisement();
 		Gson gson = new Gson();

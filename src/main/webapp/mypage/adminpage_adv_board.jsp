@@ -86,254 +86,151 @@ var regiAdsNo ;
 var stopAdsNo;
 var delAdsNo ;
 
-
-
 var adsNo ;
 var adsTitle;
 var adsImg;
 var link;
 var adminId;
-var optionFlag;
-<c:url value="/loadingAd" var="loadingAd"/>
-$(document).ready(function() {
-	listloading();
-
-});/*document ready  */
-
-function listloading(){
+	var optionFlag;
+	<c:url value="/loadingAd" var="loadingAd"/>
+	$(document).ready(function() {
+		listloading();
+	});/*document ready  */
 	
-	$('.onerow>td').remove();
-	
-	$.ajax({
-		 url:"${loadingAd}",
-		 type:"get",
+	function listloading(){
+		$('.onerow>td').remove();
+		$.ajax({
+			 url:"${loadingAd}",
+			 type:"get",
+			 success:function(res){
+				var fromServerToObj = JSON.parse(res);
+				console.log(fromServerToObj);
+				var row="";
+				$.each(fromServerToObj,function(index,item){
+					/*데이터를 받아 변수에 삽입하는 부분  */
+					adsNo = item.adsNo;
+					 adsTitle= item.adsTitle;
+					 adsImg= item.adsImg;
+					 link= item.link;
+					 adminId= item.adminId;
+					 optionFlag=item.optionFlag;
+			
+					/*동적으로 각 태그 id를 만들기 위한 변수  */	
+					 noAdsNo = adsNo+"adsNo";
+					 regiAdsNo =adsNo+"regi";
+					 stopAdsNo = adsNo+"stop";
+					 delAdsNo = adsNo+"del";
 
-		 success:function(res){
-
-		
-		var fromServerToObj = JSON.parse(res);
-		
-		console.log(fromServerToObj);
-		
-		var row="";
-		
-		$.each(fromServerToObj,function(index,item){
-		
-	/*데이터를 받아 변수에 삽입하는 부분  */
-		adsNo = item.adsNo;
-		 adsTitle= item.adsTitle;
-		 adsImg= item.adsImg;
-		 link= item.link;
-		 adminId= item.adminId;
-		 optionFlag=item.optionFlag;
-		
-		 console.log(optionFlag);
-		/*동적으로 각 태그 id를 만들기 위한 변수  */	
-		 noAdsNo = adsNo+"adsNo";
-		 regiAdsNo =adsNo+"regi";
-		 stopAdsNo = adsNo+"stop";
-		 delAdsNo = adsNo+"del";
-
-		 
-		
-		 
-		if(optionFlag==0){
-			console.log("0입니다");
-		row = "<tr class ='onerow'>"
-		+"<td id='"+noAdsNo+"'>"
-		+adsNo+"</td>"
-		+"<td>"+"<img src="+adsImg+"width='60px' height='50px'/>"+"</td>"
-		+"<td>"+adsTitle+"</td>"
-		/* +"<td>"+link+"</td>" */
-		+"<td>"+adminId+"</td>"
-		+"<td>"
-		
-		
-		+"<Button onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 올리기</Button>"
-		
-		/* +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" */
-		
-		
-		+"<Button onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
-		
-		+"</td>"
-		+"</tr>";
-		
-		}
-		
-		else{
-			console.log("1입니다");
-			row = "<tr class ='onerow'>"
-			+"<td id='"+noAdsNo+"'>"
-			+adsNo+"</td>"
-			+"<td>"+"<img src="+adsImg+"width='60px' height='50px'/>"+"</td>"
-			+"<td>"+adsTitle+"</td>"
-			/* +"<td>"+link+"</td>" */
-			+"<td>"+adminId+"</td>"
-			+"<td>"
-			
-			
-			/* +"<Button onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 등록</Button>" */
-			
-			 +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" 
-			
-			
-			+"<Button onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
-			
-			+"</td>"
-			+"</tr>";
-			
-		}
-		$('tbody').append(row);
-		
-		
-	});/*$each  */
-		
-		
-	},/*suceess  */
-
-	error:function(xhr,status,error){
-	    console.log("불러오기 실패:"+error);
-	}/*error  */
-
-	});/*ajax  */
+					 if(optionFlag==0){
+						console.log("0입니다");
+						row = "<tr class ='onerow'>"
+								+"<td id='"+noAdsNo+"'>"
+								+adsNo+"</td>"
+								+"<td>"+"<img src="+adsImg+"width='60px' height='50px'/>"+"</td>"
+								+"<td>"+adsTitle+"</td>"
+								/* +"<td>"+link+"</td>" */
+								+"<td>"+adminId+"</td>"
+								+"<td>"
+								+"<Button onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 올리기</Button>"
+								/* +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" */
+								+"<Button onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
+								+"</td>"
+								+"</tr>";
+					}
+					else{
+						console.log("1입니다");
+						row = "<tr class ='onerow'>"
+								+"<td id='"+noAdsNo+"'>"
+								+adsNo+"</td>"
+								+"<td>"+"<img src="+adsImg+"width='60px' height='50px'/>"+"</td>"
+								+"<td>"+adsTitle+"</td>"
+								/* +"<td>"+link+"</td>" */
+								+"<td>"+adminId+"</td>"
+								+"<td>"
+								/* +"<Button onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 등록</Button>" */
+								 +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" 
+								+"<Button onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
+								+"</td>"
+								+"</tr>";
+					}
+					$('tbody').append(row);
+				});/*$each  */
+			},/*suceess  */
+			error:function(xhr,status,error){
+		 	   console.log("불러오기 실패:"+error);
+			}/*error  */
+		});/*ajax  */
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-/*버튼 클릭 메소드 1 광고 추가 */
-  <c:url value="/uploadAd" var="uploadAd"/>
- var uploadAd = function(adsNo){
-	var btn;
-	$.ajax({
-	 url:"${uploadAd}",
-	 type:"get",
-	 data:{"adsNo":adsNo},
-		success:function(res){
-		/* var fromServerToObj = JSON.parse(res); */
-		console.log("넘버 전송 성공");
-		/* console.log(fromServerToObj+"값"); */
-		/* btn = document.getElementById(fromServerToObj); */
-		btn = document.getElementById(res);
-		console.log("btn:"+btn);
-		listloading();
+	
+	
+	
+	/*버튼 클릭 메소드 1 광고 추가 */
+	<c:url value="/uploadAd" var="uploadAd"/>
+	var uploadAd = function(adsNo){
+		var btn;
+		$.ajax({
+		 	url:"${uploadAd}",
+		 	type:"get",
+		 	data:{"adsNo":adsNo},
+			success:function(res){
+				/* var fromServerToObj = JSON.parse(res); */
+				console.log("넘버 전송 성공");
+				/* console.log(fromServerToObj+"값"); */
+				/* btn = document.getElementById(fromServerToObj); */
+				btn = document.getElementById(res);
+				console.log("btn:"+btn);
+				listloading();
+			/* btn.disabled = 'disabled'; */
+			/* btn.style.visibility ='hidden'; */
+			},/*suceess  */
+			error:function(xhr,status,error){
+			    console.log("넘버전송 실패:"+error);
+			}/*error  */
+		});/*ajax  */
+	}
+	 
+	 /*버튼 클릭 메소드 1 광고 추가 */
+	<c:url value="/stopAd" var="stopAd"/>
+	var stopAd = function(adsNo){
+		$.ajax({
+			url:"${stopAd}",
+			type:"get",
+			data:{"adsNo":adsNo},
+			success:function(res){
+				console.log("넘버 전송 성공");
+				btn = document.getElementById(res);
+				console.log("btn:"+btn);
+				btn.disabled = 'disabled';
+				btn.style.visibility ='hidden';
+				var regi =adsNo+"regi";
+				var regibtn = document.getElementById(regi);
+				console.log("regibtn:"+regibtn);
+				listloading();
+			},/*suceess  */
+			error:function(xhr,status,error){
+	  			console.log("넘버전송 실패:"+error);
+			}/*error  */
+		});/*ajax  */
+	}
+	
+	/*버튼 클릭 메소드 1 광고 추가 */
+	<c:url value="/delAd" var="delAd"/>
+	var delAd = function(adsNo){
 		
-		/* btn.disabled = 'disabled'; */
-		/* btn.style.visibility ='hidden'; */
-		
-	
-},/*suceess  */
-
-error:function(xhr,status,error){
-    console.log("넘버전송 실패:"+error);
-}/*error  */
-
-});/*ajax  */
-	
-	
-}
- 
- 
- 
- 
- 
- 
- /*버튼 클릭 메소드 1 광고 추가 */
- <c:url value="/stopAd" var="stopAd"/>
-var stopAd = function(adsNo){
-	
-	$.ajax({
-	 url:"${stopAd}",
-	 type:"get",
-	 data:{"adsNo":adsNo},
-		success:function(res){
-		console.log("넘버 전송 성공");
-		
-		
-		
-		btn = document.getElementById(res);
-		console.log("btn:"+btn);
-
-		btn.disabled = 'disabled';
-		btn.style.visibility ='hidden';
-		
-		var regi =adsNo+"regi";
-		var regibtn = document.getElementById(regi);
-		
-		console.log("regibtn:"+regibtn);
-		
-		listloading();
-		
-	
-},/*suceess  */
-
-error:function(xhr,status,error){
-   console.log("넘버전송 실패:"+error);
-}/*error  */
-
-});/*ajax  */
-	
-	
-}
-
-
-
-
-
-
-
-/*버튼 클릭 메소드 1 광고 추가 */
-<c:url value="/delAd" var="delAd"/>
-var delAd = function(adsNo){
-	
-	$.ajax({
-	 url:"${delAd}",
-	 type:"get",
-	 data:{"adsNo":adsNo},
-		success:function(res){
-		console.log("삭제 요청 전송 성공");
-		alert(res);
-		listloading();
-	
-},/*suceess  */
-
-error:function(xhr,status,error){
-  console.log("넘버전송 실패:"+error);
-}/*error  */
-
-});/*ajax  */
-	
-	
-}
-
-
-
-  
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+		$.ajax({
+			url:"${delAd}",
+			type:"get",
+			data:{"adsNo":adsNo},
+			success:function(res){
+				console.log("삭제 요청 전송 성공");
+				alert(res);
+				listloading();
+			},/*suceess  */
+			error:function(xhr,status,error){
+				console.log("넘버전송 실패:"+error);
+			}/*error  */
+		});/*ajax  */
+	}
 
 </script>
 </html>
