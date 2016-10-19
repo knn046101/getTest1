@@ -34,9 +34,9 @@
            		 <input class="form-control" type="text" id="id" 
                	placeholder="회원가입시 등록한 아이디를 작성해주세요.">
             	<br>
-            	<center>
-            		<a class="btn btn-lg btn-default" href="find_user_pass2.jsp">다음으로</a>
-            	</center>
+            	<div class="col-sm-12 text-center">
+            		 <button onclick="location='<%=request.getContextPath()%>/list/find_user_pass2.jsp'" class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">다음으로</button>
+            	</div>
         	 </div>
        	 </div>
 	  </form>	

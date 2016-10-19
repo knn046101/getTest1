@@ -114,6 +114,39 @@
 										////////////////////// 불러온 테이블 끝////////////////////////
 										var pagenotmp = args[0].page;
 
+<<<<<<< HEAD
+            var pageText="";
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')>[맨앞으로]</a>";
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
+            for(var i=page_sno; i<=page_eno; i++){ 
+               pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
+               if(pageno == i){ 
+                  pageText+="["+i+"]";
+               }else{ 
+                  pageText+=""+i+""; 
+               } 
+               pageText+="</a>";
+               <%--   콤마    --%>   
+               if(i<page_eno){
+                  pageText+="<span class='paging'> , </span>";
+               } 
+            } 
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";         
+            pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";            
+            $("#page").append(pageText);
+         },
+         error : function(xhr, status, error) {
+         },
+         "Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+      });
+   });
+ 
+	function send(inputUrl){
+		var url=inputUrl;
+		var htmlText="";
+		var total_record=1;
+		$(".delete").remove();	
+=======
 										if (pagenotmp == null) {
 											pagenotmp = 1;
 										}
@@ -233,6 +266,7 @@
 		var htmlText = "";
 		var total_record = 1;
 		$(".delete").remove();
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 		$(".paging").remove();
 		var page_eno;
 		var page_sno;

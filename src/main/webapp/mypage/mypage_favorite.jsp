@@ -25,7 +25,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="dividerHeading">
 					<h4>
-						<span>내 글</span>
+						<span>관심 키워드</span>
 					</h4>
 
 				</div>

@@ -102,12 +102,12 @@ a {
 
 							</div>
 						</div>
-						<div class="col-lg-6 "></div>
+						
 						<div class="col-lg-9 ">
 							<div class="col-sm-2 text-center">
 								<h3>
 									<a
-										href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">내글</a>
+										style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">내 글</a>
 								</h3>
 							</div>
 							<div class="row sub_content">
@@ -313,7 +313,7 @@ a {
 							<div class="col-sm-2 text-center">
 								<h3>
 									<a
-										href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">관심사</a>
+										style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">관심 키워드</a>
 								</h3>
 							</div>
 							<br>
@@ -519,7 +519,7 @@ a {
 						<div class="col-lg-9 ">
 							<div class="col-sm-2 text-center">
 								<h3>
-									<a href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">스크랩</a>
+									<a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">스크랩</a>
 								</h3>
 							</div>
 							<br>

@@ -15,11 +15,14 @@
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<br>
 	<br>
-	
-	<div class="clients" style="margin:0;">
 	<c:if test="${!empty login}">
-		<button onclick="location='meeting_make.jsp'"style="float:right;background-color:#27AB99;color:white;" onclick="location='meeting_make.jsp'">모임생성</button>
+		 <span class="input-group-btn">
+            <button onclick="location='<%=request.getContextPath()%>/meeting/meeting_make.jsp'" id="makemeeting" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;float:right;">모임생성
+           </button>
+         </span>
 	</c:if>
+	<div class="clients" style="margin:0;">
+	
 			<div class="container">
 				<div class="row sub_content">
 					<div class="col-lg-12 col-md-12 col-sm-12">
@@ -80,7 +83,7 @@
 
 	
 		 <span class="input-group-btn">
-            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">신전모임
+            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:orange; border-color:#fff;">신전모임
             </button>
          </span>
 	 </center>

@@ -38,9 +38,9 @@
            		 <input class="form-control" type="text" id="inputPasswordAnswer" 
                	placeholder="A. 답변작성">
             	<br>
-            	<center>
-            		<a class="btn btn-lg btn-default" href="find_user_pass3.jsp">다음으로</a>
-            	</center>
+            	<div class="col-sm-12 text-center">
+            		 <button onclick="location='find_user_pass3.jsp'" class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">다음으로</button>
+            	</div>
             	<br>
             </div>
            		

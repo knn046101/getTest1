@@ -20,7 +20,6 @@
    </style>
 </head>
 <body>
-${location }, ${numberOfPeople }, ${category }, ${what }
 <center>
    <div class="container-fluid">
   

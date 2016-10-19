@@ -256,7 +256,7 @@ public class MemberController {
 		if(admin!=null){
 			if(admin.getPass().equals(pass)){
 				session.setAttribute("admin", admin);
-				return "mypage/adminpage_main";
+				return "admin/adminpage_main";
 			}
 		}
 		
