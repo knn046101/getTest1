@@ -35,11 +35,14 @@
 					<span>에디터 게시글</span>
 				</h4>
 					<c:if test="${!empty login}">
-						<button
-							style="float: right; background-color: #27AB99; color: white; border-color: #fff;"
-							onclick="location='<%=request.getContextPath()%>/board/board_write.jsp'">
-							글작성 <i class="fa fa-pencil"></i>
-						</button>
+						<span class="input-group-btn">
+							<button
+								onclick="location='<%=request.getContextPath()%>/board/board_write.jsp'"
+								id="writeboard" class="btn btn-success"
+								style="background-color: #27AB99; border-color: #fff; float: right;">
+								글작성 <i class="fa fa-pencil"></i>
+							</button>
+						</span>
 					</c:if>
 					<br><br>
 				</div>

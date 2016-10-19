@@ -22,8 +22,8 @@ public class MeetingService implements MeetingServiceInterface{
 	@Autowired
 	MeetingBoardReplyRepo mbrrepo;
 	
-	public void insertMeeting(Meeting meeting) {
-		mrepo.insertMeeting(meeting);
+	public int insertMeeting(Meeting meeting) {
+		return mrepo.insertMeeting(meeting);
 	}
 
 	public void updateMeeting(Meeting meeting) {

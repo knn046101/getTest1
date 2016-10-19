@@ -22,20 +22,22 @@ public class MeetingController {
 	@Autowired
 	MeetingService ms;
 	
-/*	@RequestMapping(value="/addMeeting", method=RequestMethod.POST,
+	@RequestMapping(value="/addMeeting", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String MeetingMake(Model model, HttpServletRequest request){
 		String meetingTitle=request.getParameter("meetingTitle");
 		String meetingContent=request.getParameter("meetingContent");
-		String location=request.getParameter("location");
+		String place=request.getParameter("place");
 		String id=request.getParameter("id");
+		String keyword=request.getParameter("meetingKeyword");
 		String meetingImg=request.getParameter("meetingImg");
 		
-		
+		Meeting meeting  = new Meeting(meetingTitle,meetingContent,keyword,meetingImg,place,id);
+		int result = ms.insertMeeting(meeting);
 		if(result==1){
 			return "저장";
 		}else{
 			return "실패";
 		}
-	}*/
+	}
 }
