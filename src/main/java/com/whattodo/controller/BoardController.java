@@ -212,6 +212,26 @@ public class BoardController {
 		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
 	}
 	
+	/*@RequestMapping(value="/getBoardMyFavoriteMain", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardMyFavoriteMain(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		List<Board> board=bs.selectboardMyBoardsMain(id);
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}*/
+	
+	@RequestMapping(value="/getBoardMyScrapMain", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardMyScrapMain(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		List<Board> board=bs.selectBoardByFollow(id);
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}
+	
 	@RequestMapping(value="/boardReply", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String boardReply(Model model, HttpServletRequest request){

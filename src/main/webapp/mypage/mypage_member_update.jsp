@@ -58,7 +58,8 @@
 
 										<div class="widget_title">
 											<h4>
-												<span>마이페이지</span>
+												<span><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									마이페이지	</a></span>
 											</h4>
 										</div>
 										<c:url value="/mypageUpdate" var="mypageUpdate"/>
