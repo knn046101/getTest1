@@ -72,29 +72,17 @@
 						style="background-color: #27AB99; border-color: #fff;">검색
 					</button>
 					<br><br><br><br>
-					<span class="input-group-btn" style="text-align: center">
-						<button onclick="location='meeting_info.jsp'" id="writeboard"
-							class="btn btn-success"
-							style="background-color: orange; border-color: #fff;">신전모임</button>
-					</span>
-
+					<center>
+					 <span class="input-group-btn">
+           				 <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:orange; border-color:#fff;">모임샘플
+           			 </button>
+         			</span>
+					</center>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<<<<<<< HEAD
-
-
-=======
-	
-		 <span class="input-group-btn">
-            <button onclick="location='meeting_info.jsp'" id="writeboard" class="btn btn-success" style="background-color:orange; border-color:#fff;">모임샘플
-            </button>
-         </span>
-	 </center>
-	 
->>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 	<br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 
