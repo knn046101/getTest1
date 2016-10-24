@@ -25,6 +25,13 @@
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<br>
 	<br>
+	<div class="container-fluid">
+		<div class="row sub_content">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="dividerHeading">
+					<h4>
+						<span>모임</span>
+					</h4>
 	<c:if test="${!empty login}">
 		<span class="input-group-btn">
 			<button
@@ -34,13 +41,7 @@
 			</button>
 		</span>
 	</c:if>
-	<div class="container-fluid">
-		<div class="row sub_content">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class="dividerHeading">
-					<h4>
-						<span>모임</span>
-					</h4>
+	
 				</div><br><br><br>
 				<!--start info service-->
 				<div class="col-lg-12 col-md-12 col-sm-12">
