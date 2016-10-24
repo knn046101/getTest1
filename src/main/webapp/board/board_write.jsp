@@ -12,11 +12,42 @@
 <meta name="description" content="">
  
 </head>
+
+<style>
+	/* 로딩*/
+	#loading {
+		height: 100%;
+		left: 0px;
+		position: fixed;
+		_position:absolute; 
+		top: 0px;
+		width: 100%;
+		filter:alpha(opacity=50);
+		-moz-opacity:0.5;
+		opacity : 0.5;
+	}
+	
+	.loading {
+		background-color: white;
+		z-index: 199;
+	}
+	
+	#loading_img{
+		position:absolute; 
+		top:50%;
+		left:50%;
+		height:35px;
+		margin-top:-75px;	
+		margin-left:-75px;	
+		z-index: 200;
+	}
+</style>
+
 <body>
 
    <%@include file="/layout/header.jsp"%>
 
-   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
       rel="stylesheet">
    <script src="js/summernote.js"></script>
 
@@ -123,6 +154,8 @@
                      <label for="제목"> 제목 </label> <input type="text"
                         class="form-control" id="boardTitle" name="boardTitle">
                   </div>
+                  
+
 
                   <fieldset class=bound>
                      <legend>
@@ -170,6 +203,20 @@ var sel1;
 var sel2;
 var categorysel;
 var numberOfPeoplessel;
+
+
+$(document).ready(function(){
+	var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="images/viewLoading.gif" />')
+					.appendTo(document.body).hide();
+
+	$(window)	
+	.ajaxStart(function(){
+		loading.show();
+	})
+	.ajaxStop(function(){
+		loading.hide();
+	});
+});
 
 /*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
    $(function() {
@@ -292,7 +339,7 @@ var numberOfPeoplessel;
          height : 300, // set editor height
          minHeight : null, // set minimum height of editor
          maxHeight : null, // set maximum height of editor
-         maximumImageFileSize : 153600,
+         maximumImageFileSize : 3153600,
          focus : true
       // set focus to editable area after initializing summernote
       });
@@ -339,7 +386,7 @@ var numberOfPeoplessel;
          $.ajax({
             type : "post",
             url : "${addBoard }",
-            data : allData,
+            data : allData,            
             success : function(res) {
                if(res=="저장"){
                   if(category=="먹거리"){
@@ -356,7 +403,8 @@ var numberOfPeoplessel;
             error : function(xhr, status, error) {
                alert("전송할 수 있는 용량을 초과하였습니다.");
             },
-            "Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+           
+            "Content-Type" : "application/x-www-form-urlencoded;charset=utf-8" 
          });
       }
    });
