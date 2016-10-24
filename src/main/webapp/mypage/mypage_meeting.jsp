@@ -59,13 +59,13 @@
 
 										<div class="widget_title">
 											<h4>
-												<span><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+												<span><a style="color:#323A45;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 									마이페이지	</a></span>
 											</h4>
 										</div>
 										<c:url value="/mypageUpdate" var="mypageUpdate"/>
-										<li><a href="${mypageUpdate }?loginId=${login.id }">
-										<i class="fa fa-angle-right"></i>정보수정</a></li>
+										<li style="margin-left: 10px"><a href="${mypageUpdate }?loginId=${login.id }">
+										정보수정</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 												내글</a></li>
@@ -91,8 +91,12 @@
 								<div class="carousel-intro">
 									<div class="col-md-12">
 										<button class="btn btn-primary"
-											style="background-color: orange; border-color: #fff;">
-											내모임가기 <i class="fa fa-hand-o-right"></i>
+											style="background-color: #27AB99;; border-color: #fff;">
+											내모임가기 <i class="fa fa-sign-out"></i>
+										</button>
+										<button class="btn btn-primary"
+											style="background-color:orange; border-color: #fff;">
+											내모임삭제 <i class="fa fa-trash-o"></i>
 										</button>
 										<br><br><br>
 										<div class="carousel-navi">

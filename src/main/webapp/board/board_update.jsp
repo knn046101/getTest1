@@ -146,7 +146,14 @@
                         </div>
                      </div>
                <!-- 저장 버튼으로 자바스크립트를 통해 ajax -> 컨트롤러로 전송하는 부분 -->
-               <button id="save" class="btn btn-primary" type="submit">저장</button>
+                       <!-- 저장 버튼으로 자바스크립트를 통해 ajax -> 컨트롤러로 전송하는 부분 -->
+       <div class="col-sm-12 text-center">
+       	<span class="input-group-btn">
+            <button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">수정
+           </button>
+         </span>
+         <br>
+         </div>
             </form>
          </div>
       </div>

@@ -58,7 +58,7 @@
 
 										<div class="widget_title">
 											<h4>
-												<span><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+												<span><a style="color:#323A45;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 									마이페이지	</a></span>
 											</h4>
 										</div>
@@ -119,7 +119,7 @@
 									<button class="btn btn-primary" onclick="location='../main.jsp'" type="submit"
 										style="background-color: #27AB99; border-color: #fff;">홈으로</button>
 									
-									<button onclick="memberDel()" class="btn btn-primary"
+									<button id="deleteUser" class="btn btn-primary"
 										type="button"
 										style="background-color: orange; border-color: #fff;">회원탈퇴</button>
 
@@ -141,11 +141,7 @@
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
-<c:url value="/getEditor" var="getEditor"/>
-function memberDel{
-	var id = $("#inputId").val();
-	var pass = $("#inputPassword").val();
-}
+
 
 </script>
 </html>

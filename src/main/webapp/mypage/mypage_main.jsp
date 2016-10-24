@@ -54,29 +54,29 @@ a {
 										<div></div>
 										<div class="widget_title">
 											<h4>
-												<span><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+												<span><a style="color:#323A45;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 									마이페이지	</a></span>
 											</h4>
 										</div>
 										<c:url value="/mypageUpdate" var="mypageUpdate"/>
 										
 										<li><a href="${mypageUpdate }?loginId=${login.id }">
-										<i class="fa fa-angle-right"></i>정보수정</a></li>
-										<li><a
+										정보수정</a></li>
+										<li><a 
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-												<i class="fa fa-angle-right"></i> 내 글
+												내 글
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												<i class="fa fa-angle-right"></i> 관심 키워드
+												관심 키워드
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
-												<i class="fa fa-angle-right"></i> 스크랩
+												스크랩
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
-												<i class="fa fa-angle-right"></i> 모임
+												모임
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
@@ -106,7 +106,7 @@ a {
            					 <div class="carousel-intro">
 		               
 		                  <div class="dividerHeading">
-		                     <h3><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+		                     <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 									내 글	</a></h3>
 		                  </div>
 		               </div>
@@ -141,7 +141,7 @@ a {
       <div class="col-lg-8">
             <div class="carousel-intro">
                   <div class="dividerHeading">
-                     <h3><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+                     <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 									관심 키워드	</a></h3>
                   </div>
                   
@@ -192,7 +192,7 @@ a {
       <div class="col-lg-8">
             <div class="carousel-intro">
                   <div class="dividerHeading">
-                     <h3><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+                     <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 									스크랩	</a></h3>
                   </div>
                   
@@ -283,7 +283,7 @@ a {
 	                           + "<img src="+img+" alt='' height='150px' class='imgresize'/>"+"</a></div>"
 	                           +"<div class='caption-box'>"
 	                            /*아래: 제목에 a태그  */
-	                           + "<a href=${retrieve}?boardNo="                                                
+	                           + "<a style='color:#323A45;' href=${retrieve}?boardNo="                                                
 	                           + boardNo
 	                           +">"   
 	                      /*아래: a태그완료  */
@@ -433,7 +433,7 @@ a {
 		                           + "<img src="+img+" alt='' height='150px' class='imgresize'/>"+"</a></div>"
 		                           +"<div class='caption-box'>"
 		                            /*아래: 제목에 a태그  */
-		                           + "<a href=${retrieve}?boardNo="                                                
+		                           + "<a style='color:#323A45;' href=${retrieve}?boardNo="                                                
 		                           + boardNo
 		                           +">"   
 		                      /*아래: a태그완료  */

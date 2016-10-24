@@ -165,7 +165,7 @@ $(document)	.ready(function() {
 				}
 
 				var pageText = "";
-				pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno=1')>[맨앞으로]</a>";
+				pageText += "<center><a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno=1')>[맨앞으로]</a>";
 				pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+ prev_pageno+"')>[이전]</a>";
 				for (var i = page_sno; i <= page_eno; i++) {
 					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+i+"')>";
@@ -181,7 +181,7 @@ $(document)	.ready(function() {
 						}
 					}
 					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+next_pageno+"')>[다음]</a>";
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
+					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'></center>";
 					$("#page").append(pageText);
 				},
 				error : function(xhr, status, error) {
