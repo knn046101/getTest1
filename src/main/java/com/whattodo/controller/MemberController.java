@@ -44,7 +44,7 @@ public class MemberController {
 	
 	@InitBinder
 	public void setEssentialFields(WebDataBinder binder){
-		binder.setRequiredFields("id", "email", "pass", "nickname", "birth");
+		binder.setRequiredFields("pass");
 		logger.trace("바인더");
 	}
 	
@@ -57,7 +57,6 @@ public class MemberController {
 	
 	@RequestMapping(value="/mypageUpdate", method=RequestMethod.GET)
 	public String mypageInfo(Model model, HttpServletRequest request){
-		logger.trace("진입");
 		String id = request.getParameter("loginId");
 		Member member = ms.getMemberById(id);
 		model.addAttribute("member",member);
@@ -157,6 +156,7 @@ public class MemberController {
 		if(result.hasErrors()){
 			return "mypage/mypage_member_update";
 		}
+		logger.trace("member:{}",member);
 		if(member.getId().trim().equals("") && member.getPass().trim().equals("")
 				&& member.getNickname().trim().equals("") && member.getEmail().equals("")
 				&& member.getRegion().trim().equals("") && member.getBirth().trim().equals("")

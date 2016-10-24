@@ -211,7 +211,8 @@ public class Test {
 		meeting.setMeetingContent("내용");
 		meeting.setMeetingKeyword("키워드");
 		meeting.setMeetingImg("이미지");
-		meeting.setId("jong");
+		meeting.setId("knn046101");
+		meeting.setPlace("jong");
 		int result=mr.insertMeeting(meeting);
 		assertThat(result, is(1));
 	}
@@ -332,4 +333,6 @@ public class Test {
 		assertThat(boards, is(notNullValue()));
 	}
 	
+	
 }
+

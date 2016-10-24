@@ -58,7 +58,8 @@
 
 										<div class="widget_title">
 											<h4>
-												<span>마이페이지</span>
+												<span><a href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									마이페이지	</a></span>
 											</h4>
 										</div>
 										<c:url value="/mypageUpdate" var="mypageUpdate"/>
@@ -88,15 +89,16 @@
 							method="post" action="updateUser" modelAttribute="member">
 
 							<div class="form-group">
-								<sform:label path="profileImg" class="col-sm-3 control-label"
-									for="image">프로필 사진 수정</sform:label>
-								<div class="col-sm-6">
-									<div id="imagePreview"></div>
-									<br>
-									<sform:input path="profileImg" id="image" type="file"
-										onchange="InputImage();"></sform:input>
-								</div>
-							</div>
+					            <label class="col-sm-3 control-label" for="image">프로필 사진 등록</label>
+					            <div class="col-sm-6">
+					               <input id="image" type="file" ></input>
+					               <div id="preview">
+										<img id="imagePreview" src=${member.profileImg } style="width:200px; height:140px;"/>
+									</div>
+									<sform:input type="hidden" path="profileImg" class="form-control" id="profileImg" value="${member.profileImg }"></sform:input>
+					               <br>
+					            </div>
+					         </div>
 							<div class="form-group">
 								<sform:label path="pass" class="col-sm-3 control-label"
 									for="inputPassword">비밀번호</sform:label>
@@ -142,16 +144,22 @@
 								<div class="row">
 									<div class="col-sm-3">
 										<sform:select path="region" class="form-control" id="sel1">
-											<option>서울</option>
-											<option>경기도</option>
-											<option>강원도</option>
-											<option>충청남도</option>
-											<option>충청북도</option>
-											<option>전라남도</option>
-											<option>전라북도</option>
-											<option>경상남도</option>
-											<option>경상북도</option>
-											<option>제주도</option>
+											<option>서울특별시</option>
+						                     <option>인천광역시</option>
+						                     <option>대전광역시</option>
+						                     <option>대구광역시</option>
+						                     <option>광주광역시</option>
+						                     <option>울산광역시</option>
+						                     <option>부산광역시</option>
+						                     <option>경기도</option>
+						                     <option>강원도</option>
+						                     <option>충청남도</option>
+						                     <option>충청북도</option>
+						                     <option>전라남도</option>
+						                     <option>전라북도</option>
+						                     <option>경상남도</option>
+						                     <option>경상북도</option>
+						                     <option>제주도</option>
 										</sform:select>
 									</div>
 									<div class="col-sm-3">
@@ -208,59 +216,82 @@ var checkEmailComplete=false;
 var checkNicknameComplete=false;
 var profileImg="";
 
+var sel1;
+var sel2;
 
-	var InputImage = (function loadImageFile() {
-		if (window.FileReader) {
-			var ImagePre;
-			var ImgReader = new window.FileReader();
-			var fileType = /^(?:image\/bmp|image\/gif|image\/jpeg|image\/png|image\/x\-xwindowdump|image\/x\-portable\-bitmap)$/i;
 
-			ImgReader.onload = function(Event) {
-				if (!ImagePre) {
-					var newPreview = document.getElementById("imagePreview");
-					ImagePre = new Image();
-					ImagePre.style.width = "200px";
-					ImagePre.style.height = "140px";
-					ImagePre.type = "circle";
-					newPreview.appendChild(ImagePre);
-				}
-				ImagePre.src = Event.target.result;
+	$(document).on("ready", function(){
+        var location="${member.region }";
+        var strArray=location.split(",");
+        $('#sel1').val(strArray[0]); 
+        changeCapital();
+        if(strArray[1]!="undefined"){
+        	$('#sel2').val(strArray[1]); 
+        }
+	});
 
-			};
+$("#image").change(function() {
+	readUploadImage(this);
+});
 
-			return function() {
 
-				var img = document.getElementById("image").files;
-
-				if (!fileType.test(img[0].type)) {
-					alert("이미지 파일을 업로드 하세요");
-					return;
-				}
-
-				ImgReader.readAsDataURL(img[0]);
+function readUploadImage(inputObject) {
+	if (window.File && window.FileReader) {
+		if (inputObject.files && inputObject.files[0]) {
+			/* 이미지 파일인지도 체크 */
+			if (!(/image/i).test(inputObject.files[0].type)) {
+				alert("이미지 파일을 선택해 주세요!");
+				return false;
 			}
-
+			/* FileReader 를 준비 한다. */
+			var reader = new FileReader();
+			var file = inputObject.files[0];
+			var fileSize = 0;
+			reader.onload = function(e) {
+				/* reader가 다 읽으면 imagePreview에 뿌려 주는 로직 부분  */
+				if (window.File && window.FileReader && window.FileList
+						&& window.Blob) {
+					//파일사이즈를 fsize에 넣는다.
+					var fsize = file.size;
+					if (fsize > 150000) // 1 mb 기준 (1048576) 여기에서 파일 사이즈 체크 하는 로직
+					{
+						alert(fsize + " bites\n 사이즈가 너무 큽니다. 150KB 미만으로 해주세요!");
+						inputObject.files[0] = null;
+						profileImg = null;
+						// 미리보기 부분을 null로 바꾼다.
+					} else {
+						$('#imagePreview').attr('src', e.target.result);
+						$('#imagePreview').css('weight', "150px");
+						$('#imagePreview').css('height', "150px");
+						//썸네일로 미리보기 된 결과값(base64로 인코딩)을  result에 넣는다 
+						//문자열 앞에 ""를 넣기 위해 앞뒤로 추가
+						profileImg = "\"" + e.target.result + "\"";
+						$("#profileImg").val(profileImg);
+					}
+				} else {
+					alert("HTML5를 지원하는 브라우저에서 접속해 주세요");
+				}
+				/* console.log(result+"결과"); */
+			}
+			/* input file에 있는 파일 하나를 읽어온다. */
+			reader.readAsDataURL(inputObject.files[0]);
 		}
-
-		document.getElementById("imagePreview").src = document
-				.getElementById("image").value;
-
-	})();
+	} else {
+		alert("HTML5를 지원하는 브라우저에서 접속해 주세요");
+	}
+}
 
 	$("#form").on("submit", function(e){
 		e.preventDefault();
  		if(checkNicknameComplete){
-			
 				if($("#inputPassword").val()==$("#inputPasswordCheck").val()){
 					this.submit();	
 				}else{
 					alert("비밀번호를 일치하여 주십시오.");	
 				}
-			
 		}else{
 			alert("중복 확인을 클릭하여 주십시오.");
 		} 
- 		console.log(checkNicknameComplete);
 	});
 	
     var memberDel = function(){
@@ -316,34 +347,34 @@ var profileImg="";
 	});
 
 	<c:url value="/changeCapital" var="changeCapital"/>
-	$("#sel1")
-			.on(
-					"change",
-					function() {
-						var citystr = "";
-						var sel1 = $("#sel1").val();
-						$(".sel2").remove();
-						$
-								.ajax({
-									type : "get",
-									url : "${changeCapital}",
-									dataType : "json",
-									data : {
-										"sel1" : sel1
-									},
-									success : function(data) {
-										for (var i = 0; i < data.length; i++) {
-											citystr += "<option class='sel2'>"
-													+ data[i].city
-													+ "</option>";
-										}
-										$("#sel2").append(citystr);
-									},
-									error : function(xhr, status, error) {
-										alert(error);
-									},
-									ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
-								});
-					});
+	$("#sel1").on("change", function() {
+		changeCapital();
+	});
+	
+	var changeCapital = function(){
+		var citystr = "";
+		var sel1 = $("#sel1").val();
+		$(".sel2").remove();
+		$.ajax({
+			type : "get",
+			url : "${changeCapital}",
+			dataType : "json",
+			data : {
+				"sel1" : sel1
+			},
+			success : function(data) {
+				for (var i = 0; i < data.length; i++) {
+					citystr += "<option class='sel2'>"
+							+ data[i].city
+							+ "</option>";
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error) {
+				alert(error);
+			},
+			ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	}
 </script>
 </html>

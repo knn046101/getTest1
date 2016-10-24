@@ -20,6 +20,7 @@ import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 import com.whattodo.dto.BoardsFollows;
 import com.whattodo.dto.BoardsGoods;
+import com.whattodo.dto.MeetingBoardReply;
 import com.whattodo.service.BoardService;
 
 
@@ -212,6 +213,26 @@ public class BoardController {
 		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
 	}
 	
+	/*@RequestMapping(value="/getBoardMyFavoriteMain", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardMyFavoriteMain(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		List<Board> board=bs.selectboardMyBoardsMain(id);
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}*/
+	
+	@RequestMapping(value="/getBoardMyScrapMain", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardMyScrapMain(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		List<Board> board=bs.selectBoardByFollow(id);
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(board);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}
+	
 	@RequestMapping(value="/boardReply", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String boardReply(Model model, HttpServletRequest request){
@@ -253,6 +274,7 @@ public class BoardController {
 	@RequestMapping(value="/addBoardReply", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String addBoardReply(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
 		String id = request.getParameter("id");
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		String comments=request.getParameter("comments");
@@ -261,16 +283,26 @@ public class BoardController {
 		bs.insertBoardReply(boardReply);
 		Board board = bs.selectBoardbyBoardNo(boardNo);
 		List <BoardReply> boardReply2 = bs.selectBoardReply(boardNo);
+		List <BoardReply> afterboardReply=new ArrayList<BoardReply>();
 		model.addAttribute("board", board);
+		
+		int end=(page*10<boardReply2.size())? page*10 : boardReply2.size();
+
+		for(int i=(page-1)*10; i<end; i++){
+			boardReply2.get((page-1)*10).setPage(page);
+			afterboardReply.add(boardReply2.get(i));
+		}
+		afterboardReply.get(0).setRecordNum(boardReply2.size());
+		
 		
 		Gson gson = new Gson();
 		String boardReplyStr = "[";
-		for(int i=0; i<boardReply2.size(); i++){
-			if(i==boardReply2.size()-1){
-				boardReplyStr+=gson.toJson(boardReply2.get(i));
+		for(int i=0; i<afterboardReply.size(); i++){
+			if(i==afterboardReply.size()-1){
+				boardReplyStr+=gson.toJson(afterboardReply.get(i));
 				break;
 			}
-			boardReplyStr+=gson.toJson(boardReply2.get(i))+",";
+			boardReplyStr+=gson.toJson(afterboardReply.get(i))+",";
 		}
 		boardReplyStr+="]";
 		return boardReplyStr;
@@ -424,7 +456,7 @@ public class BoardController {
 	      int end=(page*16<boards.size())? page*16 : boards.size();
 
 	      for(int i=16*(page-1); i<end; i++){
-	    	  boards.get((page-1)*10).setPage(page);
+	    	  boards.get((page-1)*16).setPage(page);
 	         afterBoard.add(boards.get(i));
 	      }
 	      afterBoard.get(0).setRecordNum(boards.size());
