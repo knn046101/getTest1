@@ -32,40 +32,45 @@
                </h4>
             </div>
             
-            <c:url value="/addMeeting" var="addMeeting"/>            
-            <form id="form" action="${addMeeting }">
+            <form>
                 		<div class="form-group">
                 		<label for="">모임 정보 등록</label><br> 
-                		<button type="button" class="btn btn-default dropdown-toggle"
-                        		data-toggle="dropdown">
-                        	<span id="srch-sel1">도 선택</span> <span class="caret"></span>
-                    	</button>
-                    	<ul class="dropdown-menu" id="sel1">
-		                        <li><a href="#">서울특별시</a></li>
-		                        <li><a href="#">인천광역시</a></li>
-		                        <li><a href="#">대전광역시</a></li>
-		                        <li><a href="#">대구광역시</a></li>
-		                        <li><a href="#">광주광역시</a></li>
-		                        <li><a href="#">울산광역시</a></li>
-		                        <li><a href="#">부산광역시</a></li>
-		                        <li><a href="#">경기도</a></li>
-		                        <li><a href="#">강원도</a></li>
-		                        <li><a href="#">충청남도</a></li>
-		                        <li><a href="#">충청북도</a></li>
-		                        <li><a href="#">전라남도</a></li>
-		                        <li><a href="#">전라북도</a></li>
-		                        <li><a href="#">경상남도</a></li>
-		                        <li><a href="#">경상북도</a></li>
-		                        <li><a href="#">제주도</a></li>
-                    	</ul>
-                    		 
-                    <button type="button" class="btn btn-default dropdown-toggle"
-                            data-toggle="dropdown">
-                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" id="sel2">
+                		 <div class="input-group-btn">
+                     <button type="button" class="btn btn-default dropdown-toggle"
+                        data-toggle="dropdown">
+                        <span id="srch-sel1">도 선택</span> <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" id="sel1">
+                        <li><a href="#">서울특별시</a></li>
+                        <li><a href="#">인천광역시</a></li>
+                        <li><a href="#">대전광역시</a></li>
+                        <li><a href="#">대구광역시</a></li>
+                        <li><a href="#">광주광역시</a></li>
+                        <li><a href="#">울산광역시</a></li>
+                        <li><a href="#">부산광역시</a></li>
+                        <li><a href="#">경기도</a></li>
+                        <li><a href="#">강원도</a></li>
+                        <li><a href="#">충청남도</a></li>
+                        <li><a href="#">충청북도</a></li>
+                        <li><a href="#">전라남도</a></li>
+                        <li><a href="#">전라북도</a></li>
+                        <li><a href="#">경상남도</a></li>
+                        <li><a href="#">경상북도</a></li>
+                        <li><a href="#">제주도</a></li>
+                     </ul>
+                  </div>
+                  <!-- 첫번째 행의 첫번째 드롭박스 끝 -->
 
-                    </ul>
+                  <!--두번째 드롭박스  -->
+                  <div class="input-group-btn">
+                     <button type="button" class="btn btn-default dropdown-toggle"
+                        data-toggle="dropdown">
+                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" id="sel2">
+
+                     </ul>
+                  </div>
                     
                      <!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
                   <input type="hidden" id="txt-sel1"> <input type="hidden"
@@ -241,7 +246,6 @@ var uploadImage;
    <c:url value="/addMeeting" var="addMeeting"/>
    $("#save").on("click ", function(e){
       e.preventDefault();
-      
      meetingTitle = $("#meetingTitle").val();
      meetingContent = $("#meetingContent").val();
      locationP = $("#txt-sel1").val()+","+sel2;
@@ -256,7 +260,6 @@ var uploadImage;
          "meetingImg" : uploadImage,
          "id" : "${login.id}"
       };
-      
       if (locationP == null) {
          alert("지역을 선택하여 주십시오.");
       }else if (meetingTitle == null) {
@@ -267,14 +270,12 @@ var uploadImage;
          alert("간단히 모임설명을 입력하여 주십시오.");
       } else {
          $.ajax({
-            type : "get",
+            type : "post",
             url : "${addMeeting }",
             data : allData,
             success : function(res) {
                if(res=="저장"){
-              
                   location.href="<%=request.getContextPath()%>/meeting/meeting_main.jsp";
-                 
                }else if(res=="실패"){
                   alert("전송할 수 있는 용량을 초과하였습니다.");
                }

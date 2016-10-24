@@ -5,16 +5,14 @@
 <mapper namespace="whattodo.dao.MeetingBoardMapper">
 	<insert id="insertMeetingBoard" parameterType="meetingBoard">
 		insert into meeting_boards
-		values(seq_meeting_board_no.nextval, #{meetingBoardTitle}, #{meetingBoardContent}, #{place}, #{meetingNo}, #{id})
+		values(seq_meeting_board_no.nextval, #{meetingBoardTitle}, #{meetingBoardContent},  #{meetingNo}, #{id}, #{place}, SYSDATE)
 	</insert>
 	
 	<update id="updateMeetingBoard" parameterType="meetingBoard">
 		update meeting_boards
 		set meeting_board_title=#{meetingBoardTitle},
 		meeting_board_content=#{meetingBoardContent},
-		place=#{place},
-		meeting_no=#{meetingNo},
-		id=#{id}
+		place=#{place}
 		where meeting_board_no=#{meetingBoardNo}
 	</update>
 	
@@ -27,6 +25,12 @@
 		delete from meeintg_boards
 		where meeting_no=#{meetingNo}
 	</delete>
+	
+	<select id="selectMeetingBoardByBoardNo" parameterType="int" resultType="meetingBoard">
+		select *
+		from meeting_boards
+		where meeting_board_no=#{meetingBoardNo}
+	</select>
 	
 	<select id="selecctAllMeetingBoard" parameterType="int" resultType="meetingBoard">
 		select *

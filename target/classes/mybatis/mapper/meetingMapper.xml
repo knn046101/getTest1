@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="whattodo.dao.MeetingMapper">
 	<insert id="insertMeeting" parameterType="meeting">
-		insert into meeting
-		values(seq_meeting_no.nextval, #{meetingTitle}, #{meetingContent}, #{meetingKeyword}, #{meetingImg}, 0, #{id})
+		insert into meeting(meeting_no, meeting_title, meeting_content, meeting_keyword, meeting_img, id, place)
+		values(seq_meeting_no.nextval, #{meetingTitle}, #{meetingContent}, #{meetingKeyword}, #{meetingImg}, #{id}, #{place})
 	</insert>
 	
 	<update id="updateMeeting" parameterType="meeting">
@@ -22,9 +22,33 @@
 		where meeting_no=#{meetingNo}
 	</delete>
 	
+	<select id="selectMeetingByMeetingNo" parameterType="int" resultType="meeting">
+		select *
+		from meeting
+		where meeting_no=#{meetingNo}
+	</select>
+	
 	<select id="selectAllMeeting" resultType="meeting">
 		select *
 		from meeting
+	</select>
+	
+	<select id="selectSearchMeetingByPlace" parameterType="String" resultType="meeting">
+		select *
+		from meeting
+		where place=#{place}
+	</select>
+	
+	<select id="selectSearchMeetingByMeetingKeyword" parameterType="String" resultType="meeting">
+		select *
+		from meeting
+		where meeting_keyword like '%'||#{meetingKeyword }||'%'
+	</select>
+	
+	<select id="selectSearchMeetingByplaceAndmeetingKeyword" parameterType="map" resultType="meeting">
+		select *
+		from meeting
+		where place=#{place} and meeting_keyword like '%'||#{meetingKeyword }||'%'
 	</select>
 	
 	<!-- follow 랑 meeting 조인 -->
@@ -36,13 +60,13 @@
 	
 	<update id="updateFollowMeeting" parameterType="int">
 		update meeting
-		set meeting_follow+=1
+		set meeting_follow=meeting_follow+1
 		where meeting_no=#{meetingNo}
 	</update>
 	
 	<insert id="insertMeetingFollow" parameterType="map">
-		insert meeting_follow
-		value(#{meetingNo}, #{id})
+		insert into meeting_follow
+		values(#{id}, #{meetingNo})
 	</insert>
 	
 	<delete id="deleteFollowMeetingByMeetingNo" parameterType="int">
@@ -54,4 +78,10 @@
 		delete from meeting_follow
 		where id=#{id}
 	</delete>
+	
+	<select id="selectFollowMeeting" parameterType="map" resultType="meetingFollow">
+		select *
+		from meeting_follow
+		where meeting_no=#{meetingNo} and id=#{id}
+	</select>
 </mapper>

@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.whattodo.dto.Meeting;
 import com.whattodo.dto.MeetingBoard;
 
 @Repository
@@ -33,6 +34,11 @@ public class MeetingBoardRepoImpl implements MeetingBoardRepo {
 	public int deleteMeetingBoardByMeetingNo(int meetingNo){
 		String statement = NAME_SPACE+"deleteMeetingBoardByMeetingNo";
 		return template.delete(statement, meetingNo);
+	}
+	
+	public MeetingBoard selectMeetingBoardByBoardNo(int meetingBoardNo){
+		String statement = NAME_SPACE+"selectMeetingBoardByBoardNo";
+		return template.selectOne(statement, meetingBoardNo);
 	}
 	
 	public List<MeetingBoard> selecctAllMeetingBoard(int meetingNo) {

@@ -22,7 +22,6 @@
 			<jsp:include page="/layout/header.jsp"></jsp:include>
 		</div>
 	
-			<section class="content blog">
 			<div class="container">
 				<div class="row">
 				
@@ -47,9 +46,7 @@
 						<div class="blog_single">
 							<article class="post">
 								<figure class="post_img">
-									
 										${board.boardContent }
-									
 								</figure>							
 							</article>
 							
@@ -130,10 +127,6 @@
 				    </div>
 					
 					</div><!--/.row-->
-				</div> <!--/.container-->
-				</div>
-			</div>
-		</div>
 	<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
 	</div> 
@@ -154,6 +147,7 @@
 			alert("로그인 후에 이용하여 주십시오.");
 		}else{
 			$(".comment").remove();
+			$(".paging").remove();
 			var total_record=1;
 			var page_eno;
 			var page_sno;
@@ -267,8 +261,7 @@
 					} 
 					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
 					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
-					console.log(pageText);
-					$("#page").appned(pageText);
+					$("#page").append(pageText);
 					$("#comments").val("");
 				},
 				error : function(xhr, status, error) {

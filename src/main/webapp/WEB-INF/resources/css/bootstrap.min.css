@@ -6823,13 +6823,6 @@ button.close {
 	}
 }
 
-.btn-group>.btn-group:last-child>.btn:first-child {
-	background-color:#D5D5D5;
+.note-icon-magic {
+	background-color: #D5D5D5;
 }
-.btn-group>.btn:first-child {
-   background-color:#D5D5D5;
-}
-.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
-    background-color:#D5D5D5;
-}
-
