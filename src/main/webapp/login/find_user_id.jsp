@@ -40,24 +40,16 @@
       <div class="form-group">
       	 <label class="col-sm-3 control-label"></label>
          <div class="col-sm-6">
-            <input class="form-control" name="findEmail" type="text" id="email" 
-               placeholder="회원가입시 등록한 이메일을 주소를 작성해주세요." />
-               
-            <br>
            <div class="col-sm-12 text-center">
             	<button class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">ID 확인하기</button>
             </div>
-          
          </div>
-       	
-        
+		<br><br><br><br>
       </div>
-	</div>
 
-		<br>
-		<div class="row">
-			<jsp:include page="/layout/footer.jsp"></jsp:include>
-		</div>
+		
+<jsp:include page="/layout/footer.jsp"></jsp:include>
+		
 
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>

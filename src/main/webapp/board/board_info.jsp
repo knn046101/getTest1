@@ -28,6 +28,7 @@
 						<div class="col-xs-12 col-md-4 col-lg-4 col-sm-4">
 						<div class="sidebar">							
 							<div class="widget widget_categories">
+							<br><br>
 								<div class="widget_title">
 									<h4><span>${board.boardTitle }</span></h4>
 									</div>
@@ -44,7 +45,9 @@
 				
 					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 						<div class="blog_single">
+						<br><br><br><br><br>
 							<article class="post">
+							
 								<figure class="post_img">
 										${board.boardContent }
 								</figure>							

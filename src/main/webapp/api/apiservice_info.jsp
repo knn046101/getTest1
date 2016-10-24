@@ -18,7 +18,7 @@
 		</div>
 		
 	</div>
-	<h1 style="background-color:#D5D5D5;"><span id ="title" ></span></h1>
+	<h1 style="text-align:center; background-color:#D5D5D5;"><span id ="title" ></span></h1>
 	<section class="content about">
 			<div class="container">
 				<div class="row sub_content">
