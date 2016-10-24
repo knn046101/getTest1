@@ -15,31 +15,36 @@
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<br>
 	<br>
-	<c:if test="${!empty login}">
-		<span class="input-group-btn">
-			<button
-				onclick="location='<%=request.getContextPath()%>/meeting/meeting_make.jsp'"
-				id="makemeeting" class="btn btn-success"
-				style="background-color: #27AB99; border-color: #fff; float: right;">모임생성
-			</button>
-		</span>
-	</c:if>
 	<div class="container-fluid">
 		<div class="row sub_content">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="dividerHeading">
 					<h4>
-						<span>먹거리</span>
+						<span>모임</span>
 					</h4>
-				</div><br><br><br>
+					<c:if test="${!empty login}">
+						<span class="input-group-btn">
+							<button
+								onclick="location='<%=request.getContextPath()%>/meeting/meeting_make.jsp'"
+								id="makemeeting" class="btn btn-success"
+								style="background-color: #27AB99; border-color: #fff; float: right;">모임생성
+							</button>
+						</span>
+					</c:if>
+
+				</div>
+				<br>
+				<br>
+				<br>
 				<!--start info service-->
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-lg-4 col-md-4 col-sm-4"></div>
-					<button type="button" class="btn btn-default dropdown-toggle"
+					<div class="col-lg-8 col md-8 col-sm-8">
+					<button type="button" class="btn btn-d</div>efault dropdown-toggle"
 						data-toggle="dropdown">
 						<span id="srch-sel1">도 선택</span> <span class="caret"></span>
 					</button>
-					<ul class="dropdown-menu" id="sel1">
+					<ul class=" col-lg-4 col-md-4 col-sm-4 dropdown-menu" id="sel1">
 						<li><a href="#">서울특별시</a></li>
 						<li><a href="#">인천광역시</a></li>
 						<li><a href="#">대전광역시</a></li>
@@ -71,20 +76,23 @@
 					<button id="search" class="btn btn-success"
 						style="background-color: #27AB99; border-color: #fff;">검색
 					</button>
-					<br><br><br><br>
-					<span class="input-group-btn" style="text-align: center">
+					<br>
+					<br>
+					<br>
+					<br>
+					 <span class="input-group-btn" style="text-align: center">
 						<button onclick="location='meeting_info.jsp'" id="writeboard"
 							class="btn btn-success"
 							style="background-color: orange; border-color: #fff;">신전모임</button>
 					</span>
-
+</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-	
+
 	<br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 

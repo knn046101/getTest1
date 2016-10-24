@@ -58,6 +58,7 @@ a {
 											</h4>
 										</div>
 										<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										
 										<li><a href="${mypageUpdate }?loginId=${login.id }">
 										<i class="fa fa-angle-right"></i>정보수정</a></li>
 										<li><a
