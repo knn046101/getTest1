@@ -6,15 +6,12 @@
 
 	<insert id="insertMeetingBoardReply" parameterType="meetingBoardReply">
 		insert into meeting_boards_replys
-		values(SEQ_meeting_board_reply_no.nextval, #{meetingBoardReplyContent}, #{meetingBoardReplyDate}, #{meetingBoardNo}, #{id})
+		values(SEQ_meeting_board_reply_no.nextval, #{meetingBoardReplyContent}, SYSDATE, #{meetingBoardNo}, #{id})
 	</insert>
 	
 	<update id="updateMeetingBoardReply" parameterType="meetingBoardReply">
 		update meeting_boards_replys
 		set meeting_board_reply_content=#{meetingBoardReplyContent},
-		meeting_board_reply_date=#{meetingBoardReplyDate},
-		meeting_board_no=#{meetingBoardNo},
-		id=#{id}
 		where meeting_board_reply_no=#{meetingBoardReplyNo}
 	</update>
 	

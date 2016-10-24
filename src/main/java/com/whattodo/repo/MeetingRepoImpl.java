@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.whattodo.dto.Meeting;
+import com.whattodo.dto.MeetingFollow;
 
 @Repository
 public class MeetingRepoImpl implements MeetingRepo{
@@ -33,11 +34,34 @@ public class MeetingRepoImpl implements MeetingRepo{
 		return template.delete(statement, meetingNo);
 	}
 
+	public Meeting selectMeetingByMeetingNo(int meetingNo){
+		String statement = NAME_SPACE+"selectMeetingByMeetingNo";
+		return template.selectOne(statement, meetingNo);
+	}
+	
 	public List<Meeting> selectAllMeetings() {
 		String statement = NAME_SPACE+"selectAllMeeting";
 		return template.selectList(statement);
 	}
 
+	public List<Meeting> selectSearchMeetingByPlace(String place){
+		String statement = NAME_SPACE+"selectSearchMeetingByPlace";
+		return template.selectList(statement, place);
+	}
+	
+	public List<Meeting> selectSearchMeetingByMeetingKeyword(String meetingKeyword){
+		String statement = NAME_SPACE+"selectSearchMeetingByMeetingKeyword";
+		return template.selectList(statement, meetingKeyword);
+	}
+	
+	public List<Meeting> selectSearchMeetingByplaceAndmeetingKeyword(String place, String meetingKeyword){
+		String statement = NAME_SPACE+"selectSearchMeetingByplaceAndmeetingKeyword";
+		Map<String, Object> map= new HashMap<String, Object>();
+		map.put("place", place);
+		map.put("meetingKeyword", meetingKeyword);
+		return template.selectList(statement, map);
+	}
+	
 	public List<Meeting> selectFollowMeetings(String id) {
 		String statement = NAME_SPACE+"selectFollowMeetings";
 		return template.selectList(statement, id);
@@ -66,4 +90,12 @@ public class MeetingRepoImpl implements MeetingRepo{
 		return template.delete(statement, id);
 	}
 
+	public MeetingFollow selectFollowMeeting(int meetingNo, String id){
+		String statement = NAME_SPACE+"selectFollowMeeting";
+		Map<String, Object> map= new HashMap<String, Object>();
+		map.put("meetingNo", meetingNo);
+		map.put("id", id);
+		return template.selectOne(statement, map);
+	}
+	
 }
