@@ -18,14 +18,14 @@
 		</div>
 		
 	</div>
-	
+	<h1 style="background-color:#D5D5D5;"><span id ="title" ></span></h1>
 	<section class="content about">
 			<div class="container">
 				<div class="row sub_content">
 					<div class="col-lg-14 col-md-14 col-sm-14 " style="background-color: #bebebe">
 						
-							<h1><span id ="title"></span></h1>
-						<nav style="background-color:grey;" id="breadcrumbs">
+							
+						<nav style="background-color:#D5D5D5;" id="breadcrumbs">
 							<ul>
 								<li>You are here:</li>
 								<li><a href="../main.jsp">Home</a></li>
@@ -35,7 +35,7 @@
 						</nav>
 									</div>
 				</div>
-			</div>
+			</div> 
 		</section>
 		
 					<div class="row">

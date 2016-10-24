@@ -89,18 +89,18 @@
 					
 					</div>
 					<br><br><br><br>
-
 					<!-- Thumbnails -->
 				    <div class="container thumbs" id="thumnails">
 				      
 				    </div><!-- End Thumbnails -->
 				    <div style="text-align: center;" id="page"></div>
-
 				</div>
 			</div>
 		</div>
 	</div>
 
+	
+	
 	<br>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 
