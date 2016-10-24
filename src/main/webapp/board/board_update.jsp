@@ -164,12 +164,13 @@ var sel1;
 var sel2;
 var categorysel;
 var numberOfPeoplessel;
-var result="";
+var result;
 
 /*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
 	$(document).ready(function(){
-		result ="${board.mainImg }";
+		result =${board.mainImg }; 
 		$("#imagePreview").attr("src", result);
+		result = "\"" + result + "\"";
 		$('#imagePreview').css('weight', "150px");
         $('#imagePreview').css('height', "150px");
         var location="${board.location }";
@@ -346,6 +347,7 @@ var result="";
          "numberOfPeople" : numberOfPeople,
          "what" : boardKeyword,
          "category" : category,
+         "id": "${login.id}",
          "mainImg" : mainImg,
       };
       

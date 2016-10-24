@@ -14,9 +14,9 @@
 		update boards
 		set board_title=#{boardTitle},
 		board_content=#{boardContent},
-		location like '%'||#{location }||'%',
+		location=#{location},
 		NUMBEROFPEOPLE=#{numberOfPeople},
-		what like '%'||#{what }||'%',
+		what=#{what},
 		category=#{category},
 		main_img=#{mainImg}
 		where board_no=#{boardNo}
