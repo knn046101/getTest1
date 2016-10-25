@@ -46,6 +46,10 @@ public interface BoardServiceInterface {
 	public List<Board> selectBoardByGoodMainBest();
 	public List<Board> selectBoardByMainEditor();
 	public List<Board> selectboardMyBoardsMain(String id);
+	public List<Board> getBoardByAdmin();
+	public List<Board> getBoardByAdminSearchUser(String user);
+	public List<Board> getBoardByAdminSearchBoardNo(int boardNo);
+	public List<Board> getBoardByAdminSearchTitle(String Title);
 	
 	public void deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);

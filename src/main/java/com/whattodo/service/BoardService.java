@@ -132,6 +132,22 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.selectBoardByGood(id);
 	}
 	
+	public List<Board> getBoardByAdmin(){
+		return brepo.getBoardByAdmin();
+	}
+	
+	public List<Board> getBoardByAdminSearchUser(String user){
+		return brepo.getBoardByAdminSearchUser(user);
+	}
+	
+	public List<Board> getBoardByAdminSearchBoardNo(int boardNo){
+		return brepo.getBoardByAdminSearchBoardNo(boardNo);
+	}
+	
+	public List<Board> getBoardByAdminSearchTitle(String Title){
+		return brepo.getBoardByAdminSearchTitle(Title);
+	}
+	
 	public List<Board> selectBoardByGoodMainBest() {
 		return	 brepo.selectBoardByGoodMainBest();
 	}

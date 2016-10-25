@@ -476,4 +476,69 @@ public class BoardController {
 	      boardStr+="]";
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
+	
+	@RequestMapping(value="/getBoardByAdmin", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardByAdmin(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
+		List<Board> boards=bs.getBoardByAdmin();
+		List<Board> afterBoard=new ArrayList<Board>();
+		
+		 int end=(page*20<boards.size())? page*20 : boards.size();
+
+	      for(int i=20*(page-1); i<end; i++){
+	    	  boards.get((page-1)*20).setPage(page);
+	         afterBoard.add(boards.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(boards.size());
+	      
+		Gson gson = new Gson();
+		String boardStr = gson.toJson(afterBoard);
+		return boardStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getBoardByAdminSearch", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getBoardByAdminSearch(Model model, HttpServletRequest request){
+		int page = Integer.parseInt(request.getParameter("pageno"));
+		String select = request.getParameter("select");
+		String text = request.getParameter("text");
+		logger.trace("select:{}, test:{}", select, text);
+		List<Board> boards=null;
+		if(select.equals("사용자")){
+			boards=bs.getBoardByAdminSearchUser(text);
+		}else if(select.equals("글번호")){
+			boards=bs.getBoardByAdminSearchBoardNo(Integer.parseInt(text));
+		}else{
+			boards=bs.getBoardByAdminSearchTitle(text);
+		}
+		
+		List<Board> afterBoard=new ArrayList<Board>();
+		
+		 int end=(page*20<boards.size())? page*20 : boards.size();
+
+	      for(int i=20*(page-1); i<end; i++){
+	    	  boards.get((page-1)*20).setPage(page);
+	         afterBoard.add(boards.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(boards.size());
+	      
+		Gson gson = new Gson();
+		String boardStr = gson.toJson(afterBoard);
+		return boardStr; // 사용할 뷰의 이름 리턴 
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
