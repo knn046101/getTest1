@@ -37,6 +37,10 @@ public interface BoardRepo {
 	public List<Board> selectBoardByGoodMainBest();
 	public List<Board> selectBoardByMainEditor();
 	public List<Board> selectboardMyBoardsMain(String id);
+	public List<Board> getBoardByAdmin();
+	public List<Board> getBoardByAdminSearchUser(String user);
+	public List<Board> getBoardByAdminSearchBoardNo(int boardNo);
+	public List<Board> getBoardByAdminSearchTitle(String Title);
 	
 	public List<Board> selectBoardByFollow(String id);
 	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo);
@@ -48,4 +52,6 @@ public interface BoardRepo {
 	public int insertBoardGood(int boardNo, String id);
 	public int deleteBoardGood(int boardNo);
 	public int deleteBoardGood(String id);
+	
+	public int countBoard();
 }

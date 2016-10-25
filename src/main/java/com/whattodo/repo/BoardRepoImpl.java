@@ -203,6 +203,26 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, id);
 	}
 	
+	public List<Board> getBoardByAdmin(){
+		String statement=NAME_SPACE+"getBoardByAdmin";
+		return template.selectList(statement);
+	}
+	
+	public List<Board> getBoardByAdminSearchUser(String user){
+		String statement=NAME_SPACE+"getBoardByAdminSearchUser";
+		return template.selectList(statement, user);
+	}
+	
+	public List<Board> getBoardByAdminSearchBoardNo(int boardNo){
+		String statement=NAME_SPACE+"getBoardByAdminSearchBoardNo";
+		return template.selectList(statement, boardNo);
+	}
+	
+	public List<Board> getBoardByAdminSearchTitle(String boardTitle){
+		String statement=NAME_SPACE+"getBoardByAdminSearchTitle";
+		return template.selectList(statement, boardTitle);
+	}
+	
 	public int insertBoardFollow(int boardNo, String id) {
 		String statement=NAME_SPACE+"insertBoardFollow";
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -265,5 +285,9 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement);
 	}
 	
+	public int countBoard(){
+		String statement = NAME_SPACE+"countBoard";
+		return template.selectOne(statement);
+	}
 	
 }

@@ -159,6 +159,7 @@ $(document).on("ready", function(e){
                 				+date.toLocaleDateString()+"</div>"
                 				+"<div class='comment-body'>"
                     			+"<p>"+args[i].meetingBoardReplyContent+"</p>"
+                    			+"<p><i class='fa fa-edit'></i></p>"
                 				+"</div>"
             					+"</div>"
        							+"</li>";
@@ -274,7 +275,7 @@ $(document).on("ready", function(e){
 					 var date = new Date(Date.parse(args[i].meetingBoardReplyDate));
 						htmlText+="<li class='comment'>"
 	           						+"<div class='comment-container'>"
-	                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a></h4>"
+	                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><a href='#'><i class='fa fa-edit'></i></a></span><span style='float:right;'><a><i class='fa fa-trash-o'></i></a>&nbsp;</span></h4>"
 	                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
 	                				+date.toLocaleDateString()+"</div>"
 	                				+"<div class='comment-body'>"
