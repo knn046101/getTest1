@@ -18,4 +18,6 @@ public interface MemberRepo {
 	public List<Member> getMemberByDivisionCustomer();
 	public List<Member> getMemberByDivisionEditor();
 	public String findIdbyEmail(String email);
+	
+	public int countUser();
 }

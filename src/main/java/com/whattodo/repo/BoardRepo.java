@@ -52,4 +52,6 @@ public interface BoardRepo {
 	public int insertBoardGood(int boardNo, String id);
 	public int deleteBoardGood(int boardNo);
 	public int deleteBoardGood(String id);
+	
+	public int countBoard();
 }

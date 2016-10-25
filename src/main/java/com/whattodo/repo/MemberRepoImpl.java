@@ -75,4 +75,9 @@ public class MemberRepoImpl implements MemberRepo {
 		String statement = NAME_SPACE+"findId";
 		return template.selectOne(statement,email);
 	}
+	
+	public int countUser(){
+		String statement = NAME_SPACE+"countUser";
+		return template.selectOne(statement);
+	}
 }

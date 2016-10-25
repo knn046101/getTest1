@@ -69,4 +69,9 @@
 	<select id="findId" resultType="String" parameterType="String">
 		select * from members where email=#{email}
 	</select>
+	
+	
+	<select id="countUser" resultType="int">
+		select count(id) from members
+	</select>
 </mapper>

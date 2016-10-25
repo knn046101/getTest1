@@ -10,4 +10,5 @@ public interface AdvertisementRepo {
 	public int deleteAd(int adsNo);
 	public List<Advertisement> selectAllAdvertisement();
 	public List<Advertisement> selectAdvertisement();
+	public int countAd();
 }

@@ -38,5 +38,10 @@ public class AdvertisementRepoImpl implements AdvertisementRepo{
 		String statement=NAME_SPACE+"selectAdvertisement";
 		return template.selectList(statement);
 	}
+	
+	public int countAd(){
+		String statement=NAME_SPACE+"countAdvertisement";
+		return template.selectOne(statement);
+	}
 
 }

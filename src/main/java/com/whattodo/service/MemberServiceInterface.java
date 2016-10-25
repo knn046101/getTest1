@@ -21,4 +21,6 @@ public interface MemberServiceInterface {
 	public List<Member> getMemberByDivisionCustomer();
 	public List<Member> getMemberByDivisionEditor();
 	public String findIdByEmail(String email);
+	
+	public int countUser();
 }

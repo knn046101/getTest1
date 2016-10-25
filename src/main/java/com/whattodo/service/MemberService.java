@@ -69,4 +69,8 @@ public class MemberService implements MemberServiceInterface{
 	public String findIdByEmail(String email){
 		return mrepo.findIdbyEmail(email);
 	}
+	
+	public int countUser(){
+		return mrepo.countUser();
+	}
 }
