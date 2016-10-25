@@ -244,4 +244,8 @@
 		where board_no=#{boardNo} and id=#{id}
 	</select>
 	
+	<select id="countBoard" resultType="int">
+		select count(board_no) from boards
+	</select>
+	
 </mapper>

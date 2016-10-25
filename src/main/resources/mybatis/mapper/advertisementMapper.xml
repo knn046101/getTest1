@@ -29,6 +29,8 @@
 		where option_flag =1
 	</select>
 	
-	
+	<select id="countAdvertisement" resultType="int">
+		select count(ads_no) from ads
+	</select>
 	
 </mapper>

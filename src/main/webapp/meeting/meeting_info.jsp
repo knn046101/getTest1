@@ -73,7 +73,123 @@
 				</div>
 			</div>
 
+			<!--start wrapper-->
+	<section class="wrapper">
+	
 
+		<section class="content left_sidebar">
+			<div class="container">
+				<div class="row">
+					<!--Sidebar Widget-->
+					<div class="col-lg-4">
+						<div class="sidebar">
+							
+							<div class="widget widget_categories">
+								<div class="widget_title">
+									<h4><span>모임 소개</span></h4>
+								</div>
+								
+									<img class="left_img img-thumbnail" src=${meeting.meetingImg }>
+									<br><br>
+									<p>${meeting.meetingContent }</p>
+								
+							</div>
+							
+							
+
+
+                            <div class="eve-tab sidebar-tab">
+                               
+                                <div id="myTabContent" class="tab-content clearfix">
+                                    <div class="tab-pane fade active in" id="Popular">
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="Recent">
+                                        <ul class="recent_tab_list">
+                                            <li>
+                                                <span><a href="#"><img src="images/content/recent_4.png" alt="" /></a></span>
+                                                <a href="#">Various versions has evolved over the years</a>
+                                                <i>October 18, 2014</i>
+                                            </li>
+                                            <li>
+                                                <span><a href="#"><img src="images/content/recent_5.png" alt="" /></a></span>
+                                                <a href="#">Rarious versions has evolve over the years</a>
+                                                <i>October 17, 2014</i>
+                                            </li>
+                                            <li class="last-tab">
+                                                <span><a href="#"><img src="images/content/recent_6.png" alt="" /></a></span>
+                                                <a href="#">Marious versions has evolven over the years</a>
+                                                <i>October 16, 2014</i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="Comment">
+                                        <ul class="comments">
+                                            <li class="comments_list clearfix">
+                                                <a class="post-thumbnail" href="#"><img width="60" height="60" src="images/content/recent_3.png" alt="#"></a>
+                                                <p><strong><a href="#">Prambose</a> <i>says: </i> </strong> Morbi augue velit, tempus mattis dignissim nec, porta sed risus. Donec eget magna eu lorem tristique pellentesque eget eu dui. Fusce lacinia tempor malesuada.</p>
+                                            </li>
+                                            <li class="comments_list clearfix">
+                                                <a class="post-thumbnail" href="#"><img width="60" height="60" src="images/content/recent_1.png" alt="#"></a>
+                                                <p><strong><a href="#">Makaroni</a> <i>says: </i> </strong> Tempus mattis dignissim nec, porta sed risus. Donec eget magna eu lorem tristique pellentesque eget eu dui. Fusce lacinia tempor malesuada.</p>
+                                            </li>
+                                            <li class="comments_list clearfix">
+                                                <a class="post-thumbnail" href="#"><img width="60" height="60" src="images/content/recent_2.png" alt="#"></a>
+                                                <p><strong><a href="#">Prambanan</a> <i>says: </i> </strong> Donec convallis, metus nec tempus aliquet, nunc metus adipiscing leo, a lobortis nisi dui ut odio. Nullam ultrices, eros accumsan vulputate faucibus, turpis tortor.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+							
+							
+							
+							
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<div class="blog_large">
+							<article class="post">
+								<figure class="post_img">
+									<!-- Post Image Slider -->
+									<div id="slider" class="swipe">
+										<ul class="swipe-wrap">
+											<li><img src="images/blog/blog_2.png" alt="blog post"></li>
+											<li><img src="images/blog/blog_1.png" alt="blog post"></li>
+											<li><img src="images/blog/blog_3.png" alt="blog post"></li>
+										</ul>
+										<div class="swipe-navi">
+										  <div class="swipe-left" onclick="mySwipe.prev()"><i class="fa fa-chevron-left"></i></div> 
+										  <div class="swipe-right" onclick="mySwipe.next()"><i class="fa fa-chevron-right"></i></div>
+										</div>
+									</div>
+								</figure>
+								<div class="post_date">
+									<span class="day">28</span>
+									<span class="month">Nov</span>
+								</div>
+								<div class="post_content">
+									<div class="post_meta">
+										<h2>
+											<a href="#">perferendis doloribus asperiores ut labore</a>
+										</h2>
+										<div class="metaInfo">
+											<span><i class="fa fa-calendar"></i> <a href="#">Nov 28, 2014</a> </span>
+											<span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
+										</div>
+									</div>
+									
+								</div>
+								
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+	<!--end wrapper-->
 
 
 	<jsp:include page="/layout/footer.jsp"></jsp:include>

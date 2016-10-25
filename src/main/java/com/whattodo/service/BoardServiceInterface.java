@@ -57,4 +57,6 @@ public interface BoardServiceInterface {
 	public void updateBoardReply(BoardReply boardReply);
 	public void deleteBoardReply(int boardReplyNo);
 	public List<BoardReply> selectBoardReply(int boardNo);
+	
+	public int countBoard();
 }

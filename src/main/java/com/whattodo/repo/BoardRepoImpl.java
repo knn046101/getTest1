@@ -265,5 +265,9 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement);
 	}
 	
+	public int countBoard(){
+		String statement = NAME_SPACE+"countBoard";
+		return template.selectOne(statement);
+	}
 	
 }

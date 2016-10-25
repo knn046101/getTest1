@@ -1,9 +1,11 @@
 package com.whattodo.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -476,4 +478,12 @@ public class BoardController {
 	      boardStr+="]";
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
+	
+	@RequestMapping(value="/countBoard", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String countBoard(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		int result1 = bs.countBoard();
+		String result=result1+"";
+		return result;
+	}
 }

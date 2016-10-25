@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -41,7 +42,7 @@ a {
 								<a href="<%=request.getContextPath() %>/admin/adminpage_board.jsp" style="color: #555;"> <i
 									class="fa fa-edit"></i>
 									<h3>총 게시글 관리</h3>
-									<p>Total: 295</p>
+									<p id="board"></p>
 								</a>
 
 							</div>
@@ -51,7 +52,7 @@ a {
 								<a href="<%=request.getContextPath() %>/admin/adminpage_user.jsp" style="color: #555";> <i
 									class="fa fa-users"></i>
 									<h3>회원 관리</h3>
-									<p>Total: 56</p>
+									<p id="user"></p>
 								</a>
 							</div>
 						</div>
@@ -60,7 +61,7 @@ a {
 								<a href="<%=request.getContextPath() %>/admin/adminpage_adv_board.jsp" style="color: #555";> <i
 									class="fa fa-bullhorn"></i>
 									<h3>광고글 관리</h3>
-									<p>Total: 11</p>
+									<p id="ad"></p>
 								</a>
 							</div>
 						</div>
@@ -74,6 +75,58 @@ a {
 
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
-<script></script>
+<script>
+<c:url value="/countAd" var="countAd"/>
+		$(document).on("ready",function(){
+			$.ajax({
+				type:"post",
+				url:"${countAd}",
+				dataType:"json",
+				
+				success:function(data){
+					$("#ad").append("Total: ").append(data);
+				},
+				error:function(xhr, status, error){
+					alert(error);
+				},
+				ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+			});
+		});
+		
+<c:url value="/countUser" var="countUser"/>
+			$(document).on("ready",function(){
+				$.ajax({
+					type:"post",
+					url:"${countUser}",
+					dataType:"json",
+					
+					success:function(data){
+						$("#user").append("Total: ").append(data);
+					},
+					error:function(xhr, status, error){
+						alert(error);
+					},
+					ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+				});
+			});
+		
+<c:url value="/countBoard" var="countBoard"/>
+				$(document).on("ready",function(){
+					$.ajax({
+						type:"post",
+						url:"${countBoard}",
+						dataType:"json",
+						
+						success:function(data){
+							$("#board").append("Total: ").append(data);
+						},
+						error:function(xhr, status, error){
+							alert(error);
+						},
+						ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+					});
+				});
+	
+</script>
 
 </html>

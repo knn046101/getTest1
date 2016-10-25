@@ -110,4 +110,16 @@ public class AdvertisementController {
 			String jsonType = gson.toJson(list);
 			return jsonType;		 
 		}
+	
+	@RequestMapping(value="/countAd", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String countAd(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		int result1 = as.countAd();
+		String result=result1+"";
+		return result;
 	}
+}
+
+
+	
+	

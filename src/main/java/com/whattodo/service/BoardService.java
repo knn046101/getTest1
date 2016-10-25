@@ -187,5 +187,9 @@ public class BoardService implements BoardServiceInterface{
 	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo){
 		return brepo.selectboardGoodsByIdAndBoardNo(id, boardNo);
 	}
+	
+	public int countBoard(){
+		return brepo.countBoard();
+	}
 
 }
