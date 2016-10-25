@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -55,6 +56,7 @@ a {
 								</a>
 							</div>
 						</div>
+						
 						<div class="col-sm-4 col-md-4 col-lg-4">
 							<div class="serviceBox_2">
 								<a href="<%=request.getContextPath() %>/admin/adminpage_adv_board.jsp" style="color: #555";> <i
@@ -64,9 +66,14 @@ a {
 								</a>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 				
+				
+				<c:url value="/sendByToken" var="token" />
+	<a href="${token}">토큰기반 발송</a>
+	<br>
 			</section>
 		</section>
 	</div>
