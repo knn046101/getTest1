@@ -35,41 +35,59 @@ a {
 		<section class="wrapper">
 			<section class="content service">
 				<div class="container">
-					<div class="row sub_content">
-						</div>
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/admin/adminpage_board.jsp" style="color: #555;"> <i
-									class="fa fa-edit"></i>
-									<h3>총 게시글 관리</h3>
-									<p id="board"></p>
-								</a>
 
-							</div>
+					<div class="row sub_content"></div>
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a
+								href="<%=request.getContextPath()%>/admin/adminpage_board.jsp"
+								style="color: #555;"> <i class="fa fa-edit"></i>
+								<h3>총 게시글 관리</h3>
+								<p id="board"></p>
+							</a>
+
+
 						</div>
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/admin/adminpage_user.jsp" style="color: #555";> <i
-									class="fa fa-users"></i>
-									<h3>회원 관리</h3>
-									<p id="user"></p>
-								</a>
-							</div>
+					</div>
+						
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a href="<%=request.getContextPath()%>/admin/adminpage_user.jsp"
+								style="color: #555";> <i class="fa fa-users"></i>
+								<h3>회원 관리</h3>
+								<p id="user"></p>
+							</a>
+						</div><br>
+					</div>
+					
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a
+								href="<%=request.getContextPath()%>/admin/adminpage_adv_board.jsp"
+								style="color: #555";> <i class="fa fa-bullhorn"></i>
+								<h3>광고글 관리</h3>
+								<p id="ad"></p>
+							</a>
+
 						</div>
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="serviceBox_2">
-								<a href="<%=request.getContextPath() %>/admin/adminpage_adv_board.jsp" style="color: #555";> <i
-									class="fa fa-bullhorn"></i>
-									<h3>광고글 관리</h3>
-									<p id="ad"></p>
-								</a>
-							</div>
+					</div>
+					
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a
+								href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp"
+								style="color: #555";> <i class="fa fa-bell-o"></i>
+								<h3>알림 관리</h3>
+								<p>Total: 11</p>
+							</a>
+
 						</div>
 					</div>
 				</div>
-				
-			</section>
-		</section>
+	</div>
+
+	</section>
+	</section>
 	</div>
 
 

@@ -42,9 +42,9 @@
                      <form id="form" class="form-horizontal" role="form" method="post"
                         action="#">
                         <div class="form-group">
-                           <label class="col-sm-3 control-label" for="image">배너
+                           <label class="col-sm-4 control-label" for="image">배너
                               이미지 등록</label>
-                           <div class="col-sm-3">
+                           <div class="col-sm-4">
                               <input id="image" type="file"></input>
                               <div id="preview">
                                  <img id="imagePreview" />
@@ -52,15 +52,15 @@
                            </div>
                         </div>
                         <div class="form-group">
-                           <label class="col-sm-3 control-label" for="image">광고 제목</label>
-                           <div class="col-sm-3">
+                           <label class="col-sm-4 control-label" for="image">광고 제목</label>
+                           <div class="col-sm-4">
                               <input type="text" 
-                                 class="form-control col-sm-3" id="adsTitle"></input>
+                                 class="form-control col-sm-4" id="adsTitle"></input>
                            </div>
                         </div>
                         <div class="form-group">
-                           <label class="col-sm-3 control-label" for="image">광고 링크</label>
-                           <div class="col-sm-3">
+                           <label class="col-sm-4 control-label" for="image">광고 링크</label>
+                           <div class="col-sm-4">
                               <input type="url"  class="form-control col-sm-3"
                                  id="link"> 
                            </div>
