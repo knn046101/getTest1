@@ -41,6 +41,24 @@ public class TokenService implements TokenInterface{
 		trepo.updateClientToken(token);
 	}
 
+	public List<Tokens> selectStudenttokens() {
+		List<Tokens> list = trepo.selectStudenttokens();
+		
+		return list;
+	}
+
+	public List<Tokens> selectBizmantokens() {
+		List<Tokens> list = trepo.selectBizmantokens();
+		
+		return list;
+	}
+
+	public List<Tokens> selectEtctokens() {
+		List<Tokens> list = trepo.selectEtctokens();
+		
+		return list;
+	}
+
 
 
 }

@@ -45,14 +45,14 @@
                            <label class="col-sm-4 control-label" for="image">알림 제목</label>
                            <div class="col-sm-4">
                               <input type="text" 
-                                 class="form-control col-sm-3" id="adsTitle"></input>
+                                 class="form-control col-sm-3" id="notiTitle"></input>
                            </div>
                         </div>
                         <div class="form-group">
                            <label class="col-sm-4 control-label" for="image">알림 내용</label>
                            <div class="col-sm-4">
                               <input type="text" 
-                                 class="form-control col-sm-3" id="adsTitle"></input>
+                                 class="form-control col-sm-3" id="notiContent"></input>
                            </div>
                         </div>
                         <div class="form-group">
@@ -66,11 +66,13 @@
                         <div class="form-group">
                            <div class="col-sm-12 text-center">
                               <button class="btn btn-primary" type="button"
-                                 style="background-color:orange; border-color:#fff;" id="adjoin">
-                                    알림 등록<i class="fa fa-check spaceLeft"></i>
+                                 style="background-color:orange; border-color:#fff;" id="notipush">
+                                    알림 발송<i class="fa fa-check spaceLeft"></i>
                               </button>
                            </div>
                         </div>
+     
+
 
                      </form>
                   </div>
@@ -91,5 +93,47 @@
 </body>
 
 <script>
+
+var title;
+var content;
+var taglink;
+
+
+<c:url value="/sendByToken" var="sendByToken"/>
+    $('#notipush').on("click",function(){
+    	
+    	title = $('#notiTitle').val();
+    	content =$('#notiContent').val();
+    	taglink = $('#link').val();
+    	
+    	var alldata ={
+    			"title":title,
+    			"content":content,
+    			"taglink":taglink
+    			};
+    	
+       $.ajax({
+          type:"post",
+          url:"${sendByToken}",
+          
+          data :alldata,
+          
+          success:function(data){
+            alert("푸시메세지 전송이 완료되었습니다.");
+          }
+        	  ,
+          error:function(xhr, status, error){
+             alert(error);
+          },
+          ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+       });
+    });
+
+
+
+
+
+
+
 </script>
 </html>

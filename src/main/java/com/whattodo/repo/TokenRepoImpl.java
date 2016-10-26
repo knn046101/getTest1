@@ -41,4 +41,19 @@ public class TokenRepoImpl implements TokenRepo{
 		
 	}
 
+	public List<Tokens> selectStudenttokens() {
+		String statement = NAME_SPACE+"selectStudenttokens";
+		return template.selectList(statement);
+	}
+
+	public List<Tokens> selectBizmantokens() {
+		String statement = NAME_SPACE+"selectBizmantokens";
+		return template.selectList(statement);
+	}
+
+	public List<Tokens> selectEtctokens() {
+		String statement = NAME_SPACE+"selectEtctokens";
+		return template.selectList(statement);
+	}
+
 }

@@ -13,6 +13,13 @@ public interface TokenRepo {
 	
 	public List<Tokens> selectAllowtokens() ;
 	
+	public List<Tokens> selectStudenttokens() ;
+	
+	public List<Tokens> selectBizmantokens() ;
+	
+	public List<Tokens> selectEtctokens() ;
+	
+	
 	public int updateClientToken(Tokens token);
 	
 

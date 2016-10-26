@@ -29,4 +29,22 @@
 		select * from tokens
 		where token_flag =1
 	</select>
+	
+	
+	<select id="selectStudenttokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =2
+	</select>
+	
+	
+	<select id="selectBizmantokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =3
+	</select>
+	
+	<select id="selectEtctokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =4
+	</select>
+	
 </mapper>
