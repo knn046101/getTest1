@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whattodo.dao.TokenMapper">
+	
+	<insert id="insertToken" parameterType="token">
+		insert into tokens(token_no, token_content, token_flag)
+		values(seq_token_no.nextval, #{tokenContent}, #{tokenFlag})
+	</insert>
+	
+	
+	<update id="updateTokenFlag" parameterType="token">
+		update tokens
+		set token_flag=#{tokenFlag}		
+		where token_content=#{tokenContent}
+	</update>
+
+	<delete id="deleteToken" parameterType="int">
+		delete from tokens
+		where token_no=#{tokenNo}
+	</delete>
+	
+	<select id="selectAlltokens"  resultType="token">
+		select * from tokens
+	</select>
+	
+	<select id="selectAllowtokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =1
+	</select>
+	
+	
+	<select id="selectStudenttokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =2
+	</select>
+	
+	
+	<select id="selectBizmantokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =3
+	</select>
+	
+	<select id="selectEtctokens"  parameterType="int" resultType="token">
+		select * from tokens
+		where token_flag =4
+	</select>
+	
+</mapper>

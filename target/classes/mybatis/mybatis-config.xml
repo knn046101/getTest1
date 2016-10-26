@@ -24,6 +24,7 @@
 		<typeAlias type="com.whattodo.dto.BoardsFollows" alias="boardsFollows"/>
 		<typeAlias type="com.whattodo.dto.BoardsGoods" alias="boardsGoods"/>
 		<typeAlias type="com.whattodo.dto.MeetingFollow" alias="meetingFollow"/>
+		<typeAlias type="com.whattodo.dto.Tokens" alias="token"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mapper/adminMapper.xml" />
@@ -36,6 +37,8 @@
 		<mapper resource="mybatis/mapper/meetingBoardReplyMapper.xml" />
 		<mapper resource="mybatis/mapper/memberMapper.xml" />
 		<mapper resource="mybatis/mapper/regionMapper.xml" />
+		<mapper resource="mybatis/mapper/tokensMapper.xml" />
+		
 	</mappers>
 	
 

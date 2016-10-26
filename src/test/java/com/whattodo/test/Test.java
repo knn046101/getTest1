@@ -25,6 +25,7 @@ import com.whattodo.dto.Meeting;
 import com.whattodo.dto.MeetingBoard;
 import com.whattodo.dto.MeetingBoardReply;
 import com.whattodo.dto.Member;
+import com.whattodo.dto.Tokens;
 import com.whattodo.repo.AdminRepo;
 import com.whattodo.repo.AdvertisementRepo;
 import com.whattodo.repo.BenefitRepo;
@@ -33,6 +34,7 @@ import com.whattodo.repo.MeetingBoardReplyRepo;
 import com.whattodo.repo.MeetingBoardRepo;
 import com.whattodo.repo.MeetingRepo;
 import com.whattodo.repo.MemberRepo;
+import com.whattodo.repo.TokenRepo;
 import com.whattodo.service.BoardServiceInterface;
 import com.whattodo.service.MeetingService;
 import com.whattodo.service.MemberService;
@@ -60,7 +62,8 @@ public class Test {
 	MeetingBoardReplyRepo mbrr;
 	@Autowired
 	BoardRepo boardrepo;
-	
+	@Autowired
+	TokenRepo tokenrepo;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -73,12 +76,60 @@ public class Test {
 	@Autowired
 	MemberService ms;
 	
+	
+	
+	@org.junit.Test
+	public void tokeninserttest() {
+		Tokens token = new Tokens("123asdas",1);
+		
+		int result = tokenrepo.addClientToken(token);
+		assertThat(result, is(notNullValue()));
+		
+		
+	}
+	
+	@org.junit.Test
+	public void tokenalltest() {
+		
+		
+		List<Tokens> list = tokenrepo.selectAlltokens();
+		assertThat(list, is(notNullValue()));
+		
+		
+	}
+	
+	@org.junit.Test
+	public void tokenAllowalltest() {
+		
+		
+		List<Tokens> list = tokenrepo.selectAllowtokens();
+		assertThat(list, is(notNullValue()));
+		
+		
+	}
+	
+	
+	@org.junit.Test
+	public void tokenupdatetest() {
+		Tokens token = new Tokens("123asdas",0);
+		
+		int result = tokenrepo.updateClientToken(token);
+		assertThat(result, is(1));
+		
+		
+	}
+	
+	
+	
 	@org.junit.Test
 	public void test() {
 		Admin admin=ms.getAdmin("admin");
 		assertThat(admin, is(notNullValue()));
 		assertThat(admin.getPass(), is("admin123!"));
 	}
+	
+	
+	
 	
 	@org.junit.Test
 	public void serviceAdminTest() {
