@@ -295,4 +295,40 @@ public class MemberController {
 		String result=result1+"";
 		return result;
 	}
+	
+	@RequestMapping(value="/searchUser", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String searchUser(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		String id = request.getParameter("search");
+		String memberstr="";
+		Member member = ms.getMemberById(id);
+		Gson gson = new Gson();
+		memberstr=gson.toJson(member);
+		return memberstr;
+	}
+	
+	@RequestMapping(value="/onlySetCustomer", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String onlySetCustomer(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		String id = request.getParameter("id");
+		String memberstr="";
+		ms.setCustomer(id);
+		Member member = ms.getMemberById(id);
+		Gson gson = new Gson();
+		memberstr=gson.toJson(member);
+		return memberstr;
+	}
+	
+	@RequestMapping(value="/onlySetEditor", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String onlySetEditor(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		String id = request.getParameter("id");
+		String memberstr="";
+		ms.setEditor(id);
+		Member member = ms.getMemberById(id);
+		Gson gson = new Gson();
+		memberstr=gson.toJson(member);
+		return memberstr;
+	}
+	
 }

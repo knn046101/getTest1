@@ -129,7 +129,7 @@
 											</a></li>
 											<li><a href="#"> 
 													<select name="numberOfPeople">
-														<option>몇 명이서</option>
+														<option>몇명이서</option>
 														<option>혼자서</option>
 														<option>둘이서</option>
 														<option>3명이상</option>

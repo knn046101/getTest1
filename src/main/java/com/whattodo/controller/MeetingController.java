@@ -67,10 +67,48 @@ public class MeetingController {
 		}
 	}
 	
+	@RequestMapping(value="/meetingDelete", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String meetingDelete(Model model, HttpServletRequest request){
+		int meetingNo=Integer.parseInt(request.getParameter("meetingNo"));
+		ms.deleteMeeting(meetingNo);
+		return "성공";
+	}
+	
 	@RequestMapping(value="/getMeetings", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String getBoardEditorBoards(Model model, HttpServletRequest request){
 		List<Meeting> meetings=ms.selectAllMeetings();
+		List<Meeting> afterMeetings=new ArrayList<Meeting>();
+		int page = Integer.parseInt(request.getParameter("pageno"));
+		
+	    int end=(page*9<meetings.size())? page*9 : meetings.size();
+
+        for(int i=9*(page-1); i<end; i++){
+        	meetings.get((page-1)*10).setPage(page);
+        	String place=meetings.get(i).getPlace();
+        	String[] tmpPlace=place.split(",");
+        	if(!tmpPlace[1].equals("undefined")){
+        		place=tmpPlace[0]+" "+tmpPlace[1];
+        		meetings.get(i).setPlace(place);
+        	}else{
+        		place=tmpPlace[0];
+        		meetings.get(i).setPlace(place);
+        	}
+        	afterMeetings.add(meetings.get(i));
+        }
+        afterMeetings.get(0).setRecordNum(meetings.size());
+	        
+		Gson gson = new Gson();
+		String boardGoodBestStr = gson.toJson(afterMeetings);
+		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
+	}
+	
+	@RequestMapping(value="/getMeetingsFollow", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String getMeetingsFollow(Model model, HttpServletRequest request){
+		String id = request.getParameter("id");
+		List<Meeting> meetings=ms.selectFollowMeetings(id);
 		List<Meeting> afterMeetings=new ArrayList<Meeting>();
 		int page = Integer.parseInt(request.getParameter("pageno"));
 		

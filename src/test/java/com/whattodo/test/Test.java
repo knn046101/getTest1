@@ -34,6 +34,7 @@ import com.whattodo.repo.MeetingBoardRepo;
 import com.whattodo.repo.MeetingRepo;
 import com.whattodo.repo.MemberRepo;
 import com.whattodo.service.BoardServiceInterface;
+import com.whattodo.service.MeetingService;
 import com.whattodo.service.MemberService;
 import com.whattodo.service.RegionService;
 
@@ -227,7 +228,13 @@ public class Test {
 		int result=mbr.insertMeetingBoard(meetingBoard);
 		assertThat(result, is(1));
 	}
-	
+	@Autowired
+	MeetingService mss;
+	@org.junit.Test
+	public void deleteMeetingBoard(){
+		mss.deleteMeeting(63);
+	}
+
 	@org.junit.Test
 	public void insertMeetingBoardReplys(){
 		MeetingBoardReply meetingBoardReply = new MeetingBoardReply();

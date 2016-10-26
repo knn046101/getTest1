@@ -89,16 +89,10 @@ var category="";
       $(".delete").remove();   
       var page_eno;
       var page_sno;
-      var data = {
-			"location":"${location }",
-			"numberOfPeople":"${numberOfPeople}",
-			"category":"${category}",
-			"what":"${what }"
-      };  
+     
       $.ajax({
          type : "post",
-         url : "${getBoardsBySearch }?pageno=1",
-         data : data,
+         url : "${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}",
          dataType:"json",
          success : function(args) {
             var length=args.length;
@@ -183,10 +177,10 @@ var category="";
             }
 
             var pageText="";
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1')>[맨앞으로]</a>";
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"')>[이전]</a>";
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[맨앞으로]</a>";
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[이전]</a>";
             for(var i=page_sno; i<=page_eno; i++){ 
-               pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"')>";
+               pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>";
                if(pageno == i){ 
                   pageText+="["+i+"]";
                }else{ 
@@ -198,8 +192,8 @@ var category="";
                   pageText+="<span class='paging'> , </span>";
                } 
             } 
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"')>[다음]</a>";         
-            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";            
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[다음]</a>";         
+            pageText+="<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[맨뒤로]</a><br class='paging'>";            
             $("#page").append(pageText);
          },
          error : function(xhr, status, error) {
@@ -216,21 +210,13 @@ var category="";
 		$(".paging").remove();
 		var page_eno;
 		var page_sno;
-		var data = {
-				"location":"${location }",
-				"numberOfPeople":"${numberOfPeople}",
-				"category":"${category}",
-				"what":"${what }"
-	      };  
 		$.ajax({
 			type:"post",
 			url: url,
-			data:data,
 			dataType:"json",
 			// xhr.readyState ==4&& xhr.status==200 상황
 			success : function(args){
 				var length=args.length;
-				console.log(args);
 				for(var i=0; i<length; i++){
 					<c:url value="/retrieve" var="retrieve"/>
 						htmlText+="<li class='col-sm-3 col-md-3 col-lg-3 delete'>"
@@ -313,10 +299,10 @@ var category="";
 //				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText="";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1')>[맨앞으로]</a>";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"')>[이전]</a>";
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[맨앞으로]</a>";
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[이전]</a>";
 				for(var i=page_sno; i<=page_eno; i++){ 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"')>";
+					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>";
 					if(pageno == i){ 
 						pageText+="["+i+"]";
 					}else{ 
@@ -328,8 +314,8 @@ var category="";
 						pageText+="<span class='paging'> , </span>";
 					} 
 				} 
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"')>[다음]</a>";			
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";				
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[다음]</a>";			
+				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>[맨뒤로]</a><br class='paging'>";				
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr){

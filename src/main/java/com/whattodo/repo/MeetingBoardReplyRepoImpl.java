@@ -30,6 +30,11 @@ public class MeetingBoardReplyRepoImpl implements MeetingBoardReplyRepo{
 		return template.delete(statement, meetingBoardReplyNo);
 	}
 
+	public int deleteMeetingBoardReplyByMeetingBoardNo(int meetingBoardNo){
+		String statement = NAME_SPACE+"deleteMeetingBoardReplyByMeetingBoardNo";
+		return template.delete(statement, meetingBoardNo);
+	}
+	
 	public List <MeetingBoardReply> selectAllMeetingBoardReply(int meetingBoardNo) {
 		String statement = NAME_SPACE+"selectAllMeetingBoardReply";
 		return template.selectList(statement, meetingBoardNo);

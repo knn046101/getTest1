@@ -43,7 +43,7 @@ a {
 								href="<%=request.getContextPath()%>/admin/adminpage_board.jsp"
 								style="color: #555;"> <i class="fa fa-edit"></i>
 								<h3>총 게시글 관리</h3>
-								<p id="board"></p>
+								<label id="board"></label>
 							</a>
 
 
@@ -55,7 +55,7 @@ a {
 							<a href="<%=request.getContextPath()%>/admin/adminpage_user.jsp"
 								style="color: #555";> <i class="fa fa-users"></i>
 								<h3>회원 관리</h3>
-								<p id="user"></p>
+								<label id="user"></label>
 							</a>
 						</div><br>
 					</div>
@@ -66,7 +66,7 @@ a {
 								href="<%=request.getContextPath()%>/admin/adminpage_adv_board.jsp"
 								style="color: #555";> <i class="fa fa-bullhorn"></i>
 								<h3>광고글 관리</h3>
-								<p id="ad"></p>
+								<label id="ad"></label>
 							</a>
 
 						</div>
@@ -78,18 +78,15 @@ a {
 								href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp"
 								style="color: #555";> <i class="fa fa-bell-o"></i>
 								<h3>알림 관리</h3>
-								<p>Total: 11</p>
+								<label>Total: 11</label>
 							</a>
 
 						</div>
 					</div>
 				</div>
+				</section>
+		</section>
 	</div>
-
-	</section>
-	</section>
-	</div>
-
 
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>

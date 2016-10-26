@@ -156,12 +156,16 @@ public class BoardService implements BoardServiceInterface{
 		return	 brepo.selectBoardByMainEditor();
 	}
 
+	public List<Board> selectMyBoardsById(String id){
+		return	 brepo.selectMyBoardsById(id);
+	}
+	
 	public int insertBoardFollow(int boardNo, String id) {
 		return brepo.insertBoardFollow(boardNo, id);
 	}
 
-	public void deleteBoardFollow(int boardNo) {
-		brepo.deleteBoardFollow(boardNo);
+	public int deleteBoardFollow(int boardNo) {
+		return brepo.deleteBoardFollow(boardNo);
 	}
 
 	public void deleteBoardFollow(String id) {
@@ -172,8 +176,8 @@ public class BoardService implements BoardServiceInterface{
 		return brepo.insertBoardGood(boardNo, id);
 	}
 	
-	public void deleteBoardGood(int boardNo){
-		brepo.deleteBoardGood(boardNo);
+	public int deleteBoardGood(int boardNo){
+		return brepo.deleteBoardGood(boardNo);
 	}
 	
 	public void deleteBoardGood(String id){
