@@ -28,17 +28,8 @@
 					</div>
 					 <label class="col-sm-3 control-label"></label>
 					 <div class="col-sm-6">
-					 <center>
-          			  <div>
-          			  		<select style="height:28px;">
-          			  			<option>사용자</option>
-          			  			<option>글번호</option>
-          			  		</select>
-							<input class="input-text" name="s" id="search" type="text" />
-							<button style="background-color:#27AB99;color:#fff;border-style: none;"><i class="fa fa-search"></i></button>
-										</div>
+					
                		</div>
-               		</center>
                		<button onclick="location='<%=request.getContextPath()%>/admin/adminpage_adv.jsp'" style="background-color:#27AB99;color:#fff;border-style: none;">광고 등록</button>
                		<br>
                		<br>

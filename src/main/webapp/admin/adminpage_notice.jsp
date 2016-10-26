@@ -22,8 +22,6 @@
 			<jsp:include page="/layout/header.jsp"></jsp:include>
 		</div>
 		<br> <br>
-
-
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
@@ -288,6 +286,51 @@
 </body>
 
 <script>
+<<<<<<< HEAD
 	
+=======
+
+var title;
+var content;
+var taglink;
+
+
+<c:url value="/sendByToken" var="sendByToken"/>
+    $('#notipush').on("click",function(){
+    	
+    	title = $('#notiTitle').val();
+    	content =$('#notiContent').val();
+    	taglink = $('#link').val();
+    	
+    	var alldata ={
+    			"title":title,
+    			"content":content,
+    			"taglink":taglink
+    			};
+    	
+       $.ajax({
+          type:"post",
+          url:"${sendByToken}",
+          
+          data :alldata,
+          
+          success:function(data){
+            alert("푸시메세지 전송이 완료되었습니다.");
+          }
+        	  ,
+          error:function(xhr, status, error){
+             alert(error);
+          },
+          ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+       });
+    });
+
+
+
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 </script>
 </html>
