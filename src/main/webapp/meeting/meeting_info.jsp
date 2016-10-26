@@ -22,14 +22,21 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							<h2>${meeting.meetingTitle } &nbsp;</h2>
 							<nav id="breadcrumbs">${meeting.place } > ${meeting.meetingKeyword }</nav>
+							<br>
 							<c:if test="${!empty login}">
 									<span class="input-group-btn">
 										<button
 											onclick="location='<%=request.getContextPath()%>/meeting/meeting_board_write.jsp?meetingNo=${meeting.meetingNo }'"
 											id="writeboard" class="btn btn-success"
 											style="background-color: #27AB99; border-color: #fff; float: right;">
-											글작성 <i class="fa fa-pencil"></i>
+											게시글작성 <i class="fa fa-pencil"></i>
 										</button>
+										<c:if test="${meeting.id eq login.id }">
+										<button class="btn btn-primary" id="meeintgDelete"
+											style="background-color:orange; border-color: #fff;">
+											모임삭제 <i class="fa fa-trash-o"></i>
+										</button>
+										</c:if>
 									</span>
 								</c:if>
 							<nav style="float: right">
@@ -449,5 +456,32 @@ function send(inputUrl) {
 			});
 		}
 	});
+	
+	<c:url value="/meetingDelete" var="meetingDelete"/>
+	$("#meeintgDelete").on("click", function(){
+		var returnValue
+		returnValue=confirm("모임을 삭제하시겠습니까?");
+		data={
+				"meetingNo":"${meeting.meetingNo}"
+		};
+		if(returnValue){
+			$.ajax({
+				type:"get",
+				url:"${meetingDelete }",
+				data: data,
+				success:function(args){
+					if(args=="성공"){
+						alert("모임이 삭제 되었습니다.");
+						location.href="<%=request.getContextPath()%>/meeting/meeting_main.jsp";
+					}else{
+						alert("모임 삭제 실패!");
+					}
+				},
+				error:function(txt, txt2, xhr){},
+				"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
+			});
+		}
+	});
+	
 </script>
 </html>

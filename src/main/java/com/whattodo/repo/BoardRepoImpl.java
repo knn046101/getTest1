@@ -223,6 +223,11 @@ public class BoardRepoImpl implements BoardRepo {
 		return template.selectList(statement, boardTitle);
 	}
 	
+	public List<Board> selectMyBoardsById(String id){
+		String statement=NAME_SPACE+"selectMyBoardsById";
+		return template.selectList(statement, id);
+	}
+	
 	public int insertBoardFollow(int boardNo, String id) {
 		String statement=NAME_SPACE+"insertBoardFollow";
 		Map<String, Object> map = new HashMap<String, Object>();

@@ -32,10 +32,69 @@ a {
          </div>
       </div>
 
+<<<<<<< HEAD
+		<section class="wrapper">
+			<section class="content service">
+				<div class="container">
+
+					<div class="row sub_content"></div>
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a
+								href="<%=request.getContextPath()%>/admin/adminpage_board.jsp"
+								style="color: #555;"> <i class="fa fa-edit"></i>
+								<h3>총 게시글 관리</h3>
+								<label id="board"></label>
+							</a>
+
+=======
       <section class="wrapper">
          <section class="content service">
             <div class="container">
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 
+<<<<<<< HEAD
+						</div>
+					</div>
+						
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a href="<%=request.getContextPath()%>/admin/adminpage_user.jsp"
+								style="color: #555";> <i class="fa fa-users"></i>
+								<h3>회원 관리</h3>
+								<label id="user"></label>
+							</a>
+						</div><br>
+					</div>
+					
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a
+								href="<%=request.getContextPath()%>/admin/adminpage_adv_board.jsp"
+								style="color: #555";> <i class="fa fa-bullhorn"></i>
+								<h3>광고글 관리</h3>
+								<label id="ad"></label>
+							</a>
+
+						</div>
+					</div>
+					
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="serviceBox_2">
+							<a
+								href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp"
+								style="color: #555";> <i class="fa fa-bell-o"></i>
+								<h3>알림 관리</h3>
+								<label>Total: 11</label>
+							</a>
+
+						</div>
+					</div>
+				</div>
+				</section>
+		</section>
+	</div>
+=======
                <div class="row sub_content"></div>
                <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="serviceBox_2">
@@ -46,6 +105,7 @@ a {
                         <p id="board"></p>
                      </a>
 
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 
                   </div>
                </div>
