@@ -22,15 +22,8 @@ a {
 	<br>
 
 	<div class="container-fluid">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class="dividerHeading">
-					<h4>
-						<span>모아보기</span>
-					</h4>
-				</div>
-			</div>
+			
 				<div class="container">
-						<!--Sidebar Widget-->
 						<div class="col-xs-12 col-md-4 col-lg-4 col-sm-4">
 							<div class="sidebar">
 								<div class="widget widget_categories">
@@ -59,8 +52,129 @@ a {
 									마이페이지	</a></span>
 											</h4>
 										</div>
-										<ul class="arrows_list">
-										<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										
+								</div>
+							</div>
+							</div>
+						</div>
+						
+            			 <div class="col-lg-8">
+           					 <div class="carousel-intro">
+		               
+		                 		 <div class="dividerHeading">
+		                    		 <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+										내 글	</a></h3>
+		                 		 </div>
+		              		 </div>
+								<div id="myCarousel" class="row carousel slide" data-ride="carousel">
+								<!-- Wrapper for slides -->
+			    					<div class="carousel-inner" id="carouseltotal" >
+							   			<div class="item active">
+								    		<ul class="thumbnails" id ="searchMyBoard1" style=list-style:none;>
+											</ul>
+			     						</div> <!-- /Slide1 --> 
+							   			<div class="item">
+			        						<ul class="thumbnails" id = "searchMyBoard2" style=list-style:none;>
+							        		</ul>
+			 				    		</div><!-- /Slide2 --> 
+					   				</div>
+					   			<!-- /Wrapper for slides .carousel-inner -->
+		
+						    	<!-- Control box -->
+								<div class="control-box">                            
+									<a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+									<a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+					  		  	</div>
+					  		  	<!-- /.control-box -->   
+							</div>
+							<!-- /#myCarousel -->
+						</div>          
+				
+                 <!--추가 시범  -->
+        		 <!--end wrapper-->
+        		 
+   
+     			 <div class="col-lg-8">
+            		<div class="carousel-intro">
+                 		 <div class="dividerHeading">
+                    		 <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									관심 키워드	</a></h3>
+                  		</div>
+                  
+                  	</div>
+   					<div id="myCarousel1" class="row carousel slide" data-ride="carousel">
+
+    					<!-- Wrapper for slides -->
+    					<div class="carousel-inner" id="carouseltotal" >
+							<div class="item active">
+        						<ul class="thumbnails" id ="BestTip1"  style=list-style:none;>
+          						</ul>
+      						</div> <!-- /Slide1 --> 
+							<div class="item">
+        						<ul class="thumbnails" id = "BestTip2"  style=list-style:none;>
+          						</ul>
+      						</div><!-- /Slide2 --> 
+      					</div>
+      					<!-- /Wrapper for slides .carousel-inner -->
+						<!-- Control box -->
+    					<div class="control-box">                            
+      						<a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
+     						<a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
+    					</div>
+    					<!-- /.control-box -->   
+					</div>
+					<!-- /#myCarousel -->
+				</div>          
+			
+			
+      			<div class="col-lg-8">
+           			 <div class="carousel-intro">
+                 		 <div class="dividerHeading">
+                     		<h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									스크랩	</a></h3>
+                  		</div>
+                  	</div>
+   					<div id="myCarousel2" class="row carousel slide" data-ride="carousel">
+
+    				<!-- Wrapper for slides -->
+   					 <div class="carousel-inner" id="carouseltotal" >
+						<div class="item active">
+        					<ul class="thumbnails" id ="scrapMyBoards1"  style=list-style:none;>
+         					</ul>
+      					</div> <!-- /Slide1 --> 
+     					<div class="item">
+        					<ul class="thumbnails" id = "scrapMyBoards2"  style=list-style:none;>
+        					</ul>
+      					</div><!-- /Slide2 --> 
+   					 </div><!-- /Wrapper for slides .carousel-inner -->
+
+    				<!-- Control box -->
+   					<div class="control-box">                            
+      					<a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
+      					<a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
+    				</div>
+    				<!-- /.control-box -->   
+					</div><!-- /#myCarousel -->
+				</div>
+				
+	</div>
+	</div>
+						<br><br>
+						<br>
+
+
+	<section class="content left_sidebar">
+			<div class="container">
+				<div class="row">
+					<!--Sidebar Widget-->
+					<div class="col-lg-4">
+						<div class="sidebar">
+							<div class="widget widget_categories">
+								<div class="widget_title">
+									<h4><span>Categories</span></h4>
+								</div>
+								<ul class="arrows_list">
+									<c:url value="/mypageUpdate" var="mypageUpdate"/>
 										
 										<li><a href="${mypageUpdate }?loginId=${login.id }">
 										정보수정</a></li>
@@ -84,137 +198,116 @@ a {
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
 												모임
 										</a></li>
-									</ul>
-								</div>
-							</div>
+								</ul>
 							</div>
 						</div>
-            			 <div class="col-lg-8">
+					</div>
+				</section>
+					<!-- 내용 -->
+					
+					 <div class="col-lg-8">
            					 <div class="carousel-intro">
 		               
-		                  <div class="dividerHeading">
-		                     <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-									내 글	</a></h3>
-		                  </div>
-		               </div>
-						<div id="myCarousel" class="row carousel slide" data-ride="carousel">
-						<!-- Wrapper for slides -->
-			    			<div class="carousel-inner" id="carouseltotal" >
-							   	<div class="item active">
-								    <ul class="thumbnails" id ="searchMyBoard1" style=list-style:none;>
-									</ul>
-			     				</div> <!-- /Slide1 --> 
-							    <div class="item">
-			        				<ul class="thumbnails" id = "searchMyBoard2" style=list-style:none;>
-							        </ul>
-			 				    </div><!-- /Slide2 --> 
-					   		</div><!-- /Wrapper for slides .carousel-inner -->
+		                 		 <div class="dividerHeading">
+		                    		 <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+										내 글	</a></h3>
+		                 		 </div>
+		              		 </div>
+								<div id="myCarousel" class="row carousel slide" data-ride="carousel">
+								<!-- Wrapper for slides -->
+			    					<div class="carousel-inner" id="carouseltotal" >
+							   			<div class="item active">
+								    		<ul class="thumbnails" id ="searchMyBoard1" style=list-style:none;>
+											</ul>
+			     						</div> <!-- /Slide1 --> 
+							   			<div class="item">
+			        						<ul class="thumbnails" id = "searchMyBoard2" style=list-style:none;>
+							        		</ul>
+			 				    		</div><!-- /Slide2 --> 
+					   				</div>
+					   			<!-- /Wrapper for slides .carousel-inner -->
 		
-						    <!-- Control box -->
-							<div class="control-box">                            
+						    	<!-- Control box -->
+								<div class="control-box">                            
 									<a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
 									<a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-					  		  </div><!-- /.control-box -->   
-							</div><!-- /#myCarousel -->
+					  		  	</div>
+					  		  	<!-- /.control-box -->   
+							</div>
+							<!-- /#myCarousel -->
 						</div>          
-
-                            
-
-          <!--추가 시범  -->
-         
-                              
-   <!--end wrapper-->
-   <!--Start recent work-->
-      <div class="col-lg-8">
-            <div class="carousel-intro">
-                  <div class="dividerHeading">
-                     <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-									관심 키워드	</a></h3>
-                  </div>
-                  
-                  
-   <div id="myCarousel1" class="row carousel slide" data-ride="carousel">
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" id="carouseltotal" >
-
-      <div class="item active">
-        
-        <ul class="thumbnails" id ="BestTip1"  style=list-style:none;>
-          
-        </ul>
-      </div> <!-- /Slide1 --> 
-
-
-      <div class="item">
-        <ul class="thumbnails" id = "BestTip2"  style=list-style:none;>
-          
-    
-          
-        </ul>
-      </div><!-- /Slide2 --> 
-
-    </div><!-- /Wrapper for slides .carousel-inner -->
-
-
-
-    <!-- Control box -->
-    <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
-    </div><!-- /.control-box -->   
-
-
-
-  </div><!-- /#myCarousel -->
-
-
-</div>          
-</div><!-- /.col-sm-12 -->
-   <!--Start recent work-->
+				
+                 <!--추가 시범  -->
+        		 <!--end wrapper-->
+        		 
    
-
-
-   <!--Start recent work-->
-      <div class="col-lg-8">
-            <div class="carousel-intro">
-                  <div class="dividerHeading">
-                     <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-									스크랩	</a></h3>
-                  </div>
+     			 <div class="col-lg-8">
+            		<div class="carousel-intro">
+                 		 <div class="dividerHeading">
+                    		 <h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									관심 키워드	</a></h3>
+                  		</div>
                   
-   <div id="myCarousel2" class="row carousel slide" data-ride="carousel">
+                  	</div>
+   					<div id="myCarousel1" class="row carousel slide" data-ride="carousel">
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" id="carouseltotal" >
+    					<!-- Wrapper for slides -->
+    					<div class="carousel-inner" id="carouseltotal" >
+							<div class="item active">
+        						<ul class="thumbnails" id ="BestTip1"  style=list-style:none;>
+          						</ul>
+      						</div> <!-- /Slide1 --> 
+							<div class="item">
+        						<ul class="thumbnails" id = "BestTip2"  style=list-style:none;>
+          						</ul>
+      						</div><!-- /Slide2 --> 
+      					</div>
+      					<!-- /Wrapper for slides .carousel-inner -->
+						<!-- Control box -->
+    					<div class="control-box">                            
+      						<a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
+     						<a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
+    					</div>
+    					<!-- /.control-box -->   
+					</div>
+					<!-- /#myCarousel -->
+				</div>          
+			
+			
+      			<div class="col-lg-8">
+           			 <div class="carousel-intro">
+                 		 <div class="dividerHeading">
+                     		<h3><a style="color:#27AB99;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									스크랩	</a></h3>
+                  		</div>
+                  	</div>
+   					<div id="myCarousel2" class="row carousel slide" data-ride="carousel">
 
-      <div class="item active">
-        
-        <ul class="thumbnails" id ="scrapMyBoards1"  style=list-style:none;>
-          
-        </ul>
-      </div> <!-- /Slide1 --> 
-      <div class="item">
-        <ul class="thumbnails" id = "scrapMyBoards2"  style=list-style:none;>
-        </ul>
-      </div><!-- /Slide2 --> 
-    </div><!-- /Wrapper for slides .carousel-inner -->
+    				<!-- Wrapper for slides -->
+   					 <div class="carousel-inner" id="carouseltotal" >
+						<div class="item active">
+        					<ul class="thumbnails" id ="scrapMyBoards1"  style=list-style:none;>
+         					</ul>
+      					</div> <!-- /Slide1 --> 
+     					<div class="item">
+        					<ul class="thumbnails" id = "scrapMyBoards2"  style=list-style:none;>
+        					</ul>
+      					</div><!-- /Slide2 --> 
+   					 </div><!-- /Wrapper for slides .carousel-inner -->
 
-    <!-- Control box -->
-    <div class="control-box">                            
-      <a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
-    </div><!-- /.control-box -->   
-
-  </div><!-- /#myCarousel -->
-
-
-</div><!-- /.col-sm-12 -->
-</div><!-- /.row --> 
-						</div>
-						<br><br>
-						<br>
-</div>
+    				<!-- Control box -->
+   					<div class="control-box">                            
+      					<a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
+      					<a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
+    				</div>
+    				<!-- /.control-box -->   
+					</div><!-- /#myCarousel -->
+				</div>
+					
+				</div>
+			</div>
+		
+	
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 

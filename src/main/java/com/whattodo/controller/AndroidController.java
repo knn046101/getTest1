@@ -50,14 +50,21 @@ public class AndroidController {
 		String body =request.getParameter("content");
 		//제목 전달
 		String title = request.getParameter("title");
-		//링크 전달
-		String tag = request.getParameter("taglink");
-		
+				
+		//링크내용 전달
+		String link = request.getParameter("link");
+		//검색내용 전달
+		String search = request.getParameter("search");
+		//검색카테고리 전달
+		String category = request.getParameter("select");
+				
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("tag", tag);
+		notification.put("link", link);
+		notification.put("search", search);
+		notification.put("category", category);
 
 		/*Map<String, String> data = new HashMap<String, String>();
 		data.put("Nick", "BBQ");
@@ -87,7 +94,7 @@ public class AndroidController {
 	
 	
 	@RequestMapping(value = "/sendByStudentToken", method = RequestMethod.POST)
-	public void sendByStudentToken(HttpServletRequest request) throws JsonProcessingException {
+	public @ResponseBody void sendByStudentToken(HttpServletRequest request) throws JsonProcessingException {
 		logger.trace("send called");
 		RestTemplate template = new RestTemplate();
 		URI url = URI.create(SERVER);
@@ -96,14 +103,21 @@ public class AndroidController {
 		String body =request.getParameter("content");
 		//제목 전달
 		String title = request.getParameter("title");
-		//링크 전달
-		String tag = request.getParameter("taglink");
+		
+		//링크내용 전달
+		String link = request.getParameter("link");
+		//검색내용 전달
+		String search = request.getParameter("search");
+		//검색카테고리 전달
+		String category = request.getParameter("select");
 		
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("tag", tag);
+		notification.put("link", link);
+		notification.put("search", search);
+		notification.put("category", category);
 
 		/*Map<String, String> data = new HashMap<String, String>();
 		data.put("Nick", "BBQ");
@@ -139,14 +153,21 @@ public class AndroidController {
 		String body =request.getParameter("content");
 		//제목 전달
 		String title = request.getParameter("title");
-		//링크 전달
-		String tag = request.getParameter("taglink");
-		
+				
+		//링크내용 전달
+		String link = request.getParameter("link");
+		//검색내용 전달
+		String search = request.getParameter("search");
+		//검색카테고리 전달
+		String category = request.getParameter("select");
+				
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("tag", tag);
+		notification.put("link", link);
+		notification.put("search", search);
+		notification.put("category", category);
 
 		/*Map<String, String> data = new HashMap<String, String>();
 		data.put("Nick", "BBQ");
@@ -181,14 +202,21 @@ public class AndroidController {
 		String body =request.getParameter("content");
 		//제목 전달
 		String title = request.getParameter("title");
-		//링크 전달
-		String tag = request.getParameter("taglink");
-		
+				
+		//링크내용 전달
+		String link = request.getParameter("link");
+		//검색내용 전달
+		String search = request.getParameter("search");
+		//검색카테고리 전달
+		String category = request.getParameter("select");
+				
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("tag", tag);
+		notification.put("link", link);
+		notification.put("search", search);
+		notification.put("category", category);
 
 		/*Map<String, String> data = new HashMap<String, String>();
 		data.put("Nick", "BBQ");
@@ -223,14 +251,21 @@ public class AndroidController {
 		String body =request.getParameter("content");
 		//제목 전달
 		String title = request.getParameter("title");
-		//링크 전달
-		String tag = request.getParameter("taglink");
-		
+				
+		//링크내용 전달
+		String link = request.getParameter("link");
+		//검색내용 전달
+		String search = request.getParameter("search");
+		//검색카테고리 전달
+		String category = request.getParameter("select");
+				
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("tag", tag);
+		notification.put("link", link);
+		notification.put("search", search);
+		notification.put("category", category);
 
 		/*Map<String, String> data = new HashMap<String, String>();
 		data.put("Nick", "BBQ");
