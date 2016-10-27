@@ -68,7 +68,7 @@
 												스크랩
 										</a></li>
 										<li><a
-											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
+											href="<%=request.getContextPath()%>/mypage/mypage_good.jsp">
 												좋아요
 										</a></li>
 										<li><a

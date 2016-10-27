@@ -74,7 +74,7 @@
 												스크랩
 										</a></li>
 										<li><a
-											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
+											href="<%=request.getContextPath()%>/mypage/mypage_good.jsp">
 												좋아요
 										</a></li>
 										<li><a
@@ -86,23 +86,7 @@
 						</div>
 					</div>
 				
-     			 
-						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-							<div class="row sub_content">
-								<div class="carousel-intro">
-									<div class="col-md-12">
-										<div class="carousel-navi">
-											<div id="work-prev" class="arrow-left jcarousel-prev">
-												<i class="fa fa-angle-left"></i>
-											</div>
-											<div id="work-next" class="arrow-right jcarousel-next">
-												<i class="fa fa-angle-right"></i>
-											</div>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-
-						<div class="col-lg-9 ">
+						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 ">
 							<div class="row sub_content">
 								<ul id="boardList" style="life-style:none;">
 								

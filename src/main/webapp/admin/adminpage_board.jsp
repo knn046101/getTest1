@@ -51,7 +51,7 @@
                         <th>Category</th>
                         <th>Title</th>
                         <th>User</th>
-                        <th></th>
+                        <th>강제삭제</th>
                     </tr>
                     </thead>
                     <tbody id="tbody">
@@ -91,9 +91,9 @@
 					htmlText += "<tr class=delete>"
                     				+"<td>"+args[i].boardNo+"</td>"
                     				+"<td>"+args[i].category+"</td>"
-                    				+"<td><a href='${retrieve}?boardNo="+args[i].boardNo+"'>"+args[i].boardTitle+"</a></td>"
+                    				+"<td><b><a style='color:#27AB99;' href='${retrieve}?boardNo="+args[i].boardNo+"'>"+args[i].boardTitle+"</a></b></td>"
                     				+"<td>"+args[i].id+"</td>"
-                    				+"<td><Button>삭제</Button></td>"
+                    				+"<td><Button><i class='fa fa-trash-o'></i></Button></td>"
                 					+"</tr>"
 					}
 					$("#tbody").append(htmlText);
@@ -159,10 +159,10 @@
 					}
 
 					var pageText = "";
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno=1')>[맨앞으로]</a>";
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+ prev_pageno+"')>[이전]</a>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
 					for (var i = page_sno; i <= page_eno; i++) {
-						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+i+"')>";
+						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+i+"')>";
 						if (pageno == i) {
 							pageText += "[" + i + "]";
 							} else {
@@ -174,8 +174,8 @@
 								pageText += "<span class='paging'> , </span>";
 							}
 						}
-						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+next_pageno+"')>[다음]</a>";
-						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
+						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
+						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
 						$("#page").append(pageText);
 					},
 					error : function(xhr, status, error) {
@@ -205,9 +205,9 @@
 						htmlText += "<tr class=delete>"
 	                    				+"<td>"+args[i].boardNo+"</td>"
 	                    				+"<td>"+args[i].category+"</td>"
-	                    				+"<td><a href='${retrieve}?boardNo="+args[i].boardNo+"'>"+args[i].boardTitle+"</a></td>"
+	                    				+"<td><b><a style='color:#27AB99;' href='${retrieve}?boardNo="+args[i].boardNo+"'>"+args[i].boardTitle+"</a></b></td>"
 	                    				+"<td>"+args[i].id+"</td>"
-	                    				+"<td><Button>삭제</Button></td>"
+	                    				+"<td><Button><i class='fa fa-trash-o'></i></Button></td>"
 	                					+"</tr>"
 						}
 						$("#tbody").append(htmlText);
@@ -272,10 +272,10 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno=1')>[맨앞으로]</a>";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+prev_pageno+"')>[이전]</a>";
+				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
+				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+i+"')>";
+					pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+i+"')>";
 					if (pageno == i) {
 						pageText += "[" + i + "]";
 					} else {
@@ -287,8 +287,8 @@
 						pageText += "<span class='paging'> , </span>";
 					}
 				}
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+next_pageno+"')>[다음]</a>";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
+				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
+				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardByAdmin }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr) {

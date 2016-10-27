@@ -288,10 +288,10 @@ $(document)	.ready(function() {
 				}
 
 				var pageText = "";
-				pageText += "<center><a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno=1')>[맨앞으로]</a>";
-				pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+ prev_pageno+"')>[이전]</a>";
+				pageText += "<center><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
+				pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+i+"')>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+i+"')>";
 					if (pageno == i) {
 						pageText += "[" + i + "]";
 						} else {
@@ -303,8 +303,8 @@ $(document)	.ready(function() {
 							pageText += "<span class='paging'> , </span>";
 						}
 					}
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+next_pageno+"')>[다음]</a>";
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'></center>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'></center>";
 					$("#page").append(pageText);
 				},
 				error : function(xhr, status, error) {
@@ -400,10 +400,10 @@ function send(inputUrl) {
 						//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 			}
 			var pageText = "";
-			pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno=1')>[맨앞으로]</a>";
-			pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+prev_pageno+"')>[이전]</a>";
+			pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
+			pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
 			for (var i = page_sno; i <= page_eno; i++) {
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+i+"')>";
+				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+i+"')>";
 				if (pageno == i) {
 					pageText += "[" + i + "]";
 				} else {
@@ -415,8 +415,8 @@ function send(inputUrl) {
 					pageText += "<span class='paging'> , </span>";
 				}
 			}
-			pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+next_pageno+"')>[다음]</a>";
-			pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
+			pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
+			pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetingBoards }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
 			$("#page").append(pageText);
 		},
 		error : function(txt, txt2, xhr) {

@@ -5,19 +5,7 @@
 <title>Insert title here</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   
-   CSS FILES
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
-
-    <link rel="stylesheet" href="css/fractionslider.css"/>
-    <link rel="stylesheet" href="css/style-fraction.css"/>
-
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" /> -->
 </head>
    
 <body>
@@ -75,7 +63,7 @@
                 </div>
                 <div class="col-sm-6 col-md-3 col-lg-3">
                     <div class="widget_title">
-                        <h4><span>뭐하조 Gallery</span></h4>
+                        <h4><span>뭐하조 TEAM GALLERY</span></h4>
                     </div>
                     <div class="widget_content">
                         <div class="flickr">
@@ -116,7 +104,7 @@
                 </div>
                 <div class="col-sm-6 col-md-3 col-lg-3">
                     <div class="widget_title">
-                        <h4><span>About</span></h4>
+                        <h4><span>ABOUT US</span></h4>
                     </div>
                     <div class="widget_content">
                         <ul class="links">
