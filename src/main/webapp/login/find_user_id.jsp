@@ -31,9 +31,6 @@
 					placeholder="회원가입시 등록한 이메일을 주소를 작성해주세요." /> <br>
 			</div>
 		</div>
-		<div style="text-align: center;">
-			<a class="btn btn-lg btn-default">OK</a>
-		</div>
 	</div>
 	<br>
 	<br>
@@ -41,7 +38,7 @@
       	 <label class="col-sm-3 control-label"></label>
          <div class="col-sm-6">
            <div class="col-sm-12 text-center">
-            	<button class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">ID 확인하기</button>
+            	<button id="findId" class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">ID 확인하기</button>
             </div>
          </div>
 		<br><br><br><br>
@@ -52,12 +49,10 @@
 		
 
 </body>
-<script src="http://code.jquery.com/jquery.js"></script>
 <script>
 	<c:url value="/findId" var="findId"/>
-	$(".btn").on("click", function() {
-		var eamil = $("#email").val();
-		console.log(email);
+	$("#findId").on("click", function() {
+		var email = $("#email").val();
 		$.ajax({
 			type : "post",
 			url : "${findId}",
@@ -65,10 +60,10 @@
 				"email" : email
 			},
 			success : function(data) {
-				$(".form-control").val(data);
+				$("#email").val(data);
 			},
 			error : function(xhr, status, error) {
-				alert(error);
+				alert("일치하는 이메일이 없습니다.");
 			},
 			ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
 		});

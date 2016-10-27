@@ -295,10 +295,13 @@ public class MemberController {
 		return "redirect:/main.jsp";
 	}
 	
-	@RequestMapping(value="/findId", method=RequestMethod.POST)  
-	public @ResponseBody String findId(@RequestParam String email){ 
-		String id= ms.findIdByEmail(email);
-		return id; // 사용할 뷰의 이름 리턴 
+	@RequestMapping(value="/findId", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
+	public @ResponseBody String findId(HttpServletRequest request){ 
+		String email = request.getParameter("email");
+		Member member=null;
+		member = ms.getMemberByEmail(email);
+		return member.getId(); // 사용할 뷰의 이름 리턴 
 	}
 	
 	@RequestMapping(value="/countUser", method=RequestMethod.POST,

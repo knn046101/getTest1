@@ -162,7 +162,8 @@
 		select board_no, board_title, main_img 
 		from (
 			select * 
-			from boards 
+			from boards
+			where id=#{id} 
 			order by click desc
 			)
 		where rownum between 0 and 8

@@ -205,7 +205,6 @@ a {
 	 	var data={
 			"id":"${login.id}"	 
 	 	};
-	 	console.log("진입");
 	    	$.ajax({
 	        	url:"${getBoardMyBoardsMain}",
 	        	type:"get",
