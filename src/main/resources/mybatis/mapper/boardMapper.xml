@@ -225,6 +225,12 @@
 		where board_title like '%'||#{boardTitle }||'%'
 	</select>
 	
+	<select id="selectMyBoardsById" parameterType="String" resultType="board">
+		select board_no, board_title, main_img
+		from boards
+		where id=#{id}
+	</select>
+	
 	<insert id="insertBoardFollow" parameterType="map">
 		insert into boards_follows
 		values(#{boardNo}, #{id})

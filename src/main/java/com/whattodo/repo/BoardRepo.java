@@ -42,6 +42,8 @@ public interface BoardRepo {
 	public List<Board> getBoardByAdminSearchBoardNo(int boardNo);
 	public List<Board> getBoardByAdminSearchTitle(String Title);
 	
+	public List<Board> selectMyBoardsById(String id);
+	
 	public List<Board> selectBoardByFollow(String id);
 	public BoardsFollows selectboardFollowsByIdAndBoardNo(String id, int boardNo);
 	public BoardsGoods selectboardGoodsByIdAndBoardNo(String id, int boardNo);

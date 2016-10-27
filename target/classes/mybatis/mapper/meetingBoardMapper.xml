@@ -22,7 +22,7 @@
 	</delete>
 	
 	<delete id="deleteMeetingBoardByMeetingNo" parameterType="int">
-		delete from meeintg_boards
+		delete from meeting_boards
 		where meeting_no=#{meetingNo}
 	</delete>
 	

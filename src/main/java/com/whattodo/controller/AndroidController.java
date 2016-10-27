@@ -61,10 +61,10 @@ public class AndroidController {
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
-		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("link", link);
-		notification.put("search", search);
-		notification.put("category", category);
+		notification.put("icon", search);
+		notification.put("tag", link);
+		notification.put("data", category);
+		
 
 		/*Map<String, String> data = new HashMap<String, String>();
 		data.put("Nick", "BBQ");
@@ -115,7 +115,7 @@ public class AndroidController {
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("link", link);
+		notification.put("tag", link);
 		notification.put("search", search);
 		notification.put("category", category);
 
@@ -165,7 +165,7 @@ public class AndroidController {
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("link", link);
+		notification.put("tag", link);
 		notification.put("search", search);
 		notification.put("category", category);
 
@@ -214,7 +214,7 @@ public class AndroidController {
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("link", link);
+		notification.put("tag", link);
 		notification.put("search", search);
 		notification.put("category", category);
 
@@ -263,7 +263,7 @@ public class AndroidController {
 		notification.put("body", body);
 		notification.put("title", title);
 		notification.put("icon", "R.mipmap.ic_tab_whattodo");
-		notification.put("link", link);
+		notification.put("tag", link);
 		notification.put("search", search);
 		notification.put("category", category);
 

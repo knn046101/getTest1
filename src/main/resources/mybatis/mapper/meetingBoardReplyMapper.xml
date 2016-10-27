@@ -20,6 +20,10 @@
 		where meeting_board_reply_no=#{meetingBoardReplyNo}
 	</delete>
 	
+	<delete id="deleteMeetingBoardReplyByMeetingBoardNo" parameterType="int">
+		delete from meeting_boards_replys
+		where meeting_board_no=#{meetingBoardNo}
+	</delete>
 	<select id="selectAllMeetingBoardReply" parameterType="int" resultType="meetingBoardReply">
 		select *
 		from meeting_boards_replys

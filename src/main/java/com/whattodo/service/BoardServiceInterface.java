@@ -51,10 +51,13 @@ public interface BoardServiceInterface {
 	public List<Board> getBoardByAdminSearchBoardNo(int boardNo);
 	public List<Board> getBoardByAdminSearchTitle(String Title);
 	
-	public void deleteBoardFollow(int boardNo);
+	public List<Board> selectMyBoardsById(String id);
+	
+	
+	public int deleteBoardFollow(int boardNo);
 	public void deleteBoardFollow(String id);
 	public int insertBoardGood(int boardNo, String id);
-	public void deleteBoardGood(int boardNo);
+	public int deleteBoardGood(int boardNo);
 	public void deleteBoardGood(String id);
 	
 	public void insertBoardReply(BoardReply boardReply);

@@ -129,6 +129,56 @@ public class BoardController {
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
 	
+	@RequestMapping(value="/getMyBoards", method=RequestMethod.GET,
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String getMyBoards(Model model, HttpServletRequest request){
+	      int page = Integer.parseInt(request.getParameter("pageno"));
+	      String id = request.getParameter("id");
+	      List<Board> board=bs.selectMyBoardsById(id);
+	      List<Board> afterBoard=new ArrayList<Board>();
+	      
+	      int end=(page*16<board.size())? page*16 : board.size();
+
+	      for(int i=16*(page-1); i<end; i++){
+	         board.get((page-1)*10).setPage(page);
+	         afterBoard.add(board.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(board.size());
+	      for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	      }
+	      
+	      Gson gson = new Gson();
+	      String boardStr=gson.toJson(afterBoard);
+
+	      return boardStr; // 사용할 뷰의 이름 리턴 
+	   }
+	
+	@RequestMapping(value="/getMyScrap", method=RequestMethod.GET,
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String getMyScrap(Model model, HttpServletRequest request){
+	      int page = Integer.parseInt(request.getParameter("pageno"));
+	      String id = request.getParameter("id");
+	      List<Board> board=bs.selectBoardByFollow(id);
+	      List<Board> afterBoard=new ArrayList<Board>();
+	      
+	      int end=(page*16<board.size())? page*16 : board.size();
+
+	      for(int i=16*(page-1); i<end; i++){
+	         board.get((page-1)*10).setPage(page);
+	         afterBoard.add(board.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(board.size());
+	      for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	      }
+	      
+	      Gson gson = new Gson();
+	      String boardStr=gson.toJson(afterBoard);
+
+	      return boardStr; // 사용할 뷰의 이름 리턴 
+	   }
+	
 	@RequestMapping(value="/getEditorBoards", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String getEditorBoards(Model model, HttpServletRequest request){
@@ -352,6 +402,19 @@ public class BoardController {
 		}
 	}
 	
+	@RequestMapping(value="/scrapDelete", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String scrapDelete(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		int result=0;
+		result = bs.deleteBoardFollow(boardNo);
+		if(result==1){
+			return "성공";
+		}else{
+			return "실패";
+		}
+	}
+	
 	@RequestMapping(value="/addGood", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String addGood(Model model, HttpServletRequest request){
@@ -364,6 +427,19 @@ public class BoardController {
 			bs.updateBoardGood(boardNo);
 		}
 		logger.trace("result:{}",result);
+		if(result==1){
+			return "성공";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/goodDelete", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String goodDelete(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		int result=0;
+		result = bs.deleteBoardGood(boardNo);
 		if(result==1){
 			return "성공";
 		}else{
@@ -405,49 +481,49 @@ public class BoardController {
 	     
 	      List<Board> boards = null;
 	      List<Board> afterBoard=new ArrayList<Board>();
-	      if(location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	      if(location.equals("") && numberOfPeople.equals("몇명이서") && category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("그냥 아무것도 없이 검색");
 	    	  boards=bs.selectAllBoard();
-	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	      }else if(!location.equals("") && numberOfPeople.equals("몇명이서") && category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("지역으로 검색");
 	    	  boards=bs.selectBoardByLocation(location);
-	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	      }else if(location.equals("") && !numberOfPeople.equals("몇명이서") && category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("인원으로 검색");
 	    	  boards=bs.selectBoardByNumberOfPeople(numberOfPeople);
-	      }else if(location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	      }else if(location.equals("") && numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("카테고리 검색");
 	    	  boards=bs.selectBoardByCategory(category);
-	      }else if(location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	      }else if(location.equals("") && numberOfPeople.equals("몇명이서") && category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("무엇으로 검색");
 	    	  boards=bs.selectBoardByWhat(what);
-	      }else if(!location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && what.equals("")){
+	      }else if(!location.equals("") && !numberOfPeople.equals("몇명이서") && category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("지역, 인원으로 검색");
 	    	  boards=bs.selectBoardByLocationAndNumberOfPeople(location, numberOfPeople);
-	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	      }else if(!location.equals("") && numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("지역, 카테고리로 검색");
 	    	  boards=bs.selectBoardByLocationAndCategory(location, category);
-	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	      }else if(!location.equals("") && numberOfPeople.equals("몇명이서") && category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("지역, 무엇으로 검색");
 	    	  boards=bs.selectBoardByLocationAndWhat(location, what);
-	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	      }else if(location.equals("") && !numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("인원, 카테고리로 검색");
 	    	  boards=bs.selectBoardByNumberOfPeopleAndCategory(numberOfPeople, category);
-	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	      }else if(location.equals("") && !numberOfPeople.equals("몇명이서") && category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("인원, 무엇으로 검색");
 	    	  boards=bs.selectBoardByNumberOfPeopleAndWhat(numberOfPeople, what);
-	      }else if(location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && !what.equals("")){
+	      }else if(location.equals("") && numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("카테고리, 무엇으로 검색");
 	    	  boards=bs.selectBoardByCategoryAndWhat(category, what);
-	      }else if(!location.equals("") && !numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && what.equals("")){
+	      }else if(!location.equals("") && !numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && what.equals("")){
 	    	  logger.trace("지역, 인원, 카테고리로 검색");
 	    	  boards=bs.selectBoardByLocationAndNumberOfPeopleAndCategory(location, numberOfPeople, category);
-	      }else if(!location.equals("") && !numberOfPeople.equals("몇 명이서") && category.equals("카테고리") && !what.equals("")){
+	      }else if(!location.equals("") && !numberOfPeople.equals("몇명이서") && category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("지역, 인원, 무엇으로 검색");
 	    	  boards=bs.selectBoardByLocationAndNumberOfPeopleAndWhat(location, numberOfPeople, what);
-	      }else if(!location.equals("") && numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && !what.equals("")){
+	      }else if(!location.equals("") && numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("지역, 카테고리, 무엇으로 검색");
 	    	  boards=bs.selectBoardByLocationAndCategoryAndWhat(location, category, what);
-	      }else if(location.equals("") && !numberOfPeople.equals("몇 명이서") && !category.equals("카테고리") && !what.equals("")){
+	      }else if(location.equals("") && !numberOfPeople.equals("몇명이서") && !category.equals("카테고리") && !what.equals("")){
 	    	  logger.trace("인원, 카테고리, 무엇으로 검색");
 	    	  boards=bs.selectBoardByNumberOfPeopleAndCategoryAndWhat(numberOfPeople, category, what);
 	      }else {
@@ -535,6 +611,29 @@ public class BoardController {
 	public @ResponseBody String countBoard(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
 		int result1 = bs.countBoard();
 		String result=result1+"";
+		return result;
+	}
+	
+	@RequestMapping(value="/boardsGoodScrap", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String boardsGoodScrap(HttpServletRequest request){
+		String id = request.getParameter("id");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		
+		BoardsFollows bf= bs.selectboardFollowsByIdAndBoardNo(id, boardNo);
+		BoardsGoods bg= bs.selectboardGoodsByIdAndBoardNo(id, boardNo);
+		
+		String result="";
+		if(bf==null){
+			result+="null,";
+		}else{
+			result+="notNull,";
+		}
+		if(bg==null){
+			result+="null";
+		}else{
+			result+="notNull";
+		}
 		return result;
 	}
 	

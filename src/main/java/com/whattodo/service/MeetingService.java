@@ -34,9 +34,11 @@ public class MeetingService implements MeetingServiceInterface{
 	public void deleteMeeting(int meetingNo) {
 		List<MeetingBoard> meetingBoards=mbrepo.selecctAllMeetingBoard(meetingNo);
 		for(int i=0; i<meetingBoards.size(); i++){
-			mbrrepo.deleteMeetingBoardReply(meetingBoards.get(i).getMeetingBoardNo());
+			mbrrepo.deleteMeetingBoardReplyByMeetingBoardNo(meetingBoards.get(i).getMeetingBoardNo());
 		}
-		mbrepo.deleteMeetingBoardByMeetingNo(meetingNo);
+		if(meetingBoards!=null){
+			mbrepo.deleteMeetingBoardByMeetingNo(meetingNo);
+		}
 		mrepo.deleteMeeting(meetingNo);
 	}
 	

@@ -57,11 +57,8 @@
 						</div>
 						
 							<div class="col-sm-12 text-center">	
-							<div class="widget widget_about">
-							   <button id="scrap" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-share-square-o" style="color:#fff;"></i> 스크랩</button>	
-							   <button id="good" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-thumbs-up" style="color:#fff;"></i> 좋아요</button>	
-							   <button id="update" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-edit" style="color:#fff;"></i> 수정</button>	
-							   <button id="delete" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;"><i class="fa fa-trash-o" style="color:#fff;"></i> 삭제</button>
+							<div class="widget widget_about" id="btns">
+							   
 							</div>
 							</div>	
 							<br>
@@ -141,7 +138,79 @@
 	<c:url value="/boardReply" var="boardReply"/>
 	$(document).on("ready", function(e){
 		send("${boardReply }?pageno=1&boardNo=${board.boardNo}");
+		addBtns();
 	});
+	
+	<c:url value="/boardsGoodScrap" var="boardsGoodScrap"/>
+	function addBtns(){
+		$(".btnDelete").remove();
+		var btnText="";		
+		data={
+				"id":"${login.id}",
+				"boardNo":"${board.boardNo}"
+		};
+		$.ajax({
+			type:"get",
+			url:"${boardsGoodScrap }",
+			data:data,
+			success:function(data){
+				var dataArray = data.split(",");
+				console.log(data);
+				if(dataArray[0]=="null"){
+					btnText+="<button id='scrap' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-share-square-o' style='color:#fff;'></i> 스크랩</button>";
+				}else{
+					btnText+="<button id='scrapDelete' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-share-square-o' style='color:#fff;'></i> 스크랩 취소</button>";
+				}
+				if(dataArray[1]=="null"){
+					btnText+="<button id='good' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-thumbs-up' style='color:#fff;'></i> 좋아요</button>";
+				}else{
+					btnText+="<button id='goodDelete' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-thumbs-up' style='color:#fff;'></i> 좋아요 취소</button>";
+				}
+				btnText+="<button id='update' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-edit' style='color:#fff;'></i> 수정</button>";	
+				btnText+="<button id='delete' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-trash-o' style='color:#fff;'></i> 삭제</button>";
+				
+				$("#btns").append(btnText);
+			},
+			error:function(){},
+			"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+		});
+	};
+	
+	<c:url value="/scrapDelete" var="scrapDelete"/>
+	$(document).on("click", "#scrapDelete", function(){
+		data={
+				"id":"${login.id}",
+				"boardNo":"${board.boardNo}"
+		};
+		$.ajax({
+			type:"get",
+			url:"${scrapDelete }",
+			data:data,
+			success:function(data){
+				addBtns();
+			},
+			error:function(){},
+			"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+		});
+	});
+	
+	<c:url value="/goodDelete" var="goodDelete"/>
+		$(document).on("click", "#goodDelete", function(){
+			data={
+					"id":"${login.id}",
+					"boardNo":"${board.boardNo}"
+			};
+			$.ajax({
+				type:"get",
+				url:"${goodDelete }",
+				data:data,
+				success:function(data){
+					addBtns();
+				},
+				error:function(){},
+				"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+			});
+		});
 	
 	<c:url value="/addBoardReply" var="addBoardReply"/>
 	 $("#form").on("submit", function(e){
@@ -392,7 +461,7 @@
 			});
 		}
 		
-	$("#scrap").on("click",function(){
+		$(document).on("click", "#scrap", function(){
 		if("${login.id}"==""){
 			alert("로그인 후에 이용해주십시오.");
 		}else if("${login.id}"=="${board.id}"){
@@ -411,6 +480,7 @@
 					console.log(args)
 					if(args=="성공"){
 						alert("'스크랩' 마이 페이지에서 확인하실 수 있습니다.");
+						addBtns();
 					}else{
 						alert("이미 '스크랩'하셨습니다.");
 					}
@@ -423,7 +493,7 @@
 		}
 	});
 	
-	$("#good").on("click",function(){
+	$(document).on("click", "#good", function(){
 		if("${login.id}"==""){
 			alert("로그인 후에 이용해주십시오.");
 		}else{
@@ -440,6 +510,7 @@
 						console.log(args)
 						if(args=="성공"){
 							alert("'좋아요' 마이 페이지에서 확인하실 수 있습니다.");
+							addBtns();
 						}else{
 							alert("이미 '좋아요'하셨습니다.");
 						}
@@ -452,7 +523,7 @@
 			}
 	});
 	
-	$("#update").on("click",function(){
+	$(document).on("click", "#update", function(){
 		var response
 		if("${login.id}"!="${board.id}"){
 			alert("작성자만 게시글을 수정할 수 있습니다.");
@@ -462,7 +533,7 @@
 		}
 	});
 	
-	$("#delete").on("click",function(){
+	$(document).on("click", "#delete", function(){
 		var response
 		if("${login.id}"!="${board.id}"){
 			alert("작성자만 게시글을 삭제할 수 있습니다.");
