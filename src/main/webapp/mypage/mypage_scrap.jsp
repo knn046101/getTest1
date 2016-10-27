@@ -19,73 +19,67 @@
 	<br>
 	<br>
 
-	<div class="container-fluid">
-		<div class="row sub_content">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class="dividerHeading">
-					<h4>
-						<span>스크랩</span>
-					</h4>
-
-				</div>
-			</div>
-		</div>
-		<section class="wrapper">
-			<section class="content left_sidebar">
-				<div class="container">
-					<div class="row">
-						<!--Sidebar Widget-->
-						<div class="col-lg-3">
-							<div class="sidebar">
-								<div class="widget widget_categories">
-									<ul class="arrows_list sidenav">
+	<section class="content left_sidebar">
+			<div class="container">
+				<div class="row">
+					<!--Sidebar Widget-->
+					<div class="col-lg-4">
+						<div class="sidebar">
+							<div class="widget widget_categories">
+								<ul class="arrows_list sidenav">
 										<li><img src=${login.profileImg } class="img-circle"
 											 width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
-											${login.nickname }
-											<c:choose>
-												<c:when test="${login.division eq 'Customer' }">
-													<span class="label label-default"
-														style="background-color: grey">일반회원</span>
-												</c:when>
-												<c:when test="${login.division eq 'Editor' }">
-													<span class="label label-default"
-														style="background-color: yellow">에디터</span>
-												</c:when>
-											</c:choose>
-										</h4>
-
-										<div class="widget_title">
-											<h4>
-												<span><a style="color:#323A45;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-									마이페이지	</a></span>
-											</h4>
-										</div>
-										<c:url value="/mypageUpdate" var="mypageUpdate"/>
-										<li style="margin-left: 10px"><a href="${mypageUpdate }?loginId=${login.id }">
+                                 ${login.nickname} 
+                                 <c:choose>
+                                    <c:when test="${login.division eq 'Customer' }">
+                                       <span class="label label-default"
+                                          style="background-color: grey;color:#fff;">일반회원</span>
+                                    </c:when>
+                                    <c:when test="${login.division eq 'Editor' }">
+                                       <span class="label label-default"
+                                          style="background-color: yellow">에디터</span>
+                                    </c:when>
+                                 </c:choose>
+                              </h4>
+								</ul>
+							</div>
+							<div class="widget widget_categories">
+								<div class="widget_title">
+									<h4><span>마이페이지</span></h4>
+								</div>
+								<ul class="arrows_list">
+									<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										
+										<li><a href="${mypageUpdate }?loginId=${login.id }">
 										정보수정</a></li>
-										<li style="margin-left: 10px"><a
+										<li><a 
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-												내글</a></li>
-										<li style="margin-left: 10px"><a
+												내 글
+										</a></li>
+										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												관심 키워드</a></li>
+												관심 키워드
+										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
 												<i class="fa fa-angle-right"></i>스크랩
 										</a></li>
-										<li style="margin-left: 10px"><a
+										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
-												모임</a></li>
-
-									</ul>
-								</div>
+												좋아요
+										</a></li>
+										<li><a
+											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
+												모임
+										</a></li>
+								</ul>
 							</div>
-
 						</div>
+					</div>
 
-						<div class="col-lg-9 ">
+						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 ">
 
 							<div class="row sub_content">
 								<div class="carousel-intro">
@@ -105,7 +99,7 @@
 								<div class="jcarousel recent-work-jc">
 									<ul class="jcarousel-list">
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -128,7 +122,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -151,7 +145,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -174,7 +168,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -197,7 +191,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -219,7 +213,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -241,7 +235,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -263,7 +257,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -290,7 +284,7 @@
 								<div class="jcarousel recent-work-jc">
 									<ul class="jcarousel-list">
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -314,7 +308,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -339,7 +333,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -363,7 +357,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -386,7 +380,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -409,7 +403,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -432,7 +426,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">
@@ -455,7 +449,7 @@
 										</li>
 
 										<!-- Recent Work Item -->
-										<li class="col-sm-3 col-md-3 col-lg-3">
+										<li class="col-sm-2 col-md-2 col-lg-2">
 											<div class="recent-item">
 												<figure>
 													<div class="touching medium">

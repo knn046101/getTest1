@@ -20,71 +20,67 @@
 	<br>
 	<br>
 
-	<div class="container-fluid">
-		<div class="row sub_content">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class="dividerHeading">
-					<h4>
-						<span>정보수정</span>
-					</h4>
-				</div>
-			</div>
-		</div>
-		<section class="wrapper">
-			<section class="content left_sidebar">
-				<div class="container">
-					<div class="row">
-						<!--Sidebar Widget-->
-						<div class="col-lg-3">
-							<div class="sidebar">
-								<div class="widget widget_categories">
-									<ul class="arrows_list sidenav">
+<section class="content left_sidebar">
+			<div class="container">
+				<div class="row">
+					<!--Sidebar Widget-->
+					<div class="col-lg-4">
+						<div class="sidebar">
+							<div class="widget widget_categories">
+								<ul class="arrows_list sidenav">
 										<li><img src=${login.profileImg } class="img-circle"
-											width="150" height="150" hspace="50"> <br>
+											 width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
-											${login.nickname } 
-											<c:choose>
-												<c:when test="${login.division eq 'Customer' }">
-													<span class="label label-default"
-														style="background-color: grey">일반회원</span>
-												</c:when>
-												<c:when test="${login.division eq 'Editor' }">
-													<span class="label label-default"
-														style="background-color: yellow">에디터</span>
-												</c:when>
-											</c:choose>
-										</h4>
-
-										<div class="widget_title">
-											<h4>
-												<span><a style="color:#323A45;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-									마이페이지	</a></span>
-											</h4>
-										</div>
-										<c:url value="/mypageUpdate" var="mypageUpdate"/>
+                                 ${login.nickname} 
+                                 <c:choose>
+                                    <c:when test="${login.division eq 'Customer' }">
+                                       <span class="label label-default"
+                                          style="background-color: grey;color:#fff;">일반회원</span>
+                                    </c:when>
+                                    <c:when test="${login.division eq 'Editor' }">
+                                       <span class="label label-default"
+                                          style="background-color: yellow">에디터</span>
+                                    </c:when>
+                                 </c:choose>
+                              </h4>
+								</ul>
+							</div>
+							<div class="widget widget_categories">
+								<div class="widget_title">
+									<h4><span>마이페이지</span></h4>
+								</div>
+								<ul class="arrows_list">
+									<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										
 										<li><a href="${mypageUpdate }?loginId=${login.id }">
 										<i class="fa fa-angle-right"></i>정보수정</a></li>
-										<li style="margin-left: 10px"><a
+										<li><a 
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-												내글</a></li>
-										<li style="margin-left: 10px"><a
+												내 글
+										</a></li>
+										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												관심사</a></li>
-										<li style="margin-left: 10px"><a
+												관심 키워드
+										</a></li>
+										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
-												스크랩</a></li>
-										<li style="margin-left: 10px"><a
+												스크랩
+										</a></li>
+										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
-												모임</a></li>
-
-									</ul>
-								</div>
+												좋아요
+										</a></li>
+										<li><a
+											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
+												모임
+										</a></li>
+								</ul>
 							</div>
-
 						</div>
-
-						<div class="col-lg-6 container ">
+					</div>
+				
+     			 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 							<sform:form id="form" class="form-horizontal" role="form"
 							method="post" action="updateUser" modelAttribute="member">
 
@@ -197,17 +193,14 @@
 						</sform:form>
 							
 						</div>
+			
+			
+      			
 					</div>
-				</div>
-			</section>
-		</section>
-	</div>
+					</div>
+				</section>
 
-
-
-
-
-
+						
 <jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
