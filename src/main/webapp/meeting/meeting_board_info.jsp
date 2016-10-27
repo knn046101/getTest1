@@ -82,7 +82,7 @@
                                 	</c:if>
                                 </ul>
                             </div>
-                            <div id="page"></div>
+                            <!-- <div id="page"></div> -->
                             <!-- /#comments -->
                             <div class="dividerHeading">
                                <h4><span>댓글작성</span></h4>
@@ -275,7 +275,7 @@ $(document).on("ready", function(e){
 					 var date = new Date(Date.parse(args[i].meetingBoardReplyDate));
 						htmlText+="<li class='comment'>"
 	           						+"<div class='comment-container'>"
-	                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><a href='#'><i class='fa fa-edit'></i></a></span><span style='float:right;'><a><i class='fa fa-trash-o'></i></a>&nbsp;</span></h4>"
+	                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button><i class='fa fa-edit'></i></button></span><span style='float:right;'><button><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
 	                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
 	                				+date.toLocaleDateString()+"</div>"
 	                				+"<div class='comment-body'>"

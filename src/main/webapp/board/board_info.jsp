@@ -316,10 +316,10 @@
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')><i class='fa fa-angle-double-left'></i></a>";
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-left'></i></a>";
 					for(var i=page_sno; i<=page_eno; i++){ 
-						pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
+						pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
 						if(pageno == i){ 
 							pageText+="["+i+"]";
 						}else{ 
@@ -331,8 +331,8 @@
 							pageText+="<span class='paging'> , </span>";
 						} 
 					} 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'>";				
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-right'></i></a>";			
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";				
 					$("#page").append(pageText);
 					$("#comments").val("");
 				},
@@ -361,7 +361,7 @@
 							var date = new Date(Date.parse(args[i].boardReplyDate));
 							htmlText+="<li class='comment'>"
 		           						+"<div class='comment-container'>"
-		                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><a href='#'><i class='fa fa-edit'></i></a></span><span style='float:right;'><a><i class='fa fa-trash-o'></i></a>&nbsp;</span></h4>"
+		                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button><i class='fa fa-edit'></i></button></span><span style='float:right;'><button><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
 		                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
 		                				+date.toLocaleDateString()+"</div>"
 		                				+"<div class='comment-body'>"
@@ -434,10 +434,10 @@
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 					var pageText="";
-					pageText+="<center><a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')>[맨앞으로]</a>";
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')>[이전]</a>";
+					pageText+="<center><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')><i class='fa fa-angle-double-left'></i></a>";
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-left'></i></a>";
 					for(var i=page_sno; i<=page_eno; i++){ 
-						pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
+						pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
 						if(pageno == i){ 
 							pageText+="["+i+"]";
 						}else{ 
@@ -449,8 +449,8 @@
 							pageText+="<span class='paging'> , </span>";
 						} 
 					} 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')>[다음]</a>";			
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')>[맨뒤로]</a><br class='paging'></center>";				
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-right'></i></a>";			
+					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'></center>";				
 					$("#page").append(pageText);
 					$("#comments").val("");
 				},
