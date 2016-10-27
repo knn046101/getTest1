@@ -7,16 +7,9 @@
 <title>뭐 하 지 ?</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
 .errormsg {
 	color: red;
-}
-.title {
-	width: 200px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
 }
 </style>
 </head>
@@ -31,7 +24,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="dividerHeading">
 					<h4>
-						<span>관심 키워드</span>
+						<span>스크랩</span>
 					</h4>
 
 				</div>
@@ -47,11 +40,11 @@
 								<div class="widget widget_categories">
 									<ul class="arrows_list sidenav">
 										<li><img src=${login.profileImg } class="img-circle"
-											alt="${login.nickname }" width="150" height="150" hspace="50"> <br>
+											 width="150" height="150" hspace="50"> <br>
 										</li>
 										<h4 align="center">
-												${login.nickname } 
-												<c:choose>
+											${login.nickname }
+											<c:choose>
 												<c:when test="${login.division eq 'Customer' }">
 													<span class="label label-default"
 														style="background-color: grey">일반회원</span>
@@ -63,65 +56,54 @@
 											</c:choose>
 										</h4>
 
-										<div class="widget widget_categories">
-								<div class="widget_title">
-									<h4><span>마이페이지</span></h4>
-								</div>
-								<ul class="arrows_list">
-									<c:url value="/mypageUpdate" var="mypageUpdate"/>
-										
-										<li><a href="${mypageUpdate }?loginId=${login.id }">
+										<div class="widget_title">
+											<h4>
+												<span><a style="color:#323A45;" href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
+									마이페이지	</a></span>
+											</h4>
+										</div>
+										<c:url value="/mypageUpdate" var="mypageUpdate"/>
+										<li style="margin-left: 10px"><a href="${mypageUpdate }?loginId=${login.id }">
 										정보수정</a></li>
-										<li><a 
+										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
-												내 글
-										</a></li>
-										<li><a
+												내글</a></li>
+										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_favorite.jsp">
-												관심 키워드
-										</a></li>
+												관심 키워드</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_scrap.jsp">
-												스크랩
+												<i class="fa fa-angle-right"></i>스크랩
 										</a></li>
-										<li><a
-											href="<%=request.getContextPath()%>/mypage/mypage_good.jsp">
-												좋아요
-										</a></li>
-										<li><a
+										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
-												모임
-										</a></li>
-								</ul>
+												모임</a></li>
+
+									</ul>
 								</div>
 							</div>
 
 						</div>
-					</div>
+
 						<div class="col-lg-9 ">
+
 							<div class="row sub_content">
 								<ul id="boardList" style="life-style:none;">
 								
 								</ul>
-								</div>
-								<div style="text-align: center;" id="page"></div>
-						</div>
-						
+							</div>
+							<div style="text-align: center;" id="page">
+							</div>
 					</div>
 				</div>
 			</section>
 		</section>
 	</div>
 
-
-
-
-
-
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
-<c:url value="/getBoardByMyFavorite" var="getBoardByMyFavorite"/>
+<c:url value="/getMyGood" var="getMyGood"/>
 	$(document)	.ready(function() {
 		var htmlText = "";
 		var total_record = 1;
@@ -130,11 +112,11 @@
 		var page_sno;
 		
 		var data = {
-			"favorite": "${login.favorite}"
+			"id" : "${login.id}"
 		};
 		$.ajax({
 			type : "get",
-			url : "${getBoardByMyFavorite }?pageno=1",
+			url : "${getMyGood }?pageno=1",
 			data : data,
 			dataType : "json",
 			success : function(args) {
@@ -228,10 +210,10 @@
 					}
 
 					var pageText = "";
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno=1')>[맨앞으로]</a>";
-					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+ prev_pageno+"')>[이전]</a>";
+					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMyGood }?pageno=1')>[맨앞으로]</a>";
+					pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+ prev_pageno+"')>[이전]</a>";
 					for (var i = page_sno; i <= page_eno; i++) {
-						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+i+"')>";
+						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+i+"')>";
 						if (pageno == i) {
 							pageText += "[" + i + "]";
 							} else {
@@ -243,8 +225,8 @@
 								pageText += "<span class='paging'> , </span>";
 							}
 						}
-						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+next_pageno+"')>[다음]</a>";
-						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
+						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+next_pageno+"')>[다음]</a>";
+						pageText += "<a style='color:#363636;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
 						$("#page").append(pageText);
 					},
 					error : function(xhr, status, error) {
@@ -262,7 +244,7 @@
 		var page_eno;
 		var page_sno;
 		var data = {
-				"favorite": "${login.favorite}"
+				"id" : "${login.id}"
 			};
 		$.ajax({
 			type : "get",
@@ -362,10 +344,10 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno=1')>[맨앞으로]</a>";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+prev_pageno+"')>[이전]</a>";
+				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMyGood }?pageno=1')>[맨앞으로]</a>";
+				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+prev_pageno+"')>[이전]</a>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+i+"')>";
+					pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+i+"')>";
 					if (pageno == i) {
 						pageText += "[" + i + "]";
 					} else {
@@ -377,8 +359,8 @@
 						pageText += "<span class='paging'> , </span>";
 					}
 				}
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+next_pageno+"')>[다음]</a>";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoardByMyFavorite }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
+				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+next_pageno+"')>[다음]</a>";
+				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getMyGood }?pageno="+total_page+"')>[맨뒤로]</a><br class='paging'>";
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr) {
