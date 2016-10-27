@@ -65,7 +65,6 @@
 										<c:url value="/mypageUpdate" var="mypageUpdate"/>
 										<li><a href="${mypageUpdate }?loginId=${login.id }">
 										<i class="fa fa-angle-right"></i>정보수정</a></li>
-										</a></li>
 										<li style="margin-left: 10px"><a
 											href="<%=request.getContextPath()%>/mypage/mypage_myboard.jsp">
 												내글</a></li>
@@ -95,8 +94,8 @@
 							
 
 						</div>
-
-
+						<c:url value="/deleteUser" var="deleteUser"/>
+						<form id="form" action="${deleteUser }" >
 						<div class="col-lg-6 container ">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">ID</label>
@@ -116,32 +115,34 @@
 
 							<div class="form-group">
 								<div class="col-sm-12 text-center">
-									<button class="btn btn-primary" onclick="location='../main.jsp'" type="submit"
+									<button class="btn btn-primary" onclick="location='<%=request.getContextPath()%>/main.jsp'"
 										style="background-color: #27AB99; border-color: #fff;">홈으로</button>
 									
 									<button id="deleteUser" class="btn btn-primary"
-										type="button"
+										type="submit"
 										style="background-color: orange; border-color: #fff;">회원탈퇴</button>
 
 								</div>
 							</div>
-
+							</div>
+							</form>
 						</div>
 					</div>
-				</div>
 			</section>
 		</section>
 	</div>
-
-
-
-
-
-
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
-
-
+	$("#form").on("submit",function(e){
+		e.preventDefault();
+		if($("#inputId").val().trim()==""){
+			alert("ID를 입력하여 주십시오.");
+		}else if($("#inputPassword").val().trim()==""){
+			alert("비밀번호를 입력하여 주십시오.");
+		}else{
+			this.submit();
+		}
+	});
 </script>
 </html>
