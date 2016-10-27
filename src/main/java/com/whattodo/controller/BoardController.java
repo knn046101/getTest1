@@ -2,6 +2,7 @@ package com.whattodo.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,6 @@ import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 import com.whattodo.dto.BoardsFollows;
 import com.whattodo.dto.BoardsGoods;
-import com.whattodo.dto.MeetingBoardReply;
 import com.whattodo.service.BoardService;
 
 
@@ -160,6 +160,65 @@ public class BoardController {
 	      int page = Integer.parseInt(request.getParameter("pageno"));
 	      String id = request.getParameter("id");
 	      List<Board> board=bs.selectBoardByFollow(id);
+	      List<Board> afterBoard=new ArrayList<Board>();
+	      
+	      int end=(page*16<board.size())? page*16 : board.size();
+
+	      for(int i=16*(page-1); i<end; i++){
+	         board.get((page-1)*10).setPage(page);
+	         afterBoard.add(board.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(board.size());
+	      for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	      }
+	      
+	      Gson gson = new Gson();
+	      String boardStr=gson.toJson(afterBoard);
+
+	      return boardStr; // 사용할 뷰의 이름 리턴 
+	   }
+	
+	@RequestMapping(value="/getBoardByMyFavorite", method=RequestMethod.GET,
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String getBoardByMyFavorite(Model model, HttpServletRequest request){
+	      int page = Integer.parseInt(request.getParameter("pageno"));
+	      String favorite = request.getParameter("favorite");
+	      HashSet<Board> board=new HashSet<Board>();
+	      String[] favorites = favorite.split("#");
+	      for(String value:favorites){
+	    	  System.out.println(value);
+	    	  if(!value.equals("")){
+		    	  List<Board> boardTmp=bs.selectBoardByWhat(value);
+		    	  for(int i=0; i<boardTmp.size();i++){
+		    		  board.add(boardTmp.get(i));
+		    	  }
+	    	  }
+	      }
+	      List<Board> Boards=new ArrayList<Board>(board); 
+	      List<Board> afterBoard=new ArrayList<Board>();
+	      int end=(page*16<board.size())? page*16 : board.size();
+	      for(int i=16*(page-1); i<end; i++){
+	    	  Boards.get((page-1)*10).setPage(page);
+	         afterBoard.add(Boards.get(i));
+	      }
+	      afterBoard.get(0).setRecordNum(board.size());
+	      for(int i=0;i<afterBoard.size();i++){
+	    	  afterBoard.get(i).setBoardContent("");
+	      }
+	      
+	      Gson gson = new Gson();
+	      String boardStr=gson.toJson(afterBoard);
+
+	      return boardStr; // 사용할 뷰의 이름 리턴 
+	   }
+	
+	@RequestMapping(value="/getMyGood", method=RequestMethod.GET,
+	         produces="application/text;charset=UTF-8")
+	   public @ResponseBody String getMyGood(Model model, HttpServletRequest request){
+	      int page = Integer.parseInt(request.getParameter("pageno"));
+	      String id = request.getParameter("id");
+	      List<Board> board=bs.selectBoardByGood(id);
 	      List<Board> afterBoard=new ArrayList<Board>();
 	      
 	      int end=(page*16<board.size())? page*16 : board.size();
