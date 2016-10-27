@@ -249,7 +249,7 @@ public class BoardController {
 		int end=(page*16<board.size())? page*16 : board.size();
 		
 		for(int i=16*(page-1); i<end; i++){
-				board.get((page-1)*10).setPage(page);
+				board.get(16*(page-1)).setPage(page);
 				afterBoard.add(board.get(i));
 		}
 		afterBoard.get(0).setRecordNum(board.size());
@@ -258,15 +258,7 @@ public class BoardController {
 	    }
 		
 		Gson gson = new Gson();
-		String boardStr = "[";
-		for(int i=0; i<afterBoard.size(); i++){
-			if(i==afterBoard.size()-1){
-				boardStr+=gson.toJson(afterBoard.get(i));
-				break;
-			}
-			boardStr+=gson.toJson(afterBoard.get(i))+",";
-		}
-		boardStr+="]";
+		String boardStr =gson.toJson(afterBoard);
 		return boardStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -324,15 +316,33 @@ public class BoardController {
 		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
 	}
 	
-	/*@RequestMapping(value="/getBoardMyFavoriteMain", method=RequestMethod.GET,
+	@RequestMapping(value="/getBoardMyFavoriteMain", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String getBoardMyFavoriteMain(Model model, HttpServletRequest request){
-		String id = request.getParameter("id");
-		List<Board> board=bs.selectboardMyBoardsMain(id);
+		String favorite = request.getParameter("favorite");
+	    HashSet<Board> board=new HashSet<Board>();
+	    String[] favorites = favorite.split("#");
+	    for(String value:favorites){
+	    	System.out.println(value);
+	    	if(!value.equals("")){
+		    	List<Board> boardTmp=bs.selectBoardByWhat(value);
+		    	for(int i=0; i<boardTmp.size();i++){
+		    		board.add(boardTmp.get(i));
+		    	}
+	    	}
+	    }
+	    List<Board> boards=new ArrayList<Board>(board); 
+	    List<Board> afterBoard=new ArrayList<Board>();
+	    for(int i=0; i<boards.size(); i++){
+	    	afterBoard.add(boards.get(i));
+	    	if(i==7){
+	    		break;
+	    	}
+	    }
 		Gson gson = new Gson();
-		String boardGoodBestStr = gson.toJson(board);
+		String boardGoodBestStr = gson.toJson(afterBoard);
 		return boardGoodBestStr; // 사용할 뷰의 이름 리턴 
-	}*/
+	}
 	
 	@RequestMapping(value="/getBoardMyScrapMain", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")

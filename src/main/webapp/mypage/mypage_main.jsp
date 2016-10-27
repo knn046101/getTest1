@@ -194,7 +194,7 @@ a {
 <script>
 	$(document).ready(function(){
 		getBoardMyBoardsMain();
-		//getBoardMyFavoriteMain();
+		getBoardMyFavoriteMain();
 		getBoardMyScrapMain();
 	});
 	
@@ -274,10 +274,10 @@ a {
 		})
 	};
 		
-	<%-- <c:url value="/getBoardMyFavoriteMain" var="getBoardMyFavoriteMain"/>
+	<c:url value="/getBoardMyFavoriteMain" var="getBoardMyFavoriteMain"/>
 	function getBoardMyFavoriteMain(){
 		var data={
-				"id":"${login.id}"	 
+				"favorite":"${login.favorite}"	 
 		 	};
 		 	console.log("진입");
 		    	$.ajax({
@@ -325,7 +325,7 @@ a {
 		                    	if(title!=undefined){
 		                        	/* console.log("첫번째 인덱스:"+index);
 		                            console.log("첫번째아이템이름:"+title); */
-		                      		$('#searchMyBoard1').append(row);
+		                      		$('#BestTip1').append(row);
 		                      } else{
 		                         return false;
 		                      }
@@ -333,7 +333,7 @@ a {
 		                     if(title!=undefined){
 		                             /* console.log("두번째 인덱스:"+index);
 		                             console.log("두번째아이템이름:"+title); */
-		                        $('#searchMyBoard2').append(row);
+		                        $('#BestTip2').append(row);
 		                    } else{     
 		                       	return false;
 		                   	}	
@@ -346,7 +346,7 @@ a {
 		           /* alert("로딩중입니다.:"+error); */
 		       	}
 			})
-	}; --%>
+	}; 
 		
 	
 	<c:url value="/getBoardMyScrapMain" var="getBoardMyScrapMain"/>

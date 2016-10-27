@@ -153,8 +153,25 @@ public class MemberController {
 		return "join/join_after"; // 사용할 뷰의 이름 리턴 
 	}
 	
+	@RequestMapping(value="/deleteUser", method=RequestMethod.GET)  
+	public String deleteUser(Model model, HttpServletRequest request,
+			SessionStatus status, HttpSession session){
+		String id=request.getParameter("inputId");
+		String pass=request.getParameter("inputPassword");
+		
+		Member member = ms.getMemberById(id);
+		if(member.getPass().equals(pass)){
+			ms.deleteMember(id);
+		}
+		status.setComplete();
+		session.removeAttribute("login");
+		session.invalidate();
+		return "mypage/mypage_member_delete_after"; // 사용할 뷰의 이름 리턴 
+	}
+	
 	@RequestMapping(value="/updateUser", method=RequestMethod.POST)  
-	public String updateUser(Model model, Member member, BindingResult result){
+	public String updateUser(Model model, Member member, BindingResult result,
+			HttpSession session){
 		if(result.hasErrors()){
 			return "mypage/mypage_member_update";
 		}
@@ -167,15 +184,11 @@ public class MemberController {
 			return "mypage/mypage_member_update";
 		}
 		ms.updateMember(member);
+		Member member2 = ms.getMemberById(member.getId());
+		session.setAttribute("login", member2);
 		return "mypage/mypage_main"; // 사용할 뷰의 이름 리턴 
 	}
-	
-	@RequestMapping(value="/delUser", method=RequestMethod.POST)  
-	public String delUser(@RequestParam String id,Model model, Member member, BindingResult result){
-		ms.deleteMember(id);
-		return "mypage/join_after"; // 사용할 뷰의 이름 리턴 
-	}
-	
+		
 	@RequestMapping(value="/setCustomer", method=RequestMethod.POST)  
 	public @ResponseBody String setCustomer(Model model, HttpServletRequest request){
 		String id=request.getParameter("id");
