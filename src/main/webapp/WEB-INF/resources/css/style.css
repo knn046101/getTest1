@@ -2243,7 +2243,7 @@ blockquote{font-size:14px;}
 .testimonial-review small {
     font-size: 13px;
     line-height:18px;
-    color: #27AB99;
+    color: #fff;
     display:block;
 }
 
@@ -3987,4 +3987,5 @@ blockquote.default {
  .arrows_list > li > img {
     margin-left:1%;
 }
+
 
