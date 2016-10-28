@@ -217,15 +217,7 @@ public class MeetingController {
 		}
 		afterMeetingBoardReply.get(0).setRecordNum(meetingBoardReply.size());
 		Gson gson = new Gson();
-		String boardReplyStr = "[";
-		for(int i=0; i<afterMeetingBoardReply.size(); i++){
-			if(i==afterMeetingBoardReply.size()-1){
-				boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i));
-				break;
-			}
-			boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i))+",";
-		}
-		boardReplyStr+="]";
+		String boardReplyStr = gson.toJson(afterMeetingBoardReply);
 		return boardReplyStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -255,15 +247,7 @@ public class MeetingController {
 		afterMeetingBoardReply.get(0).setRecordNum(meetingBoardReply2.size());
 		
 		Gson gson = new Gson();
-		String boardReplyStr = "[";
-		for(int i=0; i<afterMeetingBoardReply.size(); i++){
-			if(i==afterMeetingBoardReply.size()-1){
-				boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i));
-				break;
-			}
-			boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i))+",";
-		}
-		boardReplyStr+="]";
+		String boardReplyStr = gson.toJson(afterMeetingBoardReply);
 		return boardReplyStr;
 	}
 	
@@ -348,15 +332,7 @@ public class MeetingController {
 	      aftermeetings.get(0).setRecordNum(meetings.size());
 	      
 	      Gson gson = new Gson();
-	      String boardStr = "[";
-	      for(int i=0; i<aftermeetings.size(); i++){
-	         if(i==aftermeetings.size()-1){
-	            boardStr+=gson.toJson(aftermeetings.get(i));
-	            break;
-	         }
-	         boardStr+=gson.toJson(aftermeetings.get(i))+",";
-	      }
-	      boardStr+="]";
+	      String boardStr = gson.toJson(aftermeetings);
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
 	
