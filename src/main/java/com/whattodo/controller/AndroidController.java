@@ -1,10 +1,13 @@
 package com.whattodo.controller;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +25,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.whattodo.dto.Advertisement;
+import com.whattodo.dto.Notification;
 import com.whattodo.dto.Tokens;
+import com.whattodo.service.NotificationInterface;
 import com.whattodo.service.TokenInterface;
 
 @RestController
@@ -38,7 +46,8 @@ public class AndroidController {
 	@Autowired
 	TokenInterface cService;
 
-
+	@Autowired
+	NotificationInterface nService;
 
 	@RequestMapping(value = "/sendByToken", method = RequestMethod.POST)
 	public void sendByToken(HttpServletRequest request) throws JsonProcessingException {
@@ -354,6 +363,41 @@ public class AndroidController {
 		return map;
 	}
 	
+	@RequestMapping(value="/loadingNoti", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String loadAdvertisement(Model model, HttpServletResponse response) throws IOException{
+		List<Notification> list = nService.selectAllNotification();
+		Gson gson = new Gson();
+		String jsonType = gson.toJson(list);
+		return jsonType;		 
+	}
+	
+	@RequestMapping(value="/insertNoti", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String insertNoti(Model model, HttpServletRequest request){
+		String NotiTitle=request.getParameter("notiTitle");
+		String NotiContent=request.getParameter("notiContent");
+		String link=request.getParameter("link");
+		
+		String NotiTarget=request.getParameter("notiTarget");
+		int target = Integer.parseInt(NotiTarget);
+
+		Notification noti = new Notification(target,NotiTitle,NotiContent,link);
+		int result=nService.insertNoti(noti);
+		if(result==1){
+			return "저장";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/countNoti", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String countNoti(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		int result1 = nService.countNoti();
+		String result=result1+"";
+		return result;
+	}
 	
 	
 	

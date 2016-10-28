@@ -76,7 +76,7 @@ a {
 								href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp"
 								style="color: #555";> <i class="fa fa-bell-o"></i>
 								<h3>알림 관리</h3>
-								<label>Total: 11</label>
+								<label id="noti"></label>
 							</a>
 
 						</div>
@@ -144,6 +144,23 @@ a {
                   ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
                });
             });
+            
+            <c:url value="/countNoti" var="countNoti"/>
+                $(document).on("ready",function(){
+                   $.ajax({
+                      type:"post",
+                      url:"${countNoti}",
+                      dataType:"json",
+                      
+                      success:function(data){
+                         $("#noti").append("Total: ").append(data);
+                      },
+                      error:function(xhr, status, error){
+                         alert(error);
+                      },
+                      ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+                   });
+                });
    
 </script>
 

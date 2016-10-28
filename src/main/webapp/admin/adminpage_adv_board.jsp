@@ -140,12 +140,12 @@ function listloading(){
 		+"<td>"
 		
 		
-		+"<Button onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 올리기</Button>"
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;margin-right:3px;' onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 올리기</Button>"
 		
 		/* +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" */
 		
 		
-		+"<Button onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
 		
 		+"</td>"
 		+"</tr>";
@@ -166,10 +166,10 @@ function listloading(){
 			
 			/* +"<Button onclick=uploadAd('"+adsNo+"') id='"+regiAdsNo+"' >광고 등록</Button>" */
 			
-			 +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" 
+			 +"<Button style='background-color:#27AB99;color:#fff;border-style: none;margin-right:3px;' onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" 
 			
 			
-			+"<Button onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
+			+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
 			
 			+"</td>"
 			+"</tr>";

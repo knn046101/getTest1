@@ -42,11 +42,12 @@
                     <thead>
                     <tr>
                         <th>NO</th>
-                        <th>Image</th>
+                        <th>Target</th>
                         <th>Title</th>
                         <!-- <th>Link</th> -->
-                        <th>AdminId</th>
-                        <th>option</th>
+                        <th>Content</th>
+                        <th>Link / Keyword</th>
+                        <th>Option</th>
                     </tr>
                     </thead>
                     <tbody id = "tbody">
@@ -55,9 +56,7 @@
                     
                     </tbody>
                 </table>
-                <center>
-                
-               </center>
+               
             </div>
         </div> <!--./row-->
 				</div>
@@ -75,5 +74,209 @@
 </body>
 
 <script>
+var noAdsNo ;
+var regiAdsNo ;
+var stopAdsNo;
+var delAdsNo ;
+
+var notiNo ;
+var notiTarget;
+var notiTitle;
+var notiContent;
+var link;
+
+<c:url value="/loadingNoti" var="loadingNoti"/>
+$(document).ready(function() {
+	listloading();
+
+});/*document ready  */
+
+function listloading(){
+	
+	$('.onerow>td').remove();
+	
+	$.ajax({
+		 url:"${loadingNoti}",
+		 type:"get",
+
+		 success:function(res){
+
+		
+		var fromServerToObj = JSON.parse(res);
+		
+		console.log(fromServerToObj);
+		
+		var row="";
+		
+		$.each(fromServerToObj,function(index,item){
+		
+	/*데이터를 받아 변수에 삽입하는 부분  */
+		 notiNo = item.notiNo;
+		 notiTitle= item.notiTitle;
+		 notiTarget= item.notiTarget;
+		 link= item.link;
+		 notiContent= item.notiMessage;
+		
+		/*동적으로 각 태그 id를 만들기 위한 변수  */	
+		 noAdsNo = notiNo+"notiNo";
+		 regiAdsNo =notiNo+"regi";
+		 stopAdsNo = notiNo+"stop";
+		 delAdsNo = notiNo+"del";
+
+		 
+		if(notiTarget==0){
+			console.log("0은 전체알림 입니다");
+		row = "<tr class ='onerow'>"
+		+"<td id='"+noAdsNo+"'>"
+		+notiNo+"</td>"
+		+"<td>전체</td>"
+		+"<td>"+notiTitle+"</td>"
+		+"<td>"+notiContent+"</td>"
+		+"<td>"+link+"</td>"
+		+"<td>"
+		
+		
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+notiNo+"') id = '"+delAdsNo+"'>삭제</Button>"
+		
+		+"</td>"
+		+"</tr>";
+		
+		}
+		
+		else if(notiTarget==1){
+			console.log("1은 수신동의 입니다");
+		row = "<tr class ='onerow'>"
+		+"<td id='"+noAdsNo+"'>"
+		+notiNo+"</td>"
+		+"<td>수신동의</td>"
+		+"<td>"+notiTitle+"</td>"
+		+"<td>"+notiContent+"</td>"
+		+"<td>"+link+"</td>"
+		+"<td>"
+		
+		
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+notiNo+"') id = '"+delAdsNo+"'>삭제</Button>"
+		
+		+"</td>"
+		+"</tr>";
+		
+		}
+		
+		else if(notiTarget==2){
+			console.log("2는 직장인입니다");
+		row = "<tr class ='onerow'>"
+		+"<td id='"+noAdsNo+"'>"
+		+notiNo+"</td>"
+		+"<td>직장인</td>"
+		+"<td>"+notiTitle+"</td>"
+		+"<td>"+notiContent+"</td>"
+		+"<td>"+link+"</td>"
+		+"<td>"
+		
+		
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+notiNo+"') id = '"+delAdsNo+"'>삭제</Button>"
+		
+		+"</td>"
+		+"</tr>";
+		
+		}
+		
+		else if(notiTarget==3){
+			console.log("3은 학생입니다");
+		row = "<tr class ='onerow'>"
+		+"<td id='"+noAdsNo+"'>"
+		+notiNo+"</td>"
+		+"<td>학생</td>"
+		+"<td>"+notiTitle+"</td>"
+		+"<td>"+notiContent+"</td>"
+		+"<td>"+link+"</td>"
+		+"<td>"
+		
+		
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+notiNo+"') id = '"+delAdsNo+"'>삭제</Button>"
+		
+		+"</td>"
+		+"</tr>";
+		
+		}
+		
+		else if(notiTarget==4){
+			console.log("4는 기타입니다");
+		row = "<tr class ='onerow'>"
+		+"<td id='"+noAdsNo+"'>"
+		+notiNo+"</td>"
+		+"<td>기타</td>"
+		+"<td>"+notiTitle+"</td>"
+		+"<td>"+notiContent+"</td>"
+		+"<td>"+link+"</td>"
+		+"<td>"
+		
+		
+		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+notiNo+"') id = '"+delAdsNo+"'>삭제</Button>"
+		
+		+"</td>"
+		+"</tr>";
+		
+		}
+		
+		
+		$('tbody').append(row);
+		
+		
+	});/*$each  */
+		
+		
+	},
+
+	error:function(xhr,status,error){
+	    console.log("불러오기 실패:"+error);
+	}
+
+	});
+	}
+
+<c:url value="/delAd" var="delAd"/>
+var delAd = function(adsNo){
+	
+	$.ajax({
+	 url:"${delAd}",
+	 type:"get",
+	 data:{"adsNo":adsNo},
+		success:function(res){
+		console.log("삭제 요청 전송 성공");
+		alert(res);
+		listloading();
+	
+},
+
+ error:function(xhr,status,error){
+  console.log("넘버전송 실패:"+error);
+}
+
+});
+	
+	
+} 
+
+
+  
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 </html>
