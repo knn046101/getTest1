@@ -10,6 +10,13 @@
 	<meta name="description" content="">
 
 </head>
+<style>
+ button{
+ background-color:#27AB99;
+ color:#fff;
+ border-style: none;
+ }
+</style>
 <body>
 	
 	
@@ -179,7 +186,7 @@
 			data:data,
 			success:function(data){
 				for(var i=0; i<data.length; i++){
-				memberStr+="<li class='customerList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button onclick=Editor('"+data[i].id+"')>에디터로 변경</button></small></h1></div></li>";
+				memberStr+="<li class='customerList'><div class='testimonial-review'><img src="+data[i].profileImg+"><h1>"+data[i].id+"<small><button onclick=Editor('"+data[i].id+"') >에디터로 변경</button></small></h1></div></li>";
 				}
 				$(".recent_tab_list").append(memberStr);
 			},
