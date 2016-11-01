@@ -10,8 +10,11 @@ public interface MemberServiceInterface {
 	public void updateMember(Member member);
 	public void deleteMember(String id);
 	public void updateMemberEditor(String id);
+	public int updatePass(String id, String pass);
 	public Member getMemberById(String id);
 	public Member getMemberByEmail(String email);
+	public Member getMember(String id, String email);
+	public Member getMember(String id, String question, String answer);
 	public Member getMemberByNickname(String nickname);
 	
 	public Admin getAdmin(String adminId);

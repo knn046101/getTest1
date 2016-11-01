@@ -23,6 +23,7 @@ public interface MeetingServiceInterface {
 	public void deleteFollowMeetingByMeetingNo(int meetingNo);
 	public void deleteFollowMeetingById(String id);
 	public MeetingFollow selectFollowMeeting(int meetingNo,String id);
+	public int deleteFollowMeeting(int meetingNo, String id);
 	
 	public int insertMeetingBoard(MeetingBoard meetingBoard);
 	public int updateMeetingBoard(MeetingBoard meetingBoard);

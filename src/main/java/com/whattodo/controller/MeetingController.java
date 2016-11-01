@@ -109,13 +109,12 @@ public class MeetingController {
 	
 	@RequestMapping(value="/getMeetings", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
-	public @ResponseBody String getBoardEditorBoards(Model model, HttpServletRequest request){
+	public @ResponseBody String getMeetings(Model model, HttpServletRequest request){
 		List<Meeting> meetings=ms.selectAllMeetings();
 		List<Meeting> afterMeetings=new ArrayList<Meeting>();
 		int page = Integer.parseInt(request.getParameter("pageno"));
 		
 	    int end=(page*9<meetings.size())? page*9 : meetings.size();
-
         for(int i=9*(page-1); i<end; i++){
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
@@ -368,4 +367,29 @@ public class MeetingController {
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
 	
+	@RequestMapping(value="/followCheck", method=RequestMethod.GET,
+	         produces="application/text;charset=UTF-8")
+	public @ResponseBody String followCheck(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		int meetingNo= Integer.parseInt(request.getParameter("meetingNo"));
+		String message="";
+		MeetingFollow mf=ms.selectFollowMeeting(meetingNo, id);
+		if(mf!=null){
+			message="팔로우";
+		}else{
+			message="언팔로우";
+		}
+		return message;
+	}
+	
+	@RequestMapping(value="/deleteFollow", method=RequestMethod.GET,
+	         produces="application/text;charset=UTF-8")
+	public @ResponseBody String deleteFollow(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		int meetingNo= Integer.parseInt(request.getParameter("meetingNo"));
+		String message="";
+		int result=ms.deleteFollowMeeting(meetingNo, id);
+		message=result+"";
+		return message;
+	}
 }

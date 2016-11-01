@@ -86,6 +86,10 @@ public class MeetingService implements MeetingServiceInterface{
 		return mrepo.selectFollowMeeting(meetingNo, id);
 	}
 
+	public int deleteFollowMeeting(int meetingNo, String id){
+		return mrepo.deleteFollowMeeting(meetingNo, id);
+	}
+	
 	public int insertMeetingBoard(MeetingBoard meetingBoard) {
 		return mbrepo.insertMeetingBoard(meetingBoard);
 	}

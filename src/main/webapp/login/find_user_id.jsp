@@ -37,8 +37,8 @@
       <div class="form-group">
       	 <label class="col-sm-3 control-label"></label>
          <div class="col-sm-6">
-           <div class="col-sm-12 text-center">
-            	<button id="findId" class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">ID 확인하기</button>
+           <div class="col-sm-12 text-center" id="button">
+            	<button id="findId" class="btn btn-primary" type="button" style="background-color:#27AB99;border-color:#fff;">ID 확인하기</button>
             </div>
          </div>
 		<br><br><br><br>
@@ -50,9 +50,11 @@
 
 </body>
 <script>
+var email="";
+var id="";
 	<c:url value="/findId" var="findId"/>
 	$("#findId").on("click", function() {
-		var email = $("#email").val();
+		email = $("#email").val();
 		$.ajax({
 			type : "post",
 			url : "${findId}",
@@ -61,6 +63,11 @@
 			},
 			success : function(data) {
 				$("#email").val(data);
+				id=data;
+				$("#findId").remove();
+				var html="<button onclick='login()' class='btn btn-primary' type='button' style='background-color:#27AB99;border-color:#fff;'>로그인</button>";
+				html+="<button onclick='findPass()' class='btn btn-primary' type='button' style='background-color:#27AB99;border-color:#fff;'>비밀번호 찾기</button>";
+				$("#button").append(html);
 			},
 			error : function(xhr, status, error) {
 				alert("일치하는 이메일이 없습니다.");
@@ -68,5 +75,13 @@
 			ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
 		});
 	});
+	
+	function login(){
+		location.href="<%=request.getContextPath()%>/login/login.jsp";
+	}
+	function findPass(){
+		location.href="<%=request.getContextPath()%>/login/find_user_pass1.jsp?id="+id+"&email="+email+"";
+	}
+	
 </script>
 </html>

@@ -21,4 +21,5 @@ public interface MeetingRepo {
 	public int deleteFollowMeetingByMeetingNo(int meetingNo);
 	public int deleteFollowMeetingById(String id);
 	public MeetingFollow selectFollowMeeting(int meetingNo, String id);
+	public int deleteFollowMeeting(int meetingNo, String id);
 }

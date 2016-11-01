@@ -30,6 +30,10 @@ public class MemberService implements MemberServiceInterface{
 		mrepo.updateMemberEditor(id);
 	}
 
+	public int updatePass(String id, String pass){
+		return mrepo.updatePass(id, pass);
+	}
+	
 	public void deleteMember(String id) {
 		mrepo.deleteMember(id);
 	}
@@ -40,6 +44,14 @@ public class MemberService implements MemberServiceInterface{
 
 	public Member getMemberByEmail(String email) {
 		return mrepo.getMemberByEmail(email);
+	}
+	
+	public Member getMember(String id, String email){
+		return mrepo.getMember(id, email);
+	}
+	
+	public Member getMember(String id, String question, String answer){
+		return mrepo.getMember(id, question, answer);
 	}
 	
 	public Member getMemberByNickname(String nickname) {
