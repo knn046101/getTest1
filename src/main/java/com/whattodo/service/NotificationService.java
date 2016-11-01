@@ -26,4 +26,9 @@ public class NotificationService implements NotificationInterface {
 		return nrepo.countNoti();
 	}
 
+	public void deleteNoti(int notiNo) {
+		nrepo.deleteNoti(notiNo);
+		
+	}
+
 }

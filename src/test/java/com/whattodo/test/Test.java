@@ -34,6 +34,7 @@ import com.whattodo.repo.MeetingBoardReplyRepo;
 import com.whattodo.repo.MeetingBoardRepo;
 import com.whattodo.repo.MeetingRepo;
 import com.whattodo.repo.MemberRepo;
+import com.whattodo.repo.NotificationRepo;
 import com.whattodo.repo.TokenRepo;
 import com.whattodo.service.BoardServiceInterface;
 import com.whattodo.service.MeetingService;
@@ -391,6 +392,13 @@ public class Test {
 		assertThat(boards, is(notNullValue()));
 	}
 	
+	@Autowired
+	NotificationRepo nrepo;
 	
+	@org.junit.Test
+	public void NotificationRepo(){
+		int result=nrepo.deleteNoti(4);
+		assertThat(result, is(1));
+	}
 }
 

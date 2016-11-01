@@ -8,4 +8,5 @@ public interface NotificationRepo {
 	public int insertNoti(Notification noti);
 	public List<Notification> selectAllNotification();
 	public int countNoti();
+	public int deleteNoti(int notiNo);
 }

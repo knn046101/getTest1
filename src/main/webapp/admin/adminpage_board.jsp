@@ -51,7 +51,7 @@
                         <th>Category</th>
                         <th>Title</th>
                         <th>User</th>
-                        <th>강제삭제</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody id="tbody">
@@ -91,9 +91,9 @@
 					htmlText += "<tr class=delete>"
                     				+"<td>"+args[i].boardNo+"</td>"
                     				+"<td>"+args[i].category+"</td>"
-                    				+"<td><b><a style='color:#27AB99;' href='${retrieve}?boardNo="+args[i].boardNo+"'>"+args[i].boardTitle+"</a></b></td>"
+                    				+"<td><b><a style='color:black;' href='${retrieve}?boardNo="+args[i].boardNo+"'>"+args[i].boardTitle+"</a></b></td>"
                     				+"<td>"+args[i].id+"</td>"
-                    				+"<td><Button><i class='fa fa-trash-o'></i></Button></td>"
+                    				+"<td><Button style='background-color:#27AB99;color:#fff;border-style:none;'>삭제</Button></td>"
                 					+"</tr>"
 					}
 					$("#tbody").append(htmlText);

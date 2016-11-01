@@ -17,4 +17,9 @@
 		select count(noti_no) from noti_log
 	</select>
 	
+	<delete id="deleteNoti" parameterType="int"> 
+		delete 
+		from noti_log 
+		where noti_no=#{notiNo}
+	</delete>
 </mapper>

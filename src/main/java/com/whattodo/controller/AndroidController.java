@@ -460,4 +460,16 @@ public class AndroidController {
 		return map;
 	}
 	
+	@RequestMapping(value="/delNoti", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String delAdvertisement(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException{
+	
+		String NotiNo=request.getParameter("notiNo");
+		int notiNo = Integer.parseInt(NotiNo);
+		logger.trace("notiNo:{}",notiNo);
+		nService.deleteNoti(notiNo);
+		String result = "삭제되었습니다";
+		return result;
+		}
+	
 }

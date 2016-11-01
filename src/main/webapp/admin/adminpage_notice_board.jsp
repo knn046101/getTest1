@@ -46,7 +46,7 @@
                         <th>Title</th>
                         <!-- <th>Link</th> -->
                         <th>Content</th>
-                        <th>Link / Keyword</th>
+                        <th>Link</th>
                         <th>Option</th>
                     </tr>
                     </thead>
@@ -235,13 +235,13 @@ function listloading(){
 	});
 	}
 
-<c:url value="/delAd" var="delAd"/>
-var delAd = function(adsNo){
+<c:url value="/delNoti" var="delNoti"/>
+var delAd = function(notiNo){
 	
 	$.ajax({
-	 url:"${delAd}",
+	 url:"${delNoti}",
 	 type:"get",
-	 data:{"adsNo":adsNo},
+	 data:{"notiNo":notiNo},
 		success:function(res){
 		console.log("삭제 요청 전송 성공");
 		alert(res);
