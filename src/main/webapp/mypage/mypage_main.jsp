@@ -225,7 +225,7 @@ a {
 						<div class="widget widget_categories">
 							<ul class="arrows_list sidenav">
 								<li><img src=${login.profileImg } class="img-circle"
-									width="150" height="150" hspace="50"> <br></li>
+									width="150" height="150" hspace="100"> <br></li>
 								<h4 align="center">
 									${login.nickname}
 									<c:choose>
