@@ -29,6 +29,17 @@ public class Meeting {
 		this.id=id;
 	}
 
+	public Meeting(int meetingNo, String meetingTitle,String meetingContent,String meetingKeyword,String meetingImg,String place,String id){
+		super();
+		this.meetingNo=meetingNo;
+		this.meetingTitle=meetingTitle;
+		this.meetingContent=meetingContent;
+		this.meetingKeyword=meetingKeyword;
+		this.meetingImg=meetingImg;
+		this.place=place;
+		this.id=id;
+	}
+	
 	public Meeting(Integer meetingNo, String meetingTitle, String meetingContent, String meetingKeyword,
 			String meetingImg, String place, Integer meetingFollow, String id) {
 		super();

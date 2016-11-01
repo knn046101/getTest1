@@ -67,6 +67,38 @@ public class MeetingController {
 		}
 	}
 	
+	@RequestMapping(value="/updateMeeting", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String updateMeeting(Model model, HttpServletRequest request){
+		logger.trace("진입");
+		int meetingNo=Integer.parseInt(request.getParameter("meetingNo"));
+		String meetingTitle=request.getParameter("meetingTitle");
+		String meetingContent=request.getParameter("meetingContent");
+		String place=request.getParameter("place");
+		String id=request.getParameter("id");
+		String keyword=request.getParameter("meetingKeyword");
+		String meetingImg=request.getParameter("meetingImg");
+		logger.trace("받기");
+		Meeting meeting  = new Meeting(meetingNo, meetingTitle,meetingContent,keyword,meetingImg,place,id);
+		logger.trace("미팅 만들기");
+		int result = ms.updateMeeting(meeting);
+		logger.trace("업데이트");
+		if(result==1){
+			return "저장";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/meetingUpdate", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public String meetingUpdate(Model model, HttpServletRequest request){
+		int meetingNo=Integer.parseInt(request.getParameter("meetingNo"));
+		Meeting meeting = ms.selectMeetingByMeetingNo(meetingNo);
+		model.addAttribute("meeting", meeting);
+		return "meeting/meeting_update";
+	}
+	
 	@RequestMapping(value="/meetingDelete", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String meetingDelete(Model model, HttpServletRequest request){
@@ -85,7 +117,7 @@ public class MeetingController {
 	    int end=(page*9<meetings.size())? page*9 : meetings.size();
 
         for(int i=9*(page-1); i<end; i++){
-        	meetings.get((page-1)*10).setPage(page);
+        	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
         	if(!tmpPlace[1].equals("undefined")){
@@ -115,7 +147,7 @@ public class MeetingController {
 	    int end=(page*9<meetings.size())? page*9 : meetings.size();
 
         for(int i=9*(page-1); i<end; i++){
-        	meetings.get((page-1)*10).setPage(page);
+        	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
         	if(!tmpPlace[1].equals("undefined")){

@@ -32,6 +32,11 @@
 											게시글작성 <i class="fa fa-pencil"></i>
 										</button>
 										<c:if test="${meeting.id eq login.id }">
+										<c:url value="/meetingUpdate" var="meetingUpdate"/>
+										<button class="btn btn-primary" id="meeintgUpdate"
+										    onclick="location='${meetingUpdate}?meetingNo=${meeting.meetingNo}'	"										style="background-color:orange; border-color: #fff;">
+											모임수정 <i class="fa fa-edit"></i>
+										</button>
 										<button class="btn btn-primary" id="meeintgDelete"
 											style="background-color:orange; border-color: #fff;">
 											모임삭제 <i class="fa fa-trash-o"></i>

@@ -12,8 +12,9 @@
 		update meeting
 		set meeting_title=#{meetingTitle},
 		meeting_content=#{meetingContent},
-		meeting_keyword=#{meetingKeword},
-		meeting_img=#{meetingImg}
+		meeting_keyword=#{meetingKeyword},
+		meeting_img=#{meetingImg},
+		place=#{place}
 		where meeting_no=#{meetingNo}
 	</update>
 	

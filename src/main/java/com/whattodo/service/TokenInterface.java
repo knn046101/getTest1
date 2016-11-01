@@ -12,6 +12,8 @@ public interface TokenInterface {
 	
 	public List<Tokens> selectAllowtokens() ;
 	
+	public Tokens selectTokensByTokenContent(String tokenContent) ;
+	
     public List<Tokens> selectStudenttokens() ;  
 	
 	public List<Tokens> selectBizmantokens() ;

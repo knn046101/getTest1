@@ -182,6 +182,23 @@ public class Test {
 		assertThat(result, is(1));
 	}
 	
+	@Autowired
+	MeetingRepo mrepo;
+	
+	@org.junit.Test
+	public void updateMeetingTest() {
+		Meeting meeting = new Meeting();
+		meeting.setMeetingTitle("예사모");
+		meeting.setMeetingContent("예리 사랑 모임");
+		meeting.setMeetingKeyword("#예리#예리사랑");
+		meeting.setMeetingNo(101);
+		meeting.setMeetingImg("이미지");
+		meeting.setPlace("경기도,광주시");
+		int result= mrepo.updateMeeting(meeting);
+		assertThat(result, is(1));
+	
+	}
+	
 	@org.junit.Test
 	public void insertAds(){
 		Advertisement ad = new Advertisement();
