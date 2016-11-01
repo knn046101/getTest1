@@ -3974,18 +3974,22 @@ blockquote.default {
    margin-right:20px
 	}
 }
-@media screen and (max-width: 768px){}
+@media screen and (max-width: 768px){
  .arrows_list > li > img {
     margin-left: 26%;
+}
 }
 @media screen and (min-width:228) and (max-width: 768px){
  .arrows_list > li > img {
     margin-left: 150%;
 }
-
+}
 @media screen and (max-width:20x){
  .arrows_list > li > img {
     margin-left:1%;
 }
+}
 
 
+
+}

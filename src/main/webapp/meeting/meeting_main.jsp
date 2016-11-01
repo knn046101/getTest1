@@ -19,6 +19,13 @@
     margin-left: auto;
     width: 100%;
 	}
+	h3 {
+	width: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 </style>
 </head>
 <body>
