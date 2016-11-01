@@ -35,7 +35,12 @@ public class TokenService implements TokenInterface{
 		
 		return list;
 	}
-
+	
+	public Tokens selectTokensByTokenContent(String tokenContent) {
+		Tokens token = trepo.selectTokensByTokenContent(tokenContent);
+		return token;
+	}
+	
 	public void updateClientToken(Tokens token) {
 		// TODO Auto-generated method stub
 		trepo.updateClientToken(token);

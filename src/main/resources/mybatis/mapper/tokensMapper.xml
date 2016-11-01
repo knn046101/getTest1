@@ -9,7 +9,6 @@
 		values(seq_token_no.nextval, #{tokenContent}, #{tokenFlag})
 	</insert>
 	
-	
 	<update id="updateTokenFlag" parameterType="token">
 		update tokens
 		set token_flag=#{tokenFlag}		
@@ -24,18 +23,21 @@
 	<select id="selectAlltokens"  resultType="token">
 		select * from tokens
 	</select>
+
+	<select id="selectTokensByTokenContent" parameterType="String" resultType="token">
+		select * from tokens
+		where token_content=#{tokenCotent}
+	</select>	
 	
 	<select id="selectAllowtokens"  parameterType="int" resultType="token">
 		select * from tokens
 		where token_flag =1
 	</select>
 	
-	
 	<select id="selectStudenttokens"  parameterType="int" resultType="token">
 		select * from tokens
 		where token_flag =2
 	</select>
-	
 	
 	<select id="selectBizmantokens"  parameterType="int" resultType="token">
 		select * from tokens

@@ -218,6 +218,7 @@ var sel2;
         var strArray=location.split(",");
         $('#sel1').val(strArray[0]); 
         changeCapital();
+        console.log(strArray[1]);
         if(strArray[1]!="undefined"){
         	$('#sel2').val(strArray[1]); 
         }

@@ -67,6 +67,38 @@ public class MeetingController {
 		}
 	}
 	
+	@RequestMapping(value="/updateMeeting", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String updateMeeting(Model model, HttpServletRequest request){
+		logger.trace("진입");
+		int meetingNo=Integer.parseInt(request.getParameter("meetingNo"));
+		String meetingTitle=request.getParameter("meetingTitle");
+		String meetingContent=request.getParameter("meetingContent");
+		String place=request.getParameter("place");
+		String id=request.getParameter("id");
+		String keyword=request.getParameter("meetingKeyword");
+		String meetingImg=request.getParameter("meetingImg");
+		logger.trace("받기");
+		Meeting meeting  = new Meeting(meetingNo, meetingTitle,meetingContent,keyword,meetingImg,place,id);
+		logger.trace("미팅 만들기");
+		int result = ms.updateMeeting(meeting);
+		logger.trace("업데이트");
+		if(result==1){
+			return "저장";
+		}else{
+			return "실패";
+		}
+	}
+	
+	@RequestMapping(value="/meetingUpdate", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public String meetingUpdate(Model model, HttpServletRequest request){
+		int meetingNo=Integer.parseInt(request.getParameter("meetingNo"));
+		Meeting meeting = ms.selectMeetingByMeetingNo(meetingNo);
+		model.addAttribute("meeting", meeting);
+		return "meeting/meeting_update";
+	}
+	
 	@RequestMapping(value="/meetingDelete", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
 	public @ResponseBody String meetingDelete(Model model, HttpServletRequest request){
@@ -85,7 +117,7 @@ public class MeetingController {
 	    int end=(page*9<meetings.size())? page*9 : meetings.size();
 
         for(int i=9*(page-1); i<end; i++){
-        	meetings.get((page-1)*10).setPage(page);
+        	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
         	if(!tmpPlace[1].equals("undefined")){
@@ -115,7 +147,7 @@ public class MeetingController {
 	    int end=(page*9<meetings.size())? page*9 : meetings.size();
 
         for(int i=9*(page-1); i<end; i++){
-        	meetings.get((page-1)*10).setPage(page);
+        	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
         	if(!tmpPlace[1].equals("undefined")){
@@ -217,15 +249,7 @@ public class MeetingController {
 		}
 		afterMeetingBoardReply.get(0).setRecordNum(meetingBoardReply.size());
 		Gson gson = new Gson();
-		String boardReplyStr = "[";
-		for(int i=0; i<afterMeetingBoardReply.size(); i++){
-			if(i==afterMeetingBoardReply.size()-1){
-				boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i));
-				break;
-			}
-			boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i))+",";
-		}
-		boardReplyStr+="]";
+		String boardReplyStr = gson.toJson(afterMeetingBoardReply);
 		return boardReplyStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -255,15 +279,7 @@ public class MeetingController {
 		afterMeetingBoardReply.get(0).setRecordNum(meetingBoardReply2.size());
 		
 		Gson gson = new Gson();
-		String boardReplyStr = "[";
-		for(int i=0; i<afterMeetingBoardReply.size(); i++){
-			if(i==afterMeetingBoardReply.size()-1){
-				boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i));
-				break;
-			}
-			boardReplyStr+=gson.toJson(afterMeetingBoardReply.get(i))+",";
-		}
-		boardReplyStr+="]";
+		String boardReplyStr = gson.toJson(afterMeetingBoardReply);
 		return boardReplyStr;
 	}
 	
@@ -348,15 +364,7 @@ public class MeetingController {
 	      aftermeetings.get(0).setRecordNum(meetings.size());
 	      
 	      Gson gson = new Gson();
-	      String boardStr = "[";
-	      for(int i=0; i<aftermeetings.size(); i++){
-	         if(i==aftermeetings.size()-1){
-	            boardStr+=gson.toJson(aftermeetings.get(i));
-	            break;
-	         }
-	         boardStr+=gson.toJson(aftermeetings.get(i))+",";
-	      }
-	      boardStr+="]";
+	      String boardStr = gson.toJson(aftermeetings);
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
 	

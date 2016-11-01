@@ -28,6 +28,11 @@ public class TokenRepoImpl implements TokenRepo{
 		return template.selectList(statement);
 	}
 
+	public Tokens selectTokensByTokenContent(String tokenContent){
+		String statement = NAME_SPACE+"selectTokensByTokenContent";
+		return template.selectOne(statement, tokenContent);
+	}
+	
 	public List<Tokens> selectAllowtokens() {
 		
 		String statement = NAME_SPACE+"selectAllowtokens";

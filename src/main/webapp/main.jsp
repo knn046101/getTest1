@@ -29,13 +29,8 @@
          </select>
       </span>
    </div>
-
 <br>
-
 <br>
-
-
-
       <section class="latest_work">
          <div class="container">
             <div class="row sub_content">

@@ -19,6 +19,13 @@
     margin-left: auto;
     width: 100%;
 	}
+	h3 {
+	width: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 </style>
 </head>
 <body>
@@ -307,10 +314,10 @@
 		          			+"<div class='caption'>"
 		            		+"<h2 class=''>"+args[i].meetingTitle+"</h2>"
 		            		+"<h3>"+args[i].meetingContent+"</h3>"
-		            		+"<p> 관심사 : "+args[i].meetingKeyword+"</p>"
+		            		+"<p> 키워드 : "+args[i].meetingKeyword+"</p>"
 		            		+"<p> 지   역 : "+args[i].place+"</p>"
 		            		+"<div class='btn-toolbar text-center'>"
-		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right'>보기</a>"
+		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right' style='background-color:orange;'><i class='fa fa-location-arrow'></i></a>"
 		             		+"</div>"
 		             		+"</div>"
 		             		+"</div>"
@@ -429,20 +436,20 @@
 				var length = args.length;
 				for (var i = 0; i < length; i++) {
 					<c:url value="/retrieveMeeting" var="retrieveMeeting"/>
-					htmlText += "<div class='col-sm-6 col-md-4 delete'>"
-			        		 	+"<div class='thumbnail'>"
-			          			+"<img src="+args[i].meetingImg+" alt='' class='img-responsive' style='height:200px;'>"
-			          			+"<div class='caption'>"
-			            		+"<h2 class=''>"+args[i].meetingTitle+"</h2>"
-			            		+"<h3>"+args[i].meetingContent+"</h3>"
-			            		+"<p> 관심사 : "+args[i].meetingKeyword+"</p>"
-			            		+"<p> 지   역 : "+args[i].place+"</p>"
-			            		+"<div class='btn-toolbar text-center'>"
-			             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right'>보기</a>"
-			             		+"</div>"
-			             		+"</div>"
-			             		+"</div>"
-			             		+"</div>";
+						htmlText += "<div class='col-sm-6 col-md-4 delete'>"
+		        		 	+"<div class='thumbnail'>"
+		          			+"<img src="+args[i].meetingImg+" alt='' class='img-responsive' style='height:200px;'>"
+		          			+"<div class='caption'>"
+		            		+"<h2 class=''>"+args[i].meetingTitle+"</h2>"
+		            		+"<h3>"+args[i].meetingContent+"</h3>"
+		            		+"<p> 키워드 : "+args[i].meetingKeyword+"</p>"
+		            		+"<p> 지   역 : "+args[i].place+"</p>"
+		            		+"<div class='btn-toolbar text-center'>"
+		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right' style='background-color:orange;'><i class='fa fa-location-arrow'></i></a>"
+		             		+"</div>"
+		             		+"</div>"
+		             		+"</div>"
+		             		+"</div>";
 					}
 					$(".thumbs").append(htmlText);
 					var recordNum = args[0].recordNum;
@@ -564,10 +571,10 @@
 		          			+"<div class='caption'>"
 		            		+"<h2 class=''>"+args[i].meetingTitle+"</h2>"
 		            		+"<h3>"+args[i].meetingContent+"</h3>"
-		            		+"<p> 관심사 : "+args[i].meetingKeyword+"</p>"
+		            		+"<p> 키워드 : "+args[i].meetingKeyword+"</p>"
 		            		+"<p> 지   역 : "+args[i].place+"</p>"
 		            		+"<div class='btn-toolbar text-center'>"
-		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right'>보기</a>"
+		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right' style='background-color:orange;'><i class='fa fa-location-arrow'></i></a>"
 		             		+"</div>"
 		             		+"</div>"
 		             		+"</div>"

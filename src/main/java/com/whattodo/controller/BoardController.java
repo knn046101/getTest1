@@ -117,15 +117,7 @@ public class BoardController {
 	      }
 	      
 	      Gson gson = new Gson();
-	      String boardStr = "[";
-	      for(int i=0; i<afterBoard.size(); i++){
-	         if(i==afterBoard.size()-1){
-	            boardStr+=gson.toJson(afterBoard.get(i));
-	            break;
-	         }
-	         boardStr+=gson.toJson(afterBoard.get(i))+",";
-	      }
-	      boardStr+="]";
+	      String boardStr = gson.toJson(afterBoard);
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
 	
@@ -271,8 +263,6 @@ public class BoardController {
 		String loginLocation = request.getParameter("loginLocation");
 		List<Board> boards=null;
 		List<Board> afterBoard=new ArrayList<Board>();
-		logger.trace("strdo:{}, strcity :{}", strdo, strcity);
-		logger.trace("loginLocation:{}", loginLocation);
 		
 		if(!strdo.equals("")){
 			boards=bs.selectBoardByCapitalAndCity(strdo, strcity);
@@ -294,15 +284,7 @@ public class BoardController {
 	    }
 		
 		Gson gson = new Gson();
-		String boardStr = "[";
-		for(int i=0; i<afterBoard.size(); i++){
-			if(i==afterBoard.size()-1){
-				boardStr+=gson.toJson(afterBoard.get(i));
-				break;
-			}
-			boardStr+=gson.toJson(afterBoard.get(i))+",";
-		}
-		boardStr+="]";
+		String boardStr = gson.toJson(afterBoard);
 		return boardStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -370,16 +352,7 @@ public class BoardController {
 		}
 		afterBoardReply.get(0).setRecordNum(boardReply.size());
 		Gson gson = new Gson();
-		String boardReplyStr = "[";
-		for(int i=0; i<afterBoardReply.size(); i++){
-			if(i==afterBoardReply.size()-1){
-				boardReplyStr+=gson.toJson(afterBoardReply.get(i));
-				break;
-			}
-			boardReplyStr+=gson.toJson(afterBoardReply.get(i))+",";
-		}
-		boardReplyStr+="]";
-		logger.trace("boardReply:{}",boardReply);
+		String boardReplyStr = gson.toJson(afterBoardReply);
 		return boardReplyStr; // 사용할 뷰의 이름 리턴 
 	}
 	
@@ -415,17 +388,8 @@ public class BoardController {
 		}
 		afterboardReply.get(0).setRecordNum(boardReply2.size());
 		
-		
 		Gson gson = new Gson();
-		String boardReplyStr = "[";
-		for(int i=0; i<afterboardReply.size(); i++){
-			if(i==afterboardReply.size()-1){
-				boardReplyStr+=gson.toJson(afterboardReply.get(i));
-				break;
-			}
-			boardReplyStr+=gson.toJson(afterboardReply.get(i))+",";
-		}
-		boardReplyStr+="]";
+		String boardReplyStr = gson.toJson(afterboardReply);
 		return boardReplyStr;
 	}
 	
@@ -612,15 +576,7 @@ public class BoardController {
 	      }
 	      
 	      Gson gson = new Gson();
-	      String boardStr = "[";
-	      for(int i=0; i<afterBoard.size(); i++){
-	         if(i==afterBoard.size()-1){
-	            boardStr+=gson.toJson(afterBoard.get(i));
-	            break;
-	         }
-	         boardStr+=gson.toJson(afterBoard.get(i))+",";
-	      }
-	      boardStr+="]";
+		  String boardStr = gson.toJson(afterBoard);
 	      return boardStr; // 사용할 뷰의 이름 리턴 
 	   }
 	
