@@ -54,21 +54,75 @@
 										method="post" action="#">
 										<div class="form-group">
 											<h3>전체 알림</h3>
-											<label class="col-sm-4 control-label" for="title1">알림 제목</label>
+											<label class="col-sm-4 control-label" for="title0">알림 제목</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control col-sm-3"
+													id="title0"></input>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label" for="content0">알림 내용</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control col-sm-3"
+													id="content0"></input>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;</label>
+											<div class="col-sm-8">
+												<div class="col-sm-4">
+												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
+												<input type="text" class="form-control col-sm-4" id="linkcontent0"></input> 
+												
+												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
+												<select id="select0" name="category" style="height:27px;">
+														<option>카테고리</option>
+														<option>먹거리</option>
+														<option>나들이</option>
+														<option>취미</option>
+												</select>
+												<input type="text" id="search0" name="what" placeholder="키워드">	
+												</div>
+											</div>
+
+										</div>
+										<br>
+										<div class="form-group">
+											<div class="col-sm-12 text-center">
+												<button class="btn btn-primary" type="button"
+													style="background-color: orange; border-color: #fff;"
+													id="tab0">
+													알림 등록<i class="fa fa-check spaceLeft"></i>
+												</button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+								
+								<div id="menu1" class="tab-pane fade">
+									<form id="form" class="form-horizontal" role="form"
+										method="post" action="#">
+										<div class="form-group">
+											<h3>수신 동의</h3>
+											<label class="col-sm-4 control-label" for="title1">알림
+												제목</label>
 											<div class="col-sm-4">
 												<input type="text" class="form-control col-sm-3"
 													id="title1"></input>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label" for="content1">알림 내용</label>
+											<label class="col-sm-4 control-label" for="content1">알림
+												내용</label>
 											<div class="col-sm-4">
 												<input type="text" class="form-control col-sm-3"
 													id="content1"></input>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;</label>
+											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;
+											</label>
 											<div class="col-sm-8">
 												<div class="col-sm-4">
 												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
@@ -100,11 +154,11 @@
 									</form>
 								</div>
 								
-								<div id="menu1" class="tab-pane fade">
+								<div id="menu2" class="tab-pane fade">
 									<form id="form" class="form-horizontal" role="form"
 										method="post" action="#">
 										<div class="form-group">
-											<h3>수신 동의</h3>
+											<h3>직장인</h3>
 											<label class="col-sm-4 control-label" for="title2">알림
 												제목</label>
 											<div class="col-sm-4">
@@ -154,11 +208,11 @@
 									</form>
 								</div>
 								
-								<div id="menu2" class="tab-pane fade">
+								<div id="menu3" class="tab-pane fade">
 									<form id="form" class="form-horizontal" role="form"
 										method="post" action="#">
 										<div class="form-group">
-											<h3>직장인</h3>
+											<h3>학생</h3>
 											<label class="col-sm-4 control-label" for="title3">알림
 												제목</label>
 											<div class="col-sm-4">
@@ -175,21 +229,21 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;
+											<label class="col-sm-4 control-label" >알림&nbsp;&nbsp;
 											</label>
 											<div class="col-sm-8">
 												<div class="col-sm-4">
-												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
+												<input type="radio" value="link">&nbsp;링크&nbsp;<br>
 												<input type="text" class="form-control col-sm-4" id="linkcontent3"></input> 
 												
-												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
+												<input type="radio" value="search">&nbsp;검색&nbsp;<br>
 												<select id="select3" name="category" style="height:27px;">
 														<option>카테고리</option>
 														<option>먹거리</option>
 														<option>나들이</option>
 														<option>취미</option>
 												</select>
-												<input type="text" id="search3" name="what" placeholder="키워드">	
+												<input type="text" name="what" id="search3" placeholder="키워드">	
 												</div>
 											</div>
 
@@ -208,16 +262,15 @@
 									</form>
 								</div>
 								
-								<div id="menu3" class="tab-pane fade">
+								<div id="menu4" class="tab-pane fade">
 									<form id="form" class="form-horizontal" role="form"
 										method="post" action="#">
 										<div class="form-group">
-											<h3>학생</h3>
-											<label class="col-sm-4 control-label" for="title4">알림
-												제목</label>
+											<h3>기타</h3>
+											<label class="col-sm-4 control-label" for="title4">알림 제목</label>
 											<div class="col-sm-4">
 												<input type="text" class="form-control col-sm-3"
-													id="title4"></input>
+													id="title4">
 											</div>
 										</div>
 										<div class="form-group">
@@ -229,21 +282,21 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label" >알림&nbsp;&nbsp;
+											<label class="col-sm-4 control-label" for="image">알림&nbsp;&nbsp;
 											</label>
 											<div class="col-sm-8">
 												<div class="col-sm-4">
-												<input type="radio" value="link">&nbsp;링크&nbsp;<br>
-												<input type="text" class="form-control col-sm-4" id="linkcontent4"></input> 
+												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
+												<input type="text" class="form-control col-sm-4" id="linkcontent4"> 
 												
-												<input type="radio" value="search">&nbsp;검색&nbsp;<br>
+												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
 												<select id="select4" name="category" style="height:27px;">
 														<option>카테고리</option>
 														<option>먹거리</option>
 														<option>나들이</option>
 														<option>취미</option>
 												</select>
-												<input type="text" name="what" id="search4" placeholder="키워드">	
+												<input type="text" id="search4" name="what" placeholder="키워드">	
 												</div>
 											</div>
 
@@ -254,59 +307,6 @@
 												<button class="btn btn-primary" type="button"
 													style="background-color: orange; border-color: #fff;"
 													id="tab4">
-													알림 등록<i class="fa fa-check spaceLeft"></i>
-												</button>
-											</div>
-										</div>
-
-									</form>
-								</div>
-								
-								<div id="menu4" class="tab-pane fade">
-									<form id="form" class="form-horizontal" role="form"
-										method="post" action="#">
-										<div class="form-group">
-											<h3>기타</h3>
-											<label class="col-sm-4 control-label" for="title5">알림 제목</label>
-											<div class="col-sm-4">
-												<input type="text" class="form-control col-sm-3"
-													id="title5">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-4 control-label" for="content5">알림
-												내용</label>
-											<div class="col-sm-4">
-												<input type="text" class="form-control col-sm-3"
-													id="content5"></input>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-4 control-label" for="image">알림&nbsp;&nbsp;
-											</label>
-											<div class="col-sm-8">
-												<div class="col-sm-4">
-												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
-												<input type="text" class="form-control col-sm-4" id="linkcontent5"> 
-												
-												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
-												<select id="select5" name="category" style="height:27px;">
-														<option>카테고리</option>
-														<option>먹거리</option>
-														<option>나들이</option>
-														<option>취미</option>
-												</select>
-												<input type="text" id="search5" name="what" placeholder="키워드">	
-												</div>
-											</div>
-
-										</div>
-										<br>
-										<div class="form-group">
-											<div class="col-sm-12 text-center">
-												<button class="btn btn-primary" type="button"
-													style="background-color: orange; border-color: #fff;"
-													id="tab5">
 													알림 등록<i class="fa fa-check spaceLeft"></i>
 												</button>
 											</div>
@@ -383,6 +383,8 @@ var select;
         	search = $('#search2').val();
         	select=$('#select2').val();
         	
+        	console.log(search);
+        	console.log(select);
         	var alldata ={
         			"title":title,
         			"content":content,
@@ -510,5 +512,157 @@ var select;
               ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
            });
         });
+        
+        
+        
+        <c:url value="/insertNoti" var="insertNoti"/>
+            $("#tab0").on("click", function(){
+               
+               allData={
+                  "notiTitle":$("#title0").val(),
+                  "notiContent":$("#content0").val(),
+                  "link":$("#linkcontent0").val(),
+                  "notiTarget":"0"
+               };
+               
+               $.ajax({
+                  type:"post",
+                  url:"${insertNoti }",
+                  data: allData,
+                  success:function(data){
+                     if(data=="저장"){
+                        alert("저장되었습니다.");
+                         location.href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp";
+                     }else{
+                        alert("저장 실패");
+                     }
+                  },
+                  error:function(xhr, status, error){
+                     alert(error);
+                  },
+                  ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+               });
+            });        
+        
+        <c:url value="/insertNoti" var="insertNoti"/>
+            $("#tab1").on("click", function(){
+               
+               allData={
+                  "notiTitle":$("#title1").val(),
+                  "notiContent":$("#content1").val(),
+                  "link":$("#linkcontent1").val(),
+                  "notiTarget":"1"
+               };
+               
+               $.ajax({
+                  type:"post",
+                  url:"${insertNoti }",
+                  data: allData,
+                  success:function(data){
+                     if(data=="저장"){
+                        alert("저장되었습니다.");
+                         location.href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp";
+                     }else{
+                        alert("저장 실패");
+                     }
+                  },
+                  error:function(xhr, status, error){
+                     alert(error);
+                  },
+                  ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+               });
+            });
+        
+        
+/*  광고 데이타베이스에 저장  */
+        <c:url value="/insertNoti" var="insertNoti"/>
+        $("#tab2").on("click", function(){
+           
+           allData={
+              "notiTitle":$("#title2").val(),
+              "notiContent":$("#content2").val(),
+              "link":$("#linkcontent2").val(),
+              "notiTarget":"2"
+           };
+           
+           $.ajax({
+              type:"post",
+              url:"${insertNoti }",
+              data: allData,
+              success:function(data){
+                 if(data=="저장"){
+                    alert("저장되었습니다.");
+                     location.href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp";
+                 }else{
+                    alert("저장 실패");
+                 }
+              },
+              error:function(xhr, status, error){
+                 alert(error);
+              },
+              ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+           });
+        });
+        
+        <c:url value="/insertNoti" var="insertNoti"/>
+            $("#tab3").on("click", function(){
+               
+               allData={
+                  "notiTitle":$("#title3").val(),
+                  "notiContent":$("#content3").val(),
+                  "link":$("#linkcontent3").val(),
+                  "notiTarget":"3"
+               };
+               
+               $.ajax({
+                  type:"post",
+                  url:"${insertNoti }",
+                  data: allData,
+                  success:function(data){
+                     if(data=="저장"){
+                        alert("저장되었습니다.");
+                         location.href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp";
+                     }else{
+                        alert("저장 실패");
+                     }
+                  },
+                  error:function(xhr, status, error){
+                     alert(error);
+                  },
+                  ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+               });
+            });
+
+            
+            <c:url value="/insertNoti" var="insertNoti"/>
+                $("#tab4").on("click", function(){
+                   
+                   allData={
+                      "notiTitle":$("#title4").val(),
+                      "notiContent":$("#content4").val(),
+                      "link":$("#linkcontent4").val(),
+                      "notiTarget":"4"
+                   };
+                   
+                   $.ajax({
+                      type:"post",
+                      url:"${insertNoti }",
+                      data: allData,
+                      success:function(data){
+                         if(data=="저장"){
+                            alert("저장되었습니다.");
+                             location.href="<%=request.getContextPath()%>/admin/adminpage_notice_board.jsp";
+                         }else{
+                            alert("저장 실패");
+                         }
+                      },
+                      error:function(xhr, status, error){
+                         alert(error);
+                      },
+                      ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+                   });
+                });
+                
+      
 </script>
 </html>

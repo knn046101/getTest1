@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whattodo.dao.NotificationMapper">
+
+	<insert id="insertNoti" parameterType="notification">
+		insert into noti_log(noti_no, noti_target, noti_title, noti_message, link)
+		values(seq_noti_no.nextval, #{notiTarget}, #{notiTitle}, #{notiMessage}, #{link})
+	</insert>
+	
+	<select id="selectAllNotification"  resultType="notification">
+		select * from noti_log
+	</select>
+	
+	<select id="countNotification" resultType="int">
+		select count(noti_no) from noti_log
+	</select>
+	
+</mapper>
