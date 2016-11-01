@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@
                	placeholder="A. 답변작성">
             	<br>
             	<div class="col-sm-12 text-center">
-            		 <button onclick="location='find_user_pass3.jsp'" class="btn btn-primary" type="submit" style="background-color:#27AB99;border-color:#fff;">다음으로</button>
+            		 <button id="nextBtn" class="btn btn-primary" type="button" style="background-color:#27AB99;border-color:#fff;">다음으로</button>
             	</div>
             	<br>
             </div>
@@ -54,5 +55,35 @@
 
 
 </body>
-<script></script>
+<script>
+	var id="<%=request.getParameter("id")%>"
+	$("#nextBtn").on("click",function(){
+		var question=$("#inputPasswordFind").val();
+		var answer=$("#inputPasswordAnswer").val()
+		
+		var data={
+			"question":question,
+			"answer":answer,
+			"id":id
+		};
+		
+		<c:url value="/passCheck2" var="passCheck2"/>
+		$.ajax({
+			type:"post",
+			url:"${passCheck2}",
+			data: data,
+			success : function(data) {
+				if(data=="성공"){
+					location.href="<%=request.getContextPath()%>/login/find_user_pass3.jsp?id="+id;
+				}else{
+					alert("질문과 답을 다시 입력하여 주십시오.");
+				}
+			},
+			error : function(xhr, status, error) {
+				alert("다시 입력하여 주십시오.");
+			},
+			ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	});
+</script>
 </html>
