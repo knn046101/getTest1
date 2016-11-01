@@ -74,8 +74,12 @@
 <script>
 <c:url value="/getBoardByAdmin" var="getBoardByAdmin"/>
 	$(document)	.ready(function() {
-		var htmlText = "";
+		adminBoardList();
+	});
+ 	function adminBoardList(){
+ 		var htmlText = "";
 		var total_record = 1;
+		$(".paging").remove();
 		$(".delete").remove();
 		var page_eno;
 		var page_sno;
@@ -182,8 +186,7 @@
 					},
 					"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 				});
-	});
-
+ 	}
 	function send(inputUrl) {
 		var url = inputUrl;
 		var htmlText = "";
@@ -534,57 +537,9 @@
 	}
 	
 	var boardNo;
-	
 	var noAdsNo ;
 	var delAdsNo;
 	
-	<c:url value="/loadingBoard" var="loadingBoard"/>
-		$(document).ready(function() {
-			listloading();
-
-		});/*document ready  */
-
-		function listloading(){
-			
-			$('.onerow>td').remove();
-			
-			$.ajax({
-				 url:"${loadingBoard}",
-				 type:"get",
-
-				 success:function(res){
-
-				
-				var fromServerToObj = JSON.parse(res);
-				
-				console.log(fromServerToObj);
-				
-				var row="";
-				
-				$.each(fromServerToObj,function(index,item){
-				
-			/*데이터를 받아 변수에 삽입하는 부분  */
-				 boardNo = item.boardNo;
-				
-				
-				/*동적으로 각 태그 id를 만들기 위한 변수  */	
-				 noAdsNo = boardNo+"boardNo";
-				delAdsNo = boardNo+"del";
-				
-				$('tbody').append(row);
-				
-				
-				});/*$each  */
-					
-					
-				},
-
-				error:function(xhr,status,error){
-				    console.log("불러오기 실패:"+error);
-				}
-
-				});
-				}
 		
 	<c:url value="/delBoardAdmin" var="delBoardAdmin"/>
 		var delAd = function(boardNo){
@@ -594,10 +549,8 @@
 			 type:"get",
 			 data:{"boardNo":boardNo},
 				success:function(res){
-				console.log("삭제 요청 전송 성공");
-				alert(res);
-				listloading();
-			
+					alert("삭제되었습니다.");
+					adminBoardList();
 		},/*suceess  */
 
 		error:function(xhr,status,error){
