@@ -131,6 +131,8 @@ public class AndroidController {
 		//검색카테고리 전달
 		String category = request.getParameter("select");
 		
+	     logger.trace(body);
+		
 	/////
 		
 		Map<String, String> data = new HashMap<String, String>();
@@ -397,6 +399,69 @@ public class AndroidController {
 		map.put("message", resultmsg);
 		return map;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/tokenServiceReturn", method = RequestMethod.POST)
+	public @ResponseBody Map<String, String> tokenServiceReturn(@RequestBody Map body) throws JsonProcessingException {
+		logger.trace("token 수신 완료" + body);
+		String tokenvalue = body.get("tokenValue").toString();
+		
+		Tokens tokenResultReturn = cService.selectTokensByTokenContent(tokenvalue);
+		
+		int tokenflag = tokenResultReturn.getTokenFlag();
+		
+		
+		String resultmsg ="";
+		if(tokenflag==0){
+			resultmsg ="광고 거절 상태입니다";
+		}
+		else if(tokenflag==1){
+			resultmsg ="광고 수락 되었습니다";
+		}
+		else if(tokenflag==2){
+			resultmsg ="그룹 설정(학생) 되었습니다";
+				}
+				
+		else if(tokenflag==3){
+			resultmsg ="그룹 설정(직장인) 되었습니다";
+		}
+				
+		else if(tokenflag==4){
+			resultmsg ="그룹 설정(기타) 되었습니다";
+		}
+			
+		/*Tokens token = new Tokens(tokenvalue, 0);*/
+		
+		Tokens token = new Tokens(tokenvalue, tokenflag);
+		
+		
+		logger.trace("이거다 벨류값:{}",tokenvalue);
+		
+		cService.updateClientToken(token);
+		
+		
+		//받았다고 리턴
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("message", resultmsg);
+		return map;
+	}
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value="/loadingNoti", method=RequestMethod.GET,
 			produces="application/text;charset=UTF-8")
