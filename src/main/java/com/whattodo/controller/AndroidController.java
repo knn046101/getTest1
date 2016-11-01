@@ -249,8 +249,8 @@ public class AndroidController {
 
 		// 토큰이 있는 개수만큼 꺼내와서 전송하는 부분
 		
-		for(int i = 0; i < cService.selectBizmantokens().size(); i++){
-			String client = cService.selectBizmantokens().get(i).getTokenContent();
+		for(int i = 0; i < cService.selectEtctokens().size(); i++){
+			String client = cService.selectEtctokens().get(i).getTokenContent();
 			params.put("to", client);
 			ObjectMapper om = new ObjectMapper();
 			logger.trace("params : {}", om.writeValueAsString(params));
