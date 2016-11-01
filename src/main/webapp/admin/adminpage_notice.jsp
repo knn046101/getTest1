@@ -297,20 +297,17 @@ var search;
 var select;
 
 <c:url value="/sendByAllToken" var="sendByAllToken"/>
-    $('#tab1').on("click",function(){
+    $('#tab0').on("click",function(){
     	
-    	title = $('#title1').val();
-    	content =$('#content1').val();
-    	link = $('#linkcontent1').val();
-    	search = $('#search1').val();
-    	select=$('#select1').val();
+    	title = $('#title0').val();
+    	content =$('#content0').val();
+    	link = $('#linkcontent0').val();
     	
     	var alldata ={
     			"title":title,
     			"content":content,
-    			"link":link,
-    			"search":search,
-    			"select":select
+    			"link":link
+    			
     			};
     	
        $.ajax({
@@ -331,22 +328,20 @@ var select;
     });
     
     <c:url value="/sendByToken" var="sendByToken"/>
-        $('#tab2').on("click",function(){
+        $('#tab1').on("click",function(){
         	
-        	title = $('#title2').val();
-        	content =$('#content2').val();
-        	link = $('#linkcontent2').val();
-        	search = $('#search2').val();
-        	select=$('#select2').val();
+        	title = $('#title1').val();
+        	content =$('#content1').val();
+        	link = $('#linkcontent1').val();
+        	
         	
         	console.log(search);
         	console.log(select);
         	var alldata ={
         			"title":title,
         			"content":content,
-        			"link":link,
-        			"search":search,
-        			"select":select
+        			"link":link
+        			
         			};
         	
            $.ajax({
@@ -367,20 +362,18 @@ var select;
         });
         
         <c:url value="/sendByBizToken" var="sendByBizToken"/>
-            $('#tab3').on("click",function(){
+            $('#tab2').on("click",function(){
             	
-            	title = $('#title3').val();
-            	content =$('#content3').val();
-            	link = $('#linkcontent3').val();
-            	search = $('#search3').val();
-            	select=$('#select3').val();
+            	title = $('#title2').val();
+            	content =$('#content2').val();
+            	link = $('#linkcontent2').val();
+            	
             	
             	var alldata ={
             			"title":title,
             			"content":content,
-            			"link":link,
-            			"search":search,
-            			"select":select
+            			"link":link
+            			
             			};
             	
                $.ajax({
@@ -402,20 +395,18 @@ var select;
             
 
 <c:url value="/sendByStudentToken" var="sendByStudentToken"/>
-    $('#tab4').on("click",function(){
+    $('#tab3').on("click",function(){
     	
-    	title = $('#title4').val();
-    	content =$('#content4').val();
-    	link = $('#linkcontent4').val();
-    	search = $('#search4').val();
-    	select=$('#select4').val();
+    	title = $('#title3').val();
+    	content =$('#content3').val();
+    	link = $('#linkcontent3').val();
+    	
     	
     	var alldata ={
     			"title":title,
     			"content":content,
-    			"link":link,
-    			"search":search,
-    			"select":select
+    			"link":link
+    			
     			};
     	
        $.ajax({
@@ -436,20 +427,18 @@ var select;
     });
     
     <c:url value="/sendByEtcToken" var="sendByEtcToken"/>
-        $('#tab5').on("click",function(){
+        $('#tab4').on("click",function(){
         	
-        	title = $('#title5').val();
-        	content =$('#content5').val();
-        	link = $('#linkcontent5').val();
-        	search = $('#search5').val();
-        	select=$('#select5').val();
+        	title = $('#title4').val();
+        	content =$('#content4').val();
+        	link = $('#linkcontent4').val();
+        	
         	
         	var alldata ={
         			"title":title,
         			"content":content,
-        			"link":link,
-        			"search":search,
-        			"select":select
+        			"link":link
+        			
         			};
         	
            $.ajax({

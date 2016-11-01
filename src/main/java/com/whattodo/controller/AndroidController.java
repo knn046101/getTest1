@@ -67,20 +67,14 @@ public class AndroidController {
 				
 		//링크내용 전달
 		String link = request.getParameter("link");
-		//검색내용 전달
-		String search = request.getParameter("search");
-		//검색카테고리 전달
-		String category = request.getParameter("select");
+	
 		
 		/////
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("link", link);
-		data.put("category", category);
 		
-	
 		
-				
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
 		notification.put("title", title);
@@ -126,10 +120,7 @@ public class AndroidController {
 		
 		//링크내용 전달
 		String link = request.getParameter("link");
-		//검색내용 전달
-		String search = request.getParameter("search");
-		//검색카테고리 전달
-		String category = request.getParameter("select");
+		
 		
 	     logger.trace(body);
 		
@@ -137,10 +128,6 @@ public class AndroidController {
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("link", link);
-		data.put("category", category);
-		
-	
-		
 				
 		Map<String, String> notification = new HashMap<String, String>();
 		notification.put("body", body);
@@ -185,15 +172,12 @@ public class AndroidController {
 		//링크내용 전달
 		String link = request.getParameter("link");
 		//검색내용 전달
-		String search = request.getParameter("search");
-		//검색카테고리 전달
-		String category = request.getParameter("select");
-				
+		
 	/////
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("link", link);
-		data.put("category", category);
+	
 		
 	
 		
@@ -239,16 +223,13 @@ public class AndroidController {
 				
 		//링크내용 전달
 		String link = request.getParameter("link");
-		//검색내용 전달
-		String search = request.getParameter("search");
-		//검색카테고리 전달
-		String category = request.getParameter("select");
+		
 	/////
 	/////
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("link", link);
-		data.put("category", category);
+	
 		
 	
 		
@@ -294,16 +275,11 @@ public class AndroidController {
 				
 		//링크내용 전달
 		String link = request.getParameter("link");
-		//검색내용 전달
-		String search = request.getParameter("search");
-		//검색카테고리 전달
-		String category = request.getParameter("select");
-	/////
+	
 	/////
 		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("link", link);
-		data.put("category", category);
 		
 	
 		
