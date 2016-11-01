@@ -383,6 +383,8 @@ var select;
         	search = $('#search2').val();
         	select=$('#select2').val();
         	
+        	console.log(search);
+        	console.log(select);
         	var alldata ={
         			"title":title,
         			"content":content,
