@@ -31,4 +31,9 @@ public class NotificationRepoImpl implements NotificationRepo {
 		return template.selectOne(statement);
 	}
 
+	public int deleteNoti(int notiNo) {
+		String statement=NAME_SPACE+"deleteNoti";
+		return template.delete(statement, notiNo);
+	}
+
 }

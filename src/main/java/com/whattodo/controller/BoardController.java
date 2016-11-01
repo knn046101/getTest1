@@ -23,6 +23,7 @@ import com.whattodo.dto.Board;
 import com.whattodo.dto.BoardReply;
 import com.whattodo.dto.BoardsFollows;
 import com.whattodo.dto.BoardsGoods;
+import com.whattodo.dto.Notification;
 import com.whattodo.service.BoardService;
 
 
@@ -659,6 +660,34 @@ public class BoardController {
 		}else{
 			result+="notNull";
 		}
+		return result;
+	}
+	
+	@RequestMapping(value="/loadingBoard", method=RequestMethod.GET,
+			produces="application/text;charset=UTF-8")
+	public @ResponseBody String loadBoard(Model model, HttpServletResponse response) throws IOException{
+		List<Board> list = bs.selectAllBoard();
+		Gson gson = new Gson();
+		String jsonType = gson.toJson(list);
+		return jsonType;		 
+	}
+	
+	
+	@RequestMapping(value="/delBoardAdmin", method=RequestMethod.GET)
+	public @ResponseBody String boardDeleteAdmin(Model model, HttpServletRequest request){
+		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
+		bs.deleteBoard(boardNo);
+		
+		String result="삭제 되었습니다.";
+		return result;
+	}
+	
+	@RequestMapping(value="/deleteReply", method=RequestMethod.GET)
+	public @ResponseBody String deleteReply(Model model, HttpServletRequest request){
+		int boardReplyNo=Integer.parseInt(request.getParameter("boardReplyNo"));
+		bs.deleteBoardReply(boardReplyNo);
+		
+		String result="삭제 되었습니다.";
 		return result;
 	}
 	

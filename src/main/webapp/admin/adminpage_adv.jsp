@@ -29,9 +29,7 @@
             <div class="row">
                <div class="dividerHeading">
                   <h4>
-                     <span>관리자 계정 (광고배너 관리)&nbsp;&nbsp;<a
-                        href="adminpage_adv.jsp" style="color: #27AB99;"><i
-                           class="fa fa-chevron-circle-right"></i></a>
+                     <span>관리자 계정 (광고배너 관리)
                      </span>
                   </h4>
                </div>

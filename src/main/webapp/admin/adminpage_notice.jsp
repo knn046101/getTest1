@@ -32,9 +32,7 @@
 				<div class="row">
 					<div class="dividerHeading">
 						<h4>
-							<span>관리자 계정 (알림 관리)&nbsp;&nbsp;<a
-								href="adminpage_notice.jsp" style="color: #27AB99;"><i
-									class="fa fa-chevron-circle-right"></i></a>
+							<span>관리자 계정 (알림 관리)&nbsp;&nbsp;
 							</span>
 						</h4>
 					</div>
@@ -68,22 +66,14 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;</label>
-											<div class="col-sm-8">
+											<label class="col-sm-4 control-label">알림 링크</label>
+											
 												<div class="col-sm-4">
-												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
+				
 												<input type="text" class="form-control col-sm-4" id="linkcontent0"></input> 
-												
-												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
-												<select id="select0" name="category" style="height:27px;">
-														<option>카테고리</option>
-														<option>먹거리</option>
-														<option>나들이</option>
-														<option>취미</option>
-												</select>
-												<input type="text" id="search0" name="what" placeholder="키워드">	
+	
 												</div>
-											</div>
+											
 
 										</div>
 										<br>
@@ -121,23 +111,15 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;
+											<label class="col-sm-4 control-label">알림 링크
 											</label>
-											<div class="col-sm-8">
+											
 												<div class="col-sm-4">
-												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
+												
 												<input type="text" class="form-control col-sm-4" id="linkcontent1"></input> 
 												
-												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
-												<select id="select1" name="category" style="height:27px;">
-														<option>카테고리</option>
-														<option>먹거리</option>
-														<option>나들이</option>
-														<option>취미</option>
-												</select>
-												<input type="text" id="search1" name="what" placeholder="키워드">	
 												</div>
-											</div>
+											
 
 										</div>
 										<br>
@@ -175,24 +157,15 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label">알림&nbsp;&nbsp;
+											<label class="col-sm-4 control-label">알림 링크
 											</label>
-											<div class="col-sm-8">
+										
 												<div class="col-sm-4">
-												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
+												
 												<input type="text" class="form-control col-sm-4" id="linkcontent2"></input> 
 												
-												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
-												<select id="select2" name="category" style="height:27px;">
-														<option>카테고리</option>
-														<option>먹거리</option>
-														<option>나들이</option>
-														<option>취미</option>
-												</select>
-												<input type="text" id="search2" name="what" placeholder="키워드">	
 												</div>
-											</div>
-
+										
 										</div>
 										<br>
 										<div class="form-group">
@@ -229,23 +202,15 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label" >알림&nbsp;&nbsp;
+											<label class="col-sm-4 control-label" >알림 링크
 											</label>
-											<div class="col-sm-8">
+											
 												<div class="col-sm-4">
-												<input type="radio" value="link">&nbsp;링크&nbsp;<br>
+											
 												<input type="text" class="form-control col-sm-4" id="linkcontent3"></input> 
 												
-												<input type="radio" value="search">&nbsp;검색&nbsp;<br>
-												<select id="select3" name="category" style="height:27px;">
-														<option>카테고리</option>
-														<option>먹거리</option>
-														<option>나들이</option>
-														<option>취미</option>
-												</select>
-												<input type="text" name="what" id="search3" placeholder="키워드">	
 												</div>
-											</div>
+											
 
 										</div>
 										<br>
@@ -282,24 +247,15 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-4 control-label" for="image">알림&nbsp;&nbsp;
+											<label class="col-sm-4 control-label" for="image">알림 링크
 											</label>
-											<div class="col-sm-8">
+											
 												<div class="col-sm-4">
-												<input type="radio" name="category" value="link">&nbsp;링크&nbsp;<br>
-												<input type="text" class="form-control col-sm-4" id="linkcontent4"> 
 												
-												<input type="radio" name="category" value="search">&nbsp;검색&nbsp;<br>
-												<select id="select4" name="category" style="height:27px;">
-														<option>카테고리</option>
-														<option>먹거리</option>
-														<option>나들이</option>
-														<option>취미</option>
-												</select>
-												<input type="text" id="search4" name="what" placeholder="키워드">	
+												<input type="text" class="form-control col-sm-4" id="linkcontent4"> 
+											
 												</div>
-											</div>
-
+											
 										</div>
 										<br>
 										<div class="form-group">
@@ -341,20 +297,17 @@ var search;
 var select;
 
 <c:url value="/sendByAllToken" var="sendByAllToken"/>
-    $('#tab1').on("click",function(){
+    $('#tab0').on("click",function(){
     	
-    	title = $('#title1').val();
-    	content =$('#content1').val();
-    	link = $('#linkcontent1').val();
-    	search = $('#search1').val();
-    	select=$('#select1').val();
+    	title = $('#title0').val();
+    	content =$('#content0').val();
+    	link = $('#linkcontent0').val();
     	
     	var alldata ={
     			"title":title,
     			"content":content,
-    			"link":link,
-    			"search":search,
-    			"select":select
+    			"link":link
+    			
     			};
     	
        $.ajax({
@@ -375,22 +328,20 @@ var select;
     });
     
     <c:url value="/sendByToken" var="sendByToken"/>
-        $('#tab2').on("click",function(){
+        $('#tab1').on("click",function(){
         	
-        	title = $('#title2').val();
-        	content =$('#content2').val();
-        	link = $('#linkcontent2').val();
-        	search = $('#search2').val();
-        	select=$('#select2').val();
+        	title = $('#title1').val();
+        	content =$('#content1').val();
+        	link = $('#linkcontent1').val();
+        	
         	
         	console.log(search);
         	console.log(select);
         	var alldata ={
         			"title":title,
         			"content":content,
-        			"link":link,
-        			"search":search,
-        			"select":select
+        			"link":link
+        			
         			};
         	
            $.ajax({
@@ -411,20 +362,18 @@ var select;
         });
         
         <c:url value="/sendByBizToken" var="sendByBizToken"/>
-            $('#tab3').on("click",function(){
+            $('#tab2').on("click",function(){
             	
-            	title = $('#title3').val();
-            	content =$('#content3').val();
-            	link = $('#linkcontent3').val();
-            	search = $('#search3').val();
-            	select=$('#select3').val();
+            	title = $('#title2').val();
+            	content =$('#content2').val();
+            	link = $('#linkcontent2').val();
+            	
             	
             	var alldata ={
             			"title":title,
             			"content":content,
-            			"link":link,
-            			"search":search,
-            			"select":select
+            			"link":link
+            			
             			};
             	
                $.ajax({
@@ -446,20 +395,18 @@ var select;
             
 
 <c:url value="/sendByStudentToken" var="sendByStudentToken"/>
-    $('#tab4').on("click",function(){
+    $('#tab3').on("click",function(){
     	
-    	title = $('#title4').val();
-    	content =$('#content4').val();
-    	link = $('#linkcontent4').val();
-    	search = $('#search4').val();
-    	select=$('#select4').val();
+    	title = $('#title3').val();
+    	content =$('#content3').val();
+    	link = $('#linkcontent3').val();
+    	
     	
     	var alldata ={
     			"title":title,
     			"content":content,
-    			"link":link,
-    			"search":search,
-    			"select":select
+    			"link":link
+    			
     			};
     	
        $.ajax({
@@ -480,20 +427,18 @@ var select;
     });
     
     <c:url value="/sendByEtcToken" var="sendByEtcToken"/>
-        $('#tab5').on("click",function(){
+        $('#tab4').on("click",function(){
         	
-        	title = $('#title5').val();
-        	content =$('#content5').val();
-        	link = $('#linkcontent5').val();
-        	search = $('#search5').val();
-        	select=$('#select5').val();
+        	title = $('#title4').val();
+        	content =$('#content4').val();
+        	link = $('#linkcontent4').val();
+        	
         	
         	var alldata ={
         			"title":title,
         			"content":content,
-        			"link":link,
-        			"search":search,
-        			"select":select
+        			"link":link
+        			
         			};
         	
            $.ajax({

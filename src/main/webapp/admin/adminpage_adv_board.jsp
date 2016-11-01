@@ -145,7 +145,7 @@ function listloading(){
 		/* +"<Button onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" */
 		
 		
-		+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
+		+"<Button style='background-color:orange;color:#fff;border-style: none;' onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
 		
 		+"</td>"
 		+"</tr>";
@@ -169,7 +169,7 @@ function listloading(){
 			 +"<Button style='background-color:#27AB99;color:#fff;border-style: none;margin-right:3px;' onclick=stopAd('"+adsNo+"') id ='"+stopAdsNo+"'>광고 내리기</Button>" 
 			
 			
-			+"<Button style='background-color:#27AB99;color:#fff;border-style: none;' onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
+			+"<Button style='background-color:orange;color:#fff;border-style: none;' onclick=delAd('"+adsNo+"') id = '"+delAdsNo+"'>영구 삭제</Button>"
 			
 			+"</td>"
 			+"</tr>";
