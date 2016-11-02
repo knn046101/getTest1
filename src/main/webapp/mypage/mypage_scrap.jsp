@@ -85,7 +85,11 @@
 								</ul>
 
 								</div>
-								<div style="text-align: center;" id="page"></div>
+								<div style="text-align: center;">
+									<ul id="page" class="pagination pull-center mrgt-0">
+								
+									</ul>
+								</div>
 						</div>
 			
 			
@@ -204,23 +208,23 @@
 					}
 
 					var pageText = "";
-					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
-					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
+					pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno=1')><i class='fa fa-angle-double-left'></i></a></li>";
+					pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a></li>";
 					for (var i = page_sno; i <= page_eno; i++) {
-						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+i+"')>";
+						pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+i+"')>";
 						if (pageno == i) {
-							pageText += "[" + i + "]";
+							pageText += "" + i + "";
 							} else {
 								pageText += "" + i + "";
 							}
-							pageText += "</a>";
+							pageText += "</a></li>";
 							<%--   콤마    --%>
 							if (i < page_eno) {
 								pageText += "<span class='paging'> , </span>";
 							}
 						}
-						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
-						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
+						pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
+						pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
 						$("#page").append(pageText);
 					},
 					error : function(xhr, status, error) {
@@ -338,23 +342,23 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
+				pageText += "<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno=1')><i class='fa fa-angle-double-left'></i></a></li>";
+				pageText += "<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+prev_pageno+"')><i class='fa fa-angle-left'></i></a></li>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+i+"')>";
+					pageText += "<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+i+"')>";
 					if (pageno == i) {
-						pageText += "[" + i + "]";
+						pageText += "" + i + "";
 					} else {
 						pageText += "" + i + "";
 					}
-					pageText += "</a>";
+					pageText += "</a></li>";
 					<%--	콤마	 --%>
 					if (i < page_eno) {
 						pageText += "<span class='paging'> , </span>";
 					}
 				}
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
+				pageText += "<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
+				pageText += "<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMyScrap }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr) {

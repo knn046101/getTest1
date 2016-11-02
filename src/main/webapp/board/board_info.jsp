@@ -88,7 +88,11 @@
                                 	</c:if>
                                 </ul>
                             </div>
-                            <div id="page"></div>
+                           <div style="text-align: center;">
+									<ul id="page" class="pagination pull-center mrgt-0">
+								
+									</ul>
+								</div>
                             <!-- /#comments -->
                             <div class="dividerHeading">
                                <h4><span>댓글작성</span></h4>
@@ -232,7 +236,7 @@
 						 var date = new Date(Date.parse(args[i].boardReplyDate));
 							htmlText+="<li class='comment'>"
 		           						+"<div class='comment-container'>"
-		                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button onclick=replyDelete('"+args[i].id+"',"+args[i].boardReplyNo+")><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
+		                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button style='background-color:#27AB99;' onclick=replyDelete('"+args[i].id+"',"+args[i].boardReplyNo+")><i style='color:#fff;' class='fa fa-times'></i></button></span></h4>"
 		                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
 		                				+date.toLocaleDateString()+"</div>"
 		                				+"<div class='comment-body'>"
@@ -306,23 +310,23 @@
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 					var pageText="";
-					pageText+="<center><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')><i class='fa fa-angle-double-left'></i></a>";
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-left'></i></a>";
+					pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')><i class='fa fa-angle-double-left'></i></a></li>";
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-left'></i></a></li>";
 					for(var i=page_sno; i<=page_eno; i++){ 
-						pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
+						pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
 						if(pageno == i){ 
-							pageText+="["+i+"]";
+							pageText+=""+i+"";
 						}else{ 
 							pageText+=""+i+""; 
 						} 
-						pageText+="</a>";
+						pageText+="</a></li>";
 						<%--	콤마	 --%>	
 						if(i<page_eno){
-							pageText+="<span class='paging'> , </span>";
+							pageText+="<span class='paging'>  </span>";
 						} 
 					} 
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-right'></i></a>";			
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'></center>";				
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-right'></i></a></li>";			
+					pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'></center>";				
 					$("#page").append(pageText);
 					$("#comments").val("");
 				},
@@ -424,23 +428,23 @@
 //					ex)			   = 	76 / 5 * 5 + 1	???????? 		
 					}
 					var pageText="";
-					pageText+="<center><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')><i class='fa fa-angle-double-left'></i></a>";
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-left'></i></a>";
+					pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno=1&boardNo="+boardNo+"')><i class='fa fa-angle-double-left'></i></a></li>";
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+prev_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-left'></i></a></li>";
 					for(var i=page_sno; i<=page_eno; i++){ 
-						pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
+						pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+i+"&boardNo="+boardNo+"')>";
 						if(pageno == i){ 
-							pageText+="["+i+"]";
+							pageText+=""+i+"";
 						}else{ 
 							pageText+=""+i+""; 
 						} 
-						pageText+="</a>";
+						pageText+="</a></li>";
 						<%--	콤마	 --%>	
 						if(i<page_eno){
-							pageText+="<span class='paging'> , </span>";
+							pageText+="<span class='paging'> </span>";
 						} 
 					} 
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-right'></i></a>";			
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'></center>";				
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+next_pageno+"&boardNo="+boardNo+"')><i class='fa fa-angle-right'></i></a></li>";			
+					pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${boardReply }?pageno="+total_page+"&boardNo="+boardNo+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'></center>";				
 					$("#page").append(pageText);
 					$("#comments").val("");
 				},
