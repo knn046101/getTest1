@@ -32,14 +32,14 @@
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 	<br>
 	<br>
+	
 	<div class="container-fluid">
-		<div class="row sub_content">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class="dividerHeading">
+	<div class="dividerHeading">
 					<h4>
 						<span>모임</span>
 					</h4>
-	<c:if test="${!empty login}">
+					
+						  <c:if test="${!empty login}">
 		<span class="input-group-btn">
 			<button
 				onclick="location='<%=request.getContextPath()%>/meeting/meeting_make.jsp'"
@@ -48,12 +48,30 @@
 			</button>
 		</span>
 	</c:if>
+					
 	
-				</div><br><br><br>
+	</div>
+		<div class="row sub_content">
+	
+		<div class="col-md-2">
+            <!--양 옆 공백을 위한 div 건들지 마시오  -->
+         </div>
+         
+			<div class="col-md-8">
+				
+
+	
+				
+				
+				
+				
+				
 				<!--start info service-->
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="col-lg-4 col-md-4 col-sm-4"></div>
-					 <div class="input-group-btn" style="width:0%; line-height:0px">
+			
+				<div class="input-group" style="text-align: center;" >
+					
+					
+					 <div class="input-group-btn">
                      <button type="button" class="btn btn-default dropdown-toggle"
                         data-toggle="dropdown">
                         <span id="srch-sel1">도 선택</span> <span class="caret"></span>
@@ -76,42 +94,76 @@
                         <li><a href="#">경상북도</a></li>
                         <li><a href="#">제주도</a></li>
                      </ul>
+                     </div>
                   <!-- 첫번째 행의 첫번째 드롭박스 끝 -->
 
+
                   <!--두번째 드롭박스  -->
+                  <div class="input-group-btn">
                      <button type="button" class="btn btn-default dropdown-toggle"
                         data-toggle="dropdown">
                         <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
                      </button>
                      <ul class="dropdown-menu" id="sel2">
                      </ul>
-                  	<input type="hidden" id="txt-sel1"> <input type="hidden"
-                     id="txt-sel2"> <input type="hidden" id="txt-category">
-                  <input type="hidden" id="txt-numberOfPeople">
+                      </div>
+                     
+                    
+                      
+               
 
+
+                   <div class="input-group-btn">
+					
 					<input type="text" placeholder="#키워드 " id="keyword"
-						class="btn btn-default dropdown-toggle">
+						class="form-control">
+						</div>
+						<!-- btn btn-default dropdown-toggle -->
+						
+						<div class="input-group-btn">
 					<button id="search" class="btn btn-success"
 						style="background-color: #27AB99; border-color: #fff;">검색
 					</button>
+							</div>
+				
+				
 					
-					</div>
-					<br><br><br><br>
-					<!-- Thumbnails -->
+					 <input type="hidden" id="txt-sel1"> <input type="hidden"
+                     id="txt-sel2"> <input type="hidden" id="txt-category">
+                  <input type="hidden" id="txt-numberOfPeople">
+				
+				
+				 </div>
+				
+				</div>
+			<br><br><br><br>
+					
+			</div>
+			</div>
+			
+			
+			<!-- Thumbnails -->
 				    <div class="container thumbs" id="thumnails">
 				      
 				    </div><!-- End Thumbnails -->
 				    <div style="text-align: center;" id="page"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+		
+		<div class="col-md-2">
+            <!--양 옆 공백을 위한 div 건들지 마시오  -->
+            
+          
+         </div>
+	
 
 	
 	
-	<br>
+
+
+        
+         <div>
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
-
+</div>
 
 </body>
 <script>
