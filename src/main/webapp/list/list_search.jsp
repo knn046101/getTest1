@@ -68,8 +68,11 @@
          </div>
       </div>
       	 
-               			<div id="page">
-               			</div>
+               		<div style="text-align: center;">
+					<ul id="page" class="pagination pull-center mrgt-0">
+								
+					</ul>
+				</div>
     	</center>
       <br>
       <br>
@@ -177,23 +180,23 @@ var category="";
             }
 
             var pageText="";
-            pageText+="<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-left'></i></a>";
-            pageText+="<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-left'></i></a>";
+            pageText+="<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-left'></i></a></li>";
+            pageText+="<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-left'></i></a></li>";
             for(var i=page_sno; i<=page_eno; i++){ 
-               pageText+="<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>";
+               pageText+="<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>";
                if(pageno == i){ 
-                  pageText+="["+i+"]";
+                  pageText+=""+i+"";
                }else{ 
                   pageText+=""+i+""; 
                } 
-               pageText+="</a>";
+               pageText+="</a></li>";
                <%--   콤마    --%>   
                if(i<page_eno){
-                  pageText+="<span class='paging'> , </span>";
+                  pageText+="<span class='paging'></span>";
                } 
             } 
-            pageText+="<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-right'></i></a>";         
-            pageText+="<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";            
+            pageText+="<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-right'></i></a></li>";         
+            pageText+="<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";            
             $("#page").append(pageText);
          },
          error : function(xhr, status, error) {
@@ -299,23 +302,23 @@ var category="";
 //				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText="";
-				pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-left'></i></a>";
-				pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-left'></i></a>";
+				pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno=1&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-left'></i></a></li>";
+				pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+prev_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-left'></i></a></li>";
 				for(var i=page_sno; i<=page_eno; i++){ 
-					pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>";
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+i+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')>";
 					if(pageno == i){ 
-						pageText+="["+i+"]";
+						pageText+=""+i+"";
 					}else{ 
 						pageText+=""+i+""; 
 					} 
-					pageText+="</a>";
+					pageText+="</a></li>";
 					<%--	콤마	 --%>	
 					if(i<page_eno){
-						pageText+="<span class='paging'> , </span>";
+						pageText+="<span class='paging'>  </span>";
 					} 
 				} 
-				pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-right'></i></a>";			
-				pageText+="<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";				
+				pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+next_pageno+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-right'></i></a></li>";			
+				pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getBoardsBySearch }?pageno="+total_page+"&location=${location}&numberOfPeople=${numberOfPeople}&category=${category}&what=${what}')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";				
 				$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr){

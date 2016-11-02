@@ -184,7 +184,7 @@
 									</sform:button>
 									<sform:button onclick="memberDel()" class="btn btn-default"
 										type="button"
-										style="background-color:#27AB99; border-color:#fff;">
+										style="background-color:#27AB99;color:#fff;border-color:#fff;">
                							  탈퇴<i class="fa fa-times spaceLeft"></i>
 									</sform:button>
 								</div>
