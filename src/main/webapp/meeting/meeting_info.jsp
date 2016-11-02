@@ -17,6 +17,7 @@
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 
 	<div class="container">
+<<<<<<< HEAD
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
@@ -70,6 +71,39 @@
 					<div class="service_3_detail">
 						<h2>follow&nbsp;&nbsp;<i class="fa fa-gittip"></i>&nbsp;&nbsp;: ${meeting.meetingFollow }</h2>
 						<p>${meeting.meetingContent }</p>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<h2>${meeting.meetingTitle } &nbsp;</h2>
+							<nav id="breadcrumbs">${meeting.place } > ${meeting.meetingKeyword }</nav>
+							<br>
+							<c:if test="${!empty login}">
+									<span class="input-group-btn">
+										<button
+											onclick="location='<%=request.getContextPath()%>/meeting/meeting_board_write.jsp?meetingNo=${meeting.meetingNo }'"
+											id="writeboard" class="btn btn-success"
+											style="background-color: #27AB99; border-color: #fff; float: right;">
+											게시글작성 <i class="fa fa-pencil"></i>
+										</button>
+										<c:if test="${meeting.id eq login.id }">
+										<c:url value="/meetingUpdate" var="meetingUpdate"/>
+										<button class="btn btn-primary" id="meeintgUpdate"
+										    onclick="location='${meetingUpdate}?meetingNo=${meeting.meetingNo}'	"										style="background-color:orange; border-color: #fff;">
+											모임수정 <i class="fa fa-edit"></i>
+										</button>
+										<button class="btn btn-primary" id="meeintgDelete"
+											style="background-color:orange; border-color: #fff;">
+											모임삭제 <i class="fa fa-trash-o"></i>
+										</button>
+										</c:if>
+									</span>
+								</c:if>
+							<nav style="float: right">
+								<label for="follow" id="followLabel">팔로우</label>
+								
+							</nav>
+						</div>
+>>>>>>> branch 'master' of https://github.com/knn046101/getTest1.git
 					</div>
 				</div>
 
@@ -94,6 +128,43 @@
 
 </body>
 <script>
+$(document).ready(function(){
+	var htmlText = "";
+	var id="${login.id}";
+	var data = {
+			"meetingNo":"${meeting.meetingNo}",
+			"id": id
+	}
+	if(id==""){
+		htmlText+="<button class='insertFollow' style='color: #fff;'>"
+				+"<i class='fa fa-heart'></i>"
+				+"</button>";
+		$("#followLabel").after(htmlText);
+	}else{
+		<c:url value="/followCheck" var="followCheck"/>
+		$.ajax({
+			type:"get",
+			data:data,
+			url:"${followCheck}",
+			success:function(data){
+				if(data=="팔로우"){
+					htmlText+="<button class='deleteFollow' style='color: #27AB99;'>"
+						+"<i class='fa fa-heart'></i>"
+						+"</button>";
+					$("#followLabel").after(htmlText);
+				}else if(data=="언팔로우"){
+					htmlText+="<button class='insertFollow' style='color: #fff;'>"
+						+"<i class='fa fa-heart'></i>"
+						+"</button>";
+					$("#followLabel").after(htmlText);
+				}
+			},
+			error:function(){},
+			"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+		});
+	}
+});
+
 <c:url value="/getMeetingBoards" var="getMeetingBoards"/>
 $(document)	.ready(function() {
 	var htmlText = "";
@@ -318,7 +389,8 @@ function send(inputUrl) {
 }
 
 <c:url value="/addFollow" var="addFollow"/>
-	$("#follow").on("click", function(){
+	$(document).on("click", ".insertFollow", function(){
+		var htmlText="";
 		if("${login.id}"==""){
 			alert("로그인 후에 이용해주십시오.");
 		}else if("${login.id}"=="${meeting.id}"){
@@ -333,9 +405,13 @@ function send(inputUrl) {
 				url:"${addFollow }",
 				data:allData,
 				success:function(args){
-					console.log(args);
 					if(args=="성공"){
 						alert("'스크랩' 마이 페이지에서 확인하실 수 있습니다.");
+						$(".insertFollow").remove();
+						htmlText+="<button class='deleteFollow' style='color: #27AB99;'>"
+							+"<i class='fa fa-heart'></i>"
+							+"</button>";
+						$("#followLabel").after(htmlText);
 					}else{
 						alert("이미 '스크랩'하셨습니다.");
 					}
@@ -347,6 +423,37 @@ function send(inputUrl) {
 			});
 		}
 	});
+	
+	<c:url value="/deleteFollow" var="deleteFollow"/>
+		$(document).on("click", ".deleteFollow", function(){
+			var htmlText="";
+			if("${login.id}"==""){
+				alert("로그인 후에 이용해주십시오.");
+			}else{
+				 var allData={
+					 "id":"${login.id}",
+					 "meetingNo":"${meeting.meetingNo}"
+				 };
+				$.ajax({
+					type:"get",
+					url:"${deleteFollow }",
+					data:allData,
+					success:function(args){
+						if(args=="1"){
+							$(".deleteFollow").remove();
+							htmlText+="<button class='insertFollow' style='color: #fff;'>"
+								+"<i class='fa fa-heart'></i>"
+								+"</button>";
+							$("#followLabel").after(htmlText);
+						}
+					},
+					error:function(txt, txt2, xhr){
+						console.log("error", xhr);
+					},
+					"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
+				});
+			}
+		});
 	
 	<c:url value="/meetingDelete" var="meetingDelete"/>
 	$("#meeintgDelete").on("click", function(){
@@ -361,6 +468,7 @@ function send(inputUrl) {
 				url:"${meetingDelete }",
 				data: data,
 				success:function(args){
+					console.log(args);
 					if(args=="성공"){
 						alert("모임이 삭제 되었습니다.");
 						location.href="<%=request.getContextPath()%>/meeting/meeting_main.jsp";

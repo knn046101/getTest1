@@ -247,13 +247,13 @@ var delAd = function(notiNo){
 		alert(res);
 		listloading();
 	
-},
+		},
 
- error:function(xhr,status,error){
-  console.log("넘버전송 실패:"+error);
-}
+ 		error:function(xhr,status,error){
+  			console.log("넘버전송 실패:"+error);
+		}
 
-});
+	});
 	
 	
 } 

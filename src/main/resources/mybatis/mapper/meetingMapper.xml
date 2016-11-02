@@ -85,4 +85,10 @@
 		from meeting_follow
 		where meeting_no=#{meetingNo} and id=#{id}
 	</select>
+	
+	<delete id="deleteFollowMeeting" parameterType="map">
+		delete
+		from meeting_follow
+		where meeting_no=#{meetingNo} and id=#{id}
+	</delete>
 </mapper>

@@ -79,7 +79,58 @@ public class MemberController {
 		}else{
 			message="이미 등록되어 있는 아이디입니다.";
 		}
-		return message; // 사용할 뷰의 이름 리턴 
+		return message;
+	}
+	
+	@RequestMapping(value="/passCheck1", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
+	public @ResponseBody String passCheck1(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		String email=request.getParameter("email");
+		String message;
+		Member member=ms.getMember(id, email);
+		
+		if(member!=null){
+			message="성공";
+		}else{
+			message="실패";
+		}
+		return message; 
+	}
+	
+	@RequestMapping(value="/passCheck2", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
+	public @ResponseBody String passCheck2(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		String question = request.getParameter("question");
+		String answer = request.getParameter("answer");
+		
+		String message;
+		Member member=ms.getMember(id, question, answer);
+		
+		if(member!=null){
+			message="성공";
+		}else{
+			message="실패";
+		}
+		return message; 
+	}
+	
+	@RequestMapping(value="/passCheck3", method=RequestMethod.POST,
+			produces="application/text;charset=UTF-8")  
+	public @ResponseBody String passCheck3(Model model, HttpServletRequest request){
+		String id=request.getParameter("id");
+		String pass=request.getParameter("pass");
+		
+		String message;
+		int result=ms.updatePass(id, pass);
+		
+		if(result==1){
+			message="성공";
+		}else{
+			message="실패";
+		}
+		return message; 
 	}
 	
 	@RequestMapping(value="/checkEmail", method=RequestMethod.POST,

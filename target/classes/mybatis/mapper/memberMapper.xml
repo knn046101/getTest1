@@ -17,11 +17,19 @@
 		profile_img=#{profileImg}
 		where id=#{id}
 	</update>
+	
+	<update id="updatePass" parameterType="map">
+		update members
+		set pass=#{pass}
+		where id=#{id}
+	</update>
+	
 	<delete id="deleteMemberById" parameterType="String">
 		delete
 		from members
 		where id=#{id}
 	</delete>
+	
 	<select id="getMemberById" parameterType="String" resultType="member">
 		select *
 		from members
@@ -38,6 +46,18 @@
 		select *
 		from members
 		where nickname=#{nickname}
+	</select>
+	
+	<select id="getMember" parameterType="String" resultType="member">
+		select *
+		from members
+		where id=#{id} and email=#{email}
+	</select>
+	
+	<select id="getMember2" parameterType="String" resultType="member">
+		select *
+		from members
+		where id=#{id} and question=#{question} and answer=#{answer}
 	</select>
 	
 	<update id="updateMemberEditor" parameterType="String">

@@ -1,6 +1,8 @@
 package com.whattodo.repo;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,14 @@ public class MemberRepoImpl implements MemberRepo {
 		return template.update(statement, member);
 	}
 
+	public int updatePass(String id, String pass){
+		String statement = NAME_SPACE+"updatePass";
+		Map <String, Object> map = new HashMap<String,Object>();
+		map.put("id", id);
+		map.put("pass", pass);
+		return template.update(statement, map);
+	}
+	
 	public int deleteMember(String id) {
 		String statement = NAME_SPACE+"deleteMemberById";
 		return template.delete(statement, id);
@@ -41,6 +51,23 @@ public class MemberRepoImpl implements MemberRepo {
 		return template.selectOne(statement, email);
 	}
 
+	public Member getMember(String id, String email){
+		String statement = NAME_SPACE+"getMember";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("email", email);
+		return template.selectOne(statement, map);
+	}
+	
+	public Member getMember(String id, String question, String answer){
+		String statement = NAME_SPACE+"getMember2";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("question", question);
+		map.put("answer", answer);
+		return template.selectOne(statement, map);
+	}
+	
 	public Member getMemberByNickname(String nickname) {
 		String statement = NAME_SPACE+"getMemberByNickname";
 		return template.selectOne(statement, nickname);

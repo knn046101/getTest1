@@ -115,17 +115,8 @@
                             </form>
                         </div>
 				    </div>
-					
-					
-			
-					
-					
-				
 				</div>
-						
-						
 				    </div>
-					
 					</div><!--/.row-->
 	<div class="row">
 			<jsp:include page="/layout/footer.jsp"></jsp:include>
@@ -155,7 +146,6 @@
 			data:data,
 			success:function(data){
 				var dataArray = data.split(",");
-				console.log(data);
 				if(dataArray[0]=="null"){
 					btnText+="<button id='scrap' class='btn btn-success btnDelete' style='background-color:#27AB99; border-color:#fff;'><i class='fa fa-share-square-o' style='color:#fff;'></i> 스크랩</button>";
 				}else{
@@ -546,5 +536,7 @@
 		}
 	});
 	
+	
+
 </script>
 </html>

@@ -98,4 +98,12 @@ public class MeetingRepoImpl implements MeetingRepo{
 		return template.selectOne(statement, map);
 	}
 	
+	public int deleteFollowMeeting(int meetingNo, String id){
+		String statement = NAME_SPACE+"deleteFollowMeeting";
+		Map<String, Object> map= new HashMap<String, Object>();
+		map.put("meetingNo", meetingNo);
+		map.put("id", id);
+		return template.delete(statement, map);
+	}
+	
 }
