@@ -15,79 +15,83 @@
 
 <body>
 	<jsp:include page="/layout/header.jsp"></jsp:include>
-
 	<div class="container">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12">
-							<h2>${meeting.meetingTitle } &nbsp;</h2>
-							<nav id="breadcrumbs">${meeting.place } > ${meeting.meetingKeyword }</nav>
-							<br>
-							<c:if test="${!empty login}">
-									<span class="input-group-btn">
-										<button
-											onclick="location='<%=request.getContextPath()%>/meeting/meeting_board_write.jsp?meetingNo=${meeting.meetingNo }'"
-											id="writeboard" class="btn btn-success"
-											style="background-color: #27AB99; border-color: #fff; float: right;">
-											게시글작성 <i class="fa fa-pencil"></i>
-										</button>
-										<c:if test="${meeting.id eq login.id }">
-										<c:url value="/meetingUpdate" var="meetingUpdate"/>
-										<button class="btn btn-primary" id="meeintgUpdate"
-										    onclick="location='${meetingUpdate}?meetingNo=${meeting.meetingNo}'	"										style="background-color:orange; border-color: #fff;">
-											모임수정 <i class="fa fa-edit"></i>
-										</button>
-										<button class="btn btn-primary" id="meeintgDelete"
-											style="background-color:orange; border-color: #fff;">
-											모임삭제 <i class="fa fa-trash-o"></i>
-										</button>
-										</c:if>
-									</span>
-								</c:if>
-							<nav style="float: right">
-								<label for="follow" id="followLabel">팔로우</label>
-								
-							</nav>
-						</div>
-					</div>
-				</div>
-
-				<div class="row sub_content">
-						<div class="col-lg-6 col-sm-6 col-md-6">
-							<div class="dividerHeading">
-								<h4>
-									<span>모임 소개</span>
-								</h4>
-
-							</div>
-							<div class="widget_content content center">
-							<img class="left_img img-thumbnail" src=${meeting.meetingImg }>
-							<div class="content">
-							
-							<br><br><br><br><br><br>
-							</div>
-							<br><br>
-							<p>${meeting.meetingContent }</p>
-							</div>
-						</div>
-						<div class="col-lg-6 col-sm-6 col-md-6">
-							<div class="dividerHeading">
-								<h4>
-									<span>게시판</span>
-								</h4>
-							</div>
-							<ul class="list_style circle" id="meetingBoards">
-							</ul>
-						</div>
-						<div id="page"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<h2>${meeting.meetingTitle }&nbsp;</h2>
+					<nav id="breadcrumbs">${meeting.place }>
+						${meeting.meetingKeyword }</nav>
+					<br>
+					<c:if test="${!empty login}">
+						<span class="input-group-btn">
+							<button
+								onclick="location='<%=request.getContextPath()%>/meeting/meeting_board_write.jsp?meetingNo=${meeting.meetingNo }'"
+								id="writeboard" class="btn btn-success"
+								style="background-color: #27AB99; border-color: #fff; float: right;">
+								게시글작성 <i class="fa fa-pencil"></i>
+							</button> <c:if test="${meeting.id eq login.id }">
+								<c:url value="/meetingUpdate" var="meetingUpdate" />
+								<button class="btn btn-primary" id="meeintgUpdate"
+									onclick="location='${meetingUpdate}?meetingNo=${meeting.meetingNo}'	"
+									style="background-color: red; border-color: #fff;">
+									모임수정 <i class="fa fa-edit"></i>
+								</button>
+								<button class="btn btn-primary" id="meeintgDelete"
+									style="background-color: orange; border-color: #fff;">
+									모임삭제 <i class="fa fa-trash-o"></i>
+								</button>
+							</c:if>
+						</span>
+					</c:if>
+					<nav style="float: right">
+						<label for="follow">팔로우</label>
+						<button id="follow">
+							<i class="fa fa-heart" style="color: #FFF;"></i>
+						</button>
+					</nav>
 				</div>
 			</div>
+		</div>
+	
+	<div class="row sub_content">
+		<div class="col-lg-6 col-sm-6 col-md-6">
+			<div class="dividerHeading">
+				<h4>
+					<span>모임 소개</span>
+				</h4>
+			</div>
+			<div class="serviceBox_3">
+				<div class="service_3_img">
+					<img class="left_img img-thumbnail" src=${meeting.meetingImg }>
+				</div>
+				<div class="service_3_detail">
+					<h2>
+						follow&nbsp;&nbsp;<i class="fa fa-gittip"></i>&nbsp;&nbsp;:
+						${meeting.meetingFollow }
+					</h2>
+					<p>${meeting.meetingContent }</p>
+				</div>
+				</div>
+				
+			</div>
+		<div class="col-lg-6 col-sm-6 col-md-6">
+					<div class="dividerHeading">
+						<h4>
+							<span>게시판</span>
+						</h4>
+					</div>
+					<ul class="list_style circle" id="meetingBoards">
+					</ul>
+				</div>
+				<div id="page"></div>
 
-		
 
 
-	<jsp:include page="/layout/footer.jsp"></jsp:include>
 
+
+</div></div>
+		<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
 $(document).ready(function(){
@@ -434,15 +438,15 @@ function send(inputUrl) {
 					if(args=="성공"){
 						alert("모임이 삭제 되었습니다.");
 						location.href="<%=request.getContextPath()%>/meeting/meeting_main.jsp";
-					}else{
-						alert("모임 삭제 실패!");
-					}
-				},
-				error:function(txt, txt2, xhr){},
-				"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
-			});
-		}
-	});
-	
+											} else {
+												alert("모임 삭제 실패!");
+											}
+										},
+										error : function(txt, txt2, xhr) {
+										},
+										"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
+									});
+						}
+					});
 </script>
 </html>

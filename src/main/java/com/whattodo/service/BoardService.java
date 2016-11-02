@@ -192,8 +192,8 @@ public class BoardService implements BoardServiceInterface{
 		brrepo.updateBoardReply(boardReply);
 	}
 
-	public void deleteBoardReply(int boardReplyNo) {
-		brrepo.deleteBoardReply(boardReplyNo);
+	public int deleteBoardReply(int boardReplyNo) {
+		return brrepo.deleteBoardReply(boardReplyNo);
 	}
 
 	public List<BoardReply> selectBoardReply(int boardNo) {

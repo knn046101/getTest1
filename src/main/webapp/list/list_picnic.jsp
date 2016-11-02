@@ -305,15 +305,23 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
+
 				pageText += "<li><a style='background-color:#27AB99;color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')><i class='fa fa-angle-double-left'></i></a></li>";
 				pageText += "<li><a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')><i class='fa fa-angle-left'></i></a></li>";
+
+
 				for (var i = page_sno; i <= page_eno; i++) {
+
 					pageText += "<li><a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
+
 					if (pageno == i) {
 						pageText += "[" + i + "]";
-					} else {
-						pageText += "" + i + "";
+						} else {
+							pageText += "" + i + "";
+						}
+					
 					}
+
 					pageText += "</a></li>";
 					<%--	콤마	 --%>
 					if (i < page_eno) {
@@ -323,6 +331,9 @@
 				pageText += "<li><a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')><i class='fa fa-angle-right'></i></a></li>";
 				pageText += "<li><a style='background-color:#27AB99;color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
 				$("#page").append(pageText);
+
+			
+
 			},
 			error : function(txt, txt2, xhr) {
 				console.log("error", xhr);
