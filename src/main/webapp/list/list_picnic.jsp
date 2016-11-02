@@ -301,24 +301,24 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+category+"')>[맨앞으로]</a>";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+prev_pageno+"&category="+category+"')>[이전]</a>";
+				pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoards }?pageno=1&category="+ category +"')><i class='fa fa-angle-double-left'></i></a>";
+				pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoards }?pageno="+ prev_pageno+"&category="+category+"')><i class='fa fa-angle-left'></i></a>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoards }?pageno="+i+"&category="+category+"')>";
 					if (pageno == i) {
 						pageText += "[" + i + "]";
-					} else {
-						pageText += "" + i + "";
+						} else {
+							pageText += "" + i + "";
+						}
+						pageText += "</a>";
+						<%--   콤마    --%>
+						if (i < page_eno) {
+							pageText += "<span class='paging'> , </span>";
+						}
 					}
-					pageText += "</a>";
-					<%--	콤마	 --%>
-					if (i < page_eno) {
-						pageText += "<span class='paging'> , </span>";
-					}
-				}
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')>[다음]</a>";
-				pageText += "<a style='color:#323A45;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')>[맨뒤로]</a><br class='paging'>";
-				$("#page").append(pageText);
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoards }?pageno="+next_pageno+"&category="+category+"')><i class='fa fa-angle-right'></i></a>";
+					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getBoards }?pageno="+total_page+"&category="+category+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
+					$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr) {
 				console.log("error", xhr);
