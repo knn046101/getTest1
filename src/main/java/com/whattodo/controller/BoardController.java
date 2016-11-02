@@ -394,6 +394,14 @@ public class BoardController {
 		return boardReplyStr;
 	}
 	
+	@RequestMapping(value="/replyDelete", method=RequestMethod.GET)
+	public @ResponseBody String replyDelete(Model model, HttpServletRequest request){
+		int boardReplyNo = Integer.parseInt(request.getParameter("boardReplyNo"));
+		int result = bs.deleteBoardReply(boardReplyNo);
+		String message=result+"";
+		return message;
+	}
+	
 	@RequestMapping(value="/getUpdateBoard", method=RequestMethod.GET)
 	public String getUpdateBoard(Model model, HttpServletRequest request){
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));

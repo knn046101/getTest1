@@ -37,7 +37,7 @@
 	<select id="selectSearchMeetingByPlace" parameterType="String" resultType="meeting">
 		select *
 		from meeting
-		where place=#{place}
+		where place like '%'||#{place}||'%'
 	</select>
 	
 	<select id="selectSearchMeetingByMeetingKeyword" parameterType="String" resultType="meeting">
@@ -49,7 +49,7 @@
 	<select id="selectSearchMeetingByplaceAndmeetingKeyword" parameterType="map" resultType="meeting">
 		select *
 		from meeting
-		where place=#{place} and meeting_keyword like '%'||#{meetingKeyword }||'%'
+		where place like '%'||#{place}||'%' and meeting_keyword like '%'||#{meetingKeyword }||'%'
 	</select>
 	
 	<!-- follow 랑 meeting 조인 -->
