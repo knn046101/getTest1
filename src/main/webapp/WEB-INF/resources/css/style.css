@@ -3976,7 +3976,7 @@ blockquote.default {
 }
 @media screen and (max-width: 768px){
  .arrows_list > li > img {
-    margin-left: 26%;
+    margin-left: 40%;
 }
 }
 @media screen and (min-width:228) and (max-width: 768px){
