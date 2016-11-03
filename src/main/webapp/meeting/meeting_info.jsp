@@ -45,10 +45,8 @@
 						</span>
 					</c:if>
 					<nav style="float: right">
-						<label for="follow">팔로우</label>
-						<button id="follow">
-							<i class="fa fa-heart" style="color: #FFF;"></i>
-						</button>
+						<label for="follow" id="followLabel">팔로우</label>
+						
 					</nav>
 				</div>
 			</div>

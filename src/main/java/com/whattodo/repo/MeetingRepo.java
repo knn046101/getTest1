@@ -10,6 +10,7 @@ public interface MeetingRepo {
 	public int updateMeeting(Meeting meeting);
 	public int deleteMeeting(int meetingNo);
 	public List<Meeting> selectAllMeetings();
+	public List<Meeting> selectMyMeeting(String id);
 	public Meeting selectMeetingByMeetingNo(int meetingNo);
 	public List<Meeting> selectSearchMeetingByPlace(String place);
 	public List<Meeting> selectSearchMeetingByMeetingKeyword(String meetingKeyword);

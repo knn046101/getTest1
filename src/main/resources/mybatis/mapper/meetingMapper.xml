@@ -34,6 +34,12 @@
 		from meeting
 	</select>
 	
+	<select id="selectMyMeeting" parameterType="String" resultType="meeting">
+		select *
+		from meeting
+		where id=#{id}
+	</select>
+	
 	<select id="selectSearchMeetingByPlace" parameterType="String" resultType="meeting">
 		select *
 		from meeting

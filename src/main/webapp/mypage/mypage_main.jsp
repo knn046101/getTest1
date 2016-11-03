@@ -267,6 +267,9 @@ a {
 								<li><a
 									href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
 										모임 </a></li>
+								<li><a
+									href="<%=request.getContextPath()%>/mypage/mypage_mymeeting.jsp">
+										내모임 </a></li>
 							</ul>
 						</div>
 						<div class="widget widget_categories ">

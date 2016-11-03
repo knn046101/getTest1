@@ -260,13 +260,13 @@ var uploadImage;
          "meetingImg" : uploadImage,
          "id" : "${login.id}"
       };
-      if (locationP == null) {
+      if (locationP == ",undefined") {
          alert("지역을 선택하여 주십시오.");
-      }else if (meetingTitle == null) {
+      }else if (meetingTitle =="") {
          alert("모임명을 입력하여 주십시오.");
-      } else if (keyword == null) {
+      } else if (keyword == "") {
          alert("키워드를 입력하여 주십시오.");
-      } else if (meetingContent==null){
+      } else if (meetingContent==""){
          alert("간단히 모임설명을 입력하여 주십시오.");
       } else {
          $.ajax({
