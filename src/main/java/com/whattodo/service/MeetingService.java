@@ -50,6 +50,10 @@ public class MeetingService implements MeetingServiceInterface{
 		return mrepo.selectAllMeetings();
 	}
 
+	public List<Meeting> selectMyMeeting(String id){
+		return mrepo.selectMyMeeting(id);
+	}
+	
 	public List<Meeting> selectFollowMeetings(String id) {
 		return mrepo.selectFollowMeetings(id);
 	}

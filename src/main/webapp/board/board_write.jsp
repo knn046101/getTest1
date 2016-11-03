@@ -370,17 +370,17 @@ $(document).ready(function(){
          "id" : "${login.id}"
       };
       
-      if (locationP == null) {
+      if (locationP == ",undefined") {
          alert("지역을 선택하여 주십시오.");
-      } else if (boardTitle == null) {
+      } else if (boardTitle == "") {
          alert("제목을 입력하여 주십시오.");
-      } else if (numberOfPeople == null) {
+      } else if (numberOfPeople == "") {
          alert("몇명인지 선택하여 주십시오.");
-      } else if (category == null) {
+      } else if (category == "") {
          alert("카테고리를 선택하여 주십시오.");
-      } else if (boardKeyword == null) {
+      } else if (boardKeyword == "") {
          alert("키워드를 ex.#가을#하늘높다 형식으로 입력하여 주십시오.");
-      } else if (markupStr==null){
+      } else if (markupStr=="null" && markupStr=="<p>내용을 입력하세요</p>"){
          alert("내용을 입력하여 주십시오.");
       } else {
          $.ajax({

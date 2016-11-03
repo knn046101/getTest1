@@ -90,11 +90,11 @@ p {
 										</a></li>
 										<li><a
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
-												<i class="fa fa-angle-right"></i>모임
+												모임
 										</a></li>
 										<li><a
 									href="<%=request.getContextPath()%>/mypage/mypage_mymeeting.jsp">
-										내모임 </a></li>
+										<i class="fa fa-angle-right"></i>내모임 </a></li>
 								</ul>
 							</div>
 						</div>
@@ -120,7 +120,7 @@ p {
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 <script>
-<c:url value="/getMeetingsFollow" var="getMeetingsFollow"/>
+<c:url value="/getMyMeetings" var="getMyMeetings"/>
 	$(document)	.ready(function() {
 		var htmlText = "";
 		var total_record = 1;
@@ -132,7 +132,7 @@ p {
 		};
 		$.ajax({
 			type : "get",
-			url : "${getMeetingsFollow }?pageno=1",
+			url : "${getMyMeetings }?pageno=1",
 			dataType : "json",
 			data: data,
 			success : function(args) {
