@@ -71,6 +71,7 @@
             <div class="row">            
                <div class="col-sm-3">
                   <select class="form-control" id="sel1">
+                  	<option>지역</option>
                      <option>서울특별시</option>
                      <option>인천광역시</option>
                      <option>대전광역시</option>
@@ -164,54 +165,29 @@
 	var numberOfPeoplessel;
 
 	/*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
-	$(function() {
-		$('#sel1').find('a').click(	function(e) {
-							e.preventDefault();
-							var cat = $(this).text();
-							$('#srch-sel1').text(cat);
-							$('#txt-sel1').val(cat);
-							sel1 = cat;
-
-							<c:url value="/changeCapital" var="changeCapital"/>
-							var citystr = "";
-							$(".sel2").remove();
-							$
-									.ajax({
-										type : "get",
-										url : "${changeCapital }",
-										dataType : "json",
-										data : {
-											"sel1" : sel1
-										},
-										success : function(data) {
-											console.log(data);
-											for (var i = 0; i < data.length; i++) {
-												citystr += "<li class='sel2'><a id='sel2check' href='#'>"
-														+ data[i].city
-														+ "</a></li>";
-											}
-											if(citystr==""){
-												$('#srch-sel2').text("시-군 선택");
-												$('#srch-sel2').text("시-군 선택");
-											}else{
-												$("#sel2").append(citystr);
-											}
-										},
-										error : function(xhr, status, error) {
-											alert(error);
-										},
-										ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
-									});
-						});
-
-		$("#sel2").on("click", "#sel2check", function(e) {
-			e.preventDefault();
-			var cat = $(this).text();
-			$('#srch-sel2').text(cat);
-			$('#txt-sel2').val(cat);
-			sel2 = cat;
+		<c:url value="/changeCapital" var="changeCapital"/>
+	$("#sel1").on("change", function(){
+		var citystr="";
+		var sel1=$("#sel1").val();
+		$(".sel2").remove();
+		$.ajax({
+			type:"get",
+			url:"${changeCapital}",
+			dataType:"json",
+			data: {
+				"sel1":sel1	
+			},
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+					citystr+="<option class='sel2'>"+data[i].city+"</option>";
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
 		});
-
 	});
 	
 	
@@ -430,24 +406,24 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
-				pageText += "<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno=1')><i class='fa fa-angle-double-left'></i></a></li>";
-				pageText += "<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+prev_pageno+"')><i class='fa fa-angle-left'></i></a></li>";
+				pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno=1')><i class='fa fa-angle-double-left'></i></a></li>";
+				pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a></li>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+i+"')>";
+					pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+i+"')>";
 					if (pageno == i) {
-						pageText += "[" + i + "]";
-					} else {
 						pageText += "" + i + "";
+						} else {
+							pageText += "" + i + "";
+						}
+						pageText += "</a></li>";
+						<%--   콤마    --%>
+						if (i < page_eno) {
+							pageText += "<span class='paging'>  </span>";
+						}
 					}
-					pageText += "</a></li>";
-					<%--	콤마	 --%>
-					if (i < page_eno) {
-						pageText += "<span class='paging'> , </span>";
-					}
-				}
-				pageText += "<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
-				pageText += "<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
-				$("#page").append(pageText);
+					pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
+					pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
+					$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr) {
 				console.log("error", xhr);
@@ -468,7 +444,7 @@
 		var page_sno;
 	
 		var alldata={
-			"location":$("#txt-sel1").val()+","+$("#txt-sel2").val(),
+			"location":$("#sel1").val()+","+$("#sel2").val(),
 			"keyword":$("#keyword").val()
 		};
 		
@@ -559,23 +535,23 @@
 					}
 
 					var pageText = "";
-					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
-					pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
+					pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno=1')><i class='fa fa-angle-double-left'></i></a></li>";
+					pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a></li>";
 					for (var i = page_sno; i <= page_eno; i++) {
-						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+i+"')>";
+						pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+i+"')>";
 						if (pageno == i) {
-							pageText += "[" + i + "]";
+							pageText += "" + i + "";
 							} else {
 								pageText += "" + i + "";
 							}
-							pageText += "</a>";
+							pageText += "</a></li>";
 							<%--   콤마    --%>
 							if (i < page_eno) {
-								pageText += "<span class='paging'> , </span>";
+								pageText += "<span class='paging'>  </span>";
 							}
 						}
-						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
-						pageText += "<a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
+						pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
+						pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
 						$("#page").append(pageText);
 					},
 					error : function(xhr, status, error) {
@@ -687,24 +663,24 @@
 							//				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText = "";
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno=1')><i class='fa fa-angle-double-left'></i></a>";
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+prev_pageno+"')><i class='fa fa-angle-left'></i></a>";
+				pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno=1')><i class='fa fa-angle-double-left'></i></a></li>";
+				pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+ prev_pageno+"')><i class='fa fa-angle-left'></i></a></li>";
 				for (var i = page_sno; i <= page_eno; i++) {
-					pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+i+"')>";
+					pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+i+"')>";
 					if (pageno == i) {
-						pageText += "[" + i + "]";
-					} else {
 						pageText += "" + i + "";
+						} else {
+							pageText += "" + i + "";
+						}
+						pageText += "</a></li>";
+						<%--   콤마    --%>
+						if (i < page_eno) {
+							pageText += "<span class='paging'>  </span>";
+						}
 					}
-					pageText += "</a>";
-					<%--	콤마	 --%>
-					if (i < page_eno) {
-						pageText += "<span class='paging'> , </span>";
-					}
-				}
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a>";
-				pageText += "<a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=sendBySearch('${getMeetingsBySearch }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a><br class='paging'>";
-				$("#page").append(pageText);
+					pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
+					pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMeetings }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
+					$("#page").append(pageText);
 			},
 			error : function(txt, txt2, xhr) {
 				console.log("error", xhr);
