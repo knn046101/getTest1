@@ -337,7 +337,7 @@ var result;
    });
    
    $(document).ready(function() {
-      if( ${empty (login) } ){
+      if( ${empty (login)} ){
          alert("로그인 후에 이용하여 주십시오.");
          location.href="<%=request.getContextPath()%>/login/login.jsp";
       } 

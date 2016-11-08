@@ -35,42 +35,33 @@
             <form>
                 		<div class="form-group">
                 		<label for="">모임 정보 등록</label><br> 
-                		 <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel1">도 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel1">
-                        <li><a href="#">서울특별시</a></li>
-                        <li><a href="#">인천광역시</a></li>
-                        <li><a href="#">대전광역시</a></li>
-                        <li><a href="#">대구광역시</a></li>
-                        <li><a href="#">광주광역시</a></li>
-                        <li><a href="#">울산광역시</a></li>
-                        <li><a href="#">부산광역시</a></li>
-                        <li><a href="#">경기도</a></li>
-                        <li><a href="#">강원도</a></li>
-                        <li><a href="#">충청남도</a></li>
-                        <li><a href="#">충청북도</a></li>
-                        <li><a href="#">전라남도</a></li>
-                        <li><a href="#">전라북도</a></li>
-                        <li><a href="#">경상남도</a></li>
-                        <li><a href="#">경상북도</a></li>
-                        <li><a href="#">제주도</a></li>
-                     </ul>
-                  </div>
-                  <!-- 첫번째 행의 첫번째 드롭박스 끝 -->
-
-                  <!--두번째 드롭박스  -->
-                  <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel2">
-
-                     </ul>
-                  </div>
+                		 
+            <div class="row">            
+               <div class="col-sm-3">
+                  <select class="form-control" id="sel1">
+                     <option>서울특별시</option>
+                     <option>인천광역시</option>
+                     <option>대전광역시</option>
+                     <option>대구광역시</option>
+                     <option>광주광역시</option>
+                     <option>울산광역시</option>
+                     <option>부산광역시</option>
+                     <option>경기도</option>
+                     <option>강원도</option>
+                     <option>충청남도</option>
+                     <option>충청북도</option>
+                     <option>전라남도</option>
+                     <option>전라북도</option>
+                     <option>경상남도</option>
+                     <option>경상북도</option>
+                     <option>제주도</option>
+                  </select>
+               </div>
+               <div class="col-sm-3">
+                  <select class="form-control" id="sel2">
+                  </select>
+               </div>
+            </div>
                     
                      <!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
                   <input type="hidden" id="txt-sel1"> <input type="hidden"
@@ -144,47 +135,30 @@ var keyword;
 var uploadImage;
 
 /*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
-   $(function() {
-      $('#sel1').find('a').click(function(e) {
-         e.preventDefault();
-         var cat = $(this).text();
-         $('#srch-sel1').text(cat);
-         $('#txt-sel1').val(cat);
-         sel1=cat;
-         
-         <c:url value="/changeCapital" var="changeCapital"/>
-         var citystr="";
-         $(".sel2").remove();
-         $.ajax({
-            type:"get",
-            url:"${changeCapital }",
-            dataType:"json",
-            data: {
-               "sel1":sel1   
-            },
-            success:function(data){
-               console.log(data);
-               for(var i=0; i<data.length; i++){
-                  citystr+="<li class='sel2'><a id='sel2check' href='#'>"+data[i].city+"</a></li>";
-               }
-               $("#sel2").append(citystr);
-            },
-            error : function(xhr, status, error){
-               alert(error);
-            },
-            ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
-         });
-      });
-
-      $("#sel2").on("click", "#sel2check",function(e) {
-         e.preventDefault();
-         var cat = $(this).text();
-         $('#srch-sel2').text(cat);
-         $('#txt-sel2').val(cat);
-         sel2=cat;
-      });
-  
-   });
+   	<c:url value="/changeCapital" var="changeCapital"/>
+	$("#sel1").on("change", function(){
+		var citystr="";
+		var sel1=$("#sel1").val();
+		$(".sel2").remove();
+		$.ajax({
+			type:"get",
+			url:"${changeCapital}",
+			dataType:"json",
+			data: {
+				"sel1":sel1	
+			},
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+					citystr+="<option class='sel2'>"+data[i].city+"</option>";
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	});
    
 /* 대표 이미지 파일 업로드 하는 부분 */
    var reader;
@@ -248,10 +222,9 @@ var uploadImage;
       e.preventDefault();
      meetingTitle = $("#meetingTitle").val();
      meetingContent = $("#meetingContent").val();
-     locationP = $("#txt-sel1").val()+","+sel2;
+     locationP = $("#sel1").val()+","+$("#sel2").val();
      keyword = $("#keyword").val();
      uploadImage = result;
-      
       var allData = {
          "meetingTitle" : meetingTitle,
          "meetingContent" : meetingContent,
