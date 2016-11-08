@@ -296,7 +296,7 @@ var result;
      meetingContent = $("#meetingContent").val();
      locationP = $("#txt-sel1").val()+","+sel2;
      keyword = $("#keyword").val();
-     uploadImage="\""+result+"\"";
+     uploadImage=result;
       
       var allData = {
 		"meetingNo":"${meeting.meetingNo}",   		  

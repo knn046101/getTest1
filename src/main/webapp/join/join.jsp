@@ -12,7 +12,6 @@
 
 <style>
 	.errormsg{
-		color: red;
 	}
 </style>
 </head>

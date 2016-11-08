@@ -372,7 +372,7 @@ public class MeetingController {
 	      String meetingKeyword = request.getParameter("keyword");
 	      List<Meeting> meetings = null;
 	      List<Meeting> aftermeetings=new ArrayList<Meeting>();
-	      
+	      logger.trace(meetingKeyword);
 	      if(!place.equals(",") && meetingKeyword.equals("")){
 	    	  meetings=ms.selectSearchMeetingByPlace(place);
 	      }else if(place.equals(",") && !meetingKeyword.equals("")){
