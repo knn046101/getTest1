@@ -118,7 +118,7 @@ public class MeetingController {
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetings.get(i).setPlace(place);
         	}else{
@@ -148,10 +148,10 @@ public class MeetingController {
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetings.get(i).setPlace(place);
-        	}else{
+        	} 	else{
         		place=tmpPlace[0];
         		meetings.get(i).setPlace(place);
         	}
@@ -178,10 +178,11 @@ public class MeetingController {
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetings.get(i).setPlace(place);
-        	}else{
+        	}
+        	else{
         		place=tmpPlace[0];
         		meetings.get(i).setPlace(place);
         	}
@@ -209,7 +210,7 @@ public class MeetingController {
 			meetingBoards.get((page-1)*10).setPage(page);
         	String place=meetingBoards.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetingBoards.get(i).setPlace(place);
         	}else{
@@ -232,7 +233,7 @@ public class MeetingController {
 		Meeting meeting  = ms.selectMeetingByMeetingNo(meetingNo);
 		String place=meeting.getPlace();
     	String[] tmpPlace=place.split(",");
-    	if(!tmpPlace[1].equals("undefined")){
+    	if(!tmpPlace[1].equals("null")){
     		place=tmpPlace[0]+" "+tmpPlace[1];
     		meeting.setPlace(place);
     	}else{
@@ -250,7 +251,8 @@ public class MeetingController {
 		MeetingBoard meetingBoard  = ms.selectMeetingBoardByBoardNo(meetingBoardNo);
 		String place=meetingBoard.getPlace();
     	String[] tmpPlace=place.split(",");
-    	if(!tmpPlace[1].equals("undefined") && !tmpPlace[1].equals("null")){
+    	
+    	if(!tmpPlace[1].equals("null")){
     		place=tmpPlace[0]+" "+tmpPlace[1];
     		meetingBoard.setPlace(place);
     	}else{
@@ -388,7 +390,7 @@ public class MeetingController {
 	        	meetings.get((page-1)*9).setPage(page);
 	        	place=meetings.get(i).getPlace();
 	        	String[] tmpPlace=place.split(",");
-	        	if(!tmpPlace[1].equals("undefined") && !tmpPlace[1].equals("null")){
+	        	if(!tmpPlace[1].equals("null")){
 	        		place=tmpPlace[0]+" "+tmpPlace[1];
 	        		meetings.get(i).setPlace(place);
 	        	}else{

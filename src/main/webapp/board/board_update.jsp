@@ -177,7 +177,6 @@ var result;
 	$(document).ready(function(){
 		result =${board.mainImg }; 
 		$("#imagePreview").attr("src", result);
-		result = "\"" + result + "\"";
 		$('#imagePreview').css('weight', "150px");
         $('#imagePreview').css('height', "150px");
         var location="${board.location }";
