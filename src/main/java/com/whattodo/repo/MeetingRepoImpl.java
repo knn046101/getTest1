@@ -43,6 +43,11 @@ public class MeetingRepoImpl implements MeetingRepo{
 		String statement = NAME_SPACE+"selectAllMeeting";
 		return template.selectList(statement);
 	}
+	
+	public List<Meeting> selectMyMeeting(String id){
+		String statement = NAME_SPACE+"selectMyMeeting";
+		return template.selectList(statement, id);
+	}
 
 	public List<Meeting> selectSearchMeetingByPlace(String place){
 		String statement = NAME_SPACE+"selectSearchMeetingByPlace";

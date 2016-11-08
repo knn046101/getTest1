@@ -13,6 +13,7 @@ public interface MeetingServiceInterface {
 	public void deleteMeeting(int meetingNo);
 	public Meeting selectMeetingByMeetingNo(int meetingNo);
 	public List<Meeting> selectAllMeetings();
+	public List<Meeting> selectMyMeeting(String id);
 	public List<Meeting> selectFollowMeetings(String id); 
 	public List<Meeting> selectSearchMeetingByPlace(String place);
 	public List<Meeting> selectSearchMeetingByMeetingKeyword(String meetingKeyword);

@@ -92,6 +92,9 @@ p {
 											href="<%=request.getContextPath()%>/mypage/mypage_meeting.jsp">
 												<i class="fa fa-angle-right"></i>모임
 										</a></li>
+										<li><a
+									href="<%=request.getContextPath()%>/mypage/mypage_mymeeting.jsp">
+										내모임 </a></li>
 								</ul>
 							</div>
 						</div>
@@ -267,10 +270,10 @@ p {
 		          			+"<div class='caption'>"
 		            		+"<h2 class=''>"+args[i].meetingTitle+"</h2>"
 		            		+"<h3>"+args[i].meetingContent+"</h3>"
-		            		+"<p> 관심사 : "+args[i].meetingKeyword+"</p>"
+		            		+"<p> 키워드 : "+args[i].meetingKeyword+"</p>"
 		            		+"<p> 지   역 : "+args[i].place+"</p>"
 		            		+"<div class='btn-toolbar text-center'>"
-		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right'>보기</a>"
+		             		+"<a href='${retrieveMeeting}?meetingNo="+args[i].meetingNo+"' role='button' class='btn btn-primary pull-right' style='background-color:orange;'><i class='fa fa-location-arrow'></i></a>"
 		             		+"</div>"
 		             		+"</div>"
 		             		+"</div>"

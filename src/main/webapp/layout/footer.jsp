@@ -108,8 +108,8 @@
                     </div>
                     <div class="widget_content">
                         <ul class="links">
-                            <li><i class="fa fa-caret-right"></i>이용약관</li>
-                            <li><i class="fa fa-caret-right"></i>뭐하지?가이드</li>
+                            <li><i class="fa fa-caret-right"></i><a href="join/aboutUs.jsp">이용약관</a></li>
+                            <li><i class="fa fa-caret-right"></i><a href="images/WhatToDo.apk">뭐하지?APK다운로드</a></li>
                             <li><i class="fa fa-caret-right"></i>개인정보취급방침</li>
                             <li><i class="fa fa-caret-right"></i>고객센터</li>
                         </ul>

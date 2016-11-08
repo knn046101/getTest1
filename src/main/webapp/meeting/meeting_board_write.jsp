@@ -101,7 +101,11 @@
           <div class="col-sm-12 text-center">
        	   <span class="input-group-btn">
             <button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">
+
             저장</button>
+
+            만들기</button>
+
           </span>
           <br>
          </div>
@@ -190,13 +194,15 @@ var sel2;
          "meetingNo" : "<%=request.getParameter("meetingNo")%>",
          "id" : "${login.id}"
       };
-      
-      if (locationP == null) {
+      if (locationP == ",undefined") {
          alert("지역을 선택하여 주십시오.");
-      } else if (meetingBoardTitle == null) {
+         return false;
+      } else if (meetingBoardTitle=="") {
          alert("제목을 입력하여 주십시오.");
-      }  else if (meetingBoardCotent==null){
+         return false;
+      }  else if (meetingBoardCotent=="<p>null</p>" && meetingBoardCotent=="<p>내용을 입력하세요</p>"){
          alert("내용을 입력하여 주십시오.");
+         return false;
       } else {
     	  <c:url value="/addMeetingBoard" var="addMeetingBoard"/>
          $.ajax({

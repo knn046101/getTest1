@@ -45,7 +45,10 @@ public class BoardController {
 		String category=request.getParameter("category");
 		String id=request.getParameter("id");
 		String mainImg=request.getParameter("mainImg");
-
+		if(mainImg==null){
+			mainImg="";
+		}
+		logger.trace(mainImg);
 		Board board = new Board(boardTitle, boardContent, location, numberOfPeople,
 				what, category, mainImg, id);
 		int result=bs.insertBoard(board);
