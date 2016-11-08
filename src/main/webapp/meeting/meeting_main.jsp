@@ -33,7 +33,7 @@
 	<br>
 	<br>
 	
-	<div class="container-fluid">
+	<div class="container-fluid" style="text_align:center;">
 	<div class="dividerHeading">
 					<h4>
 						<span>모임</span>
@@ -68,45 +68,32 @@
 				
 				<!--start info service-->
 			
-				<div class="input-group" style="text-align: center;" >
-					
-					
-					 <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel1">도 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel1">
-                        <li><a href="#">서울특별시</a></li>
-                        <li><a href="#">인천광역시</a></li>
-                        <li><a href="#">대전광역시</a></li>
-                        <li><a href="#">대구광역시</a></li>
-                        <li><a href="#">광주광역시</a></li>
-                        <li><a href="#">울산광역시</a></li>
-                        <li><a href="#">부산광역시</a></li>
-                        <li><a href="#">경기도</a></li>
-                        <li><a href="#">강원도</a></li>
-                        <li><a href="#">충청남도</a></li>
-                        <li><a href="#">충청북도</a></li>
-                        <li><a href="#">전라남도</a></li>
-                        <li><a href="#">전라북도</a></li>
-                        <li><a href="#">경상남도</a></li>
-                        <li><a href="#">경상북도</a></li>
-                        <li><a href="#">제주도</a></li>
-                     </ul>
-                     </div>
-                  <!-- 첫번째 행의 첫번째 드롭박스 끝 -->
-
-
-                  <!--두번째 드롭박스  -->
-                  <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel2">
-                     </ul>
-                      </div>
+            <div class="row">            
+               <div class="col-sm-3">
+                  <select class="form-control" id="sel1">
+                     <option>서울특별시</option>
+                     <option>인천광역시</option>
+                     <option>대전광역시</option>
+                     <option>대구광역시</option>
+                     <option>광주광역시</option>
+                     <option>울산광역시</option>
+                     <option>부산광역시</option>
+                     <option>경기도</option>
+                     <option>강원도</option>
+                     <option>충청남도</option>
+                     <option>충청북도</option>
+                     <option>전라남도</option>
+                     <option>전라북도</option>
+                     <option>경상남도</option>
+                     <option>경상북도</option>
+                     <option>제주도</option>
+                  </select>
+               </div>
+               <div class="col-sm-3">
+                  <select class="form-control" id="sel2">
+                  </select>
+               </div>
+            </div>
                      
                     
                       
@@ -138,7 +125,6 @@
 				</div>
 			<br><br><br><br>
 					
-			</div>
 			</div>
 			
 			
@@ -179,10 +165,7 @@
 
 	/*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
 	$(function() {
-		$('#sel1')
-				.find('a')
-				.click(
-						function(e) {
+		$('#sel1').find('a').click(	function(e) {
 							e.preventDefault();
 							var cat = $(this).text();
 							$('#srch-sel1').text(cat);
@@ -207,7 +190,12 @@
 														+ data[i].city
 														+ "</a></li>";
 											}
-											$("#sel2").append(citystr);
+											if(citystr==""){
+												$('#srch-sel2').text("시-군 선택");
+												$('#srch-sel2').text("시-군 선택");
+											}else{
+												$("#sel2").append(citystr);
+											}
 										},
 										error : function(xhr, status, error) {
 											alert(error);
