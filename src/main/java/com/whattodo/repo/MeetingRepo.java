@@ -18,6 +18,7 @@ public interface MeetingRepo {
 	public List<Meeting> selectFollowMeetings(String id); 
 	/*public List<Meeting> selectKeywordMeetings(String keyword);*/
 	public int updateFollowMeeting(int meetingNo);
+	public int updateFollowMeetingMinus(int meetingNo);
 	public int insertMeetingFollow(int meetingNo, String id);
 	public int deleteFollowMeetingByMeetingNo(int meetingNo);
 	public int deleteFollowMeetingById(String id);

@@ -71,6 +71,12 @@
 		where meeting_no=#{meetingNo}
 	</update>
 	
+	<update id="updateFollowMeetingMinus" parameterType="int">
+		update meeting
+		set meeting_follow=meeting_follow-1
+		where meeting_no=#{meetingNo}
+	</update>
+	
 	<insert id="insertMeetingFollow" parameterType="map">
 		insert into meeting_follow
 		values(#{id}, #{meetingNo})

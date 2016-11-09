@@ -428,6 +428,9 @@ public class MeetingController {
 		int meetingNo= Integer.parseInt(request.getParameter("meetingNo"));
 		String message="";
 		int result=ms.deleteFollowMeeting(meetingNo, id);
+		if(result==1){
+			ms.updateFollowMeetingMinus(meetingNo);
+		}
 		message=result+"";
 		return message;
 	}

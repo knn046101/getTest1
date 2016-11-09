@@ -74,6 +74,10 @@ public class MeetingService implements MeetingServiceInterface{
 		mrepo.updateFollowMeeting(meetingNo);
 	}
 
+	public void updateFollowMeetingMinus(int meetingNo){
+		mrepo.updateFollowMeetingMinus(meetingNo);
+	}
+	
 	public int insertMeetingFollow(int meetingNo, String id) {
 		return mrepo.insertMeetingFollow(meetingNo, id);
 	}

@@ -19,6 +19,7 @@ public interface MeetingServiceInterface {
 	public List<Meeting> selectSearchMeetingByMeetingKeyword(String meetingKeyword);
 	public List<Meeting> selectSearchMeetingByplaceAndmeetingKeyword(String place, String meetingKeyword);
 	public void updateFollowMeeting(int meetingNo);
+	public void updateFollowMeetingMinus(int meetingNo);
 	// 팔로우 추가시 팔로잉 수 +1
 	public int insertMeetingFollow(int meetingNo, String id);
 	public void deleteFollowMeetingByMeetingNo(int meetingNo);
