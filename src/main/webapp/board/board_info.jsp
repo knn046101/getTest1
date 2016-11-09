@@ -234,16 +234,16 @@
 				success:function(args){
 					 for(var i=0; i<args.length; i++){
 						 var date = new Date(Date.parse(args[i].boardReplyDate));
-							htmlText+="<li class='comment'>"
-		           						+"<div class='comment-container'>"
-		                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button style='background-color:#27AB99;' onclick=replyDelete('"+args[i].id+"',"+args[i].boardReplyNo+")><i style='color:#fff;' class='fa fa-times'></i></button></span></h4>"
-		                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
-		                				+date.toLocaleDateString()+"</div>"
-		                				+"<div class='comment-body'>"
-		                    			+"<p>"+args[i].boardReplyContent+"</p>"
-		                				+"</div>"
-		            					+"</div>"
-		       							+"</li>";
+						 htmlText+="<li class='comment'>"
+        						+"<div class='comment-container'>"
+             				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button onclick=replyDelete('"+args[i].id+"',"+args[i].boardReplyNo+")><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
+             				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
+             				+date.toLocaleDateString()+"</div>"
+             				+"<div class='comment-body'>"
+                 			+"<p>"+args[i].boardReplyContent+"</p>"
+             				+"</div>"
+         					+"</div>"
+    						+"</li>";
 					}
 					boardNo=args[0].boardNo;
 					$("#comment-list").append(htmlText);  

@@ -62,13 +62,6 @@
                   </select>
                </div>
             </div>
-                    
-                     <!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
-                  <input type="hidden" id="txt-sel1"> <input type="hidden"
-                     id="txt-sel2"> <input type="hidden" id="txt-category">
-                  <input type="hidden" id="txt-numberOfPeople">
-                    		 
-                   
 		</div>
 		
 		<div class="form-group"> 

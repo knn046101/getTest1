@@ -180,7 +180,13 @@ var result;
 			},
 			success:function(data){
 				for(var i=0; i<data.length; i++){
-					citystr+="<option class='sel2'>"+data[i].city+"</option>";
+					var location="${board.location}";
+					var strArray=location.split(",");
+					if(data[i].city==strArray[1]){
+						citystr+="<option class='sel2' selected>"+data[i].city+"</option>";
+					}else{
+						citystr+="<option class='sel2'>"+data[i].city+"</option>";
+					}
 				}
 				$("#sel2").append(citystr);
 			},
@@ -192,8 +198,8 @@ var result;
 	}
 	
 	$(document).on("ready", function(){
-		
-		$("#imagePreview").attr("src", ${board.mainImg});
+		result=${board.mainImg};
+		$("#imagePreview").attr("src", result);
 		$('#imagePreview').css('weight', "150px");
         $('#imagePreview').css('height', "150px");
         var location="${board.location }";
@@ -203,10 +209,6 @@ var result;
         var strArray=location.split(",");
         $("#sel1").val(strArray[0]);
         changeCapital(strArray[0]);
-        
-        $(document).ready("#sel2", function(){
-        	$("#sel2").val(strArray[1]);	
-        });
         
         $('#srch-category').text(category);
         $('#txt-category').val(category);
@@ -269,7 +271,7 @@ var result;
                      $('#imagePreview').css('height', "150px");
                      //썸네일로 미리보기 된 결과값(base64로 인코딩)을  result에 넣는다 
                      //문자열 앞에 ""를 넣기 위해 앞뒤로 추가
-                     result = "\"" + e.target.result + "\"";
+                     result = e.target.result ;
                   }
                } else {
                   alert("HTML5를 지원하는 브라우저에서 접속해 주세요");
@@ -312,7 +314,7 @@ var result;
       var numberOfPeople = $("#txt-numberOfPeople").val();
       var boardKeyword = $("#boardKeyword").val();
       var category = $("#txt-category").val();
-      var mainImg =  "\"" + ${board.mainImg} + "\"";
+      var mainImg =  "\"" + result + "\"";
       
       var allData = {
 		 "boardNo" : "${board.boardNo }",    		  
