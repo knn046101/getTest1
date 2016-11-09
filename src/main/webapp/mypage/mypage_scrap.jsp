@@ -11,6 +11,23 @@
 .errormsg {
 	color: red;
 }
+.title {
+	width:160px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+@media screen and (max-width:1200px) {
+	.title {
+		width:100px;
+	}
+}
+@media screen and (max-width: 768px)  {
+	.title {
+		width:500px;
+	}
+}
 </style>
 </head>
 <body>
@@ -83,6 +100,7 @@
 				
 						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 ">
 							<div class="row sub_content">
+							<h4><span id='result'>스크랩</span></h4>
 								<ul id="boardList" style="life-style:none;">
 								
 								</ul>
@@ -231,6 +249,7 @@
 						$("#page").append(pageText);
 					},
 					error : function(xhr, status, error) {
+						alert("결과가 없습니다");
 					},
 					"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 				});

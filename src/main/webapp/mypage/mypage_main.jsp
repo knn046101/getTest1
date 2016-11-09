@@ -209,6 +209,12 @@ a {
  .mapcontent, .map_wrap{
  	display: none;
  }
+ 
+@media screen and (max-width:800px) {
+	.arrows_list>li>img {
+		margin-left: 200%;
+	}
+} 
 </style>
 </head>
 <body>
@@ -692,6 +698,18 @@ function removeAllChildNods(el) {
                /*구분자  */
                     var itemArray=JSON.parse(responseTxt); 
                    var row="";
+                   
+                   console.log(itemArray.length);
+                   
+                   if(itemArray.length==0){            	   
+
+                	   row ="<p> 표시할 게시물이 없습니다</p>"
+                	   $('#searchMyBoard1').append(row);
+                	   $('#searchMyBoard2').append(row);
+                   }
+                	   
+                   
+                   
                   $.each(itemArray,function(index,item){
                         var title = item.boardTitle;
                         var boardNo = item.boardNo;
@@ -765,6 +783,14 @@ function removeAllChildNods(el) {
                  success:function(responseTxt){
                   /*구분자  */
                        var itemArray=JSON.parse(responseTxt); 
+             
+                  
+                       if(itemArray.length==0){            	   
+
+                    	   var row ="<p> 표시할 게시물이 없습니다</p>"
+                    	   $('#BestTip1').append(row);
+                    	   $('#BestTip2').append(row);
+                       }
                       var row="";
                      $.each(itemArray,function(index,item){
                            var title = item.boardTitle;
@@ -841,6 +867,13 @@ function removeAllChildNods(el) {
                  success:function(responseTxt){
                   /*구분자  */
                        var itemArray=JSON.parse(responseTxt); 
+                  
+                       if(itemArray.length==0){            	   
+
+                    	   var row ="<p> 표시할 게시물이 없습니다</p>"
+                    	   $('#scrapMyBoards1').append(row);
+                    	   $('#scrapMyBoards2').append(row);
+                       }
                       var row="";
                      $.each(itemArray,function(index,item){
                            var title = item.boardTitle;

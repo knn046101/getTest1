@@ -200,6 +200,7 @@ var category="";
             $("#page").append(pageText);
          },
          error : function(xhr, status, error) {
+        	 alert("검색결과가 없습니다");
          },
          "Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
       });

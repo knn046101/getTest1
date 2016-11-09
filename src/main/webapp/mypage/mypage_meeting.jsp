@@ -30,6 +30,107 @@ p {
 	overflow: hidden;
 	white-space: nowrap;
 }
+
+@media screen and (max-width:1200px) {
+	h2 {
+	width: 170px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+	h3 {
+	width: 170px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+p {
+	width: 170px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@media screen and (max-width: 1150px)  {
+	h2 {
+	width: 160px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+	h3 {
+	width: 160px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+p {
+	width: 160px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@media screen and (max-width: 990px)  {
+	h2 {
+	width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+	h3 {
+	width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+p {
+	width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@media screen and (max-width: 767px)  {
+	h2 {
+	width: 500px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+	h3 {
+	width: 500px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+p {
+	width: 500px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@media screen and (max-width: 500px)  {
+	h2 {
+	width: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+	h3 {
+	width: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+p {
+	width: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+}
 </style>
 </head>
 <body>
@@ -101,6 +202,7 @@ p {
 					</div>
 						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8  " >
 							<div class="row sub_content">
+							<h4><span id='result'>모임</span></h4>
 								<div class="meetingList" >
 										
 								</div>
@@ -237,6 +339,7 @@ p {
 						$("#page").append(pageText);
 					},
 					error : function(xhr, status, error) {
+						alert("결과가 없습니다");
 					},
 					"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 				});

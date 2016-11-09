@@ -45,7 +45,7 @@ h3 {
 					<button
 						onclick="location='<%=request.getContextPath()%>/meeting/meeting_make.jsp'"
 						id="makemeeting" class="btn btn-success"
-						style="background-color: #27AB99; border-color: #fff; float: right;">모임생성
+						style="background-color: orange; border-color: #fff; float: right;">모임생성
 					</button>
 				</span>
 			</c:if>

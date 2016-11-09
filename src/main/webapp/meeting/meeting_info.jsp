@@ -375,7 +375,7 @@ function send(inputUrl) {
 				data:allData,
 				success:function(args){
 					if(args=="성공"){
-						alert("'스크랩' 마이 페이지에서 확인하실 수 있습니다.");
+						alert("'팔로우♥' 마이 페이지에서 확인하실 수 있습니다.");
 						$(".insertFollow").remove();
 						htmlText+="<button class='deleteFollow' style='color: #27AB99;'>"
 							+"<i class='fa fa-heart'></i>"
