@@ -228,6 +228,8 @@ var uploadImage;
       };
       if (locationP == ",undefined") {
          alert("지역을 선택하여 주십시오.");
+      }else if (uploadImage == null) {
+         alert("썸네일을 등록해 주십시오 150KB 미만.");
       }else if (meetingTitle =="") {
          alert("모임명을 입력하여 주십시오.");
       } else if (keyword == "") {
