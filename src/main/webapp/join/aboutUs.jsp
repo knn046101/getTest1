@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -183,10 +184,18 @@
 본 약관에 명시되지 않은 사항에 대해서는 관련법령에 의하고, 법에 명시되지 않은 부분에 대하여는 관습에 의합니다.<br><br><br>
 							<center>
 							<br>
-							<a style="background-color:orange;" href="join.jsp" class="btn btn-default btn-lg back_home">
+							<c:if test="${empty login}">
+							<c:url value="/join" var="join"/>
+							<a style="background-color:orange;" href="${join }" class="btn btn-default btn-lg back_home">
 								<i class="fa fa-plus"></i>
 								회원가입
 							</a>
+							</c:if>
+							<c:if test="${! empty login}">
+							<a style="background-color:orange;" href="<%=request.getContextPath() %>/main.jsp" class="btn btn-default btn-lg back_home">
+								메인으로
+							</a>
+							</c:if>
 							</center>
 						</div>
 					</div>

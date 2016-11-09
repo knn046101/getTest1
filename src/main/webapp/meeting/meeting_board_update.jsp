@@ -36,53 +36,35 @@
             
             <c:url value="/updateBoard" var="updateBoard"/>            
             <form id="form" action="${updateMeetingBoard }">
-            <!-- 게시글 정보를 가둬 놓는 form -->
-            <label for="게시글 정보">모임 게시글정보 </label>
-            <div class="input-group">
-            
-                  <!-- 첫번째 행의 첫번째 드롭박스 -->
-                  <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel1">도 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel1">
-                        <li><a href="#">서울특별시</a></li>
-                        <li><a href="#">인천광역시</a></li>
-                        <li><a href="#">대전광역시</a></li>
-                        <li><a href="#">대구광역시</a></li>
-                        <li><a href="#">광주광역시</a></li>
-                        <li><a href="#">울산광역시</a></li>
-                        <li><a href="#">부산광역시</a></li>
-                        <li><a href="#">경기도</a></li>
-                        <li><a href="#">강원도</a></li>
-                        <li><a href="#">충청남도</a></li>
-                        <li><a href="#">충청북도</a></li>
-                        <li><a href="#">전라남도</a></li>
-                        <li><a href="#">전라북도</a></li>
-                        <li><a href="#">경상남도</a></li>
-                        <li><a href="#">경상북도</a></li>
-                        <li><a href="#">제주도</a></li>
-                     </ul>
-                  </div>
-                  <!-- 첫번째 행의 첫번째 드롭박스 끝 -->
-
-                  <!--두번째 드롭박스  -->
-                  <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel2">
-
-                     </ul>
-                  </div>
-
-                  <!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
-                  <input type="hidden" id="txt-sel1"> <input type="hidden"
-                     id="txt-sel2"> 
+             <div class="form-group">
+                		<label for="">장소 선택</label><br> 
+                		 <div class="row">            
+               <div class="col-sm-3">
+                  <select class="form-control" id="sel1">
+                     <option>서울특별시</option>
+                     <option>인천광역시</option>
+                     <option>대전광역시</option>
+                     <option>대구광역시</option>
+                     <option>광주광역시</option>
+                     <option>울산광역시</option>
+                     <option>부산광역시</option>
+                     <option>경기도</option>
+                     <option>강원도</option>
+                     <option>충청남도</option>
+                     <option>충청북도</option>
+                     <option>전라남도</option>
+                     <option>전라북도</option>
+                     <option>경상남도</option>
+                     <option>경상북도</option>
+                     <option>제주도</option>
+                  </select>
                </div>
-
+               <div class="col-sm-3">
+                  <select class="form-control" id="sel2">
+                  </select>
+               </div>
+            </div>
+		</div>
                   <div class="form-group">
                      <label for="제목"> 제목 </label> <input type="text"
                         class="form-control" id="meetingBoardTitle" name="meetingBoardTitle"
@@ -124,67 +106,46 @@
 var sel1;
 var sel2;
 
-/*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
-	$(document).ready(function(){
+<c:url value="/changeCapital" var="changeCapital"/>
+	$("#sel1").on("change", function(){
+		changeCapital($("#sel1").val());
+	});
+	function changeCapital(strdo){
+		var citystr="";
+		$(".sel2").remove();
+		$.ajax({
+			type:"get",
+			url:"${changeCapital}",
+			dataType:"json",
+			data: {
+				"sel1":strdo	
+			},
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+					var location="${meetingBoard.place}";
+					var strArray=location.split(",");
+					if(data[i].city==strArray[1]){
+						citystr+="<option class='sel2' selected>"+data[i].city+"</option>";
+					}else{
+						citystr+="<option class='sel2'>"+data[i].city+"</option>";
+					}
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	}
+	
+	$(document).on("ready", function(){
         var location="${meetingBoard.place }";
         
         var strArray=location.split(",");
-        
-        $('#srch-sel1').text(strArray[0]);
-        $('#txt-sel1').val(strArray[0]); 
-        sel1=strArray[0];
-        
-        changeCapital();
-        
-        if(strArray[1]!="undefined"){
-	        $('#srch-sel2').text(strArray[1]);
-	        $('#txt-sel2').val(strArray[1]);
-        }
+        $("#sel1").val(strArray[0]);
+        changeCapital(strArray[0]);
 	});
-     
-    $('#sel1').find('a').click(function(e) {
-         e.preventDefault();
-         var cat = $(this).text();
-         $('#srch-sel1').text(cat);
-         $('#txt-sel1').val(cat);
-         sel1=cat;
-         
-         changeCapital();
-    });
-    
-    var changeCapital = function(){
-    	<c:url value="/changeCapital" var="changeCapital"/>
-            var citystr="";
-            $(".sel2").remove();
-            $.ajax({
-               type:"get",
-               url:"${changeCapital }",
-               dataType:"json",
-               data: {
-                  "sel1":sel1   
-               },
-               success:function(data){
-                  console.log(data);
-                  for(var i=0; i<data.length; i++){
-                     citystr+="<li class='sel2'><a id='sel2check' href='#'>"+data[i].city+"</a></li>";
-                  }
-                  $("#sel2").append(citystr);
-               },
-               error : function(xhr, status, error){
-                  alert(error);
-               },
-               ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
-            });
-    };
-    
-      $("#sel2").on("click", "#sel2check",function(e) {
-         e.preventDefault();
-         var cat = $(this).text();
-         $('#srch-sel2').text(cat);
-         $('#txt-sel2').val(cat);
-         sel2=cat;
-      });
-
    
 /*문서 로딩이 완료되면....  섬머노트를 붙여넣는다  */
    $(document).ready(function() {
@@ -205,8 +166,8 @@ var sel2;
       e.preventDefault();
       var meetingBoardTitle = $("#meetingBoardTitle").val();
       var markupStr = $('#summernote').summernote('code');
-      var locationP = $("#txt-sel1").val()+","+sel2;
-      
+      var locationP = $("#sel1").val()+","+$("#sel2").val();
+      console.log(locationP);
       var allData = {
 		 "meetingBoardNo" : "${meetingBoard.meetingBoardNo }",    		  
          "meetingBoardTitle" : meetingBoardTitle,

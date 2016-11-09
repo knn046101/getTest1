@@ -62,13 +62,6 @@
                   </select>
                </div>
             </div>
-                    
-                     <!--자바스크립트에서 설정된 값으로 텍스트를 변환 하는 hidden input 부분  -->
-                  <input type="hidden" id="txt-sel1"> <input type="hidden"
-                     id="txt-sel2"> <input type="hidden" id="txt-category">
-                  <input type="hidden" id="txt-numberOfPeople">
-                    		 
-                   
 		</div>
 		
 		<div class="form-group"> 
@@ -235,6 +228,8 @@ var uploadImage;
       };
       if (locationP == ",undefined") {
          alert("지역을 선택하여 주십시오.");
+      }else if (uploadImage == null) {
+         alert("썸네일을 등록해 주십시오 150KB 미만.");
       }else if (meetingTitle =="") {
          alert("모임명을 입력하여 주십시오.");
       } else if (keyword == "") {

@@ -71,10 +71,12 @@ public class BoardController {
 		String category=request.getParameter("category");
 		String id=request.getParameter("id");
 		String mainImg=request.getParameter("mainImg");
-
+		
 		Board board = new Board(boardNo, boardTitle, boardContent, location, numberOfPeople,
 				what, category, mainImg, id);
+		logger.trace(""+board);
 		int result=bs.updateBoard(board);
+		
 		if(result==1){
 			return "저장";
 		}else{
