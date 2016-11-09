@@ -279,9 +279,9 @@
 							&& window.Blob) {
 						//파일사이즈를 fsize에 넣는다.
 						var fsize = file.size;
-						if (fsize > 150000) // 1 mb 기준 (1048576) 여기에서 파일 사이즈 체크 하는 로직
+						if (fsize > 3800000) // 1 mb 기준 (1048576) 여기에서 파일 사이즈 체크 하는 로직
 						{
-							alert(fsize + " bites\n 사이즈가 너무 큽니다. 150KB 미만으로 해주세요!");
+							alert(fsize + " bites\n 사이즈가 너무 큽니다. 약 3.5MB 정도로 해주세요!");
 							inputObject.files[0] = null;
 							profileImg = null;
 							// 미리보기 부분을 null로 바꾼다.
