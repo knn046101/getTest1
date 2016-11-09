@@ -30,11 +30,11 @@
 							<h2>탈퇴완료!</h2>
 							<p>안녕히가십시오.</p>
 							<a href="<%=request.getContextPath() %>/main.jsp" class="btn btn-default btn-lg back_home">
-								<i class="fa fa-arrow-circle-o-left"></i>
+								<i class="fa fa-home"></i>
 								홈으로
 							</a>
-							<a href="<%=request.getContextPath() %>/join.jsp" class="btn btn-default btn-lg back_home">
-								<i class="fa fa-arrow-circle-o-left"></i>
+							<a style="background-color:orange;" href="<%=request.getContextPath() %>/join.jsp" class="btn btn-default btn-lg back_home">
+								<i class="fa fa-plus"></i>
 								회원가입
 							</a>
 						</div>

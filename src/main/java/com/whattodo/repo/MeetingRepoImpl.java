@@ -77,6 +77,11 @@ public class MeetingRepoImpl implements MeetingRepo{
 		return template.update(statement, meetingNo);
 	}
 
+	public int updateFollowMeetingMinus(int meetingNo){
+		String statement = NAME_SPACE+"updateFollowMeetingMinus";
+		return template.update(statement, meetingNo);
+	}
+	
 	public int insertMeetingFollow(int meetingNo, String id) {
 		String statement = NAME_SPACE+"insertMeetingFollow";
 		Map<String, Object> map= new HashMap<String, Object>();

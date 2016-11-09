@@ -74,6 +74,10 @@ public class MeetingService implements MeetingServiceInterface{
 		mrepo.updateFollowMeeting(meetingNo);
 	}
 
+	public void updateFollowMeetingMinus(int meetingNo){
+		mrepo.updateFollowMeetingMinus(meetingNo);
+	}
+	
 	public int insertMeetingFollow(int meetingNo, String id) {
 		return mrepo.insertMeetingFollow(meetingNo, id);
 	}
@@ -126,8 +130,8 @@ public class MeetingService implements MeetingServiceInterface{
 		mbrrepo.insertMeetingBoardReply(meetingBoardReply);
 	}
 
-	public void deleteMeetingBoardReply(int meetingBoardReplyNo) {
-		mbrrepo.deleteMeetingBoardReply(meetingBoardReplyNo);
+	public int deleteMeetingBoardReply(int meetingBoardReplyNo) {
+		return mbrrepo.deleteMeetingBoardReply(meetingBoardReplyNo);
 	}
 
 	public List<MeetingBoardReply> selectAllMeetingBoardReply(int meetingBoardNo) {

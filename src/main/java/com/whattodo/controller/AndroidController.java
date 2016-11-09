@@ -99,6 +99,39 @@ public class AndroidController {
 			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
 			logger.trace("요청 결과 : {}", resEntity.getBody());
 		}
+		
+		
+		for(int i = 0; i < cService.selectStudenttokens().size(); i++){
+			String client = cService.selectStudenttokens().get(i).getTokenContent();
+			params.put("to", client);
+			ObjectMapper om = new ObjectMapper();
+			logger.trace("params : {}", om.writeValueAsString(params));
+			RequestEntity<Map<String, Object>> reqEntity = RequestEntity.post(url).header("Authorization", " key=" + APP_ID).contentType(MediaType.APPLICATION_JSON_UTF8).body(params);
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			logger.trace("요청 결과 : {}", resEntity.getBody());
+		}
+		
+		
+		for(int i = 0; i < cService.selectBizmantokens().size(); i++){
+			String client = cService.selectBizmantokens().get(i).getTokenContent();
+			params.put("to", client);
+			ObjectMapper om = new ObjectMapper();
+			logger.trace("params : {}", om.writeValueAsString(params));
+			RequestEntity<Map<String, Object>> reqEntity = RequestEntity.post(url).header("Authorization", " key=" + APP_ID).contentType(MediaType.APPLICATION_JSON_UTF8).body(params);
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			logger.trace("요청 결과 : {}", resEntity.getBody());
+		}
+		
+		for(int i = 0; i < cService.selectEtctokens().size(); i++){
+			String client = cService.selectEtctokens().get(i).getTokenContent();
+			params.put("to", client);
+			ObjectMapper om = new ObjectMapper();
+			logger.trace("params : {}", om.writeValueAsString(params));
+			RequestEntity<Map<String, Object>> reqEntity = RequestEntity.post(url).header("Authorization", " key=" + APP_ID).contentType(MediaType.APPLICATION_JSON_UTF8).body(params);
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			logger.trace("요청 결과 : {}", resEntity.getBody());
+		}
+		
 			
 	}
 	
