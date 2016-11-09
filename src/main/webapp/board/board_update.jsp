@@ -38,45 +38,34 @@
             <form id="form" action="${updateBoard }">
             <!-- 게시글 정보를 가둬 놓는 form -->
             <label for="게시글 정보"> 게시글정보 </label>
-            <div class="input-group">
+            <div class="input-group col-sm-12">
             
                   <!-- 첫번째 행의 첫번째 드롭박스 -->
-                  <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel1">도 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel1">
-                        <li><a href="#">서울특별시</a></li>
-                        <li><a href="#">인천광역시</a></li>
-                        <li><a href="#">대전광역시</a></li>
-                        <li><a href="#">대구광역시</a></li>
-                        <li><a href="#">광주광역시</a></li>
-                        <li><a href="#">울산광역시</a></li>
-                        <li><a href="#">부산광역시</a></li>
-                        <li><a href="#">경기도</a></li>
-                        <li><a href="#">강원도</a></li>
-                        <li><a href="#">충청남도</a></li>
-                        <li><a href="#">충청북도</a></li>
-                        <li><a href="#">전라남도</a></li>
-                        <li><a href="#">전라북도</a></li>
-                        <li><a href="#">경상남도</a></li>
-                        <li><a href="#">경상북도</a></li>
-                        <li><a href="#">제주도</a></li>
-                     </ul>
-                  </div>
-                  <!-- 첫번째 행의 첫번째 드롭박스 끝 -->
-
-                  <!--두번째 드롭박스  -->
-                  <div class="input-group-btn">
-                     <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span id="srch-sel2">시-군 선택</span> <span class="caret"></span>
-                     </button>
-                     <ul class="dropdown-menu" id="sel2">
-
-                     </ul>
-                  </div>
+                  <div class="row">
+				<div class="col-sm-3">
+					<select class="form-control" id="sel1">
+						<option>서울특별시</option>
+						<option>인천광역시</option>
+						<option>대전광역시</option>
+						<option>대구광역시</option>
+						<option>광주광역시</option>
+						<option>울산광역시</option>
+						<option>부산광역시</option>
+						<option>경기도</option>
+						<option>강원도</option>
+						<option>충청남도</option>
+						<option>충청북도</option>
+						<option>전라남도</option>
+						<option>전라북도</option>
+						<option>경상남도</option>
+						<option>경상북도</option>
+						<option>제주도</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<select class="form-control" id="sel2">
+					</select>
+				</div>
 
                   <!--세번째 드롭박스  -->
                   <div class="input-group-btn">
@@ -117,19 +106,20 @@
                      class="glyphicon glyphicon-search"></span>
                   </span>
                </div>
-
+				</div>
                   <div class="form-group">
                      <label for="제목"> 제목 </label> <input type="text"
                         class="form-control" id="boardTitle" name="boardTitle"
                         value="${board.boardTitle }">
                   </div>
 
+                  <br>
                   <fieldset class=bound>
                      <legend>
                         <label for="내용"> 내용 </label>
                         <!--게시판 내용 입력 하는 에디터가 들어감   -->
                         <div id="summernote">
-                           ${board.boardContent }
+                           <p>${board.boardContent}</p>
                         </div>
                      </legend>
                   </fieldset>
@@ -174,9 +164,36 @@ var numberOfPeoplessel;
 var result;
 
 /*각 드롭다운 목록 (게시글 정보ㅡ 키워드)의 이벤트를 정의 해 둔 부분   */
-	$(document).ready(function(){
-		result =${board.mainImg }; 
-		$("#imagePreview").attr("src", result);
+<c:url value="/changeCapital" var="changeCapital"/>
+	$("#sel1").on("change", function(){
+		changeCapital($("#sel1").val());
+	});
+	function changeCapital(strdo){
+		var citystr="";
+		$(".sel2").remove();
+		$.ajax({
+			type:"get",
+			url:"${changeCapital}",
+			dataType:"json",
+			data: {
+				"sel1":strdo	
+			},
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+					citystr+="<option class='sel2'>"+data[i].city+"</option>";
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	}
+	
+	$(document).on("ready", function(){
+		
+		$("#imagePreview").attr("src", ${board.mainImg});
 		$('#imagePreview').css('weight', "150px");
         $('#imagePreview').css('height', "150px");
         var location="${board.location }";
@@ -184,70 +201,22 @@ var result;
         var numberOfPeople="${board.numberOfPeople }";
         
         var strArray=location.split(",");
+        $("#sel1").val(strArray[0]);
+        changeCapital(strArray[0]);
         
-        $('#srch-sel1').text(strArray[0]);
-        $('#txt-sel1').val(strArray[0]); 
-        sel1=strArray[0];
-        
-        changeCapital();
-        
-        if(strArray[1]!="undefined"){
-	        $('#srch-sel2').text(strArray[1]);
-	        $('#txt-sel2').val(strArray[1]);
-        }
+        $(document).ready("#sel2", function(){
+        	$("#sel2").val(strArray[1]);	
+        });
         
         $('#srch-category').text(category);
         $('#txt-category').val(category);
         
         $('#srch-numberOfPeople').text(numberOfPeople);
         $('#txt-numberOfPeople').val(numberOfPeople);
-        
 	});
      
-    $('#sel1').find('a').click(function(e) {
-         e.preventDefault();
-         var cat = $(this).text();
-         $('#srch-sel1').text(cat);
-         $('#txt-sel1').val(cat);
-         sel1=cat;
-         
-         changeCapital();
-    });
-    
-    var changeCapital = function(){
-    	<c:url value="/changeCapital" var="changeCapital"/>
-            var citystr="";
-            $(".sel2").remove();
-            $.ajax({
-               type:"get",
-               url:"${changeCapital }",
-               dataType:"json",
-               data: {
-                  "sel1":sel1   
-               },
-               success:function(data){
-                  console.log(data);
-                  for(var i=0; i<data.length; i++){
-                     citystr+="<li class='sel2'><a id='sel2check' href='#'>"+data[i].city+"</a></li>";
-                  }
-                  $("#sel2").append(citystr);
-               },
-               error : function(xhr, status, error){
-                  alert(error);
-               },
-               ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
-            });
-    };
-    
-      $("#sel2").on("click", "#sel2check",function(e) {
-         e.preventDefault();
-         var cat = $(this).text();
-         $('#srch-sel2').text(cat);
-         $('#txt-sel2').val(cat);
-         sel2=cat;
-      });
-
-      $('#category').find('a').click(function(e) {
+  
+    $('#category').find('a').click(function(e) {
          e.preventDefault();
          var cat = $(this).text();
          var value = $(this).data('value');
@@ -339,11 +308,11 @@ var result;
       e.preventDefault();
       var boardTitle = $("#boardTitle").val();
       var markupStr = $('#summernote').summernote('code');
-      var locationP = $("#txt-sel1").val()+","+sel2;
+      var locationP = $("#sel1").val()+","+$("#sel2").val();
       var numberOfPeople = $("#txt-numberOfPeople").val();
       var boardKeyword = $("#boardKeyword").val();
       var category = $("#txt-category").val();
-      var mainImg = result;
+      var mainImg =  "\"" + ${board.mainImg} + "\"";
       
       var allData = {
 		 "boardNo" : "${board.boardNo }",    		  
@@ -354,20 +323,20 @@ var result;
          "what" : boardKeyword,
          "category" : category,
          "id": "${login.id}",
-         "mainImg" : mainImg,
+         "mainImg" : mainImg
       };
       
-      if (locationP == null) {
+      if (locationP == ",null") {
          alert("지역을 선택하여 주십시오.");
-      } else if (boardTitle == null) {
+      } else if (boardTitle == "") {
          alert("제목을 입력하여 주십시오.");
-      } else if (numberOfPeople == null) {
+      } else if (numberOfPeople == "") {
          alert("몇명인지 선택하여 주십시오.");
-      } else if (category == null) {
+      } else if (category == "") {
          alert("카테고리를 선택하여 주십시오.");
-      } else if (boardKeyword == null) {
+      } else if (boardKeyword == "") {
          alert("키워드를 ex.#가을#하늘높다 형식으로 입력하여 주십시오.");
-      } else if (markupStr==null){
+      } else if (markupStr==""){
          alert("내용을 입력하여 주십시오.");
       } else {
          $.ajax({
@@ -383,7 +352,7 @@ var result;
                }
             },
             error : function(xhr, status, error) {
-               alert("전송할 수 있는 용량을 초과하였습니다.");
+               alert("전송할 수 있는 용량을 초과하였습니다. 으아아악");
             },
             "Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
          });

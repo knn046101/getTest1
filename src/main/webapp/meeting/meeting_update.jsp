@@ -33,7 +33,7 @@
             </div>
             
             <form>
-                		<div class="form-group">
+                <div class="form-group">
                 		<label for="">모임 정보 등록</label><br> 
                 		 <div class="input-group-btn">
                      <button type="button" class="btn btn-default dropdown-toggle"
