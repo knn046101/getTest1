@@ -431,4 +431,12 @@ public class MeetingController {
 		message=result+"";
 		return message;
 	}
+	
+	@RequestMapping(value="/meetingBoardReplyDelete", method=RequestMethod.GET)
+	public @ResponseBody String replyDelete(Model model, HttpServletRequest request){
+		int meetingBoardReplyNo = Integer.parseInt(request.getParameter("meetingBoardReplyNo"));
+		int result=ms.deleteMeetingBoardReply(meetingBoardReplyNo);
+		String message=result+"";
+		return message;
+	}
 }

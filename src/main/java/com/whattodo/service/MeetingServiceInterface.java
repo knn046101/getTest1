@@ -34,6 +34,6 @@ public interface MeetingServiceInterface {
 	
 	public void insertMeetingBoardReply(MeetingBoardReply meetingBoardReply);
 	public void updateMeetingBoardReply(MeetingBoardReply meetingBoardReply);
-	public void deleteMeetingBoardReply(int meetingBoardReplyNo);
+	public int deleteMeetingBoardReply(int meetingBoardReplyNo);
 	public List <MeetingBoardReply> selectAllMeetingBoardReply(int meetingBoardNo);
 }

@@ -82,7 +82,11 @@
                                 	</c:if>
                                 </ul>
                             </div>
-                            <!-- <div id="page"></div> -->
+                            <div style="text-align: center;">
+									<ul id="page" class="pagination pull-center mrgt-0">
+								
+									</ul>
+								</div>
                             <!-- /#comments -->
                             <div class="dividerHeading">
                                <h4><span>댓글작성</span></h4>
@@ -152,17 +156,16 @@ $(document).on("ready", function(e){
 			success:function(args){
 				 for(var i=0; i<args.length; i++){
 					var date = new Date(Date.parse(args[i].meetingBoardReplyDate));
-					htmlText+="<li class='comment'>"
-           						+"<div class='comment-container'>"
-                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a></h4>"
-                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
-                				+date.toLocaleDateString()+"</div>"
-                				+"<div class='comment-body'>"
-                    			+"<p>"+args[i].meetingBoardReplyContent+"</p>"
-                    			+"<p><i class='fa fa-edit'></i></p>"
-                				+"</div>"
-            					+"</div>"
-       							+"</li>";
+					 htmlText+="<li class='comment'>"
+ 						+"<div class='comment-container'>"
+      				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button onclick=replyDelete('"+args[i].id+"',"+args[i].meetingBoardReplyNo+")><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
+      				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
+      				+date.toLocaleDateString()+"</div>"
+      				+"<div class='comment-body'>"
+          			+"<p>"+args[i].meetingBoardReplyContent+"</p>"
+      				+"</div>"
+  					+"</div>"
+						+"</li>";
 				}
 				 MeetingBoardNo=args[0].MeetingBoardNo;
 				$("#comment-list").append(htmlText);  
@@ -229,23 +232,23 @@ $(document).on("ready", function(e){
 //				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno=1&meetingBoardNo="+meetingBoardNo+"')>[맨앞으로]</a>";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+prev_pageno+"&meetingBoardNo="+meetingBoardNo+"')>[이전]</a>";
+				pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno=1&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-double-left'></i></a></li>";
+				pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+prev_pageno+"&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-left'></i></a></li>";
 				for(var i=page_sno; i<=page_eno; i++){ 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+i+"&meetingBoardNo="+meetingBoardNo+"')>";
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+i+"&meetingBoardNo="+meetingBoardNo+"')>";
 					if(pageno == i){ 
-						pageText+="["+i+"]";
+						pageText+=""+i+"";
 					}else{ 
 						pageText+=""+i+""; 
 					} 
-					pageText+="</a>";
+					pageText+="</a></li>";
 					<%--	콤마	 --%>	
 					if(i<page_eno){
-						pageText+="<span class='paging'> , </span>";
+						pageText+="<span class='paging'>  </span>";
 					} 
 				} 
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+next_pageno+"&meetingBoardNo="+meetingBoardNo+"')>[다음]</a>";			
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+total_page+"&meetingBoardNo="+meetingBoardNo+"')>[맨뒤로]</a><br class='paging'>";				
+				pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+next_pageno+"&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-right'></i></a></li>";			
+				pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+total_page+"&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'></center>";				
 				console.log(pageText);
 				$("#page").append(pageText);
 				$("#comments").val("");
@@ -273,16 +276,16 @@ $(document).on("ready", function(e){
 			success : function(args){
 				 for(var i=0; i<args.length; i++){
 					 var date = new Date(Date.parse(args[i].meetingBoardReplyDate));
-						htmlText+="<li class='comment'>"
-	           						+"<div class='comment-container'>"
-	                				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button><i class='fa fa-edit'></i></button></span><span style='float:right;'><button><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
-	                				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
-	                				+date.toLocaleDateString()+"</div>"
-	                				+"<div class='comment-body'>"
-	                    			+"<p>"+args[i].meetingBoardReplyContent+"</p>"
-	                				+"</div>"
-	            					+"</div>"
-	       							+"</li>";
+					 htmlText+="<li class='comment'>"
+ 						+"<div class='comment-container'>"
+      				+"<h4 class='comment-author'><a href='#'>"+args[i].id+"</a><span style='float:right;'><button onclick=replyDelete('"+args[i].id+"',"+args[i].meetingBoardReplyNo+")><i class='fa fa-trash-o'></i></button>&nbsp;</span></h4>"
+      				+"<div class='comment-meta'><a href='#' class='comment-date link-style1'>"
+      				+date.toLocaleDateString()+"</div>"
+      				+"<div class='comment-body'>"
+          			+"<p>"+args[i].meetingBoardReplyContent+"</p>"
+      				+"</div>"
+  					+"</div>"
+						+"</li>";
 				}
 				meetingBoardNo=args[0].meetingBoardNo;
 				$("#comment-list").append(htmlText);  
@@ -348,23 +351,24 @@ $(document).on("ready", function(e){
 //				ex)			   = 	76 / 5 * 5 + 1	???????? 		
 				}
 				var pageText="";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno=1&meetingBoardNo="+meetingBoardNo+"')>[맨앞으로]</a>";
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+prev_pageno+"&meetingBoardNo="+meetingBoardNo+"')>[이전]</a>";
+				pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno=1&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-double-left'></i></a></li>";
+				pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+prev_pageno+"&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-left'></i></a></li>";
 				for(var i=page_sno; i<=page_eno; i++){ 
-					pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+i+"&meetingBoardNo="+meetingBoardNo+"')>";
+					pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+i+"&meetingBoardNo="+meetingBoardNo+"')>";
 					if(pageno == i){ 
-						pageText+="["+i+"]";
+						pageText+=""+i+"";
 					}else{ 
 						pageText+=""+i+""; 
 					} 
-					pageText+="</a>";
+					pageText+="</a></li>";
 					<%--	콤마	 --%>	
 					if(i<page_eno){
-						pageText+="<span class='paging'> , </span>";
+						pageText+="<span class='paging'>  </span>";
 					} 
 				} 
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+next_pageno+"&meetingBoardNo="+meetingBoardNo+"')>[다음]</a>";			
-				pageText+="<a style='color:#323A45;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+total_page+"&meetingBoardNo="+meetingBoardNo+"')>[맨뒤로]</a><br class='paging'>";				
+				pageText+="<li><a style='color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+next_pageno+"&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-right'></i></a></li>";			
+				pageText+="<li><a style='background-color:#27AB99;color:#323A45;margin-right:5px;' class='paging' href='#' onclick=send('${meetingBoardReply }?pageno="+total_page+"&meetingBoardNo="+meetingBoardNo+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'></center>";				
+				console.log(pageText);
 				$("#page").append(pageText);
 				$("#comments").val("");
 			},
@@ -397,5 +401,27 @@ $(document).on("ready", function(e){
 			location.href="${meetingBoardDelete}?meetingBoardNo=${meetingBoard.meetingBoardNo}&meetingNo=${meetingBoard.meetingNo}";
 		}
 	});
+	
+	<c:url value="/meetingBoardReplyDelete" var="meetingBoardReplyDelete"/>
+		function replyDelete(id, meetingBoardReplyNo){
+			if("${login.id}"==id){
+				$.ajax({
+					type:"get",
+					url:"${meetingBoardReplyDelete}",
+					data:{"meetingBoardReplyNo": meetingBoardReplyNo},
+					success:function(data){
+						if(data=="1"){
+							send("${meetingBoardReply }?pageno=1&meetingBoardNo=${meetingBoard.meetingBoardNo}");
+						}
+					},
+					error:function(){
+						alert("댓글 삭제 실패. 잠시 후 이용해주세요.");
+					},
+					"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"
+				});
+			}else{
+				alert("자신의 댓글만 삭제하실 수 있습니다.");
+			}
+		}
 </script>
 </html>
