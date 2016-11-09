@@ -99,9 +99,15 @@
 							</div>
 						</div>
 					</div>
+					
+					
 				
+									
+							
 						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 ">
+						
 							<div class="row sub_content">
+							<h4><span id='result'>내 글 목록</span></h4>
 								<ul id="boardList" style="life-style:none;">
 								
 								</ul>
@@ -124,7 +130,7 @@
 </body>
 <script>
 <c:url value="/getMyBoards" var="getMyBoards"/>
-	$(document)	.ready(function() {
+	$(document).ready(function() {
 		var htmlText = "";
 		var total_record = 1;
 		$(".delete").remove();
@@ -141,8 +147,15 @@
 			dataType : "json",
 			success : function(args) {
 				var length = args.length;
+		
+			/* 	console.log(args); */
+		
+
+				
 				for (var i = 0; i < length; i++) {
 					<c:url value="/retrieve" var="retrieve"/>
+					
+			
 					htmlText += "<li class='col-sm-3 col-md-3 col-lg-3 delete'>"
 								+ "<div class='recent-item'>"
 								+ "<figure>"
@@ -248,8 +261,11 @@
 						pageText += "<li><a style='color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyBoards }?pageno="+next_pageno+"')><i class='fa fa-angle-right'></i></a></li>";
 						pageText += "<li><a style='background-color:#27AB99;color:#363636;margin-right:5px;' class='paging' href='#' onclick=send('${getMyBoards }?pageno="+total_page+"')><i class='fa fa-angle-double-right'></i></a></li><br class='paging'>";
 						$("#page").append(pageText);
-					},
+					
+			
+				},
 					error : function(xhr, status, error) {
+						alert("결과가 없습니다");
 					},
 					"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8"
 				});
