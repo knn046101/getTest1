@@ -215,18 +215,47 @@ var profileImg="";
 var sel1;
 var sel2;
 
-
-	$(document).on("ready", function(){
-        var location="${member.region }";
-        var strArray=location.split(",");
-        $('#sel1').val(strArray[0]); 
-        changeCapital();
-        console.log(strArray[1]);
-        if(strArray[1]!="undefined"){
-        	$('#sel2').val(strArray[1]); 
-        }
+$(document).ready(function(){
+	var location="${login.region }";
+    
+    var strArray=location.split(",");
+    $("#sel1").val(strArray[0]);
+    changeCapital(strArray[0]);
+});
+<c:url value="/changeCapital" var="changeCapital"/>
+	$("#sel1").on("change", function(){
+		changeCapital($("#sel1").val());
 	});
-
+	
+	function changeCapital(strdo){
+		var citystr="";
+		$(".sel2").remove();
+		$.ajax({
+			type:"get",
+			url:"${changeCapital}",
+			dataType:"json",
+			data: {
+				"sel1":strdo	
+			},
+			success:function(data){
+				for(var i=0; i<data.length; i++){
+					var location="${login.region}";
+					console.log(location);
+					var strArray=location.split(",");
+					if(data[i].city==strArray[1]){
+						citystr+="<option class='sel2' selected>"+data[i].city+"</option>";
+					}else{
+						citystr+="<option class='sel2'>"+data[i].city+"</option>";
+					}
+				}
+				$("#sel2").append(citystr);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			},
+			ContentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		});
+	}
 $("#image").change(function() {
 	readUploadImage(this);
 });
@@ -343,35 +372,6 @@ function readUploadImage(inputObject) {
 		});
 	});
 
-	<c:url value="/changeCapital" var="changeCapital"/>
-	$("#sel1").on("change", function() {
-		changeCapital();
-	});
-	
-	var changeCapital = function(){
-		var citystr = "";
-		var sel1 = $("#sel1").val();
-		$(".sel2").remove();
-		$.ajax({
-			type : "get",
-			url : "${changeCapital}",
-			dataType : "json",
-			data : {
-				"sel1" : sel1
-			},
-			success : function(data) {
-				for (var i = 0; i < data.length; i++) {
-					citystr += "<option class='sel2'>"
-							+ data[i].city
-							+ "</option>";
-				}
-				$("#sel2").append(citystr);
-			},
-			error : function(xhr, status, error) {
-				alert(error);
-			},
-			ContentType : "application/x-www-form-urlencoded;charset=UTF-8"
-		});
-	}
+
 </script>
 </html>

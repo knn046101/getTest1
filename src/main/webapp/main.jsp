@@ -192,8 +192,7 @@
     <!-- Control box -->
     <div class="control-box">                            
       <a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
-      <a data-slide="next" href="#my
-      Carousel2" class="carousel-control right">›</a>
+      <a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
     </div><!-- /.control-box -->   
 
 
