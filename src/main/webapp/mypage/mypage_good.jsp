@@ -12,10 +12,21 @@
 	color: red;
 }
 .title {
-	width: 200px;
+	width:160px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+@media screen and (max-width:1200px) {
+	.title {
+		width:100px;
+	}
+}
+@media screen and (max-width: 768px)  {
+	.title {
+		width:500px;
+	}
 }
 </style>
 </head>

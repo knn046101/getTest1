@@ -209,6 +209,12 @@ a {
  .mapcontent, .map_wrap{
  	display: none;
  }
+ 
+@media screen and (max-width:800px) {
+	.arrows_list>li>img {
+		margin-left: 200%;
+	}
+} 
 </style>
 </head>
 <body>
