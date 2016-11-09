@@ -195,7 +195,7 @@ var numberOfPeoplessel;
 
 
 $(document).ready(function(){
-	var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="images/viewLoading.gif" />')
+	var loading = $('<div id="loading" class="loading"></div><center><img id="loading_img" alt="loading" src="images/viewLoading.gif" /></center>')
 					.appendTo(document.body).hide();
 
 	$(window)	
@@ -387,7 +387,7 @@ $(document).ready(function(){
    });
    
    $(document).ready(function() {
-      if( ${empty (login) } ){
+      if( ${empty (login)} ){
          alert("로그인 후에 이용하여 주십시오.");
          location.href="<%=request.getContextPath()%>/login/login.jsp";
       } 
