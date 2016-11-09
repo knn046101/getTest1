@@ -118,7 +118,7 @@ public class MeetingController {
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetings.get(i).setPlace(place);
         	}else{
@@ -148,10 +148,10 @@ public class MeetingController {
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetings.get(i).setPlace(place);
-        	}else{
+        	} 	else{
         		place=tmpPlace[0];
         		meetings.get(i).setPlace(place);
         	}
@@ -178,10 +178,11 @@ public class MeetingController {
         	meetings.get((page-1)*9).setPage(page);
         	String place=meetings.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetings.get(i).setPlace(place);
-        	}else{
+        	}
+        	else{
         		place=tmpPlace[0];
         		meetings.get(i).setPlace(place);
         	}
@@ -209,7 +210,7 @@ public class MeetingController {
 			meetingBoards.get((page-1)*10).setPage(page);
         	String place=meetingBoards.get(i).getPlace();
         	String[] tmpPlace=place.split(",");
-        	if(!tmpPlace[1].equals("undefined")){
+        	if(!tmpPlace[1].equals("null")){
         		place=tmpPlace[0]+" "+tmpPlace[1];
         		meetingBoards.get(i).setPlace(place);
         	}else{
@@ -232,7 +233,7 @@ public class MeetingController {
 		Meeting meeting  = ms.selectMeetingByMeetingNo(meetingNo);
 		String place=meeting.getPlace();
     	String[] tmpPlace=place.split(",");
-    	if(!tmpPlace[1].equals("undefined")){
+    	if(!tmpPlace[1].equals("null")){
     		place=tmpPlace[0]+" "+tmpPlace[1];
     		meeting.setPlace(place);
     	}else{
@@ -250,7 +251,8 @@ public class MeetingController {
 		MeetingBoard meetingBoard  = ms.selectMeetingBoardByBoardNo(meetingBoardNo);
 		String place=meetingBoard.getPlace();
     	String[] tmpPlace=place.split(",");
-    	if(!tmpPlace[1].equals("undefined")){
+    	
+    	if(!tmpPlace[1].equals("null")){
     		place=tmpPlace[0]+" "+tmpPlace[1];
     		meetingBoard.setPlace(place);
     	}else{
@@ -372,23 +374,31 @@ public class MeetingController {
 	      String meetingKeyword = request.getParameter("keyword");
 	      List<Meeting> meetings = null;
 	      List<Meeting> aftermeetings=new ArrayList<Meeting>();
-	      
-	      if(!place.equals(",") && meetingKeyword.equals("")){
+	      place=place.replace(",null", "");
+	      if(!place.equals("지역") && meetingKeyword.equals("")){
 	    	  meetings=ms.selectSearchMeetingByPlace(place);
-	      }else if(place.equals(",") && !meetingKeyword.equals("")){
+	      }else if(place.equals("지역") && !meetingKeyword.equals("")){
 	    	  meetings=ms.selectSearchMeetingByMeetingKeyword(meetingKeyword);
-	      }else if(!place.equals(",") && !meetingKeyword.equals("")){
+	      }else if(!place.equals("지역") && !meetingKeyword.equals("")){
 	    	  meetings=ms.selectSearchMeetingByplaceAndmeetingKeyword(place, meetingKeyword);
 	      }else{
 	    	  meetings=ms.selectAllMeetings();
 	      }
 	      
 	      int end=(page*9<meetings.size())? page*9 : meetings.size();
-
 	      for(int i=9*(page-1); i<end; i++){
-	    	  meetings.get((page-1)*9).setPage(page);
-	    	  aftermeetings.add(meetings.get(i));
-	      }
+	        	meetings.get((page-1)*9).setPage(page);
+	        	place=meetings.get(i).getPlace();
+	        	String[] tmpPlace=place.split(",");
+	        	if(!tmpPlace[1].equals("null")){
+	        		place=tmpPlace[0]+" "+tmpPlace[1];
+	        		meetings.get(i).setPlace(place);
+	        	}else{
+	        		place=tmpPlace[0];
+	        		meetings.get(i).setPlace(place);
+	        	}
+	        	aftermeetings.add(meetings.get(i));
+	        }
 	      aftermeetings.get(0).setRecordNum(meetings.size());
 	      
 	      Gson gson = new Gson();

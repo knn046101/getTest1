@@ -33,7 +33,7 @@
             </div>
             
             <form>
-                		<div class="form-group">
+                <div class="form-group">
                 		<label for="">모임 정보 등록</label><br> 
                 		 <div class="input-group-btn">
                      <button type="button" class="btn btn-default dropdown-toggle"
@@ -296,7 +296,7 @@ var result;
      meetingContent = $("#meetingContent").val();
      locationP = $("#txt-sel1").val()+","+sel2;
      keyword = $("#keyword").val();
-     uploadImage="\""+result+"\"";
+     uploadImage=result;
       
       var allData = {
 		"meetingNo":"${meeting.meetingNo}",   		  
@@ -337,7 +337,7 @@ var result;
    });
    
    $(document).ready(function() {
-      if( ${empty (login) } ){
+      if( ${empty (login)} ){
          alert("로그인 후에 이용하여 주십시오.");
          location.href="<%=request.getContextPath()%>/login/login.jsp";
       } 

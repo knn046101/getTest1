@@ -101,7 +101,11 @@
           <div class="col-sm-12 text-center">
        	   <span class="input-group-btn">
             <button id="save" type="submit" class="btn btn-success" style="background-color:#27AB99; border-color:#fff;">
+
+            저장</button>
+
             만들기</button>
+
           </span>
           <br>
          </div>
