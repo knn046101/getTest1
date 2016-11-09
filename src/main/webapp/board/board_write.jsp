@@ -339,7 +339,7 @@ $(document).ready(function(){
          height : 300, // set editor height
          minHeight : null, // set minimum height of editor
          maxHeight : null, // set maximum height of editor
-         maximumImageFileSize : 3153600,
+         maximumImageFileSize : 10491000,
          focus : true
       // set focus to editable area after initializing summernote
       });
@@ -372,9 +372,11 @@ $(document).ready(function(){
       
       if (locationP == ",undefined") {
          alert("지역을 선택하여 주십시오.");
-      } else if (boardTitle == "") {
-         alert("제목을 입력하여 주십시오.");
-      } else if (numberOfPeople == "") {
+      }else if (mainImg == null) {
+         alert("썸네일을 등록해 주십시오 150KB 미만.");
+      }else if (boardTitle == "") {
+         alert("제목을 입력해 주십시오.");
+      }  else if (numberOfPeople == "") {
          alert("몇명인지 선택하여 주십시오.");
       } else if (category == "") {
          alert("카테고리를 선택하여 주십시오.");
