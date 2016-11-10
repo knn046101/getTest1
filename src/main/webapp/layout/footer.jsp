@@ -24,7 +24,7 @@
                   		  <li><i class="fa fa-caret-right"></i><p>뭐하지? 는 꿀팁 정보에 대한 유익함을<br>    책임 지지 않습니다.</p></li>
                   </ul>
                         <ul class="contact-details-alt">
-                            <li><i class="fa fa-map-marker"></i> <p><strong>Address</strong>: 충청남도 천안시 서북구 <br>부대동 공주대 공과대학 8공 716호</p></li>
+                            <li><i class="fa fa-map-marker"></i> <p><strong>Address</strong>: 충청남도 천안시 서북구 <br>부대동 공주대 공과대학 8공 717호</p></li>
                             <li><i class="fa fa-user"></i> <p><strong>Phone</strong>:(+82) 010-0000-0000</p></li>
                             <li><i class="fa fa-envelope"></i> <p><strong>Email</strong>: ykyboss5960@naver.com </p></li>
                         </ul>
