@@ -110,8 +110,7 @@
                         <ul class="links">
                             <li><i class="fa fa-caret-right"></i><a href="join/aboutUs.jsp">이용약관</a></li>
                             <li><i class="fa fa-caret-right"></i><a href="http://210.125.213.49:9090/WhatToDo/images/WhatToDo.apk">뭐하지?APK다운로드</a></li>
-                            <li><i class="fa fa-caret-right"></i>개인정보취급방침</li>
-                            <li><i class="fa fa-caret-right"></i>고객센터</li>
+                            
                         </ul>
                     </div>
                 </div>
